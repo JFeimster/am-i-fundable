@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funding Readiness Scorecard Widget</title>
+  <link rel="stylesheet" href="widget.css" />
+</head>
+<body>
+  <div class="frs-widget" data-frs-widget>
+    <section class="frs-shell" aria-label="Funding Readiness Scorecard">
+      <header class="frs-header">
+        <div class="frs-kicker">Moonshine Capital Scorecard</div>
+        <h1>Find Out If Your Business Is Fundable Before You Apply.</h1>
+        <p>Answer a few questions and get a funding readiness score based on revenue, time in business, credit profile, bank activity, structure, and funding purpose.</p>
+      </header>
+
+      <div class="frs-progress-wrap" aria-label="Progress">
+        <div class="frs-progress-meta">
+          <span data-frs-step-label>Step 1 of 10</span>
+          <span data-frs-progress-percent>10%</span>
+        </div>
+        <div class="frs-progress-track">
+          <div class="frs-progress-bar" data-frs-progress-bar></div>
+        </div>
+      </div>
+
+      <main class="frs-card">
+        <form class="frs-form" data-frs-form>
+          <section class="frs-step is-active" data-step="0">
+            <h2>What best describes you?</h2>
+            <p class="frs-help">This helps us route your score toward the right funding path.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="persona" value="small_business" required /> Existing small business owner</label>
+              <label><input type="radio" name="persona" value="gig_worker" /> Gig worker / independent contractor</label>
+              <label><input type="radio" name="persona" value="ecommerce" /> Ecommerce or marketplace seller</label>
+              <label><input type="radio" name="persona" value="startup" /> Startup founder</label>
+              <label><input type="radio" name="persona" value="real_estate" /> Real estate investor</label>
+              <label><input type="radio" name="persona" value="equipment_heavy" /> Contractor / trucking / equipment-heavy business</label>
+              <label><input type="radio" name="persona" value="unsure" /> Not sure yet</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="1">
+            <h2>Average monthly business revenue?</h2>
+            <p class="frs-help">Use your best recent average. No need to play accountant karaoke.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="revenue" value="0" required /> $0–$2,999</label>
+              <label><input type="radio" name="revenue" value="3000" /> $3,000–$8,499</label>
+              <label><input type="radio" name="revenue" value="8500" /> $8,500–$14,999</label>
+              <label><input type="radio" name="revenue" value="15000" /> $15,000–$19,999</label>
+              <label><input type="radio" name="revenue" value="20000" /> $20,000–$49,999</label>
+              <label><input type="radio" name="revenue" value="50000" /> $50,000–$99,999</label>
+              <label><input type="radio" name="revenue" value="100000" /> $100,000+</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="2">
+            <h2>How long have you been operating?</h2>
+            <p class="frs-help">Time in business changes what paths may be realistic.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="timeInBusiness" value="0" required /> Not launched yet</label>
+              <label><input type="radio" name="timeInBusiness" value="3" /> 0–3 months</label>
+              <label><input type="radio" name="timeInBusiness" value="5" /> 4–5 months</label>
+              <label><input type="radio" name="timeInBusiness" value="11" /> 6–11 months</label>
+              <label><input type="radio" name="timeInBusiness" value="23" /> 12–23 months</label>
+              <label><input type="radio" name="timeInBusiness" value="24" /> 24+ months</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="3">
+            <h2>Estimated personal credit score?</h2>
+            <p class="frs-help">A range is fine. This is not a hard credit pull.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="credit" value="499" required /> Below 500</label>
+              <label><input type="radio" name="credit" value="550" /> 500–579</label>
+              <label><input type="radio" name="credit" value="590" /> 580–599</label>
+              <label><input type="radio" name="credit" value="630" /> 600–659</label>
+              <label><input type="radio" name="credit" value="670" /> 660–679</label>
+              <label><input type="radio" name="credit" value="690" /> 680–699</label>
+              <label><input type="radio" name="credit" value="720" /> 700+</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="4">
+            <h2>Business bank account activity?</h2>
+            <p class="frs-help">Most funding paths care about deposits and bank behavior.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="bankStatus" value="none" required /> No business bank account</label>
+              <label><input type="radio" name="bankStatus" value="inconsistent" /> Yes, but low or inconsistent deposits</label>
+              <label><input type="radio" name="bankStatus" value="consistent" /> Yes, consistent monthly deposits</label>
+              <label><input type="radio" name="bankStatus" value="strong_clean" /> Yes, strong deposits and clean activity</label>
+              <label><input type="radio" name="bankStatus" value="nsf_recent" /> Yes, but recent NSFs/overdrafts</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="5">
+            <h2>How is your business set up?</h2>
+            <p class="frs-help">This helps separate “fundable now” from “build the foundation first.”</p>
+            <div class="frs-options">
+              <label><input type="radio" name="structure" value="none" required /> No formal business yet</label>
+              <label><input type="radio" name="structure" value="sole_prop" /> Sole proprietor / independent contractor</label>
+              <label><input type="radio" name="structure" value="entity_no_bank" /> LLC or corporation, no business bank account</label>
+              <label><input type="radio" name="structure" value="entity_bank" /> LLC or corporation with business bank account</label>
+              <label><input type="radio" name="structure" value="entity_bank_ein_clean" /> LLC/corp, bank account, EIN, and clean records</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="6">
+            <h2>What do you need funding for?</h2>
+            <p class="frs-help">The right path depends on the job the money needs to do.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="purpose" value="working_capital" required /> Payroll / emergency working capital</label>
+              <label><input type="radio" name="purpose" value="inventory" /> Inventory / materials</label>
+              <label><input type="radio" name="purpose" value="growth" /> Marketing / growth</label>
+              <label><input type="radio" name="purpose" value="equipment" /> Equipment / vehicle / truck</label>
+              <label><input type="radio" name="purpose" value="real_estate" /> Real estate purchase or project</label>
+              <label><input type="radio" name="purpose" value="ecommerce" /> Ecommerce / marketplace growth</label>
+              <label><input type="radio" name="purpose" value="startup" /> Startup launch capital</label>
+              <label><input type="radio" name="purpose" value="debt_consolidation" /> Debt consolidation / refinancing</label>
+              <label><input type="radio" name="purpose" value="business_credit" /> Business credit building</label>
+              <label><input type="radio" name="purpose" value="not_sure" /> Not sure</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="7">
+            <h2>Desired funding amount?</h2>
+            <p class="frs-help">This helps flag whether the ask matches the likely file strength.</p>
+            <div class="frs-options">
+              <label><input type="radio" name="amount" value="5000" required /> Under $5,000</label>
+              <label><input type="radio" name="amount" value="25000" /> $5,000–$25,000</label>
+              <label><input type="radio" name="amount" value="75000" /> $25,000–$75,000</label>
+              <label><input type="radio" name="amount" value="150000" /> $75,000–$150,000</label>
+              <label><input type="radio" name="amount" value="500000" /> $150,000–$500,000</label>
+              <label><input type="radio" name="amount" value="500001" /> $500,000+</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="8">
+            <h2>Do any red flags apply?</h2>
+            <p class="frs-help">Select all that apply. This keeps the result honest instead of pretty-but-useless.</p>
+            <div class="frs-options frs-checkboxes">
+              <label><input type="checkbox" name="redFlags" value="open_bankruptcy" /> Open bankruptcy</label>
+              <label><input type="checkbox" name="redFlags" value="tax_lien" /> Recent tax lien</label>
+              <label><input type="checkbox" name="redFlags" value="recent_late_payments" /> Recent missed payments</label>
+              <label><input type="checkbox" name="redFlags" value="recent_nsfs" /> Recent NSFs / overdrafts</label>
+              <label><input type="checkbox" name="redFlags" value="new_bank_account" /> Business bank account recently opened</label>
+              <label><input type="checkbox" name="redFlags" value="existing_mca" /> Existing MCA / daily payment advance</label>
+              <label><input type="checkbox" name="redFlags" value="marketplace_suspended" /> Suspended marketplace account</label>
+              <label><input type="checkbox" name="redFlags" value="no_revenue" /> No current revenue</label>
+              <label><input type="checkbox" name="redFlags" value="none" data-none-option /> None of these</label>
+            </div>
+          </section>
+
+          <section class="frs-step" data-step="9">
+            <h2>Your score is ready.</h2>
+            <p class="frs-help">Enter your details to view your score, recommended funding paths, and next steps.</p>
+            <div class="frs-lead-grid">
+              <label>Name <input type="text" name="leadName" autocomplete="name" required /></label>
+              <label>Email <input type="email" name="leadEmail" autocomplete="email" required /></label>
+              <label>Phone <input type="tel" name="leadPhone" autocomplete="tel" required /></label>
+              <label>Business name <input type="text" name="businessName" autocomplete="organization" required /></label>
+              <label>State <input type="text" name="state" maxlength="2" placeholder="VA" required /></label>
+            </div>
+            <label class="frs-consent">
+              <input type="checkbox" name="consent" required />
+              I agree to be contacted about funding options and understand this score is not an approval, offer, or guarantee of funding.
+            </label>
+          </section>
+
+          <div class="frs-actions">
+            <button type="button" class="frs-btn frs-btn-secondary" data-frs-back hidden>Back</button>
+            <button type="button" class="frs-btn frs-btn-primary" data-frs-next>Next</button>
+            <button type="submit" class="frs-btn frs-btn-primary" data-frs-submit hidden>Get My Funding Score</button>
+          </div>
+        </form>
+
+        <section class="frs-result" data-frs-result hidden aria-live="polite">
+          <div class="frs-score-row">
+            <div>
+              <p class="frs-kicker">Your Funding Readiness Score</p>
+              <h2><span data-frs-score>0</span>/100</h2>
+              <p class="frs-tier" data-frs-tier>Calculating...</p>
+            </div>
+            <div class="frs-score-meter" data-frs-score-meter>
+              <span data-frs-score-ring>0</span>
+            </div>
+          </div>
+
+          <p class="frs-result-copy" data-frs-copy></p>
+
+          <div class="frs-result-grid">
+            <article>
+              <h3>Best-fit funding paths</h3>
+              <ul data-frs-paths></ul>
+            </article>
+            <article>
+              <h3>Potential blockers</h3>
+              <ul data-frs-risks></ul>
+            </article>
+            <article>
+              <h3>Recommended next steps</h3>
+              <ul data-frs-next-steps></ul>
+            </article>
+          </div>
+
+          <div class="frs-cta-box">
+            <p>You may fit one or more funding paths in the Moonshine Capital network.</p>
+            <a class="frs-btn frs-btn-primary" data-frs-cta href="https://www.distilledfunding.com/apply" target="_blank" rel="noopener">Speak With a Funding Strategist</a>
+            <button type="button" class="frs-btn frs-btn-secondary" data-frs-reset>Retake Scorecard</button>
+          </div>
+
+          <p class="frs-disclaimer">This scorecard is for educational and pre-qualification guidance only. It is not an approval, commitment to lend, or guarantee of funding. Actual options depend on underwriting review, documentation, lender criteria, business performance, credit profile, and other factors.</p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="widget.js"></script>
+</body>
+</html>

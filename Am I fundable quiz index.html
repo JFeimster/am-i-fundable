@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Funding Pre-Qualifier</title>
+    <style>
+        :root { --primary: #0047AB; --secondary: #f4f7f6; --text: #333; --accent: #28a745; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--secondary); color: var(--text); padding: 15px; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { width: 100%; max-width: 500px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-top: 8px solid var(--primary); text-align: center; }
+        
+        h2 { color: var(--primary); margin-top: 0; }
+        p.subtitle { color: #666; font-size: 0.95rem; margin-bottom: 25px; }
+        
+        /* Quiz Steps */
+        .step { display: none; animation: fadeIn 0.4s ease-in; }
+        .step.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .option-btn { display: block; width: 100%; background: #f8f9fa; border: 2px solid #e9ecef; color: var(--text); padding: 15px; margin-bottom: 15px; border-radius: 8px; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        .option-btn:hover { background: #eef2ff; border-color: var(--primary); color: var(--primary); }
+        
+        /* Results Screen */
+        .result-box { display: none; padding: 20px; border-radius: 8px; margin-top: 10px; }
+        .result-box.giggle { background: #e8f5e9; border: 2px solid var(--accent); }
+        .result-box.bankbreezy { background: #eef2ff; border: 2px solid var(--primary); }
+        .result-box.decline { background: #fff3cd; border: 2px solid #ffecb5; }
+        
+        .apply-btn { display: inline-block; width: 100%; background: var(--primary); color: white; padding: 16px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; text-decoration: none; margin-top: 15px; transition: 0.3s; box-sizing: border-box; }
+        .apply-btn.giggle-btn { background: var(--accent); }
+        .apply-btn:hover { opacity: 0.9; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        
+        .progress-bar { background: #eee; height: 6px; border-radius: 3px; margin-bottom: 25px; overflow: hidden; }
+        .progress-fill { background: var(--primary); height: 100%; width: 25%; transition: 0.3s; }
+        
+        .secure-badge { font-size: 0.8rem; color: #888; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Am I Fundable?</h2>
+    <p class="subtitle" id="subtitle">Answer 4 quick questions to see your funding options. No hard credit pull.</p>
+    
+    <div class="progress-bar" id="progressWrapper">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <div class="step active" id="step1">
+        <h3>1. Where do your business sales get deposited?</h3>
+        <button class="option-btn" onclick="nextStep(1, 'Business')">A Business Bank Account</button>
+        <button class="option-btn" onclick="nextStep(1, 'Personal')">A Personal Bank Account</button>
+    </div>
+
+    <div class="step" id="step2">
+        <h3>2. What was your lowest monthly revenue in the last 90 days?</h3>
+        <button class="option-btn" onclick="nextStep(2, 'High')">Over $15,000</button>
+        <button class="option-btn" onclick="nextStep(2, 'Medium')">$3,000 to $15,000</button>
+        <button class="option-btn" onclick="nextStep(2, 'Low')">Under $3,000</button>
+    </div>
+
+    <div class="step" id="step3">
+        <h3>3. How long have you been in business?</h3>
+        <button class="option-btn" onclick="nextStep(3, 'Established')">6 Months or More</button>
+        <button class="option-btn" onclick="nextStep(3, 'New')">Less than 6 Months</button>
+    </div>
+
+    <div class="step" id="step4">
+        <h3>4. What is your estimated credit score?</h3>
+        <button class="option-btn" onclick="nextStep(4, 'Good')">500 or Higher</button>
+        <button class="option-btn" onclick="nextStep(4, 'Poor')">Under 500</button>
+    </div>
+
+    <div class="result-box bankbreezy" id="resBankBreezy">
+        <h2 style="color: var(--primary);">🎉 You're Pre-Qualified!</h2>
+        <p>Based on your business revenue, you qualify to apply for <strong>Business Capital</strong>.</p>
+        <ul style="text-align: left; font-size: 0.9rem; color: #555;">
+            <li>Approvals up to $2M</li>
+            <li>Funding in 1-2 days</li>
+            <li>No hard credit pull to get offers</li>
+        </ul>
+        <a href="#" class="apply-btn" id="linkBankBreezy">Apply For Capital Now</a>
+    </div>
+
+    <div class="result-box giggle" id="resGiggle">
+        <h2 style="color: var(--accent);">🎉 Instant Cash Match!</h2>
+        <p>Based on your profile, you are perfectly matched for our <strong>Micro-Funding</strong> program.</p>
+        <ul style="text-align: left; font-size: 0.9rem; color: #555;">
+            <li>Instant automated approval</li>
+            <li>Self-employed / 1099 eligible</li>
+            <li>Funds wired instantly</li>
+        </ul>
+        <a href="#" class="apply-btn giggle-btn" id="linkGiggle">Get Instant Funding</a>
+    </div>
+
+    <div class="result-box decline" id="resDecline">
+        <h2 style="color: #856404;">Not Quite Ready...</h2>
+        <p>Our funding partners currently require a minimum of <strong>$3,000 per month</strong> in revenue.</p>
+        <p style="font-size: 0.9rem;">Keep growing! Once you hit that $3,000 threshold consistently, return here and we will get you funded.</p>
+    </div>
+
+    <div class="secure-badge" id="secureBadge">
+        🔒 256-bit Secure Session
+    </div>
+</div>
+
+<script>
+    // 1. Capture Agent ID from URL (e.g. ?agentID=102345)
+    const urlParams = new URLSearchParams(window.location.search);
+    const agentID = urlParams.get('agentID') || 'YOUR_ID'; // Fallback if none provided
+
+    // Set Affiliate Links
+    document.getElementById('linkBankBreezy').href = `https://bankbreezy.com/${agentID}`;
+    document.getElementById('linkGiggle').href = `https://davidallencapital.com/micro/${agentID}`;
+
+    // User Data Storage
+    const userData = { account: '', revenue: '', time: '', credit: '' };
+
+    function nextStep(currentStep, answer) {
+        // Save Answer
+        if(currentStep === 1) userData.account = answer;
+        if(currentStep === 2) userData.revenue = answer;
+        if(currentStep === 3) userData.time = answer;
+        if(currentStep === 4) userData.credit = answer;
+
+        // Hide current step
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+
+        // Move to next step or show results
+        if (currentStep < 4) {
+            const next = currentStep + 1;
+            document.getElementById(`step${next}`).classList.add('active');
+            document.getElementById('progress').style.width = (next * 25) + '%';
+        } else {
+            document.getElementById('progressWrapper').style.display = 'none';
+            document.getElementById('subtitle').style.display = 'none';
+            document.getElementById('secureBadge').style.display = 'none';
+            calculateResult();
+        }
+    }
+
+    function calculateResult() {
+        // DAC Routing Logic
+        if (userData.revenue === 'Low') {
+            // Decline (Under $3k)
+            document.getElementById('resDecline').style.display = 'block';
+        } 
+        else if (userData.account === 'Business' && userData.revenue === 'High' && userData.time === 'Established' && userData.credit === 'Good') {
+            // BankBreezy (Perfect Profile)
+            document.getElementById('resBankBreezy').style.display = 'block';
+        } 
+        else {
+            // Giggle (Fallback for Personal Accounts, Lower Credit, or Mid-Tier Revenue)
+            document.getElementById('resGiggle').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funding Readiness Scorecard | Moonshine Capital</title>
+  <meta name="description" content="Find out if your business is fundable before you apply. Get a funding readiness score based on revenue, credit, bank activity, time in business, and funding purpose." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header" id="top">
+      <a class="brand-lockup" href="#top" aria-label="Funding Readiness Scorecard home">
+        <span class="brand-mark">MC</span>
+        <span>
+          <strong>Moonshine Capital</strong>
+          <em>Funding Readiness Scorecard</em>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#scorecard">Scorecard</a>
+        <a href="#paths">Funding Paths</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#scorecard">Get My Score</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="eyebrow">Built for business owners who hate bank games</div>
+          <h1>Find Out If Your Business Is Fundable Before You Apply.</h1>
+          <p class="hero-copy">Answer a few questions and get a clear funding readiness score based on revenue, time in business, bank activity, credit profile, business structure, and funding purpose.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#scorecard">Get My Funding Score</a>
+            <a class="btn btn-secondary" href="#how-it-works">How It Works</a>
+          </div>
+          <div class="hero-proof" aria-label="Scorecard highlights">
+            <div><strong>100-point</strong><span>readiness score</span></div>
+            <div><strong>White-label</strong><span>funding path logic</span></div>
+            <div><strong>No fluff</strong><span>just next steps</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Trust indicators">
+        <span>Working capital</span>
+        <span>Lines of credit</span>
+        <span>Startup capital</span>
+        <span>Equipment finance</span>
+        <span>E-commerce capital</span>
+        <span>Real estate funding</span>
+      </section>
+
+      <section class="section intro-grid" id="how-it-works">
+        <div class="section-kicker">The point</div>
+        <div class="section-heading">
+          <h2>Stop guessing. Start routing.</h2>
+          <p>Most owners do not need another vague “apply now” button. They need to know whether they are ready, what could block them, and which funding lane actually makes sense.</p>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card large-card">
+            <span class="card-icon">01</span>
+            <h3>Answer the readiness questions</h3>
+            <p>Revenue, time in business, credit, deposits, structure, funding use case, funding amount, and red flags.</p>
+          </article>
+          <article class="bento-card">
+            <span class="card-icon">02</span>
+            <h3>Get a score</h3>
+            <p>Your score shows whether you look highly fundable, review-ready, selective-fit, or prep-first.</p>
+          </article>
+          <article class="bento-card">
+            <span class="card-icon">03</span>
+            <h3>See the path</h3>
+            <p>The tool maps you to potential funding paths without blasting lender names all over the page.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section scorecard-section" id="scorecard">
+        <div class="section-heading centered">
+          <div class="section-kicker">Free assessment</div>
+          <h2>Get your Funding Readiness Score</h2>
+          <p>It takes about two minutes. No spreadsheet archaeology. No bank lobby blood ritual.</p>
+        </div>
+
+        <div class="scorecard-shell" data-scorecard>
+          <div class="scorecard-topbar">
+            <div>
+              <span class="mini-label">Progress</span>
+              <strong data-step-label>Question 1 of 9</strong>
+            </div>
+            <div class="score-pill" data-score-preview>Score pending</div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" data-progress-fill></div>
+          </div>
+
+          <form class="quiz-form" data-quiz-form>
+            <fieldset class="quiz-step is-active" data-step="0">
+              <legend>What best describes you?</legend>
+              <p class="step-help">This helps route the scorecard toward the right funding lane.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="persona" value="existing_business" required><span>Existing small business owner</span></label>
+                <label><input type="radio" name="persona" value="gig_worker"><span>Gig worker / independent contractor</span></label>
+                <label><input type="radio" name="persona" value="ecommerce_seller"><span>Ecommerce or marketplace seller</span></label>
+                <label><input type="radio" name="persona" value="startup_founder"><span>Startup founder</span></label>
+                <label><input type="radio" name="persona" value="real_estate_investor"><span>Real estate investor</span></label>
+                <label><input type="radio" name="persona" value="equipment_heavy"><span>Contractor / trucking / equipment-heavy business</span></label>
+                <label><input type="radio" name="persona" value="not_sure"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="1">
+              <legend>What is your average monthly business revenue?</legend>
+              <p class="step-help">Revenue is one of the biggest signals for working capital, lines, and revenue-based funding.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="monthlyRevenue" value="0" required><span>$0–$2,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="3000"><span>$3,000–$8,499</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="8500"><span>$8,500–$14,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="15000"><span>$15,000–$19,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="20000"><span>$20,000–$49,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="50000"><span>$50,000–$99,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="100000"><span>$100,000+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="2">
+              <legend>How long have you been operating?</legend>
+              <p class="step-help">Time in business separates startup funding, revenue-first options, and stronger business funding paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="timeInBusiness" value="0" required><span>Not launched yet</span></label>
+                <label><input type="radio" name="timeInBusiness" value="3"><span>0–3 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="5"><span>4–5 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="11"><span>6–11 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="23"><span>12–23 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="24"><span>24+ months</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="3">
+              <legend>What is your estimated personal credit score?</legend>
+              <p class="step-help">Do not panic. Credit matters, but revenue and bank activity can still matter a lot.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="creditScore" value="499" required><span>Below 500</span></label>
+                <label><input type="radio" name="creditScore" value="500"><span>500–579</span></label>
+                <label><input type="radio" name="creditScore" value="580"><span>580–599</span></label>
+                <label><input type="radio" name="creditScore" value="600"><span>600–659</span></label>
+                <label><input type="radio" name="creditScore" value="660"><span>660–679</span></label>
+                <label><input type="radio" name="creditScore" value="680"><span>680–699</span></label>
+                <label><input type="radio" name="creditScore" value="700"><span>700+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="4">
+              <legend>Do you have a business bank account with regular deposits?</legend>
+              <p class="step-help">Bank activity can make or break speed-focused funding paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="bankStatus" value="none" required><span>No business bank account</span></label>
+                <label><input type="radio" name="bankStatus" value="inconsistent"><span>Yes, but low or inconsistent deposits</span></label>
+                <label><input type="radio" name="bankStatus" value="consistent"><span>Yes, consistent monthly deposits</span></label>
+                <label><input type="radio" name="bankStatus" value="strong_clean"><span>Yes, strong deposits and clean activity</span></label>
+                <label><input type="radio" name="bankStatus" value="nsf_recent"><span>Yes, but recent NSFs/overdrafts</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="5">
+              <legend>How is your business currently set up?</legend>
+              <p class="step-help">A cleaner structure usually creates cleaner funding conversations.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="businessStructure" value="none" required><span>No formal business yet</span></label>
+                <label><input type="radio" name="businessStructure" value="sole_prop"><span>Sole proprietor / independent contractor</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_no_bank"><span>LLC or corporation, no business bank account</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_bank"><span>LLC or corporation with business bank account</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_bank_ein_clean"><span>LLC/corp, bank account, EIN, and clean records</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="6">
+              <legend>What do you need funding for?</legend>
+              <p class="step-help">Use case determines whether the best route is working capital, equipment, startup, real estate, or prep.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="fundingPurpose" value="working_capital" required><span>Payroll / emergency working capital</span></label>
+                <label><input type="radio" name="fundingPurpose" value="inventory"><span>Inventory / materials</span></label>
+                <label><input type="radio" name="fundingPurpose" value="growth"><span>Marketing / growth</span></label>
+                <label><input type="radio" name="fundingPurpose" value="equipment"><span>Equipment / vehicle / truck</span></label>
+                <label><input type="radio" name="fundingPurpose" value="real_estate"><span>Real estate purchase or project</span></label>
+                <label><input type="radio" name="fundingPurpose" value="ecommerce"><span>Ecommerce / marketplace growth</span></label>
+                <label><input type="radio" name="fundingPurpose" value="startup"><span>Startup launch capital</span></label>
+                <label><input type="radio" name="fundingPurpose" value="debt_consolidation"><span>Debt consolidation / refinancing</span></label>
+                <label><input type="radio" name="fundingPurpose" value="business_credit"><span>Business credit building</span></label>
+                <label><input type="radio" name="fundingPurpose" value="not_sure"><span>Not sure</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="7">
+              <legend>How much funding are you seeking?</legend>
+              <p class="step-help">A realistic funding amount helps separate microcapital, working capital, real estate, and larger growth paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="desiredAmount" value="4999" required><span>Under $5,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="25000"><span>$5,000–$25,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="75000"><span>$25,000–$75,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="150000"><span>$75,000–$150,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="500000"><span>$150,000–$500,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="500001"><span>$500,000+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="8">
+              <legend>Do any red flags apply?</legend>
+              <p class="step-help">Pick anything that applies. This helps prevent bad routing and wasted applications.</p>
+              <div class="option-grid checkbox-grid">
+                <label><input type="checkbox" name="redFlags" value="open_bankruptcy"><span>Open bankruptcy</span></label>
+                <label><input type="checkbox" name="redFlags" value="tax_lien"><span>Recent tax lien</span></label>
+                <label><input type="checkbox" name="redFlags" value="recent_late_payments"><span>Recent missed payments</span></label>
+                <label><input type="checkbox" name="redFlags" value="recent_nsfs"><span>Recent NSFs / overdrafts</span></label>
+                <label><input type="checkbox" name="redFlags" value="new_bank_account"><span>Business bank account recently opened</span></label>
+                <label><input type="checkbox" name="redFlags" value="existing_mca"><span>Existing MCA / daily payment advance</span></label>
+                <label><input type="checkbox" name="redFlags" value="marketplace_suspended"><span>Suspended marketplace account</span></label>
+                <label><input type="checkbox" name="redFlags" value="no_revenue"><span>No current revenue</span></label>
+                <label><input type="checkbox" name="redFlags" value="none"><span>None of these</span></label>
+              </div>
+            </fieldset>
+
+            <div class="quiz-actions">
+              <button class="btn btn-muted" type="button" data-prev>Back</button>
+              <button class="btn btn-primary" type="button" data-next>Next</button>
+              <button class="btn btn-primary is-hidden" type="submit" data-submit>Calculate My Score</button>
+            </div>
+          </form>
+
+          <section class="lead-gate is-hidden" data-lead-gate aria-live="polite">
+            <div class="gate-card">
+              <span class="section-kicker">Your score is ready</span>
+              <h3>Where should we send the funding path summary?</h3>
+              <p>Enter your details to view your score, recommended funding paths, and next steps.</p>
+              <form class="lead-form" data-lead-form>
+                <div class="field-grid">
+                  <label>Name<input type="text" name="name" placeholder="Jane Founder" required></label>
+                  <label>Email<input type="email" name="email" placeholder="jane@business.com" required></label>
+                  <label>Phone<input type="tel" name="phone" placeholder="(555) 555-5555" required></label>
+                  <label>Business name<input type="text" name="businessName" placeholder="Your Business LLC"></label>
+                  <label>State<input type="text" name="state" placeholder="VA, DC, MD, etc." maxlength="30"></label>
+                </div>
+                <label class="consent-line">
+                  <input type="checkbox" name="consent" required>
+                  <span>I agree to be contacted about funding options and understand this score is not an approval, offer, or guarantee of funding.</span>
+                </label>
+                <button class="btn btn-primary" type="submit">Reveal My Score</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="result-panel is-hidden" data-result-panel aria-live="polite">
+            <div class="result-hero-card">
+              <div class="score-ring" data-score-ring>
+                <span data-result-score>0</span>
+                <small>/100</small>
+              </div>
+              <div>
+                <span class="section-kicker">Funding Readiness Score</span>
+                <h3 data-result-tier>Score Tier</h3>
+                <p data-result-copy>Result interpretation appears here.</p>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <article class="result-card">
+                <h4>Best-fit funding paths</h4>
+                <ul data-result-paths></ul>
+              </article>
+              <article class="result-card">
+                <h4>Potential blockers</h4>
+                <ul data-result-risks></ul>
+              </article>
+              <article class="result-card">
+                <h4>Recommended next steps</h4>
+                <ul data-result-next></ul>
+              </article>
+              <article class="result-card accent-card">
+                <h4>Documents you may need</h4>
+                <ul>
+                  <li>Recent business bank statements</li>
+                  <li>Credit profile details</li>
+                  <li>Proof of revenue or platform sales</li>
+                  <li>Entity, EIN, or business structure details</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="result-actions">
+              <a class="btn btn-primary" data-result-cta href="https://www.distilledfunding.com/apply" target="_blank" rel="noopener">Speak With a Funding Strategist</a>
+              <button class="btn btn-muted" type="button" data-restart>Retake Scorecard</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section paths-section" id="paths">
+        <div class="section-heading">
+          <div class="section-kicker">Funding path logic</div>
+          <h2>The scorecard routes by borrower profile, not wishful thinking.</h2>
+          <p>Different businesses need different capital lanes. A startup founder, a trucking company, and an Amazon seller should not all be shoved into the same “apply now” meat grinder.</p>
+        </div>
+        <div class="path-grid">
+          <article><span>⚡</span><h3>Fast Working Capital</h3><p>For urgent payroll, materials, inventory, and short-cycle cash needs.</p></article>
+          <article><span>📈</span><h3>Structured Growth Capital</h3><p>For stable businesses with stronger revenue, documentation, and operating history.</p></article>
+          <article><span>🚀</span><h3>Startup / Credit Leverage</h3><p>For newer founders where personal credit may matter more than business history.</p></article>
+          <article><span>🚚</span><h3>Equipment & Asset Funding</h3><p>For trucks, equipment, heavy trades, contractors, and capex-driven businesses.</p></article>
+          <article><span>🏢</span><h3>Real Estate Capital</h3><p>For investor, rental, bridge, fix-and-flip, and commercial real estate scenarios.</p></article>
+          <article><span>🛒</span><h3>E-commerce Seller Capital</h3><p>For platform sellers with marketplace sales history and growth needs.</p></article>
+        </div>
+      </section>
+
+      <section class="section split-cta">
+        <div>
+          <div class="section-kicker">Why it matters</div>
+          <h2>Bad applications cost time. Bad routing costs deals.</h2>
+          <p>This scorecard gives business owners clarity before they apply, while giving your team better lead intelligence before the first conversation.</p>
+        </div>
+        <a class="btn btn-primary" href="#scorecard">Run the Scorecard</a>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading centered">
+          <div class="section-kicker">FAQ</div>
+          <h2>Questions before you press the button?</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Is this an approval?</summary>
+            <p>No. This is an educational pre-qualification scorecard. It is not an approval, funding offer, or commitment to lend.</p>
+          </details>
+          <details>
+            <summary>Will this hurt my credit?</summary>
+            <p>No. This frontend scorecard does not run credit. It uses the answers you provide to estimate readiness.</p>
+          </details>
+          <details>
+            <summary>What happens after I get my score?</summary>
+            <p>You will see potential funding paths, blockers, and suggested next steps. You can then request a funding review or speak with a strategist.</p>
+          </details>
+          <details>
+            <summary>Can this be embedded on partner pages?</summary>
+            <p>Yes. The scorecard logic can also be packaged as a compact embeddable widget for partner landing pages, Wix pages, WordPress posts, and static sites.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <h2>Ready to stop guessing?</h2>
+        <p>Get your score, see your best-fit funding paths, and avoid applying like a caffeinated raccoon with a DocuSign link.</p>
+        <a class="btn btn-primary" href="#scorecard">Get My Funding Score</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Moonshine Capital</strong> · Funding readiness guidance for business owners who need options — not the bank runaround.</p>
+      <p class="disclaimer">This scorecard is for educational and pre-qualification guidance only. It is not an approval, commitment to lend, or guarantee of funding. Actual options depend on underwriting review, documentation, lender criteria, business performance, credit profile, and other factors.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
