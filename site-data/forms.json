@@ -1,0 +1,474 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "forms_registry_v1",
+  "description": "Public-safe form field metadata for scorecard and intake surfaces.",
+  "rules": {
+    "collect_minimum_necessary": true,
+    "no_sensitive_document_uploads_on_public_pages": true,
+    "consent_required_for_follow_up": true,
+    "public_disclaimer_required": true
+  },
+  "forms": [
+    {
+      "id": "scorecard_form",
+      "label": "Funding Readiness Scorecard",
+      "method": "client_side_then_api",
+      "route_context": "/scorecard.html",
+      "purpose": "Collect self-reported readiness answers and lead contact details for optional review.",
+      "visibility": "public_runtime_browser_safe",
+      "steps": [
+        {
+          "id": "persona",
+          "label": "Business profile",
+          "field_ids": [
+            "business_persona"
+          ]
+        },
+        {
+          "id": "revenue",
+          "label": "Revenue",
+          "field_ids": [
+            "monthly_revenue"
+          ]
+        },
+        {
+          "id": "time",
+          "label": "Time in business",
+          "field_ids": [
+            "time_in_business"
+          ]
+        },
+        {
+          "id": "credit",
+          "label": "Credit range",
+          "field_ids": [
+            "credit_range"
+          ]
+        },
+        {
+          "id": "bank",
+          "label": "Bank activity",
+          "field_ids": [
+            "bank_status"
+          ]
+        },
+        {
+          "id": "structure",
+          "label": "Business setup",
+          "field_ids": [
+            "business_structure"
+          ]
+        },
+        {
+          "id": "purpose",
+          "label": "Funding purpose",
+          "field_ids": [
+            "funding_purpose"
+          ]
+        },
+        {
+          "id": "amount",
+          "label": "Desired amount",
+          "field_ids": [
+            "desired_amount"
+          ]
+        },
+        {
+          "id": "risk",
+          "label": "Readiness flags",
+          "field_ids": [
+            "red_flags"
+          ]
+        },
+        {
+          "id": "lead",
+          "label": "Contact",
+          "field_ids": [
+            "name",
+            "email",
+            "phone",
+            "business_name",
+            "state",
+            "consent"
+          ]
+        }
+      ],
+      "submit_button_label": "Get My Funding Score",
+      "success_route": "/thank-you.html",
+      "disclaimer": "This scorecard is educational and is not a funding approval, offer, or commitment."
+    },
+    {
+      "id": "review_request_form",
+      "label": "Human Review Request",
+      "method": "api_or_manual",
+      "route_context": "/fundable-review.html",
+      "purpose": "Collect enough context to request a manual funding-readiness review.",
+      "visibility": "public_runtime_browser_safe",
+      "field_ids": [
+        "name",
+        "email",
+        "phone",
+        "business_name",
+        "state",
+        "funding_purpose",
+        "desired_amount",
+        "monthly_revenue",
+        "notes",
+        "consent"
+      ],
+      "submit_button_label": "Request Human Review",
+      "success_route": "/thank-you.html",
+      "disclaimer": "Human review may help identify next steps, but it is not a funding decision."
+    },
+    {
+      "id": "broker_interest_form",
+      "label": "Broker Workflow Interest",
+      "method": "manual_or_api",
+      "route_context": "/broker.html",
+      "purpose": "Capture broker interest in using the scorecard workflow.",
+      "visibility": "public_runtime_browser_safe",
+      "field_ids": [
+        "name",
+        "email",
+        "phone",
+        "company_name",
+        "role",
+        "monthly_lead_volume",
+        "use_case",
+        "consent"
+      ],
+      "submit_button_label": "Discuss Broker Workflow",
+      "success_route": "/thank-you.html",
+      "disclaimer": "Broker workflow requests are reviewed before setup."
+    },
+    {
+      "id": "partner_interest_form",
+      "label": "Partner Interest",
+      "method": "manual_or_api",
+      "route_context": "/partners.html",
+      "purpose": "Capture partner interest without exposing partner-specific terms publicly.",
+      "visibility": "public_runtime_browser_safe",
+      "field_ids": [
+        "name",
+        "email",
+        "phone",
+        "organization_name",
+        "audience_type",
+        "monthly_audience_size",
+        "use_case",
+        "consent"
+      ],
+      "submit_button_label": "Explore Partner Use",
+      "success_route": "/thank-you.html",
+      "disclaimer": "Partner use is subject to review and public-safe implementation."
+    },
+    {
+      "id": "white_label_interest_form",
+      "label": "White-Label Scorecard Interest",
+      "method": "manual_or_api",
+      "route_context": "/white-label.html",
+      "purpose": "Capture white-label embed and customization interest.",
+      "visibility": "public_runtime_browser_safe",
+      "field_ids": [
+        "name",
+        "email",
+        "phone",
+        "company_name",
+        "website",
+        "brand_use_case",
+        "monthly_lead_volume",
+        "consent"
+      ],
+      "submit_button_label": "Review White-Label Options",
+      "success_route": "/thank-you.html",
+      "disclaimer": "White-label configuration must preserve public-safe funding language."
+    }
+  ],
+  "fields": [
+    {
+      "id": "business_persona",
+      "name": "persona",
+      "label": "What best describes you?",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Existing business owner",
+        "Gig worker / independent contractor",
+        "E-commerce seller",
+        "Startup founder",
+        "Real estate investor",
+        "Contractor / equipment-heavy business",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "monthly_revenue",
+      "name": "monthlyRevenue",
+      "label": "Average monthly business revenue",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "$0–$2,999",
+        "$3,000–$8,499",
+        "$8,500–$14,999",
+        "$15,000–$19,999",
+        "$20,000–$49,999",
+        "$50,000–$99,999",
+        "$100,000+"
+      ]
+    },
+    {
+      "id": "time_in_business",
+      "name": "timeInBusiness",
+      "label": "Time in business",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Not launched yet",
+        "0–3 months",
+        "4–5 months",
+        "6–11 months",
+        "12–23 months",
+        "24+ months"
+      ]
+    },
+    {
+      "id": "credit_range",
+      "name": "creditScore",
+      "label": "Estimated personal credit range",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Below 500",
+        "500–579",
+        "580–599",
+        "600–659",
+        "660–679",
+        "680–699",
+        "700+"
+      ]
+    },
+    {
+      "id": "bank_status",
+      "name": "bankStatus",
+      "label": "Business bank account status",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "No business bank account",
+        "Low or inconsistent deposits",
+        "Consistent deposits",
+        "Strong deposits and clean activity",
+        "Recent NSFs or overdrafts"
+      ]
+    },
+    {
+      "id": "business_structure",
+      "name": "businessStructure",
+      "label": "Business structure",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "No formal business yet",
+        "Sole proprietor / independent contractor",
+        "Entity without business bank account",
+        "Entity with business bank account",
+        "Entity, bank account, EIN, and clean records"
+      ]
+    },
+    {
+      "id": "funding_purpose",
+      "name": "fundingPurpose",
+      "label": "Funding purpose",
+      "type": "select_or_radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Working capital",
+        "Inventory or materials",
+        "Growth or marketing",
+        "Equipment or vehicle",
+        "Real estate project",
+        "E-commerce growth",
+        "Startup launch",
+        "Debt refinancing",
+        "Business credit building",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "desired_amount",
+      "name": "desiredAmount",
+      "label": "Desired funding amount",
+      "type": "radio",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Under $5,000",
+        "$5,000–$25,000",
+        "$25,000–$75,000",
+        "$75,000–$150,000",
+        "$150,000–$500,000",
+        "$500,000+"
+      ]
+    },
+    {
+      "id": "red_flags",
+      "name": "redFlags",
+      "label": "Common readiness flags",
+      "type": "checkbox",
+      "required": true,
+      "public_safe": true,
+      "options": [
+        "Open bankruptcy",
+        "Recent tax lien",
+        "Recent missed payments",
+        "Recent NSFs or overdrafts",
+        "Business bank account recently opened",
+        "Existing daily payment advance",
+        "Suspended marketplace account",
+        "No current revenue",
+        "None of these"
+      ]
+    },
+    {
+      "id": "name",
+      "name": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true,
+      "public_safe": true
+    },
+    {
+      "id": "email",
+      "name": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "public_safe": true
+    },
+    {
+      "id": "phone",
+      "name": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true,
+      "public_safe": true
+    },
+    {
+      "id": "business_name",
+      "name": "businessName",
+      "label": "Business name",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "state",
+      "name": "state",
+      "label": "State",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "consent",
+      "name": "consent",
+      "label": "Consent to be contacted",
+      "type": "checkbox",
+      "required": true,
+      "public_safe": true
+    },
+    {
+      "id": "notes",
+      "name": "notes",
+      "label": "Notes",
+      "type": "textarea",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "company_name",
+      "name": "companyName",
+      "label": "Company name",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "organization_name",
+      "name": "organizationName",
+      "label": "Organization name",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "role",
+      "name": "role",
+      "label": "Role",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "monthly_lead_volume",
+      "name": "monthlyLeadVolume",
+      "label": "Estimated monthly lead volume",
+      "type": "select",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "use_case",
+      "name": "useCase",
+      "label": "Use case",
+      "type": "textarea",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "audience_type",
+      "name": "audienceType",
+      "label": "Audience type",
+      "type": "text",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "monthly_audience_size",
+      "name": "monthlyAudienceSize",
+      "label": "Estimated monthly audience size",
+      "type": "select",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "website",
+      "name": "website",
+      "label": "Website",
+      "type": "url",
+      "required": false,
+      "public_safe": true
+    },
+    {
+      "id": "brand_use_case",
+      "name": "brandUseCase",
+      "label": "Brand use case",
+      "type": "textarea",
+      "required": false,
+      "public_safe": true
+    }
+  ]
+}

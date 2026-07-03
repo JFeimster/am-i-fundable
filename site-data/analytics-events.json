@@ -1,0 +1,262 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "analytics_events_v1",
+  "description": "Public-safe event taxonomy for scorecard, CTA, form, resource, and embed interactions.",
+  "rules": {
+    "no_pii_in_event_names": true,
+    "no_raw_form_payloads": true,
+    "use_stable_ids": true,
+    "event_properties_must_be_public_safe": true,
+    "do_not_send_internal_routing_data": true
+  },
+  "property_allowlist": [
+    "page_id",
+    "path",
+    "cta_id",
+    "audience",
+    "source",
+    "campaign",
+    "score_tier_id",
+    "funding_path_id",
+    "form_id",
+    "step_id",
+    "resource_id",
+    "embed_preset_id",
+    "success",
+    "error_type"
+  ],
+  "events": [
+    {
+      "id": "page_view",
+      "name": "page_view",
+      "category": "navigation",
+      "description": "A public page was viewed.",
+      "trigger": "page_load",
+      "required_properties": [
+        "page_id",
+        "path"
+      ],
+      "optional_properties": [
+        "source",
+        "campaign"
+      ]
+    },
+    {
+      "id": "cta_click",
+      "name": "cta_click",
+      "category": "conversion",
+      "description": "A registered CTA was clicked.",
+      "trigger": "cta_anchor_or_button_click",
+      "required_properties": [
+        "cta_id",
+        "page_id"
+      ],
+      "optional_properties": [
+        "audience",
+        "source",
+        "campaign"
+      ]
+    },
+    {
+      "id": "scorecard_started",
+      "name": "scorecard_started",
+      "category": "scorecard",
+      "description": "A user started the public scorecard flow.",
+      "trigger": "first_scorecard_interaction",
+      "required_properties": [
+        "page_id"
+      ],
+      "optional_properties": [
+        "source",
+        "campaign",
+        "embed_preset_id"
+      ]
+    },
+    {
+      "id": "scorecard_step_completed",
+      "name": "scorecard_step_completed",
+      "category": "scorecard",
+      "description": "A scorecard step was completed.",
+      "trigger": "scorecard_next_step",
+      "required_properties": [
+        "step_id"
+      ],
+      "optional_properties": [
+        "page_id",
+        "source"
+      ]
+    },
+    {
+      "id": "scorecard_completed",
+      "name": "scorecard_completed",
+      "category": "scorecard",
+      "description": "A scorecard result was calculated client-side or server-side.",
+      "trigger": "scorecard_submit_or_calculation",
+      "required_properties": [
+        "score_tier_id"
+      ],
+      "optional_properties": [
+        "page_id",
+        "source",
+        "embed_preset_id"
+      ]
+    },
+    {
+      "id": "lead_gate_viewed",
+      "name": "lead_gate_viewed",
+      "category": "lead_capture",
+      "description": "The lead capture gate was shown after scorecard answers.",
+      "trigger": "lead_gate_rendered",
+      "required_properties": [
+        "form_id"
+      ],
+      "optional_properties": [
+        "score_tier_id",
+        "source"
+      ]
+    },
+    {
+      "id": "lead_form_submitted",
+      "name": "lead_form_submitted",
+      "category": "lead_capture",
+      "description": "A public lead form was submitted.",
+      "trigger": "form_submit_success",
+      "required_properties": [
+        "form_id",
+        "success"
+      ],
+      "optional_properties": [
+        "score_tier_id",
+        "source",
+        "campaign"
+      ]
+    },
+    {
+      "id": "lead_form_error",
+      "name": "lead_form_error",
+      "category": "lead_capture",
+      "description": "A public lead form submission failed validation or API response.",
+      "trigger": "form_submit_error",
+      "required_properties": [
+        "form_id",
+        "error_type"
+      ],
+      "optional_properties": [
+        "page_id",
+        "source"
+      ]
+    },
+    {
+      "id": "result_viewed",
+      "name": "result_viewed",
+      "category": "result",
+      "description": "A public result tier or result page was viewed.",
+      "trigger": "result_panel_or_result_page_view",
+      "required_properties": [
+        "score_tier_id"
+      ],
+      "optional_properties": [
+        "page_id",
+        "source"
+      ]
+    },
+    {
+      "id": "funding_path_viewed",
+      "name": "funding_path_viewed",
+      "category": "education",
+      "description": "A funding path section or page was viewed.",
+      "trigger": "funding_path_section_view",
+      "required_properties": [
+        "funding_path_id"
+      ],
+      "optional_properties": [
+        "page_id"
+      ]
+    },
+    {
+      "id": "document_checklist_viewed",
+      "name": "document_checklist_viewed",
+      "category": "education",
+      "description": "A document checklist was viewed.",
+      "trigger": "checklist_view",
+      "required_properties": [
+        "funding_path_id"
+      ],
+      "optional_properties": [
+        "page_id",
+        "score_tier_id"
+      ]
+    },
+    {
+      "id": "resource_opened",
+      "name": "resource_opened",
+      "category": "resource",
+      "description": "A resource library item was opened.",
+      "trigger": "resource_link_click",
+      "required_properties": [
+        "resource_id"
+      ],
+      "optional_properties": [
+        "page_id",
+        "audience"
+      ]
+    },
+    {
+      "id": "faq_opened",
+      "name": "faq_opened",
+      "category": "education",
+      "description": "A FAQ item was expanded.",
+      "trigger": "details_expand_or_click",
+      "required_properties": [
+        "page_id"
+      ],
+      "optional_properties": [
+        "resource_id"
+      ]
+    },
+    {
+      "id": "embed_loaded",
+      "name": "embed_loaded",
+      "category": "embed",
+      "description": "The public scorecard embed loaded.",
+      "trigger": "widget_load",
+      "required_properties": [
+        "embed_preset_id"
+      ],
+      "optional_properties": [
+        "source",
+        "campaign"
+      ]
+    },
+    {
+      "id": "manual_review_requested",
+      "name": "manual_review_requested",
+      "category": "review",
+      "description": "A user requested human review through a public form.",
+      "trigger": "review_request_submit",
+      "required_properties": [
+        "form_id",
+        "success"
+      ],
+      "optional_properties": [
+        "score_tier_id",
+        "source"
+      ]
+    }
+  ],
+  "funnel": [
+    "page_view",
+    "scorecard_started",
+    "scorecard_step_completed",
+    "scorecard_completed",
+    "lead_gate_viewed",
+    "lead_form_submitted",
+    "result_viewed",
+    "cta_click"
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "seo_pages_v1",
+  "description": "SEO page titles, descriptions, keywords, canonical paths, and schema hints for public pages.",
+  "global": {
+    "site_name": "Am I Fundable",
+    "brand_name": "Moonshine Capital",
+    "default_title_suffix": "Moonshine Capital",
+    "default_robots": "index,follow",
+    "safe_schema_rule": "Do not include fake ratings, fake reviews, false claims, or partner-specific terms."
+  },
+  "pages": [
+    {
+      "page_id": "home",
+      "path": "/",
+      "title": "Funding Readiness Scorecard",
+      "meta_description": "Find out if your business is funding-ready before you request review. Get a public-safe readiness score, potential funding path, and next steps.",
+      "keywords": [
+        "funding readiness scorecard",
+        "business funding readiness",
+        "am I fundable"
+      ],
+      "canonical_path": "/",
+      "schema_types": [
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "scorecard",
+      "path": "/scorecard.html",
+      "title": "Run the Funding Readiness Scorecard",
+      "meta_description": "Answer a few questions about revenue, time in business, credit range, bank activity, structure, and funding purpose to estimate funding readiness.",
+      "keywords": [
+        "funding scorecard",
+        "business funding prequalification",
+        "funding readiness assessment"
+      ],
+      "canonical_path": "/scorecard.html",
+      "schema_types": [
+        "SoftwareApplication"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "results",
+      "path": "/results.html",
+      "title": "Funding Readiness Results Explained",
+      "meta_description": "Understand funding readiness tiers, potential blockers, document needs, and next steps after completing the scorecard.",
+      "keywords": [
+        "funding readiness results",
+        "business funding next steps",
+        "funding score tiers"
+      ],
+      "canonical_path": "/results.html",
+      "schema_types": [
+        "FAQPage"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "funding_paths",
+      "path": "/funding-paths.html",
+      "title": "Funding Paths Explained for Business Owners",
+      "meta_description": "Compare public-safe funding path categories including working capital, equipment, e-commerce, real estate, startup, and prep-first readiness.",
+      "keywords": [
+        "business funding paths",
+        "working capital readiness",
+        "equipment funding documents",
+        "ecommerce seller funding"
+      ],
+      "canonical_path": "/funding-paths.html",
+      "schema_types": [
+        "HowTo"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "documents",
+      "path": "/documents.html",
+      "title": "Business Funding Document Prep Checklist",
+      "meta_description": "Prepare common documents for a funding-readiness review, including bank statements, revenue proof, entity details, and use-of-funds notes.",
+      "keywords": [
+        "business funding documents",
+        "funding document checklist",
+        "bank statement prep"
+      ],
+      "canonical_path": "/documents.html",
+      "schema_types": [
+        "HowTo"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "broker",
+      "path": "/broker.html",
+      "title": "Funding Broker Scorecard Workflow",
+      "meta_description": "Use a public-safe scorecard workflow to triage funding leads, identify document gaps, and route users toward appropriate next steps.",
+      "keywords": [
+        "funding broker scorecard",
+        "broker lead triage",
+        "loan broker intake"
+      ],
+      "canonical_path": "/broker.html",
+      "schema_types": [
+        "SoftwareApplication"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "partners",
+      "path": "/partners.html",
+      "title": "Partner With a Funding Readiness Scorecard",
+      "meta_description": "Give your audience a funding-readiness tool that educates users before any funding conversation.",
+      "keywords": [
+        "funding affiliate tool",
+        "partner funding scorecard",
+        "business funding referral tool"
+      ],
+      "canonical_path": "/partners.html",
+      "schema_types": [
+        "SoftwareApplication"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "white_label",
+      "path": "/white-label.html",
+      "title": "White-Label Funding Readiness Scorecard",
+      "meta_description": "Use a white-label funding-readiness scorecard for broker, agency, or consultant intake while keeping public copy safe and educational.",
+      "keywords": [
+        "white label funding scorecard",
+        "broker intake tool",
+        "business funding widget"
+      ],
+      "canonical_path": "/white-label.html",
+      "schema_types": [
+        "SoftwareApplication"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "embed_example",
+      "path": "/embed-example.html",
+      "title": "Funding Scorecard Embed Example",
+      "meta_description": "View a clean example of the public Funding Readiness Scorecard widget embedded inside another page.",
+      "keywords": [
+        "funding scorecard embed",
+        "business funding widget example"
+      ],
+      "canonical_path": "/embed-example.html",
+      "schema_types": [],
+      "robots": "noindex,follow"
+    },
+    {
+      "page_id": "thank_you",
+      "path": "/thank-you.html",
+      "title": "Scorecard Submitted",
+      "meta_description": "Your funding-readiness scorecard submission has been received. Review next steps and document prep guidance.",
+      "keywords": [
+        "funding review next steps"
+      ],
+      "canonical_path": "/thank-you.html",
+      "schema_types": [],
+      "robots": "noindex,follow"
+    },
+    {
+      "page_id": "not_ready",
+      "path": "/not-ready.html",
+      "title": "Build Funding Readiness First",
+      "meta_description": "Use the prep-first path to improve business setup, documentation, bank activity, and funding-readiness signals before review.",
+      "keywords": [
+        "not ready for business funding",
+        "funding readiness prep",
+        "business credit readiness"
+      ],
+      "canonical_path": "/not-ready.html",
+      "schema_types": [
+        "HowTo"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "fundable_review",
+      "path": "/fundable-review.html",
+      "title": "Funding Review Recommended",
+      "meta_description": "A manual review may help interpret mixed funding-readiness signals, document gaps, and potential next steps.",
+      "keywords": [
+        "funding review recommended",
+        "manual funding review",
+        "business funding readiness review"
+      ],
+      "canonical_path": "/fundable-review.html",
+      "schema_types": [
+        "FAQPage"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "highly_fundable",
+      "path": "/highly-fundable.html",
+      "title": "High Funding Readiness Strategy Review",
+      "meta_description": "Strong readiness signals may justify a faster strategy review, document confirmation, and next-step planning.",
+      "keywords": [
+        "high funding readiness",
+        "business funding strategy review",
+        "funding ready business"
+      ],
+      "canonical_path": "/highly-fundable.html",
+      "schema_types": [
+        "FAQPage"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "resources",
+      "path": "/resources.html",
+      "title": "Funding Readiness Resources",
+      "meta_description": "Explore funding-readiness checklists, result explainers, document prep guides, and public-safe funding path resources.",
+      "keywords": [
+        "funding readiness resources",
+        "business funding guides",
+        "funding checklist"
+      ],
+      "canonical_path": "/resources.html",
+      "schema_types": [
+        "ItemList"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "faq",
+      "path": "/faq.html",
+      "title": "Funding Readiness FAQ",
+      "meta_description": "Answers to common questions about the Funding Readiness Scorecard, results, documents, privacy, brokers, and partner use.",
+      "keywords": [
+        "funding readiness FAQ",
+        "business funding scorecard questions"
+      ],
+      "canonical_path": "/faq.html",
+      "schema_types": [
+        "FAQPage"
+      ],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "privacy",
+      "path": "/privacy.html",
+      "title": "Privacy and Data Use",
+      "meta_description": "Learn how scorecard information may be used for readiness scoring, follow-up, human review, and educational next steps.",
+      "keywords": [
+        "funding scorecard privacy",
+        "funding readiness data use"
+      ],
+      "canonical_path": "/privacy.html",
+      "schema_types": [],
+      "robots": "index,follow"
+    },
+    {
+      "page_id": "terms",
+      "path": "/terms.html",
+      "title": "Terms and Funding Readiness Disclaimer",
+      "meta_description": "Review the educational-use terms, funding-readiness disclaimers, and public-safe boundaries for the scorecard.",
+      "keywords": [
+        "funding readiness terms",
+        "scorecard disclaimer"
+      ],
+      "canonical_path": "/terms.html",
+      "schema_types": [],
+      "robots": "index,follow"
+    }
+  ]
+}

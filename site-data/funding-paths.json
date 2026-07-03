@@ -1,0 +1,289 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "funding_paths_v1",
+  "description": "Public-safe descriptions of funding families without exposing partner-specific routing logic.",
+  "global_disclaimer": "Funding paths are educational categories. A path suggestion is not a funding offer or final funding decision.",
+  "paths": [
+    {
+      "id": "working_capital",
+      "label": "Working Capital",
+      "short_label": "Working Capital",
+      "icon": "bolt",
+      "summary": "Short-cycle capital for payroll, inventory, materials, operating expenses, or growth pushes.",
+      "best_for": [
+        "Existing businesses with revenue activity",
+        "Operators with a clear short-term use of funds",
+        "Businesses that can explain how funds support operations"
+      ],
+      "readiness_signals": [
+        "Consistent deposits",
+        "Clear business bank activity",
+        "Defined funding purpose",
+        "Recent bank statements available"
+      ],
+      "watchouts": [
+        "Recent negative bank activity",
+        "Unclear repayment capacity",
+        "Requested amount out of line with revenue"
+      ],
+      "recommended_documents": [
+        "Business bank statements",
+        "Revenue summary",
+        "Use-of-funds note"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "find_path",
+        "prepare_file"
+      ]
+    },
+    {
+      "id": "structured_growth",
+      "label": "Structured Growth Capital",
+      "short_label": "Growth Capital",
+      "icon": "chart-up",
+      "summary": "Capital for established businesses with stronger operating history, cleaner documents, and a growth use case.",
+      "best_for": [
+        "Businesses with stable revenue",
+        "Operators preparing for expansion",
+        "Companies with cleaner documentation"
+      ],
+      "readiness_signals": [
+        "Operating history",
+        "Revenue consistency",
+        "Clear records",
+        "Defined growth plan"
+      ],
+      "watchouts": [
+        "Documentation gaps",
+        "Cash-flow strain",
+        "Debt stack complexity"
+      ],
+      "recommended_documents": [
+        "Bank statements",
+        "Revenue proof",
+        "Growth plan summary",
+        "Existing obligation list"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "find_path",
+        "request_review"
+      ]
+    },
+    {
+      "id": "startup_credit_leverage",
+      "label": "Startup and Credit-Leverage Path",
+      "short_label": "Startup / Credit",
+      "icon": "rocket",
+      "summary": "Readiness path for newer businesses where setup quality, personal credit range, and early proof may matter more than long business history.",
+      "best_for": [
+        "Startup founders",
+        "New LLC owners",
+        "Operators building business credit foundations",
+        "Pre-revenue or early-revenue businesses"
+      ],
+      "readiness_signals": [
+        "Clean entity setup",
+        "Business bank account",
+        "Clear use of funds",
+        "Personal credit profile in workable range"
+      ],
+      "watchouts": [
+        "No business structure",
+        "No bank account",
+        "Unclear business model",
+        "Unrealistic funding amount"
+      ],
+      "recommended_documents": [
+        "Entity details",
+        "EIN or tax ID details if available",
+        "Business plan snapshot",
+        "Early revenue or contract proof if available"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/not-ready.html"
+      ],
+      "cta_ids": [
+        "readiness_rebuild",
+        "prepare_file"
+      ]
+    },
+    {
+      "id": "equipment_asset",
+      "label": "Equipment and Asset Funding",
+      "short_label": "Equipment",
+      "icon": "truck",
+      "summary": "Capital path tied to equipment, trucks, vehicles, machinery, or productive business assets.",
+      "best_for": [
+        "Contractors",
+        "Trucking companies",
+        "Equipment-heavy operators",
+        "Businesses purchasing revenue-producing assets"
+      ],
+      "readiness_signals": [
+        "Asset quote or invoice",
+        "Clear business use",
+        "Revenue history or contracts",
+        "Operator experience"
+      ],
+      "watchouts": [
+        "Asset value unclear",
+        "No quote or invoice",
+        "Weak operating history",
+        "Insurance or registration gaps"
+      ],
+      "recommended_documents": [
+        "Equipment quote",
+        "Seller details",
+        "Business bank statements",
+        "Revenue or contract proof"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "find_path",
+        "prepare_file"
+      ]
+    },
+    {
+      "id": "real_estate",
+      "label": "Real Estate Capital",
+      "short_label": "Real Estate",
+      "icon": "building",
+      "summary": "Capital path for property purchase, investor projects, bridge needs, rentals, commercial property, or fix-and-flip scenarios.",
+      "best_for": [
+        "Real estate investors",
+        "Property project operators",
+        "Rental or commercial property buyers",
+        "Experienced project sponsors"
+      ],
+      "readiness_signals": [
+        "Property or project details",
+        "Defined use of funds",
+        "Exit plan",
+        "Experience summary"
+      ],
+      "watchouts": [
+        "No property details",
+        "Unclear project scope",
+        "Unclear exit strategy",
+        "Inexperienced sponsor without support"
+      ],
+      "recommended_documents": [
+        "Property summary",
+        "Purchase agreement or project estimate",
+        "Experience summary",
+        "Exit strategy summary"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "find_path",
+        "request_review"
+      ]
+    },
+    {
+      "id": "ecommerce_seller",
+      "label": "E-commerce Seller Capital",
+      "short_label": "E-commerce",
+      "icon": "cart",
+      "summary": "Capital path for online sellers using marketplace, cart, or storefront sales activity.",
+      "best_for": [
+        "Marketplace sellers",
+        "Inventory-heavy e-commerce brands",
+        "Operators with platform disbursement history",
+        "Sellers funding inventory or ad spend"
+      ],
+      "readiness_signals": [
+        "Platform sales history",
+        "Platform disbursement consistency",
+        "Inventory or ad plan",
+        "Clean account standing"
+      ],
+      "watchouts": [
+        "Marketplace suspension",
+        "Unclear sales data",
+        "Recent revenue drop",
+        "Inventory plan not defined"
+      ],
+      "recommended_documents": [
+        "Platform sales reports",
+        "Platform disbursement history",
+        "Storefront details",
+        "Inventory or marketing plan"
+      ],
+      "related_pages": [
+        "/funding-paths.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "find_path",
+        "prepare_file"
+      ]
+    },
+    {
+      "id": "prep_first",
+      "label": "Prep-First Readiness Path",
+      "short_label": "Prep First",
+      "icon": "wrench",
+      "summary": "Education and cleanup path for users who need to strengthen business setup, documents, revenue proof, or bank activity before review.",
+      "best_for": [
+        "New businesses",
+        "Gig workers formalizing operations",
+        "Operators with document gaps",
+        "Users with recent bank or credit concerns"
+      ],
+      "readiness_signals": [
+        "Willingness to organize documents",
+        "Clear target use case",
+        "Ability to improve setup over time"
+      ],
+      "watchouts": [
+        "No revenue",
+        "No business bank account",
+        "Open bankruptcy",
+        "Recent severe negative activity"
+      ],
+      "recommended_documents": [
+        "Business setup checklist",
+        "Bank account checklist",
+        "Revenue proof plan",
+        "Document gap list"
+      ],
+      "related_pages": [
+        "/not-ready.html",
+        "/documents.html"
+      ],
+      "cta_ids": [
+        "readiness_rebuild",
+        "open_resources"
+      ]
+    }
+  ],
+  "public_sort_order": [
+    "working_capital",
+    "structured_growth",
+    "startup_credit_leverage",
+    "equipment_asset",
+    "real_estate",
+    "ecommerce_seller",
+    "prep_first"
+  ]
+}

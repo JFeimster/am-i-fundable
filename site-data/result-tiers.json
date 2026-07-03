@@ -1,0 +1,144 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "result_tiers_v1",
+  "description": "Public-safe score tier summaries and page mappings.",
+  "score_scale": {
+    "min": 0,
+    "max": 100,
+    "label": "Funding Readiness Score"
+  },
+  "global_disclaimer": "Scores are educational estimates based on self-reported answers. They are not funding approvals, offers, commitments, or final funding decisions.",
+  "tiers": [
+    {
+      "id": "prep_first",
+      "label": "Prep First",
+      "score_min": 0,
+      "score_max": 44,
+      "route_path": "/not-ready.html",
+      "tone": "direct_supportive",
+      "summary": "Your file likely needs foundation work before a funding review is useful.",
+      "public_copy": "This result usually means the best move is to clean up the file before chasing funding. Focus on business setup, revenue consistency, bank activity, and documents.",
+      "recommended_next_steps": [
+        "Separate business and personal finances if they are mixed.",
+        "Gather recent bank statements and revenue proof.",
+        "Clarify the funding purpose and realistic funding amount.",
+        "Work through the prep checklist before requesting review."
+      ],
+      "common_blockers": [
+        "Limited revenue history",
+        "No business bank account",
+        "New or unclear business structure",
+        "Recent bank or credit issues",
+        "Funding amount may be too aggressive for current profile"
+      ],
+      "cta_ids": [
+        "readiness_rebuild",
+        "open_resources"
+      ],
+      "human_review_recommended": false
+    },
+    {
+      "id": "selective_fit",
+      "label": "Selective Fit",
+      "score_min": 45,
+      "score_max": 64,
+      "route_path": "/fundable-review.html",
+      "tone": "practical_triage",
+      "summary": "You may have a path, but the file needs careful review and cleaner positioning.",
+      "public_copy": "This result usually means there are some usable signals and some friction. The next move is not to shotgun applications. It is to understand the weak spots and match the funding purpose to a realistic path.",
+      "recommended_next_steps": [
+        "Review the result tier and likely blockers.",
+        "Prepare bank statements, revenue proof, and business details.",
+        "Narrow the funding purpose before requesting review.",
+        "Use human review before picking a next step."
+      ],
+      "common_blockers": [
+        "Mixed bank activity",
+        "Thin operating history",
+        "Moderate credit profile",
+        "Unclear documentation",
+        "Mismatch between requested amount and file strength"
+      ],
+      "cta_ids": [
+        "prepare_file",
+        "request_review"
+      ],
+      "human_review_recommended": true
+    },
+    {
+      "id": "review_ready",
+      "label": "Review Ready",
+      "score_min": 65,
+      "score_max": 79,
+      "route_path": "/fundable-review.html",
+      "tone": "confident_but_guarded",
+      "summary": "Your answers show enough readiness signals to justify a human review.",
+      "public_copy": "This result suggests your file may be ready for a more serious funding-readiness conversation. A review should confirm documents, funding purpose, risk flags, and realistic next steps.",
+      "recommended_next_steps": [
+        "Prepare recent bank statements and revenue proof.",
+        "Confirm business structure and ownership details.",
+        "Review the funding purpose and amount requested.",
+        "Request a human review for routing guidance."
+      ],
+      "common_blockers": [
+        "Missing documents",
+        "Recent negative bank activity",
+        "Amount requested may need adjustment",
+        "Purpose may need tighter framing"
+      ],
+      "cta_ids": [
+        "request_review",
+        "prepare_file"
+      ],
+      "human_review_recommended": true
+    },
+    {
+      "id": "high_readiness",
+      "label": "High Readiness",
+      "score_min": 80,
+      "score_max": 100,
+      "route_path": "/highly-fundable.html",
+      "tone": "urgent_but_safe",
+      "summary": "Your answers show strong readiness signals, so a strategy review may be the right next step.",
+      "public_copy": "This result indicates strong readiness signals based on the answers provided. The next move is to confirm documents, review the funding purpose, and discuss realistic potential paths.",
+      "recommended_next_steps": [
+        "Gather the core document checklist.",
+        "Confirm funding purpose and use of funds.",
+        "Review any remaining risk flags before outreach.",
+        "Schedule a readiness strategy review."
+      ],
+      "common_blockers": [
+        "Incomplete documents",
+        "Unverified answers",
+        "Funding amount needs validation",
+        "Funding purpose still needs confirmation"
+      ],
+      "cta_ids": [
+        "strategy_review",
+        "prepare_file"
+      ],
+      "human_review_recommended": true
+    }
+  ],
+  "routing_notes": {
+    "public_result_pages_only": true,
+    "do_not_include": [
+      "real partner names",
+      "private routing scores",
+      "private compensation logic",
+      "private review notes",
+      "apply links"
+    ],
+    "page_map": {
+      "prep_first": "/not-ready.html",
+      "selective_fit": "/fundable-review.html",
+      "review_ready": "/fundable-review.html",
+      "high_readiness": "/highly-fundable.html"
+    }
+  }
+}

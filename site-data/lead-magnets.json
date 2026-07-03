@@ -1,0 +1,120 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "lead_magnets_v1",
+  "description": "Registry for public-safe future downloadable assets and gated resources.",
+  "rules": {
+    "no_fake_claims": true,
+    "no_provider_specific_promises": true,
+    "no_private_partner_data": true,
+    "use_internal_routes_only_until_assets_exist": true
+  },
+  "lead_magnets": [
+    {
+      "id": "funding_readiness_checklist",
+      "title": "Funding Readiness Checklist",
+      "slug": "funding-readiness-checklist",
+      "type": "checklist",
+      "status": "planned",
+      "audience": [
+        "business_owner",
+        "gig_worker",
+        "startup_founder"
+      ],
+      "summary": "A simple checklist for business setup, bank activity, documents, and funding purpose clarity.",
+      "landing_path": "/resources.html",
+      "thank_you_path": "/thank-you.html",
+      "gating": "optional_email_capture",
+      "related_page_ids": [
+        "documents",
+        "not_ready"
+      ],
+      "safe_promise": "Helps users prepare a cleaner file for review."
+    },
+    {
+      "id": "bank_statement_prep_guide",
+      "title": "Bank Statement Prep Guide",
+      "slug": "bank-statement-prep-guide",
+      "type": "guide",
+      "status": "planned",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "summary": "Explains how bank activity may affect funding-readiness review and how to organize statements.",
+      "landing_path": "/documents.html",
+      "thank_you_path": "/thank-you.html",
+      "gating": "optional_email_capture",
+      "related_page_ids": [
+        "documents",
+        "fundable_review"
+      ],
+      "safe_promise": "Helps users understand bank activity signals before review."
+    },
+    {
+      "id": "broker_intake_scorecard_pack",
+      "title": "Broker Intake Scorecard Pack",
+      "slug": "broker-intake-scorecard-pack",
+      "type": "template",
+      "status": "planned",
+      "audience": [
+        "broker",
+        "agency_owner"
+      ],
+      "summary": "A broker-facing intake flow, document checklist, and result language guide.",
+      "landing_path": "/broker.html",
+      "thank_you_path": "/thank-you.html",
+      "gating": "review_request",
+      "related_page_ids": [
+        "broker",
+        "white_label"
+      ],
+      "safe_promise": "Helps brokers triage leads and reduce intake chaos."
+    },
+    {
+      "id": "partner_embed_starter_kit",
+      "title": "Partner Embed Starter Kit",
+      "slug": "partner-embed-starter-kit",
+      "type": "guide",
+      "status": "planned",
+      "audience": [
+        "affiliate_partner",
+        "community_partner",
+        "agency_owner"
+      ],
+      "summary": "A public-safe guide for embedding the scorecard on partner pages.",
+      "landing_path": "/partners.html",
+      "thank_you_path": "/thank-you.html",
+      "gating": "partner_interest",
+      "related_page_ids": [
+        "partners",
+        "embed_example"
+      ],
+      "safe_promise": "Helps partners add a readiness tool without exposing private routing."
+    },
+    {
+      "id": "funding_path_comparison_sheet",
+      "title": "Funding Path Comparison Sheet",
+      "slug": "funding-path-comparison-sheet",
+      "type": "worksheet",
+      "status": "planned",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "summary": "A worksheet for comparing possible funding families by use case, document needs, and readiness signals.",
+      "landing_path": "/funding-paths.html",
+      "thank_you_path": "/thank-you.html",
+      "gating": "optional_email_capture",
+      "related_page_ids": [
+        "funding_paths",
+        "results"
+      ],
+      "safe_promise": "Helps users compare general paths before requesting review."
+    }
+  ]
+}

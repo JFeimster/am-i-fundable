@@ -1,0 +1,191 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "audiences_v1",
+  "description": "Public audience segments for page targeting, copy, forms, and CTA routing.",
+  "audiences": [
+    {
+      "id": "business_owner",
+      "label": "Small Business Owner",
+      "summary": "Operators looking for funding clarity before requesting review.",
+      "primary_needs": [
+        "Understand readiness",
+        "Avoid bad-fit applications",
+        "Prepare documents",
+        "Identify possible funding paths"
+      ],
+      "pages": [
+        "/scorecard.html",
+        "/results.html",
+        "/documents.html",
+        "/resources.html"
+      ],
+      "default_cta_id": "start_scorecard",
+      "safe_copy_angle": "Get clarity before you apply."
+    },
+    {
+      "id": "gig_worker",
+      "label": "Gig Worker or Independent Contractor",
+      "summary": "Self-employed operators who may need help formalizing business setup and separating finances.",
+      "primary_needs": [
+        "Business setup guidance",
+        "Bank account readiness",
+        "Revenue proof organization",
+        "Prep-first path"
+      ],
+      "pages": [
+        "/scorecard.html",
+        "/not-ready.html",
+        "/documents.html"
+      ],
+      "default_cta_id": "readiness_rebuild",
+      "safe_copy_angle": "Turn hustle activity into a cleaner business file."
+    },
+    {
+      "id": "ecommerce_seller",
+      "label": "E-commerce Seller",
+      "summary": "Marketplace or storefront sellers who need inventory, ad spend, cash-flow, or growth funding readiness support.",
+      "primary_needs": [
+        "Sales proof organization",
+        "Platform disbursement history",
+        "Inventory plan",
+        "Platform risk review"
+      ],
+      "pages": [
+        "/funding-paths.html",
+        "/documents.html",
+        "/scorecard.html"
+      ],
+      "default_cta_id": "find_path",
+      "safe_copy_angle": "Use sales activity to prepare a clearer funding conversation."
+    },
+    {
+      "id": "contractor",
+      "label": "Contractor or Equipment-Heavy Operator",
+      "summary": "Operators in trades, trucking, construction, or service businesses with equipment, vehicle, or materials needs.",
+      "primary_needs": [
+        "Equipment checklist",
+        "Project cash-flow review",
+        "Asset-use explanation",
+        "Bank statement prep"
+      ],
+      "pages": [
+        "/funding-paths.html",
+        "/documents.html",
+        "/scorecard.html"
+      ],
+      "default_cta_id": "prepare_file",
+      "safe_copy_angle": "Match the funding purpose to the job the money needs to do."
+    },
+    {
+      "id": "real_estate_investor",
+      "label": "Real Estate Investor",
+      "summary": "Property buyers, investors, or project sponsors who need readiness guidance before presenting a real estate funding request.",
+      "primary_needs": [
+        "Property details",
+        "Project scope",
+        "Experience summary",
+        "Exit plan"
+      ],
+      "pages": [
+        "/funding-paths.html",
+        "/documents.html",
+        "/fundable-review.html"
+      ],
+      "default_cta_id": "request_review",
+      "safe_copy_angle": "Get the project story and documents tight before review."
+    },
+    {
+      "id": "startup_founder",
+      "label": "Startup Founder",
+      "summary": "New business owners who may need structure, credit profile clarity, and document prep before seeking capital.",
+      "primary_needs": [
+        "Business structure",
+        "Credit-readiness education",
+        "Early proof organization",
+        "Realistic funding amount"
+      ],
+      "pages": [
+        "/not-ready.html",
+        "/documents.html",
+        "/scorecard.html"
+      ],
+      "default_cta_id": "readiness_rebuild",
+      "safe_copy_angle": "Build the foundation before playing funding roulette."
+    },
+    {
+      "id": "broker",
+      "label": "Funding Broker",
+      "summary": "Brokers who need a cleaner way to triage leads and collect readiness signals before a call.",
+      "primary_needs": [
+        "Lead triage",
+        "Document readiness",
+        "Review queue",
+        "Public-safe embed"
+      ],
+      "pages": [
+        "/broker.html",
+        "/white-label.html",
+        "/embed-example.html"
+      ],
+      "default_cta_id": "broker_scorecard",
+      "safe_copy_angle": "Stop wasting calls on mystery-meat leads."
+    },
+    {
+      "id": "agency_owner",
+      "label": "Agency Owner or Consultant",
+      "summary": "Service providers who want a branded readiness tool for clients or audiences.",
+      "primary_needs": [
+        "White-label page",
+        "Client intake",
+        "Resource library",
+        "Partner workflow"
+      ],
+      "pages": [
+        "/white-label.html",
+        "/partners.html",
+        "/resources.html"
+      ],
+      "default_cta_id": "white_label_review",
+      "safe_copy_angle": "Turn education into cleaner intake."
+    },
+    {
+      "id": "affiliate_partner",
+      "label": "Affiliate or Community Partner",
+      "summary": "Partners who want to send users into an educational readiness flow before any funding conversation.",
+      "primary_needs": [
+        "Public-safe referral flow",
+        "Educational landing page",
+        "Embed example",
+        "Trust copy"
+      ],
+      "pages": [
+        "/partners.html",
+        "/embed-example.html",
+        "/faq.html"
+      ],
+      "default_cta_id": "partner_inquiry",
+      "safe_copy_angle": "Give your audience a useful first step, not a blind application button."
+    }
+  ],
+  "audience_groups": {
+    "applicant": [
+      "business_owner",
+      "gig_worker",
+      "ecommerce_seller",
+      "contractor",
+      "real_estate_investor",
+      "startup_founder"
+    ],
+    "growth_partner": [
+      "broker",
+      "agency_owner",
+      "affiliate_partner"
+    ],
+    "internal_ops_reference_only": []
+  }
+}

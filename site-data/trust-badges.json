@@ -1,0 +1,120 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "trust_badges_v1",
+  "description": "Public trust, safety, and expectation badges for pages and forms.",
+  "badges": [
+    {
+      "id": "no_frontend_credit_pull",
+      "label": "No frontend credit pull",
+      "icon": "shield",
+      "summary": "The public scorecard uses self-reported answers and does not run credit.",
+      "use_on_pages": [
+        "/scorecard.html",
+        "/faq.html"
+      ]
+    },
+    {
+      "id": "education_first",
+      "label": "Education-first guidance",
+      "icon": "book",
+      "summary": "The scorecard explains readiness and next steps before any deeper review.",
+      "use_on_pages": [
+        "/",
+        "/results.html",
+        "/resources.html"
+      ]
+    },
+    {
+      "id": "human_review_when_needed",
+      "label": "Human review when needed",
+      "icon": "person-check",
+      "summary": "Mixed or complex files should be reviewed by a person before next-step recommendations.",
+      "use_on_pages": [
+        "/fundable-review.html",
+        "/broker.html"
+      ]
+    },
+    {
+      "id": "public_safe_paths",
+      "label": "Public-safe funding paths",
+      "icon": "route",
+      "summary": "Public pages describe funding families, not private partner-specific routing.",
+      "use_on_pages": [
+        "/funding-paths.html",
+        "/partners.html",
+        "/white-label.html"
+      ]
+    },
+    {
+      "id": "document_prep",
+      "label": "Document prep before review",
+      "icon": "file-check",
+      "summary": "Better documents make review cleaner and reduce wasted follow-up.",
+      "use_on_pages": [
+        "/documents.html",
+        "/thank-you.html"
+      ]
+    },
+    {
+      "id": "no_false_certainty",
+      "label": "No false certainty",
+      "icon": "alert-circle",
+      "summary": "Readiness scores do not equal final funding decisions.",
+      "use_on_pages": [
+        "/results.html",
+        "/terms.html"
+      ]
+    }
+  ],
+  "disclaimers": [
+    {
+      "id": "standard_scorecard_disclaimer",
+      "label": "Standard Scorecard Disclaimer",
+      "copy": "The Funding Readiness Scorecard is for educational readiness guidance only. It is not a funding approval, offer, commitment, or final funding decision.",
+      "use_contexts": [
+        "footer",
+        "scorecard",
+        "results"
+      ]
+    },
+    {
+      "id": "self_reported_data",
+      "label": "Self-Reported Data",
+      "copy": "Results are based on the answers provided and should be reviewed against actual documents before any next-step recommendation.",
+      "use_contexts": [
+        "results",
+        "thank_you",
+        "manual_review"
+      ]
+    },
+    {
+      "id": "document_security",
+      "label": "Document Security",
+      "copy": "Do not submit sensitive documents through a public page unless a secure document workflow is provided.",
+      "use_contexts": [
+        "documents",
+        "privacy"
+      ]
+    },
+    {
+      "id": "public_path_limit",
+      "label": "Funding Path Limit",
+      "copy": "Funding path descriptions are general categories and do not expose or represent private partner-specific criteria.",
+      "use_contexts": [
+        "funding_paths",
+        "partners"
+      ]
+    }
+  ],
+  "trust_strip_order": [
+    "no_frontend_credit_pull",
+    "education_first",
+    "human_review_when_needed",
+    "public_safe_paths"
+  ]
+}

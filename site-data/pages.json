@@ -1,0 +1,341 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "site_pages_registry_v1",
+  "description": "Canonical registry of public routes for the Am I Fundable mini-site.",
+  "default_layout": "static_marketing_page",
+  "canonical_base_path": "/",
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "file": "/index.html",
+      "title": "Funding Readiness Scorecard",
+      "nav_label": "Home",
+      "status": "existing",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "landing",
+      "primary_cta_id": "start_scorecard",
+      "secondary_cta_id": "view_funding_paths",
+      "summary": "Primary landing page introducing the free funding readiness scorecard.",
+      "safe_positioning": "Educational readiness guidance; not a funding decision.",
+      "indexable": true
+    },
+    {
+      "id": "scorecard",
+      "path": "/scorecard.html",
+      "file": "/scorecard.html",
+      "title": "Run the Funding Readiness Scorecard",
+      "nav_label": "Scorecard",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker_referred_applicant",
+        "partner_referred_applicant"
+      ],
+      "page_type": "scorecard_flow",
+      "primary_cta_id": "start_scorecard",
+      "summary": "Dedicated full-page scorecard experience.",
+      "safe_positioning": "Scores readiness based on self-reported answers and recommends next steps.",
+      "indexable": true
+    },
+    {
+      "id": "results",
+      "path": "/results.html",
+      "file": "/results.html",
+      "title": "Understand Your Funding Readiness Result",
+      "nav_label": "Results",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "page_type": "education",
+      "primary_cta_id": "run_scorecard",
+      "summary": "Public-safe explainer for score tiers, next steps, and manual review.",
+      "safe_positioning": "Explains readiness ranges without implying eligibility or offers.",
+      "indexable": true
+    },
+    {
+      "id": "funding_paths",
+      "path": "/funding-paths.html",
+      "file": "/funding-paths.html",
+      "title": "Funding Paths Explained",
+      "nav_label": "Funding Paths",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "education",
+      "primary_cta_id": "find_path",
+      "summary": "Explains public funding families without exposing partner-specific logic.",
+      "safe_positioning": "Describes possible funding lanes, not final matches.",
+      "indexable": true
+    },
+    {
+      "id": "documents",
+      "path": "/documents.html",
+      "file": "/documents.html",
+      "title": "Funding Document Prep Checklist",
+      "nav_label": "Documents",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "page_type": "checklist",
+      "primary_cta_id": "prepare_file",
+      "summary": "Practical checklist for documents commonly requested during review.",
+      "safe_positioning": "Helps users prepare a cleaner file for human review.",
+      "indexable": true
+    },
+    {
+      "id": "broker",
+      "path": "/broker.html",
+      "file": "/broker.html",
+      "title": "Broker Scorecard Workflow",
+      "nav_label": "Brokers",
+      "status": "batch_17",
+      "audience": [
+        "broker",
+        "agency_owner"
+      ],
+      "page_type": "audience_landing",
+      "primary_cta_id": "broker_scorecard",
+      "summary": "Broker-facing pitch for using the scorecard to improve lead triage.",
+      "safe_positioning": "Lead triage and readiness workflow, not automated underwriting.",
+      "indexable": true
+    },
+    {
+      "id": "partners",
+      "path": "/partners.html",
+      "file": "/partners.html",
+      "title": "Partner With the Funding Readiness Scorecard",
+      "nav_label": "Partners",
+      "status": "batch_17",
+      "audience": [
+        "affiliate_partner",
+        "community_partner",
+        "platform_partner"
+      ],
+      "page_type": "audience_landing",
+      "primary_cta_id": "partner_inquiry",
+      "summary": "Public-safe partner/affiliate landing page.",
+      "safe_positioning": "Educational referral and readiness routing, not a promise of funding.",
+      "indexable": true
+    },
+    {
+      "id": "white_label",
+      "path": "/white-label.html",
+      "file": "/white-label.html",
+      "title": "White-Label Funding Readiness Scorecard",
+      "nav_label": "White Label",
+      "status": "batch_17",
+      "audience": [
+        "broker",
+        "agency_owner",
+        "consultant"
+      ],
+      "page_type": "offer_landing",
+      "primary_cta_id": "white_label_review",
+      "summary": "White-label embed and partner-use pitch.",
+      "safe_positioning": "Client-facing readiness tool with human review guardrails.",
+      "indexable": true
+    },
+    {
+      "id": "embed_example",
+      "path": "/embed-example.html",
+      "file": "/embed-example.html",
+      "title": "Scorecard Embed Example",
+      "nav_label": "Embed Example",
+      "status": "batch_17",
+      "audience": [
+        "broker",
+        "partner",
+        "developer"
+      ],
+      "page_type": "demo",
+      "primary_cta_id": "copy_embed",
+      "summary": "Demo page showing how the widget can sit inside another page.",
+      "safe_positioning": "Demonstrates the public widget surface only.",
+      "indexable": false
+    },
+    {
+      "id": "thank_you",
+      "path": "/thank-you.html",
+      "file": "/thank-you.html",
+      "title": "Scorecard Submitted",
+      "nav_label": "Thank You",
+      "status": "batch_17",
+      "audience": [
+        "business_owner"
+      ],
+      "page_type": "post_submit",
+      "primary_cta_id": "prepare_documents",
+      "summary": "Post-submit next steps and review expectations.",
+      "safe_positioning": "Confirms submission received for review, not a funding decision.",
+      "indexable": false
+    },
+    {
+      "id": "not_ready",
+      "path": "/not-ready.html",
+      "file": "/not-ready.html",
+      "title": "Build Funding Readiness First",
+      "nav_label": "Prep First",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "startup_founder",
+        "gig_worker"
+      ],
+      "page_type": "result_path",
+      "primary_cta_id": "readiness_rebuild",
+      "summary": "Nurture and recovery path for low readiness users.",
+      "safe_positioning": "Focuses on readiness repair steps before applying.",
+      "indexable": true
+    },
+    {
+      "id": "fundable_review",
+      "path": "/fundable-review.html",
+      "file": "/fundable-review.html",
+      "title": "Funding Review Recommended",
+      "nav_label": "Review",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker_referred_applicant"
+      ],
+      "page_type": "result_path",
+      "primary_cta_id": "request_review",
+      "summary": "Manual review path for warm or mixed-profile leads.",
+      "safe_positioning": "A human should review the file before any next-step recommendation.",
+      "indexable": true
+    },
+    {
+      "id": "highly_fundable",
+      "path": "/highly-fundable.html",
+      "file": "/highly-fundable.html",
+      "title": "High Readiness Strategy Review",
+      "nav_label": "High Readiness",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "page_type": "result_path",
+      "primary_cta_id": "strategy_review",
+      "summary": "High-readiness next-step page for users with stronger files.",
+      "safe_positioning": "Encourages a fast strategy review without implying approval.",
+      "indexable": true
+    },
+    {
+      "id": "resources",
+      "path": "/resources.html",
+      "file": "/resources.html",
+      "title": "Funding Readiness Resources",
+      "nav_label": "Resources",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "resource_hub",
+      "primary_cta_id": "open_resources",
+      "summary": "Index of checklists, guides, FAQs, and tools.",
+      "safe_positioning": "Educational resources for readiness and preparation.",
+      "indexable": true
+    },
+    {
+      "id": "faq",
+      "path": "/faq.html",
+      "file": "/faq.html",
+      "title": "Funding Readiness FAQ",
+      "nav_label": "FAQ",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "faq",
+      "primary_cta_id": "run_scorecard",
+      "summary": "SEO-friendly questions and answers about the scorecard.",
+      "safe_positioning": "Clarifies what the tool does and does not do.",
+      "indexable": true
+    },
+    {
+      "id": "privacy",
+      "path": "/privacy.html",
+      "file": "/privacy.html",
+      "title": "Privacy and Data Use",
+      "nav_label": "Privacy",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "legal",
+      "primary_cta_id": "contact_support",
+      "summary": "Public privacy and data-use page for lead capture trust.",
+      "safe_positioning": "Plain-language explanation of collected data and intended use.",
+      "indexable": true
+    },
+    {
+      "id": "terms",
+      "path": "/terms.html",
+      "file": "/terms.html",
+      "title": "Terms and Funding Readiness Disclaimer",
+      "nav_label": "Terms",
+      "status": "batch_17",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "page_type": "legal",
+      "primary_cta_id": "run_scorecard",
+      "summary": "Terms, disclaimers, and usage boundaries.",
+      "safe_positioning": "States the scorecard is educational and not a funding offer.",
+      "indexable": true
+    }
+  ],
+  "route_groups": {
+    "core": [
+      "home",
+      "scorecard",
+      "results",
+      "funding_paths",
+      "documents",
+      "resources",
+      "faq"
+    ],
+    "audience": [
+      "broker",
+      "partners",
+      "white_label"
+    ],
+    "result_paths": [
+      "not_ready",
+      "fundable_review",
+      "highly_fundable"
+    ],
+    "utility": [
+      "embed_example",
+      "thank_you",
+      "privacy",
+      "terms"
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "embed_presets_v1",
+  "description": "Public embed variants by use case. Presets reference the public widget only.",
+  "default_widget_path": "/widget.html",
+  "rules": {
+    "browser_safe_only": true,
+    "do_not_load_internal_registries": true,
+    "partner_specific_terms_not_in_public_preset": true,
+    "consent_copy_required": true
+  },
+  "presets": [
+    {
+      "id": "general_full",
+      "label": "General Full Scorecard",
+      "use_case": "Public homepage or standalone campaign page",
+      "audience": [
+        "business_owner"
+      ],
+      "container_min_width": "320px",
+      "recommended_height": "860px",
+      "theme": "moonshine_default",
+      "widget_path": "/widget.html",
+      "embed_page_path": "/embed-example.html",
+      "headline": "Find Out If Your Business Is Fundable Before You Apply",
+      "cta_id": "start_scorecard",
+      "allowed_query_params": [
+        "source",
+        "audience",
+        "campaign"
+      ],
+      "sample_iframe": "<iframe src=\"/widget.html?source=general_full\" title=\"Funding Readiness Scorecard\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "id": "broker_full",
+      "label": "Broker Lead Triage",
+      "use_case": "Broker landing page intake",
+      "audience": [
+        "broker",
+        "business_owner"
+      ],
+      "container_min_width": "320px",
+      "recommended_height": "880px",
+      "theme": "broker_default",
+      "widget_path": "/widget.html",
+      "embed_page_path": "/broker.html",
+      "headline": "Pre-Screen Funding Readiness Before the First Call",
+      "cta_id": "broker_scorecard",
+      "allowed_query_params": [
+        "source",
+        "broker",
+        "campaign"
+      ],
+      "sample_iframe": "<iframe src=\"/widget.html?source=broker_full\" title=\"Broker Funding Readiness Scorecard\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "id": "partner_education",
+      "label": "Partner Education Embed",
+      "use_case": "Community, newsletter, or partner resource pages",
+      "audience": [
+        "affiliate_partner",
+        "community_partner",
+        "business_owner"
+      ],
+      "container_min_width": "320px",
+      "recommended_height": "840px",
+      "theme": "partner_neutral",
+      "widget_path": "/widget.html",
+      "embed_page_path": "/partners.html",
+      "headline": "Check Funding Readiness Before You Request Review",
+      "cta_id": "partner_inquiry",
+      "allowed_query_params": [
+        "source",
+        "partner",
+        "campaign"
+      ],
+      "sample_iframe": "<iframe src=\"/widget.html?source=partner_education\" title=\"Funding Readiness Scorecard\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "id": "compact_inline",
+      "label": "Compact Inline Widget",
+      "use_case": "Sidebar, resource page, or shorter landing page section",
+      "audience": [
+        "business_owner",
+        "partner"
+      ],
+      "container_min_width": "300px",
+      "recommended_height": "720px",
+      "theme": "compact",
+      "widget_path": "/widget.html",
+      "embed_page_path": "/embed-example.html",
+      "headline": "Check Your Funding Readiness",
+      "cta_id": "start_scorecard",
+      "allowed_query_params": [
+        "source",
+        "layout",
+        "campaign"
+      ],
+      "sample_iframe": "<iframe src=\"/widget.html?source=compact_inline&layout=compact\" title=\"Funding Readiness Scorecard\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "id": "white_label_review",
+      "label": "White-Label Review Surface",
+      "use_case": "Agency or broker white-label intake flow",
+      "audience": [
+        "agency_owner",
+        "broker",
+        "consultant"
+      ],
+      "container_min_width": "320px",
+      "recommended_height": "900px",
+      "theme": "white_label_safe",
+      "widget_path": "/widget.html",
+      "embed_page_path": "/white-label.html",
+      "headline": "Client Funding Readiness Review",
+      "cta_id": "white_label_review",
+      "allowed_query_params": [
+        "source",
+        "brand",
+        "campaign"
+      ],
+      "sample_iframe": "<iframe src=\"/widget.html?source=white_label_review\" title=\"Client Funding Readiness Scorecard\" loading=\"lazy\"></iframe>"
+    }
+  ],
+  "installation_notes": [
+    "Use only the public widget path.",
+    "Do not embed internal routing data in query parameters.",
+    "Keep partner-specific terms out of browser-facing code.",
+    "Include the standard scorecard disclaimer near the embed."
+  ]
+}

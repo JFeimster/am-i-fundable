@@ -1,0 +1,196 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "resource_library_v1",
+  "description": "Public resource index for checklists, explainers, guides, and tools.",
+  "resource_types": [
+    {
+      "id": "checklist",
+      "label": "Checklist"
+    },
+    {
+      "id": "guide",
+      "label": "Guide"
+    },
+    {
+      "id": "tool",
+      "label": "Tool"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ"
+    },
+    {
+      "id": "template",
+      "label": "Template"
+    }
+  ],
+  "resources": [
+    {
+      "id": "run_scorecard",
+      "title": "Funding Readiness Scorecard",
+      "type": "tool",
+      "summary": "Answer a few questions and get a readiness score with recommended next steps.",
+      "href": "/scorecard.html",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "related_cta_id": "start_scorecard",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "results_guide",
+      "title": "Result Tier Explainer",
+      "type": "guide",
+      "summary": "Understand what each readiness tier means and what to do next.",
+      "href": "/results.html",
+      "audience": [
+        "business_owner"
+      ],
+      "related_cta_id": "run_scorecard",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "funding_paths_guide",
+      "title": "Funding Paths Explained",
+      "type": "guide",
+      "summary": "Learn the public funding families without partner-specific routing details.",
+      "href": "/funding-paths.html",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "related_cta_id": "find_path",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "document_prep_checklist",
+      "title": "Document Prep Checklist",
+      "type": "checklist",
+      "summary": "Prepare the core documents commonly needed for review.",
+      "href": "/documents.html",
+      "audience": [
+        "business_owner"
+      ],
+      "related_cta_id": "prepare_file",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "prep_first_guide",
+      "title": "Prep-First Readiness Path",
+      "type": "guide",
+      "summary": "Use this path when the score suggests setup or documentation work should come first.",
+      "href": "/not-ready.html",
+      "audience": [
+        "business_owner",
+        "gig_worker",
+        "startup_founder"
+      ],
+      "related_cta_id": "readiness_rebuild",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "manual_review_guide",
+      "title": "Manual Review Guide",
+      "type": "guide",
+      "summary": "Understand when and why a human review may be recommended.",
+      "href": "/fundable-review.html",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "related_cta_id": "request_review",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "high_readiness_guide",
+      "title": "High Readiness Strategy Review",
+      "type": "guide",
+      "summary": "Next steps for users with stronger readiness signals.",
+      "href": "/highly-fundable.html",
+      "audience": [
+        "business_owner"
+      ],
+      "related_cta_id": "strategy_review",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "broker_workflow_guide",
+      "title": "Broker Scorecard Workflow",
+      "type": "guide",
+      "summary": "Use the scorecard as a lead triage and document-readiness workflow.",
+      "href": "/broker.html",
+      "audience": [
+        "broker",
+        "agency_owner"
+      ],
+      "related_cta_id": "broker_scorecard",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "partner_use_guide",
+      "title": "Partner Use Guide",
+      "type": "guide",
+      "summary": "Give partners a safe readiness tool before funding conversations.",
+      "href": "/partners.html",
+      "audience": [
+        "affiliate_partner",
+        "community_partner"
+      ],
+      "related_cta_id": "partner_inquiry",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "white_label_guide",
+      "title": "White-Label Scorecard Guide",
+      "type": "guide",
+      "summary": "Understand how a branded embed can support broker or agency intake.",
+      "href": "/white-label.html",
+      "audience": [
+        "broker",
+        "agency_owner",
+        "consultant"
+      ],
+      "related_cta_id": "white_label_review",
+      "status": "live_page",
+      "gated": false
+    },
+    {
+      "id": "faq",
+      "title": "Funding Readiness FAQ",
+      "type": "faq",
+      "summary": "Answers to common questions about scorecard use, results, documents, and privacy.",
+      "href": "/faq.html",
+      "audience": [
+        "business_owner",
+        "broker",
+        "partner"
+      ],
+      "related_cta_id": "run_scorecard",
+      "status": "live_page",
+      "gated": false
+    }
+  ],
+  "featured_resource_ids": [
+    "run_scorecard",
+    "document_prep_checklist",
+    "funding_paths_guide",
+    "manual_review_guide"
+  ],
+  "resource_hub_path": "/resources.html"
+}

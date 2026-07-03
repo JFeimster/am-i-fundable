@@ -1,0 +1,244 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "cta_registry_v1",
+  "description": "Central CTA registry for public pages and result flows.",
+  "defaults": {
+    "primary": "start_scorecard",
+    "secondary": "view_funding_paths",
+    "disclaimer": "Recommendations are based on your answers and may require human review."
+  },
+  "ctas": [
+    {
+      "id": "start_scorecard",
+      "label": "Get My Funding Score",
+      "href": "/scorecard.html",
+      "intent": "start_assessment",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "Takes a few minutes. No credit pull from this frontend scorecard."
+    },
+    {
+      "id": "run_scorecard",
+      "label": "Run the Scorecard",
+      "href": "/scorecard.html",
+      "intent": "start_assessment",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "safe_microcopy": "Use the scorecard to understand readiness before requesting review."
+    },
+    {
+      "id": "find_path",
+      "label": "Find My Potential Funding Path",
+      "href": "/scorecard.html",
+      "intent": "path_recommendation",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "See which funding families may fit based on your answers."
+    },
+    {
+      "id": "view_funding_paths",
+      "label": "See Funding Paths",
+      "href": "/funding-paths.html",
+      "intent": "education",
+      "audience": [
+        "business_owner",
+        "partner"
+      ],
+      "safe_microcopy": "Understand the funding families before you pick a route."
+    },
+    {
+      "id": "prepare_file",
+      "label": "Prepare My File",
+      "href": "/documents.html",
+      "intent": "document_prep",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "Get the common document checklist before review."
+    },
+    {
+      "id": "request_review",
+      "label": "Request Human Review",
+      "href": "/fundable-review.html",
+      "intent": "manual_review",
+      "audience": [
+        "business_owner",
+        "broker_referred_applicant"
+      ],
+      "safe_microcopy": "A human review can help interpret mixed readiness signals."
+    },
+    {
+      "id": "strategy_review",
+      "label": "Book a Readiness Strategy Review",
+      "href": "/highly-fundable.html",
+      "intent": "high_readiness_next_step",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "High readiness means your file may be worth reviewing quickly."
+    },
+    {
+      "id": "readiness_rebuild",
+      "label": "Start the Readiness Rebuild",
+      "href": "/not-ready.html",
+      "intent": "nurture",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "Fix the file before you chase capital."
+    },
+    {
+      "id": "broker_scorecard",
+      "label": "Use the Broker Scorecard Workflow",
+      "href": "/broker.html",
+      "intent": "broker_conversion",
+      "audience": [
+        "broker",
+        "agency_owner"
+      ],
+      "safe_microcopy": "Triage leads before the first call."
+    },
+    {
+      "id": "partner_inquiry",
+      "label": "Explore Partner Use",
+      "href": "/partners.html",
+      "intent": "partner_conversion",
+      "audience": [
+        "affiliate_partner",
+        "community_partner"
+      ],
+      "safe_microcopy": "Give your audience a readiness tool before sending them into a funding conversation."
+    },
+    {
+      "id": "white_label_review",
+      "label": "Review White-Label Options",
+      "href": "/white-label.html",
+      "intent": "white_label_conversion",
+      "audience": [
+        "broker",
+        "agency_owner",
+        "consultant"
+      ],
+      "safe_microcopy": "Use a branded readiness surface with public-safe guardrails."
+    },
+    {
+      "id": "copy_embed",
+      "label": "View Embed Example",
+      "href": "/embed-example.html",
+      "intent": "embed_demo",
+      "audience": [
+        "developer",
+        "partner"
+      ],
+      "safe_microcopy": "Demo the public widget surface."
+    },
+    {
+      "id": "open_resources",
+      "label": "Open Resource Library",
+      "href": "/resources.html",
+      "intent": "resource_navigation",
+      "audience": [
+        "business_owner",
+        "broker"
+      ],
+      "safe_microcopy": "Checklists, explainers, and prep guides."
+    },
+    {
+      "id": "contact_support",
+      "label": "Review Privacy Terms",
+      "href": "/privacy.html",
+      "intent": "trust_navigation",
+      "audience": [
+        "business_owner"
+      ],
+      "safe_microcopy": "Understand how submitted information may be used."
+    }
+  ],
+  "page_cta_map": {
+    "home": [
+      "start_scorecard",
+      "view_funding_paths"
+    ],
+    "scorecard": [
+      "start_scorecard",
+      "prepare_file"
+    ],
+    "results": [
+      "run_scorecard",
+      "request_review"
+    ],
+    "funding_paths": [
+      "find_path",
+      "prepare_file"
+    ],
+    "documents": [
+      "run_scorecard",
+      "request_review"
+    ],
+    "broker": [
+      "broker_scorecard",
+      "copy_embed"
+    ],
+    "partners": [
+      "partner_inquiry",
+      "copy_embed"
+    ],
+    "white_label": [
+      "white_label_review",
+      "copy_embed"
+    ],
+    "not_ready": [
+      "readiness_rebuild",
+      "open_resources"
+    ],
+    "fundable_review": [
+      "request_review",
+      "prepare_file"
+    ],
+    "highly_fundable": [
+      "strategy_review",
+      "prepare_file"
+    ],
+    "resources": [
+      "run_scorecard",
+      "view_funding_paths"
+    ],
+    "faq": [
+      "run_scorecard",
+      "open_resources"
+    ],
+    "privacy": [
+      "run_scorecard"
+    ],
+    "terms": [
+      "run_scorecard"
+    ]
+  },
+  "result_tier_cta_map": {
+    "prep_first": [
+      "readiness_rebuild",
+      "open_resources"
+    ],
+    "selective_fit": [
+      "prepare_file",
+      "request_review"
+    ],
+    "review_ready": [
+      "request_review",
+      "prepare_file"
+    ],
+    "high_readiness": [
+      "strategy_review",
+      "prepare_file"
+    ]
+  }
+}

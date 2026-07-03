@@ -1,0 +1,187 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "faq_registry_v1",
+  "description": "Public FAQ data for the FAQ page and future FAQ schema generation.",
+  "schema_hint": "FAQPage",
+  "categories": [
+    {
+      "id": "scorecard_basics",
+      "label": "Scorecard Basics",
+      "priority": 10
+    },
+    {
+      "id": "results",
+      "label": "Results and Next Steps",
+      "priority": 20
+    },
+    {
+      "id": "documents",
+      "label": "Documents and Review",
+      "priority": 30
+    },
+    {
+      "id": "broker_partner",
+      "label": "Broker and Partner Use",
+      "priority": 40
+    },
+    {
+      "id": "privacy_safety",
+      "label": "Privacy and Boundaries",
+      "priority": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "faq_is_this_approval",
+      "category_id": "scorecard_basics",
+      "question": "Is the Funding Readiness Scorecard an approval?",
+      "answer": "No. The scorecard is an educational readiness tool. It is not a funding approval, offer, commitment, or final funding decision.",
+      "priority": 10,
+      "related_pages": [
+        "/scorecard.html",
+        "/terms.html"
+      ]
+    },
+    {
+      "id": "faq_credit_pull",
+      "category_id": "scorecard_basics",
+      "question": "Will the scorecard affect my credit?",
+      "answer": "No. The public scorecard does not run credit. It uses the answers you provide to estimate readiness and recommend next steps.",
+      "priority": 20,
+      "related_pages": [
+        "/scorecard.html",
+        "/privacy.html"
+      ]
+    },
+    {
+      "id": "faq_score_inputs",
+      "category_id": "scorecard_basics",
+      "question": "What does the scorecard look at?",
+      "answer": "The scorecard looks at self-reported business revenue, time in business, credit range, bank activity, business structure, funding purpose, desired amount, and common risk signals.",
+      "priority": 30,
+      "related_pages": [
+        "/scorecard.html",
+        "/results.html"
+      ]
+    },
+    {
+      "id": "faq_time",
+      "category_id": "scorecard_basics",
+      "question": "How long does it take?",
+      "answer": "Most users can complete the scorecard in a few minutes if they know their approximate revenue, time in business, credit range, and funding purpose.",
+      "priority": 40,
+      "related_pages": [
+        "/scorecard.html"
+      ]
+    },
+    {
+      "id": "faq_result_tiers",
+      "category_id": "results",
+      "question": "What do the result tiers mean?",
+      "answer": "Result tiers summarize readiness. A low score usually means prep work comes first. A mid-range score may need selective routing or human review. A stronger score may be ready for a faster strategy review.",
+      "priority": 50,
+      "related_pages": [
+        "/results.html"
+      ]
+    },
+    {
+      "id": "faq_human_review",
+      "category_id": "results",
+      "question": "Why would my file need human review?",
+      "answer": "A human review is recommended when the score shows mixed signals, such as solid revenue with recent bank issues, newer operating history, unclear documents, or a funding amount that may not match the profile.",
+      "priority": 60,
+      "related_pages": [
+        "/fundable-review.html"
+      ]
+    },
+    {
+      "id": "faq_not_ready",
+      "category_id": "results",
+      "question": "What if I am not ready yet?",
+      "answer": "That is useful information, not a failure. The prep-first path focuses on cleaning up documents, separating business finances, improving bank activity, and clarifying the funding purpose before requesting review.",
+      "priority": 70,
+      "related_pages": [
+        "/not-ready.html",
+        "/documents.html"
+      ]
+    },
+    {
+      "id": "faq_documents_needed",
+      "category_id": "documents",
+      "question": "What documents should I prepare?",
+      "answer": "Common review documents include recent business bank statements, business entity details, EIN or tax ID details, proof of revenue, platform sales reports if relevant, invoices, project details, or equipment information depending on the funding purpose.",
+      "priority": 80,
+      "related_pages": [
+        "/documents.html"
+      ]
+    },
+    {
+      "id": "faq_no_documents",
+      "category_id": "documents",
+      "question": "Can I use the scorecard before I have documents ready?",
+      "answer": "Yes. The scorecard can help you understand what to prepare next. Stronger documentation usually makes the follow-up conversation cleaner.",
+      "priority": 90,
+      "related_pages": [
+        "/scorecard.html",
+        "/documents.html"
+      ]
+    },
+    {
+      "id": "faq_broker_use",
+      "category_id": "broker_partner",
+      "question": "Can brokers use this with leads?",
+      "answer": "Yes. Brokers can use the scorecard as a front-end triage tool to understand readiness, likely blockers, document needs, and recommended next steps before a deeper conversation.",
+      "priority": 100,
+      "related_pages": [
+        "/broker.html"
+      ]
+    },
+    {
+      "id": "faq_partner_embed",
+      "category_id": "broker_partner",
+      "question": "Can the scorecard be embedded on another site?",
+      "answer": "Yes. The public widget can be embedded as a readiness assessment surface for partner pages, broker pages, community resources, or campaign landing pages.",
+      "priority": 110,
+      "related_pages": [
+        "/embed-example.html",
+        "/white-label.html"
+      ]
+    },
+    {
+      "id": "faq_partner_data",
+      "category_id": "privacy_safety",
+      "question": "Does the public site expose funding partner details?",
+      "answer": "No. Public pages and public data should describe funding families and next steps only. Private routing logic and partner-specific details belong on the server side or in internal-only files.",
+      "priority": 120,
+      "related_pages": [
+        "/privacy.html",
+        "/terms.html"
+      ]
+    },
+    {
+      "id": "faq_data_use",
+      "category_id": "privacy_safety",
+      "question": "How is submitted information used?",
+      "answer": "Submitted information may be used to calculate readiness, prepare a follow-up summary, support human review, and recommend educational next steps. The public scorecard should not collect unnecessary sensitive information.",
+      "priority": 130,
+      "related_pages": [
+        "/privacy.html"
+      ]
+    },
+    {
+      "id": "faq_final_decision",
+      "category_id": "privacy_safety",
+      "question": "Who makes final funding decisions?",
+      "answer": "The scorecard does not make final decisions. Any actual funding option would depend on review, documentation, business performance, credit profile, applicable criteria, and other factors.",
+      "priority": 140,
+      "related_pages": [
+        "/terms.html"
+      ]
+    }
+  ]
+}

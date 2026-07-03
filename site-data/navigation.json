@@ -1,0 +1,178 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "navigation_v1",
+  "description": "Header, footer, and contextual navigation for public-safe static pages.",
+  "brand": {
+    "name": "Moonshine Capital",
+    "product_name": "Funding Readiness Scorecard",
+    "short_name": "Am I Fundable",
+    "home_path": "/",
+    "brand_mark_text": "MC"
+  },
+  "header": {
+    "aria_label": "Primary navigation",
+    "items": [
+      {
+        "id": "nav_scorecard",
+        "label": "Scorecard",
+        "href": "/scorecard.html",
+        "page_id": "scorecard",
+        "priority": 10
+      },
+      {
+        "id": "nav_paths",
+        "label": "Funding Paths",
+        "href": "/funding-paths.html",
+        "page_id": "funding_paths",
+        "priority": 20
+      },
+      {
+        "id": "nav_documents",
+        "label": "Documents",
+        "href": "/documents.html",
+        "page_id": "documents",
+        "priority": 30
+      },
+      {
+        "id": "nav_resources",
+        "label": "Resources",
+        "href": "/resources.html",
+        "page_id": "resources",
+        "priority": 40
+      },
+      {
+        "id": "nav_brokers",
+        "label": "Brokers",
+        "href": "/broker.html",
+        "page_id": "broker",
+        "priority": 50
+      }
+    ],
+    "cta": {
+      "id": "header_get_score",
+      "label": "Get My Score",
+      "href": "/scorecard.html",
+      "cta_id": "start_scorecard"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "id": "footer_scorecard",
+        "heading": "Scorecard",
+        "links": [
+          {
+            "label": "Run the Scorecard",
+            "href": "/scorecard.html"
+          },
+          {
+            "label": "Understand Results",
+            "href": "/results.html"
+          },
+          {
+            "label": "Funding Paths",
+            "href": "/funding-paths.html"
+          },
+          {
+            "label": "Document Prep",
+            "href": "/documents.html"
+          }
+        ]
+      },
+      {
+        "id": "footer_business",
+        "heading": "For Operators",
+        "links": [
+          {
+            "label": "Resources",
+            "href": "/resources.html"
+          },
+          {
+            "label": "FAQ",
+            "href": "/faq.html"
+          },
+          {
+            "label": "Prep First Path",
+            "href": "/not-ready.html"
+          },
+          {
+            "label": "Manual Review",
+            "href": "/fundable-review.html"
+          }
+        ]
+      },
+      {
+        "id": "footer_partners",
+        "heading": "For Growth Partners",
+        "links": [
+          {
+            "label": "Broker Workflow",
+            "href": "/broker.html"
+          },
+          {
+            "label": "Partner Page",
+            "href": "/partners.html"
+          },
+          {
+            "label": "White Label",
+            "href": "/white-label.html"
+          },
+          {
+            "label": "Embed Example",
+            "href": "/embed-example.html"
+          }
+        ]
+      },
+      {
+        "id": "footer_legal",
+        "heading": "Trust",
+        "links": [
+          {
+            "label": "Privacy",
+            "href": "/privacy.html"
+          },
+          {
+            "label": "Terms",
+            "href": "/terms.html"
+          }
+        ]
+      }
+    ],
+    "disclaimer": "The Funding Readiness Scorecard provides educational readiness guidance only. It is not a funding approval, offer, commitment, or final funding decision."
+  },
+  "contextual_nav": {
+    "result_pages": [
+      {
+        "label": "Build Readiness",
+        "href": "/not-ready.html"
+      },
+      {
+        "label": "Manual Review",
+        "href": "/fundable-review.html"
+      },
+      {
+        "label": "High Readiness",
+        "href": "/highly-fundable.html"
+      }
+    ],
+    "resource_pages": [
+      {
+        "label": "Documents",
+        "href": "/documents.html"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq.html"
+      },
+      {
+        "label": "Funding Paths",
+        "href": "/funding-paths.html"
+      }
+    ]
+  }
+}

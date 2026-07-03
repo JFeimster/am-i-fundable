@@ -1,0 +1,269 @@
+{
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 18,
+  "visibility": "public_runtime_browser_safe",
+  "generated_for": "Batch 18 — JSON Site Data Foundation",
+  "safety_note": "Public data only. No real funding partner names, private routing logic, affiliate links, apply links, private compensation data, private access details, borrower PII, or private review notes.",
+  "id": "document_checklists_v1",
+  "description": "Public-safe checklist items by funding path and review scenario.",
+  "global_guidance": "Prepare documents before review. Do not upload unnecessary sensitive documents through public forms unless a secure workflow is provided.",
+  "checklists": [
+    {
+      "id": "core_business_file",
+      "label": "Core Business File",
+      "applies_to": [
+        "all"
+      ],
+      "summary": "Baseline documents and details commonly needed for a cleaner funding-readiness conversation.",
+      "items": [
+        {
+          "id": "business_name",
+          "label": "Legal business name and DBA if applicable",
+          "priority": "required",
+          "why": "Confirms basic business identity."
+        },
+        {
+          "id": "entity_details",
+          "label": "Entity type, formation state, and formation date",
+          "priority": "recommended",
+          "why": "Helps review time in business and structure."
+        },
+        {
+          "id": "ein_tax_id",
+          "label": "EIN or tax ID details if available",
+          "priority": "recommended",
+          "why": "Supports business identity review."
+        },
+        {
+          "id": "owner_contact",
+          "label": "Owner contact details",
+          "priority": "required",
+          "why": "Needed for follow-up and review coordination."
+        },
+        {
+          "id": "funding_purpose",
+          "label": "Clear funding purpose and target amount",
+          "priority": "required",
+          "why": "Routes the conversation toward the right funding family."
+        }
+      ]
+    },
+    {
+      "id": "working_capital",
+      "label": "Working Capital",
+      "applies_to": [
+        "working_capital",
+        "inventory",
+        "growth"
+      ],
+      "summary": "Useful when funds are intended for payroll, inventory, materials, marketing, or short-cycle operating needs.",
+      "items": [
+        {
+          "id": "bank_statements",
+          "label": "Last 3–6 months of business bank statements",
+          "priority": "required",
+          "why": "Shows deposits, cash flow, and bank activity patterns."
+        },
+        {
+          "id": "revenue_summary",
+          "label": "Simple monthly revenue summary",
+          "priority": "recommended",
+          "why": "Helps compare the requested amount to current business activity."
+        },
+        {
+          "id": "use_of_funds",
+          "label": "Use-of-funds note",
+          "priority": "recommended",
+          "why": "Clarifies whether the request is for payroll, inventory, materials, or growth."
+        },
+        {
+          "id": "existing_obligations",
+          "label": "List of existing business financing obligations if any",
+          "priority": "recommended",
+          "why": "Helps identify cash-flow pressure and review needs."
+        }
+      ]
+    },
+    {
+      "id": "equipment_asset",
+      "label": "Equipment or Asset Funding",
+      "applies_to": [
+        "equipment",
+        "vehicle",
+        "trucking",
+        "contractor"
+      ],
+      "summary": "Useful when funding is tied to equipment, vehicles, trucks, machinery, or other business assets.",
+      "items": [
+        {
+          "id": "equipment_quote",
+          "label": "Equipment invoice, quote, or purchase estimate",
+          "priority": "required",
+          "why": "Defines the asset and target amount."
+        },
+        {
+          "id": "vendor_details",
+          "label": "Seller or vendor details",
+          "priority": "recommended",
+          "why": "Supports asset review and transaction planning."
+        },
+        {
+          "id": "asset_use",
+          "label": "Description of how the asset supports revenue",
+          "priority": "recommended",
+          "why": "Connects the asset to business operations."
+        },
+        {
+          "id": "insurance_or_registration",
+          "label": "Insurance, registration, or operating documentation if applicable",
+          "priority": "optional",
+          "why": "May help with asset-heavy scenarios."
+        }
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "label": "E-commerce or Marketplace Seller",
+      "applies_to": [
+        "ecommerce",
+        "marketplace_seller"
+      ],
+      "summary": "Useful for sellers using marketplaces, carts, or online storefronts.",
+      "items": [
+        {
+          "id": "platform_sales",
+          "label": "Recent platform sales reports or platform disbursement history",
+          "priority": "required",
+          "why": "Shows online revenue activity."
+        },
+        {
+          "id": "storefront_urls",
+          "label": "Storefront or marketplace profile links",
+          "priority": "recommended",
+          "why": "Helps verify the business model and channel."
+        },
+        {
+          "id": "inventory_plan",
+          "label": "Inventory or advertising plan",
+          "priority": "recommended",
+          "why": "Clarifies how the requested funds support growth."
+        },
+        {
+          "id": "platform_status",
+          "label": "Marketplace status and account standing",
+          "priority": "recommended",
+          "why": "Identifies platform risk without exposing private account data publicly."
+        }
+      ]
+    },
+    {
+      "id": "real_estate",
+      "label": "Real Estate Project",
+      "applies_to": [
+        "real_estate",
+        "fix_flip",
+        "rental",
+        "commercial_property"
+      ],
+      "summary": "Useful for investor, rental, bridge, project, or property-backed scenarios.",
+      "items": [
+        {
+          "id": "property_address",
+          "label": "Property address or project summary",
+          "priority": "required",
+          "why": "Defines the asset or project."
+        },
+        {
+          "id": "purchase_or_project_docs",
+          "label": "Purchase agreement, scope of work, or project estimate",
+          "priority": "recommended",
+          "why": "Shows the funding use case and project size."
+        },
+        {
+          "id": "experience_summary",
+          "label": "Real estate experience summary",
+          "priority": "recommended",
+          "why": "Helps review project readiness."
+        },
+        {
+          "id": "exit_plan",
+          "label": "Exit or repayment strategy summary",
+          "priority": "recommended",
+          "why": "Clarifies how the project is expected to resolve."
+        }
+      ]
+    },
+    {
+      "id": "startup_credit",
+      "label": "Startup or Credit-Leverage Path",
+      "applies_to": [
+        "startup",
+        "business_credit"
+      ],
+      "summary": "Useful when the business has limited operating history and readiness depends more on structure, documents, and personal credit profile.",
+      "items": [
+        {
+          "id": "business_plan_snapshot",
+          "label": "One-page business plan or operating summary",
+          "priority": "recommended",
+          "why": "Explains what the business does and how funds would be used."
+        },
+        {
+          "id": "personal_credit_range",
+          "label": "Estimated personal credit range",
+          "priority": "required",
+          "why": "Often matters more when business history is thin."
+        },
+        {
+          "id": "entity_setup",
+          "label": "Entity, EIN, bank account, and contact consistency checklist",
+          "priority": "recommended",
+          "why": "Supports clean setup before seeking capital."
+        },
+        {
+          "id": "revenue_or_contracts",
+          "label": "Any early revenue, contracts, purchase orders, or pipeline proof",
+          "priority": "optional",
+          "why": "Can strengthen a newer business file."
+        }
+      ]
+    },
+    {
+      "id": "review_packet",
+      "label": "Manual Review Packet",
+      "applies_to": [
+        "selective_fit",
+        "review_ready",
+        "high_readiness"
+      ],
+      "summary": "Useful when a human review is recommended before choosing a next step.",
+      "items": [
+        {
+          "id": "scorecard_summary",
+          "label": "Scorecard result summary",
+          "priority": "required",
+          "why": "Gives the reviewer context."
+        },
+        {
+          "id": "blocker_notes",
+          "label": "Short notes on known blockers or concerns",
+          "priority": "recommended",
+          "why": "Keeps review honest and efficient."
+        },
+        {
+          "id": "document_gap_list",
+          "label": "List of missing documents",
+          "priority": "recommended",
+          "why": "Shows what must be gathered next."
+        },
+        {
+          "id": "preferred_timing",
+          "label": "Desired timing and urgency",
+          "priority": "optional",
+          "why": "Helps prioritize next-step planning."
+        }
+      ]
+    }
+  ]
+}
