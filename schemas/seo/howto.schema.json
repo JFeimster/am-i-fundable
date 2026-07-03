@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "https://am-i-fundable.vercel.app/documents.html#howto",
+  "name": "How to Prepare for a Funding Readiness Review",
+  "description": "A public-safe checklist for preparing common information before requesting a funding-readiness review.",
+  "inLanguage": "en-US",
+  "totalTime": "PT30M",
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Recent business bank statements"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Revenue or sales proof"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Business entity and EIN details"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Funding purpose notes"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Confirm business basics",
+      "text": "Gather your legal business name, entity type, EIN status, business address, owner details, and operating history."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Collect revenue proof",
+      "text": "Prepare recent bank statements, platform sales reports, invoices, merchant processing records, or other documents that support your revenue range."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Review bank activity",
+      "text": "Check deposit consistency, recent overdrafts or NSFs, negative balance days, and whether business deposits flow through the correct account."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Clarify funding purpose",
+      "text": "Write a plain-language explanation of the funding use case, requested amount, timing, and expected business impact."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Request review if appropriate",
+      "text": "Use the scorecard result to decide whether to request human review now or follow a prep-first path before review. Human review is not an approval or funding offer."
+    }
+  ]
+}

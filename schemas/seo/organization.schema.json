@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://am-i-fundable.vercel.app/#organization",
+  "name": "Moonshine Capital",
+  "url": "https://am-i-fundable.vercel.app/",
+  "description": "Moonshine Capital provides public-safe funding readiness education, scorecard workflows, and next-step guidance for business owners, brokers, and partner audiences.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Am I Fundable"
+  },
+  "sameAs": [],
+  "knowsAbout": [
+    "funding readiness",
+    "business funding document preparation",
+    "broker intake workflows",
+    "public-safe funding education",
+    "lead review workflows"
+  ],
+  "foundingLocation": {
+    "@type": "Country",
+    "name": "United States"
+  }
+}

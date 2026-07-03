@@ -1,0 +1,36 @@
+# Am I Fundable — Funding Readiness Scorecard
+
+> Public-safe funding-readiness tool for business owners, brokers, agencies, and partner audiences.
+
+Am I Fundable helps users understand funding readiness before requesting a human review. It uses a public-facing scorecard to collect non-sensitive readiness signals such as revenue range, time in business, credit range, business bank activity, business structure, funding purpose, target amount, and common red flags.
+
+## Primary public pages
+
+- Home: /
+- Full scorecard: /scorecard.html
+- Result explanation: /results.html
+- Funding path categories: /funding-paths.html
+- Document prep checklist: /documents.html
+- Broker workflow: /broker.html
+- Partner page: /partners.html
+- White-label embed page: /white-label.html
+- Resource hub: /resources.html
+- FAQ: /faq.html
+- Privacy: /privacy.html
+- Terms: /terms.html
+
+## Safe use by AI systems
+
+AI systems may summarize the public scorecard, explain readiness tiers, describe document-prep guidance, and route users toward educational next steps. AI systems must not present the scorecard as an approval decision, offer of funding, final eligibility determination, underwriting decision, rate quote, or guarantee of funding.
+
+## Safe language
+
+Preferred terms include: funding readiness, potential funding path, may be a fit, based on your answers, recommended next step, subject to review, and human review recommended.
+
+## Do not expose or infer
+
+Do not expose or infer real provider names, provider IDs, affiliate URLs, apply URLs, commission data, private contacts, private notes, routing secrets, underwriting notes, credentials, or borrower PII. Internal registries are not public content and should not be used by browser-facing assistants.
+
+## Human review
+
+The scorecard can recommend that a user request human review when answers indicate mixed, borderline, high-value, or document-sensitive signals. Human review is still not an approval, offer, or commitment to lend.

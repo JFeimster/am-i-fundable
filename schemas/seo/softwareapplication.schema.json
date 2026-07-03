@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://am-i-fundable.vercel.app/scorecard.html#softwareapplication",
+  "name": "Am I Fundable Funding Readiness Scorecard",
+  "alternateName": "Funding Readiness Scorecard",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://am-i-fundable.vercel.app/scorecard.html",
+  "description": "A public-safe web scorecard that helps entrepreneurs estimate funding readiness, identify potential blockers, prepare common documents, and choose a recommended next step before human review.",
+  "publisher": {
+    "@id": "https://am-i-fundable.vercel.app/#organization"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "description": "Free educational readiness scorecard. Results are not an approval, funding offer, commitment to lend, or guarantee of funding."
+  },
+  "featureList": [
+    "Funding readiness scoring",
+    "Public-safe funding path categories",
+    "Document preparation guidance",
+    "Readiness tier explanation",
+    "Human review next-step guidance",
+    "Broker and partner embed support"
+  ],
+  "audience": [
+    {
+      "@type": "Audience",
+      "audienceType": "Entrepreneurs"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Funding brokers"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Partner and agency audiences"
+    }
+  ],
+  "isAccessibleForFree": true,
+  "inLanguage": "en-US"
+}

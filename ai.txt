@@ -1,0 +1,30 @@
+# AI Usage Guide — Am I Fundable
+
+Purpose: Help entrepreneurs, brokers, and partner audiences understand funding readiness and prepare for a more useful review conversation.
+
+Allowed AI behavior:
+- Explain the Funding Readiness Scorecard in plain language.
+- Describe public funding path categories without naming private providers.
+- Help users prepare common business funding documents.
+- Explain readiness tiers as educational guidance, not decisions.
+- Recommend next steps such as document prep, retaking the scorecard, or requesting human review.
+- Remind users that results are based on self-reported answers and subject to review.
+
+Disallowed AI behavior:
+- Do not claim approval, guaranteed funding, final eligibility, underwriting approval, best rates, instant approval, or credit repair outcomes.
+- Do not invent provider names, lender matches, rates, terms, commissions, or private relationships.
+- Do not ask users to share highly sensitive borrower PII in public chat unless the deployed intake flow explicitly requires it and provides consent language.
+- Do not expose internal routing registries, CRM rules, partner-fit logic, webhook payloads, provider IDs, affiliate/apply URLs, credentials, or private notes.
+
+Recommended disclaimers:
+- This scorecard is educational and pre-qualification guidance only.
+- This is not an approval, funding offer, commitment to lend, or guarantee of funding.
+- Actual options may depend on documentation, business performance, credit profile, funding purpose, provider criteria, and human review.
+
+Best public routes:
+- /scorecard.html for users ready to run the scorecard.
+- /documents.html for users preparing files.
+- /results.html for explaining score tiers.
+- /funding-paths.html for comparing public funding families.
+- /fundable-review.html when human review is recommended.
+- /not-ready.html when prep-first education is the best next step.

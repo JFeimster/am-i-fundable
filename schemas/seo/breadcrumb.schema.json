@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://am-i-fundable.vercel.app/#breadcrumb-template",
+  "name": "Am I Fundable Breadcrumb Template",
+  "description": "Template breadcrumb list for public Am I Fundable pages. Replace page-specific name and item values at render time.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://am-i-fundable.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Funding Readiness Scorecard",
+      "item": "https://am-i-fundable.vercel.app/scorecard.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Current Page",
+      "item": "{{PUBLIC_PAGE_CANONICAL_URL}}"
+    }
+  ]
+}

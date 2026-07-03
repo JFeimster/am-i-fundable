@@ -1,0 +1,13 @@
+# Am I Fundable / Funding Readiness Scorecard
+# Public-safe crawl rules for static pages.
+
+User-agent: *
+Allow: /
+Disallow: /internal/
+Disallow: /.github/
+Disallow: /.jules/
+Disallow: /config/
+Disallow: /schemas/actions/scorecard-admin.openapi.yaml
+Disallow: /examples/reports/broker-review-summary.md
+
+Sitemap: https://am-i-fundable.vercel.app/sitemap.xml

@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://am-i-fundable.vercel.app/faq.html#faqpage",
+  "name": "Funding Readiness Scorecard FAQ",
+  "description": "Public-safe questions and answers about the Am I Fundable Funding Readiness Scorecard.",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://am-i-fundable.vercel.app/#website"
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the scorecard an approval or funding offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The scorecard is educational pre-qualification guidance only. It is not an approval, funding offer, commitment to lend, or guarantee of funding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the scorecard evaluate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The scorecard reviews self-reported readiness signals such as revenue range, time in business, credit range, bank activity, business structure, funding purpose, requested amount, and common risk flags."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after a user receives a score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The user receives a readiness tier, potential funding path categories, possible blockers, document-prep suggestions, and a recommended next step such as prep-first education or human review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the scorecard expose funding providers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Public pages describe funding categories and readiness guidance without exposing private provider names, provider IDs, affiliate URLs, apply URLs, compensation data, or routing rules."
+      }
+    }
+  ]
+}
