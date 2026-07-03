@@ -1,0 +1,32 @@
+{
+  "source": "Funding Readiness Scorecard",
+  "applicant": {
+    "firstName": "Prep",
+    "lastName": "Owner",
+    "businessName": "Demo New Venture LLC",
+    "email": "prep@example.com",
+    "phone": "5555555555",
+    "state": "FL",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "new_business",
+    "monthlyRevenue": 0,
+    "timeInBusinessMonths": 1,
+    "creditScore": 540,
+    "bankStatus": "none",
+    "businessStructure": "none",
+    "fundingPurpose": "business_credit",
+    "desiredFundingAmount": 25000,
+    "redFlags": [
+      "no_current_revenue",
+      "new_bank_account"
+    ]
+  },
+  "metadata": {
+    "utmSource": "demo",
+    "utmMedium": "api-example",
+    "utmCampaign": "prep-readiness",
+    "pageUrl": "https://am-i-fundable.vercel.app/scorecard.html"
+  }
+}

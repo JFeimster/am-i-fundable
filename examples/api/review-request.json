@@ -1,0 +1,27 @@
+{
+  "source": "Funding Readiness Scorecard",
+  "requestedReviewType": "funding_path_review",
+  "applicant": {
+    "firstName": "Review",
+    "lastName": "Owner",
+    "businessName": "Demo Review LLC",
+    "email": "review@example.com",
+    "phone": "5555555555",
+    "state": "NC",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "contractor",
+    "monthlyRevenue": 32000,
+    "timeInBusinessMonths": 22,
+    "creditScore": 635,
+    "bankStatus": "consistent",
+    "businessStructure": "entity_with_bank",
+    "fundingPurpose": "equipment_vehicle",
+    "desiredFundingAmount": 65000,
+    "redFlags": [
+      "none"
+    ]
+  },
+  "notes": "Demo request for strategy review after scorecard completion."
+}

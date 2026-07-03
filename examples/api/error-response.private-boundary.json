@@ -1,0 +1,15 @@
+{
+  "ok": false,
+  "error": {
+    "code": "public_boundary_violation",
+    "message": "Public response failed safety boundary review.",
+    "requestId": "err_demo_boundary_001",
+    "details": [
+      {
+        "path": "publicResponse.recommendations.0",
+        "message": "A restricted private field was detected and removed before public output."
+      }
+    ]
+  },
+  "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+}

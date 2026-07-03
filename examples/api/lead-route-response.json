@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "status": "lead_route_created",
+  "leadId": "lead_demo_001",
+  "score": 72,
+  "tier": {
+    "id": "fundable_review",
+    "label": "Fundable, But Needs Review",
+    "summary": "Your answers show possible readiness, but a human review should confirm the best path."
+  },
+  "route": {
+    "queue": "standard_follow_up",
+    "priority": "warm",
+    "nextAction": "funding_path_summary",
+    "nextPage": "/results.html",
+    "tasks": [
+      "Summarize public-safe funding path",
+      "Request missing documents",
+      "Offer human review"
+    ],
+    "fundingPurpose": "equipment_vehicle"
+  },
+  "message": "Lead route created using public-safe readiness logic only.",
+  "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+}

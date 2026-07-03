@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "message": "Score received for readiness review. Prep work is recommended before deeper funding review.",
+  "leadId": "frs_lead_demo_prep_001",
+  "resultId": "frs_result_demo_prep_001",
+  "status": "scorecard_submitted",
+  "reviewStatus": "readiness_nurture",
+  "applicant": {
+    "businessName": "Demo New Venture LLC",
+    "state": "FL"
+  },
+  "publicResult": {
+    "score": 28,
+    "tier": {
+      "id": "not_ready_fixable",
+      "label": "Not Ready Yet — But Fixable",
+      "summary": "Your answers suggest prep work should come before a funding review."
+    },
+    "leadPriority": "education",
+    "primaryFundingFamily": "Business Credit Builder / Funding Prep",
+    "secondaryFundingFamilies": [],
+    "recommendationCards": [
+      {
+        "label": "Business Credit Builder / Funding Prep",
+        "summary": "Prep path for owners who need better setup, documents, banking posture, or credit readiness.",
+        "nextStep": "Complete business setup basics and organize financial records."
+      }
+    ],
+    "strengths": [
+      "You have identified the funding goal early."
+    ],
+    "risks": [
+      "No current revenue signal",
+      "Business setup appears incomplete",
+      "Bank activity is not ready for review"
+    ],
+    "nextSteps": [
+      "Complete entity and banking setup",
+      "Organize basic bookkeeping records",
+      "Follow a readiness improvement checklist"
+    ],
+    "recommendedDocuments": [
+      "Entity documents",
+      "EIN confirmation",
+      "Business bank account setup",
+      "Basic bookkeeping records"
+    ],
+    "manualReviewRecommended": true,
+    "cta": {
+      "label": "Get My Funding Prep Checklist",
+      "url": "#scorecard"
+    },
+    "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+  },
+  "nextStep": "Use readiness prep resources before requesting deeper funding path review."
+}

@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "service": "funding-readiness-scorecard",
+  "status": "healthy",
+  "apiVersion": "1.0.0",
+  "environment": "production",
+  "timestamp": "2026-07-03T15:32:11.000Z"
+}

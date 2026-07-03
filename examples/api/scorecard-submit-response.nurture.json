@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "message": "Score received for readiness review. This is educational guidance only.",
+  "leadId": "frs_lead_demo_nurture_001",
+  "resultId": "frs_result_demo_nurture_001",
+  "status": "scorecard_submitted",
+  "reviewStatus": "manual_review_recommended",
+  "applicant": {
+    "businessName": "Demo Startup Studio LLC",
+    "state": "TX"
+  },
+  "publicResult": {
+    "score": 56,
+    "tier": {
+      "id": "selective_programs",
+      "label": "Possible Fit for Select Programs",
+      "summary": "Some paths may be possible, but prep work and context are important before program-specific direction."
+    },
+    "leadPriority": "nurture",
+    "primaryFundingFamily": "Startup / Credit-Leverage Funding",
+    "secondaryFundingFamilies": [
+      "Business Credit Builder / Funding Prep"
+    ],
+    "recommendationCards": [
+      {
+        "label": "Business Credit Builder / Funding Prep",
+        "summary": "Prep path for owners who need better setup, documents, banking posture, or credit readiness.",
+        "nextStep": "Strengthen business setup and banking posture before deeper review."
+      }
+    ],
+    "strengths": [
+      "Entity setup has started",
+      "Funding purpose is clear enough for a prep path"
+    ],
+    "risks": [
+      "Limited operating history",
+      "Banking signal may need improvement",
+      "Human review recommended before deeper direction"
+    ],
+    "nextSteps": [
+      "Improve banking consistency",
+      "Prepare entity and EIN documents",
+      "Review readiness improvement plan"
+    ],
+    "recommendedDocuments": [
+      "Entity documents",
+      "EIN confirmation",
+      "Business bank account records"
+    ],
+    "manualReviewRecommended": true,
+    "cta": {
+      "label": "Get My Funding Prep Checklist",
+      "url": "#scorecard"
+    },
+    "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+  },
+  "nextStep": "Start with readiness improvement resources and request review when documentation is stronger."
+}

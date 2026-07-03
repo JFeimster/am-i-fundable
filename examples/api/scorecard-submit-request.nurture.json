@@ -1,0 +1,31 @@
+{
+  "source": "Funding Readiness Scorecard",
+  "applicant": {
+    "firstName": "Nurture",
+    "lastName": "Owner",
+    "businessName": "Demo Startup Studio LLC",
+    "email": "nurture@example.com",
+    "phone": "5555555555",
+    "state": "TX",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "startup_operator",
+    "monthlyRevenue": 9500,
+    "timeInBusinessMonths": 7,
+    "creditScore": 610,
+    "bankStatus": "low_inconsistent",
+    "businessStructure": "entity_no_bank",
+    "fundingPurpose": "startup_launch",
+    "desiredFundingAmount": 50000,
+    "redFlags": [
+      "new_bank_account"
+    ]
+  },
+  "metadata": {
+    "utmSource": "demo",
+    "utmMedium": "api-example",
+    "utmCampaign": "nurture-readiness",
+    "pageUrl": "https://am-i-fundable.vercel.app/scorecard.html"
+  }
+}

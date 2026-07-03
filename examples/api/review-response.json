@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "reviewId": "review_demo_001",
+  "status": "queued_for_strategy_review",
+  "applicant": {
+    "businessName": "Demo Review LLC",
+    "state": "NC"
+  },
+  "result": {
+    "score": 72,
+    "tier": {
+      "id": "fundable_review",
+      "label": "Fundable, But Needs Review",
+      "summary": "Your answers show possible readiness, but a human review should confirm the best path."
+    },
+    "leadPriority": "warm",
+    "primaryFundingFamily": "Equipment / Truck / Asset-Backed Funding",
+    "secondaryFundingFamilies": [
+      "Fast Working Capital"
+    ],
+    "recommendationCards": [],
+    "strengths": [
+      "Consistent bank activity",
+      "Operating history available"
+    ],
+    "risks": [
+      "Human review should confirm document readiness."
+    ],
+    "nextSteps": [
+      "Prepare equipment quote or invoice",
+      "Prepare recent bank statements"
+    ],
+    "recommendedDocuments": [
+      "Equipment quote or invoice",
+      "Recent business bank statements"
+    ],
+    "manualReviewRecommended": true,
+    "cta": {
+      "label": "Request Review",
+      "url": "#strategy-review"
+    },
+    "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+  },
+  "nextStep": "A funding strategist should review the scorecard details before provider-specific direction is shared.",
+  "message": "Review request queued. This is not an approval, offer, underwriting decision, or guarantee of funding."
+}

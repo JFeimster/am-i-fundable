@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "tierId": "fundable_review",
+  "fundingPurpose": "equipment_vehicle",
+  "count": 3,
+  "resources": [
+    {
+      "id": "document-prep-checklist",
+      "title": "Funding Document Prep Checklist",
+      "type": "checklist",
+      "path": "/documents.html",
+      "summary": "Organize bank statements, business details, and funding-purpose notes before requesting review."
+    },
+    {
+      "id": "manual-review-guide",
+      "title": "Funding Strategy Review Guide",
+      "type": "guide",
+      "path": "/fundable-review.html",
+      "summary": "Understand what a funding strategist should review before provider-specific direction is shared."
+    },
+    {
+      "id": "equipment-prep",
+      "title": "Equipment Funding Prep Notes",
+      "type": "purpose-guide",
+      "path": "/documents.html?fundingPurpose=equipment_vehicle",
+      "summary": "Prepare quotes, invoices, equipment details, and expected business use."
+    }
+  ],
+  "disclaimer": "Resources are educational next-step suggestions. They are not funding offers or outcome guarantees."
+}
