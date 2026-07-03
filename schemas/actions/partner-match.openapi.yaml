@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Partner Match Action
+  version: 1.0.0
+  summary: Match a user to public-safe funding-path families without exposing provider details.
+  description: >-
+    Public-safe action for routing a scorecard result to general funding-path families and partner
+    support categories. This schema intentionally returns no provider names, provider IDs,
+    affiliate URLs, apply URLs, payout terms, commissions, private notes, or private contacts.
+    Any match is a potential funding path and remains subject to human review.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Public Matching
+    description: Public-safe funding-path matching.
+paths:
+  /api/partner-match:
+    post:
+      operationId: matchPublicFundingPathFamilies
+      tags: [Public Matching]
+      summary: Return public-safe funding path matches.
+      description: >-
+        Uses score tier, funding purpose, revenue range, operating profile, and blockers to recommend
+        general path families. This is not provider matching, not lender selection, and not a final decision.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerMatchRequest'
+            examples:
+              ecommerceSeller:
+                summary: Ecommerce seller needing inventory capital
+                value:
+                  source: partner-embed
+                  score: 78
+                  readinessTier: review_ready
+                  persona: ecommerce_seller
+                  fundingPurpose: ecommerce
+                  monthlyRevenueRange: 50000_99999
+                  timeInBusinessRange: 12_23_months
+                  blockers:
+                    - Need updated platform sales report
+                  preferredTimeline: 2_4_weeks
+      responses:
+        '200':
+          description: Public-safe funding path match guidance.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerMatchResponse'
+              examples:
+                publicMatch:
+                  summary: Public path match response
+                  value:
+                    matchId: demo_match_21a9
+                    fitSummary: Your profile may fit ecommerce seller capital and working capital review paths.
+                    recommendedPathFamilies:
+                      - id: ecommerce_seller_capital
+                        label: Ecommerce Seller Capital
+                        confidence: review_recommended
+                        publicReason: Marketplace sales history can support a capital conversation when documentation is current.
+                        nextStep: Gather platform sales reports and recent business bank statements.
+                      - id: working_capital
+                        label: Working Capital
+                        confidence: possible_fit
+                        publicReason: Consistent business revenue may support a short-cycle funding review.
+                        nextStep: Confirm deposit consistency and current cash-flow needs.
+                    pathsToAvoidForNow:
+                      - id: real_estate_capital
+                        reason: The stated use case is inventory/platform growth, not a property project.
+                    humanReviewRecommended: true
+                    disclaimer: This is a public-safe path recommendation only. It is not an approval, offer, final eligibility decision, or guarantee of funding.
+        '400':
+          description: Invalid match request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    PartnerMatchRequest:
+      type: object
+      additionalProperties: false
+      required: [source, score, readinessTier, persona, fundingPurpose, monthlyRevenueRange, timeInBusinessRange]
+      properties:
+        source:
+          type: string
+          enum: [scorecard, broker-embed, partner-embed, manual-review, unknown]
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first]
+        persona:
+          type: string
+          enum: [existing_business, gig_worker, ecommerce_seller, startup_founder, real_estate_investor, equipment_heavy, not_sure]
+        fundingPurpose:
+          type: string
+          enum: [working_capital, inventory, growth, equipment, real_estate, ecommerce, startup, debt_consolidation, business_credit, not_sure]
+        monthlyRevenueRange:
+          type: string
+        timeInBusinessRange:
+          type: string
+        blockers:
+          type: array
+          items:
+            type: string
+          default: []
+        preferredTimeline:
+          type: string
+          enum: [same_week, 2_4_weeks, 30_60_days, flexible, unknown]
+    PartnerMatchResponse:
+      type: object
+      additionalProperties: false
+      required: [matchId, fitSummary, recommendedPathFamilies, pathsToAvoidForNow, humanReviewRecommended, disclaimer]
+      properties:
+        matchId:
+          type: string
+        fitSummary:
+          type: string
+        recommendedPathFamilies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicPathFamilyMatch'
+        pathsToAvoidForNow:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicAvoidanceNote'
+        humanReviewRecommended:
+          type: boolean
+        disclaimer:
+          type: string
+    PublicPathFamilyMatch:
+      type: object
+      additionalProperties: false
+      required: [id, label, confidence, publicReason, nextStep]
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        confidence:
+          type: string
+          enum: [strong_review_candidate, review_recommended, possible_fit, prep_first]
+        publicReason:
+          type: string
+        nextStep:
+          type: string
+    PublicAvoidanceNote:
+      type: object
+      additionalProperties: false
+      required: [id, reason]
+      properties:
+        id:
+          type: string
+        reason:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Scorecard Admin Action — NOT PUBLIC
+  version: 1.0.0
+  summary: Internal/admin-only scorecard review and routing preview schema.
+  description: >-
+    NOT PUBLIC. This schema is for future internal/admin workflows only. Do not attach this schema to a public GPT,
+    public embed, browser-facing assistant, or unauthenticated endpoint. It may reference internal queues, review states,
+    and routing previews, but must still use demo-safe data and must not include real provider names, provider IDs,
+    affiliate URLs, apply URLs, commission data, private contacts, underwriting notes, credentials, or real borrower PII.
+  x-am-i-fundable-visibility: server_side_internal_not_public
+servers:
+  - url: https://YOUR_INTERNAL_API_DOMAIN_HERE
+    description: Internal/admin API base URL. Do not expose in public GPTs or browser code.
+tags:
+  - name: Admin Review
+    description: Internal review queue and routing preview operations.
+security:
+  - bearerAuth: []
+paths:
+  /api/admin/scorecards/{leadId}:
+    get:
+      operationId: getInternalScorecardReviewRecord
+      tags: [Admin Review]
+      summary: Get an internal scorecard review record.
+      description: Internal-only lookup for a scorecard lead/review record using demo-safe fields.
+      parameters:
+        - name: leadId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Internal scorecard review record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalScorecardRecord'
+              examples:
+                demoRecord:
+                  summary: Demo internal record
+                  value:
+                    leadId: demo_lead_1001
+                    visibility: server_side_internal
+                    score: 72
+                    readinessTier: review_ready
+                    reviewState: needs_human_review
+                    safeSummary: Demo business may be ready for a strategy review after document confirmation.
+                    internalTags:
+                      - tier_review_ready
+                      - purpose_working_capital
+                    nextInternalActions:
+                      - Verify contact consent.
+                      - Request recent bank statements through an approved secure workflow.
+                      - Route to manual review queue.
+                    prohibitedDataIncluded: false
+        '401':
+          description: Missing or invalid admin authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/admin/review-routing/preview:
+    post:
+      operationId: previewInternalReviewRouting
+      tags: [Admin Review]
+      summary: Preview internal review routing for a demo-safe scorecard record.
+      description: >-
+        Internal-only routing preview. This endpoint must not be called from public pages or public GPT actions.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternalRoutingPreviewRequest'
+            examples:
+              demoPreview:
+                summary: Demo routing preview
+                value:
+                  visibility: server_side_internal
+                  leadId: demo_lead_1001
+                  score: 72
+                  readinessTier: review_ready
+                  fundingPurpose: working_capital
+                  blockers:
+                    - Needs document confirmation
+      responses:
+        '200':
+          description: Internal routing preview using placeholder queue and task labels only.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalRoutingPreviewResponse'
+              examples:
+                preview:
+                  summary: Demo internal routing preview
+                  value:
+                    visibility: server_side_internal
+                    routePreviewId: demo_route_7bd1
+                    queue: manual_review_queue_demo
+                    priority: standard
+                    suggestedTags:
+                      - tier_review_ready
+                      - review_documents_needed
+                    suggestedTasks:
+                      - Confirm consent before outreach.
+                      - Request standard document checklist.
+                    publicDisclosureAllowed: false
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Internal API token
+      description: Internal/admin token only. Never place this token in browser-facing code or public GPT instructions.
+  schemas:
+    InternalScorecardRecord:
+      type: object
+      additionalProperties: false
+      required:
+        - leadId
+        - visibility
+        - score
+        - readinessTier
+        - reviewState
+        - safeSummary
+        - internalTags
+        - nextInternalActions
+        - prohibitedDataIncluded
+      properties:
+        leadId:
+          type: string
+        visibility:
+          type: string
+          const: server_side_internal
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first]
+        reviewState:
+          type: string
+          enum: [new, needs_human_review, awaiting_documents, nurture_recommended, closed_demo]
+        safeSummary:
+          type: string
+        internalTags:
+          type: array
+          items:
+            type: string
+        nextInternalActions:
+          type: array
+          items:
+            type: string
+        prohibitedDataIncluded:
+          type: boolean
+          const: false
+    InternalRoutingPreviewRequest:
+      type: object
+      additionalProperties: false
+      required: [visibility, leadId, score, readinessTier, fundingPurpose]
+      properties:
+        visibility:
+          type: string
+          const: server_side_internal
+        leadId:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first]
+        fundingPurpose:
+          type: string
+        blockers:
+          type: array
+          items:
+            type: string
+          default: []
+    InternalRoutingPreviewResponse:
+      type: object
+      additionalProperties: false
+      required: [visibility, routePreviewId, queue, priority, suggestedTags, suggestedTasks, publicDisclosureAllowed]
+      properties:
+        visibility:
+          type: string
+          const: server_side_internal
+        routePreviewId:
+          type: string
+        queue:
+          type: string
+        priority:
+          type: string
+          enum: [urgent_review, standard, nurture, blocked]
+        suggestedTags:
+          type: array
+          items:
+            type: string
+        suggestedTasks:
+          type: array
+          items:
+            type: string
+        publicDisclosureAllowed:
+          type: boolean
+          const: false
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Resource Recommendation Action
+  version: 1.0.0
+  summary: Recommend public resources by readiness tier, persona, and funding purpose.
+  description: >-
+    Public action for returning safe educational resources such as checklists, guides, FAQs, and next-step pages.
+    Recommendations should help users prepare, understand funding paths, or request human review. The action must
+    not return private provider data, affiliate URLs, apply URLs, commissions, credentials, or private notes.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Resources
+    description: Public-safe resource recommendations.
+paths:
+  /api/resources/recommend:
+    post:
+      operationId: recommendFundingReadinessResources
+      tags: [Resources]
+      summary: Recommend resources for a user profile or scorecard result.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRecommendationRequest'
+            examples:
+              prepFirst:
+                summary: Prep-first applicant resources
+                value:
+                  readinessTier: prep_first
+                  persona: startup_founder
+                  fundingPurpose: startup
+                  blockers:
+                    - No business bank account yet
+                    - No current revenue
+                  preferredFormat: checklist
+      responses:
+        '200':
+          description: Public-safe resource recommendations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceRecommendationResponse'
+              examples:
+                startupPrep:
+                  summary: Recommended prep resources
+                  value:
+                    recommendationId: demo_resources_a18c
+                    resourceSummary: Start with setup and document readiness before requesting a funding review.
+                    resources:
+                      - id: business-bank-account-checklist
+                        title: Business Bank Account Setup Checklist
+                        type: checklist
+                        path: /documents.html#bank-account
+                        reason: Clean bank activity is a common readiness signal.
+                      - id: startup-readiness-faq
+                        title: Startup Funding Readiness FAQ
+                        type: faq
+                        path: /faq.html#startup
+                        reason: Explains realistic startup funding paths without promising outcomes.
+                      - id: prep-first-next-steps
+                        title: Prep-First Action Plan
+                        type: guide
+                        path: /not-ready.html
+                        reason: Gives a practical recovery path before applying.
+                    recommendedNextStep: Complete the setup checklist, then retake the scorecard when your profile changes.
+                    disclaimer: These resources are educational and do not represent an approval, offer, or guarantee of funding.
+        '400':
+          description: Invalid resource recommendation request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ResourceRecommendationRequest:
+      type: object
+      additionalProperties: false
+      required: [readinessTier, persona, fundingPurpose]
+      properties:
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first, unknown]
+        persona:
+          type: string
+          enum: [existing_business, gig_worker, ecommerce_seller, startup_founder, real_estate_investor, equipment_heavy, broker, partner, not_sure]
+        fundingPurpose:
+          type: string
+          enum: [working_capital, inventory, growth, equipment, real_estate, ecommerce, startup, debt_consolidation, business_credit, not_sure]
+        blockers:
+          type: array
+          items:
+            type: string
+          default: []
+        preferredFormat:
+          type: string
+          enum: [checklist, guide, faq, tool, any]
+          default: any
+    ResourceRecommendationResponse:
+      type: object
+      additionalProperties: false
+      required: [recommendationId, resourceSummary, resources, recommendedNextStep, disclaimer]
+      properties:
+        recommendationId:
+          type: string
+        resourceSummary:
+          type: string
+        resources:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/PublicResource'
+        recommendedNextStep:
+          type: string
+        disclaimer:
+          type: string
+    PublicResource:
+      type: object
+      additionalProperties: false
+      required: [id, title, type, path, reason]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+          enum: [checklist, guide, faq, tool, page, example]
+        path:
+          type: string
+          pattern: '^/[A-Za-z0-9._~/?#=&-]*$'
+        reason:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

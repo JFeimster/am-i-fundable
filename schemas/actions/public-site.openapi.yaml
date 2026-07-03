@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Public Site Content Action
+  version: 1.0.0
+  summary: Retrieve public-safe site pages, FAQs, resources, and funding-path content.
+  description: >-
+    Public content retrieval schema for GPT/resource assistants. It returns only public-safe website content,
+    route metadata, FAQ entries, resource cards, and general funding-path explanations. It must not expose internal
+    registries, provider data, routing rules, affiliate URLs, apply URLs, commission data, private notes, or credentials.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Public Site
+    description: Public-safe static site content retrieval.
+paths:
+  /api/public/pages/{pageId}:
+    get:
+      operationId: getPublicSitePage
+      tags: [Public Site]
+      summary: Get public page metadata and summary content.
+      security: []
+      parameters:
+        - name: pageId
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [home, scorecard, results, funding-paths, documents, broker, partners, white-label, resources, faq, privacy, terms]
+      responses:
+        '200':
+          description: Public page content metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicPageResponse'
+              examples:
+                resultsPage:
+                  summary: Results page metadata
+                  value:
+                    pageId: results
+                    title: Funding Readiness Results
+                    path: /results.html
+                    audience: business_owner
+                    summary: Explains readiness tiers, potential funding paths, and next steps in public-safe language.
+                    primaryCta:
+                      label: Run the Scorecard
+                      path: /scorecard.html
+                    disclaimer: Public content is educational and does not represent an approval, offer, or guarantee of funding.
+        '404':
+          description: Public page not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/public/faq:
+    get:
+      operationId: listPublicFundingReadinessFaqs
+      tags: [Public Site]
+      summary: List public FAQ entries.
+      security: []
+      parameters:
+        - name: audience
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [business_owner, broker, partner, all]
+            default: all
+      responses:
+        '200':
+          description: Public FAQ entries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicFaqResponse'
+              examples:
+                faq:
+                  summary: FAQ response
+                  value:
+                    audience: all
+                    faqs:
+                      - id: is-this-approval
+                        question: Is this an approval?
+                        answer: No. This is educational readiness guidance and not an approval, offer, commitment to lend, or guarantee of funding.
+                        category: compliance
+                      - id: credit-impact
+                        question: Will this hurt my credit?
+                        answer: The public scorecard does not run credit. It uses answers you provide to estimate readiness.
+                        category: scorecard
+  /api/public/resources:
+    get:
+      operationId: listPublicResources
+      tags: [Public Site]
+      summary: List public resources and guides.
+      security: []
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [checklist, guide, faq, tool, page, any]
+            default: any
+      responses:
+        '200':
+          description: Public resource list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicResourcesResponse'
+components:
+  schemas:
+    PublicPageResponse:
+      type: object
+      additionalProperties: false
+      required: [pageId, title, path, audience, summary, primaryCta, disclaimer]
+      properties:
+        pageId:
+          type: string
+        title:
+          type: string
+        path:
+          type: string
+          pattern: '^/[A-Za-z0-9._~/?#=&-]*$'
+        audience:
+          type: string
+        summary:
+          type: string
+        primaryCta:
+          $ref: '#/components/schemas/PublicCta'
+        disclaimer:
+          type: string
+    PublicCta:
+      type: object
+      additionalProperties: false
+      required: [label, path]
+      properties:
+        label:
+          type: string
+        path:
+          type: string
+          pattern: '^/[A-Za-z0-9._~/?#=&-]*$'
+    PublicFaqResponse:
+      type: object
+      additionalProperties: false
+      required: [audience, faqs]
+      properties:
+        audience:
+          type: string
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicFaq'
+    PublicFaq:
+      type: object
+      additionalProperties: false
+      required: [id, question, answer, category]
+      properties:
+        id:
+          type: string
+        question:
+          type: string
+        answer:
+          type: string
+        category:
+          type: string
+    PublicResourcesResponse:
+      type: object
+      additionalProperties: false
+      required: [resources]
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicResource'
+    PublicResource:
+      type: object
+      additionalProperties: false
+      required: [id, title, type, path, summary]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+          enum: [checklist, guide, faq, tool, page]
+        path:
+          type: string
+          pattern: '^/[A-Za-z0-9._~/?#=&-]*$'
+        summary:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

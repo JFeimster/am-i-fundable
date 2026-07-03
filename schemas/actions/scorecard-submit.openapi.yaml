@@ -1,0 +1,255 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Scorecard Submit Action
+  version: 1.0.0
+  summary: Submit public-safe funding readiness answers and return a readiness result.
+  description: >-
+    Public GPT/action schema for submitting Funding Readiness Scorecard answers.
+    This action returns an educational readiness score, possible funding-path families,
+    blockers, documents, and recommended next steps. It does not return provider names,
+    provider IDs, affiliate links, apply links, commission data, private contacts, or
+    underwriting notes. Results are not an approval, offer, commitment, final eligibility
+    decision, or guarantee of funding.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Scorecard
+    description: Public-safe funding readiness scoring operations.
+paths:
+  /api/scorecard/submit:
+    post:
+      operationId: submitFundingReadinessScorecard
+      tags: [Scorecard]
+      summary: Submit scorecard answers for a public-safe readiness result.
+      description: >-
+        Accepts applicant-provided scorecard answers and returns public-safe readiness guidance.
+        The response may recommend a human review, prep workflow, or potential funding-path family.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScorecardSubmitRequest'
+            examples:
+              existingBusiness:
+                summary: Existing business seeking working capital
+                value:
+                  source: funding-readiness-scorecard
+                  audience: business_owner
+                  answers:
+                    persona: existing_business
+                    monthlyRevenueRange: 20000_49999
+                    timeInBusinessRange: 24_plus_months
+                    estimatedCreditRange: 660_679
+                    bankActivity: consistent_deposits
+                    businessStructure: entity_bank_ein
+                    fundingPurpose: working_capital
+                    desiredAmountRange: 25000_75000
+                    redFlags:
+                      - none_reported
+                  lead:
+                    name: Demo Founder
+                    email: demo@example.com
+                    phone: '555-0100'
+                    businessName: Demo Business LLC
+                    state: VA
+                    consentToContact: true
+      responses:
+        '200':
+          description: Public-safe readiness result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScorecardSubmitResponse'
+              examples:
+                reviewReady:
+                  summary: Review-ready result
+                  value:
+                    resultId: demo_result_8f42
+                    score: 72
+                    readinessTier: review_ready
+                    tierLabel: Review Ready
+                    resultSummary: Based on your answers, your file may be ready for a funding strategy review.
+                    potentialFundingPaths:
+                      - id: working_capital
+                        label: Working Capital
+                        fit: may_be_a_fit
+                        reason: Consistent deposits and operating history support a review conversation.
+                    potentialBlockers:
+                      - Confirm recent bank statement activity before submitting any full application.
+                    recommendedNextSteps:
+                      - Gather the most recent 3-6 business bank statements.
+                      - Confirm funding amount, use of funds, and timeline.
+                      - Request a human review before applying anywhere.
+                    recommendedDocuments:
+                      - Recent business bank statements
+                      - Government ID
+                      - Entity and EIN details
+                      - Proof of business revenue
+                    humanReviewRecommended: true
+                    disclaimer: This is readiness guidance only. It is not an approval, offer, commitment to lend, or guarantee of funding.
+        '400':
+          description: Missing or invalid public scorecard input.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ScorecardSubmitRequest:
+      type: object
+      additionalProperties: false
+      required: [source, audience, answers, lead]
+      properties:
+        source:
+          type: string
+          enum: [funding-readiness-scorecard, broker-embed, partner-embed, white-label-demo]
+        audience:
+          type: string
+          enum: [business_owner, broker, partner, agency_owner, unknown]
+        answers:
+          $ref: '#/components/schemas/ScorecardAnswers'
+        lead:
+          $ref: '#/components/schemas/PublicLead'
+    ScorecardAnswers:
+      type: object
+      additionalProperties: false
+      required:
+        - persona
+        - monthlyRevenueRange
+        - timeInBusinessRange
+        - estimatedCreditRange
+        - bankActivity
+        - businessStructure
+        - fundingPurpose
+        - desiredAmountRange
+        - redFlags
+      properties:
+        persona:
+          type: string
+          enum: [existing_business, gig_worker, ecommerce_seller, startup_founder, real_estate_investor, equipment_heavy, not_sure]
+        monthlyRevenueRange:
+          type: string
+          enum: [under_3000, 3000_8499, 8500_14999, 15000_19999, 20000_49999, 50000_99999, 100000_plus]
+        timeInBusinessRange:
+          type: string
+          enum: [not_launched, 0_3_months, 4_5_months, 6_11_months, 12_23_months, 24_plus_months]
+        estimatedCreditRange:
+          type: string
+          enum: [below_500, 500_579, 580_599, 600_659, 660_679, 680_699, 700_plus, unknown]
+        bankActivity:
+          type: string
+          enum: [no_business_bank, inconsistent_deposits, consistent_deposits, strong_clean_activity, recent_nsfs]
+        businessStructure:
+          type: string
+          enum: [no_formal_business, sole_prop, entity_no_bank, entity_bank, entity_bank_ein]
+        fundingPurpose:
+          type: string
+          enum: [working_capital, inventory, growth, equipment, real_estate, ecommerce, startup, debt_consolidation, business_credit, not_sure]
+        desiredAmountRange:
+          type: string
+          enum: [under_5000, 5000_25000, 25000_75000, 75000_150000, 150000_500000, 500000_plus]
+        redFlags:
+          type: array
+          items:
+            type: string
+            enum: [open_bankruptcy, tax_lien, recent_late_payments, recent_nsfs, new_bank_account, existing_mca, marketplace_suspended, no_revenue, none_reported]
+          minItems: 1
+    PublicLead:
+      type: object
+      additionalProperties: false
+      required: [name, email, consentToContact]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+          maxLength: 30
+        businessName:
+          type: string
+          maxLength: 120
+        state:
+          type: string
+          maxLength: 30
+        consentToContact:
+          type: boolean
+    ScorecardSubmitResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - resultId
+        - score
+        - readinessTier
+        - tierLabel
+        - resultSummary
+        - potentialFundingPaths
+        - potentialBlockers
+        - recommendedNextSteps
+        - recommendedDocuments
+        - humanReviewRecommended
+        - disclaimer
+      properties:
+        resultId:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first]
+        tierLabel:
+          type: string
+        resultSummary:
+          type: string
+        potentialFundingPaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicFundingPathFit'
+        potentialBlockers:
+          type: array
+          items:
+            type: string
+        recommendedNextSteps:
+          type: array
+          items:
+            type: string
+        recommendedDocuments:
+          type: array
+          items:
+            type: string
+        humanReviewRecommended:
+          type: boolean
+        disclaimer:
+          type: string
+    PublicFundingPathFit:
+      type: object
+      additionalProperties: false
+      required: [id, label, fit, reason]
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        fit:
+          type: string
+          enum: [may_be_a_fit, needs_review, prep_first, not_enough_information]
+        reason:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

@@ -1,0 +1,171 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Review Request Action
+  version: 1.0.0
+  summary: Create a manual review request from a public-safe funding readiness result.
+  description: >-
+    Public-safe action for requesting human review after a scorecard result. The request may include
+    contact details, score summary, stated funding purpose, and consent. It must not include Social Security
+    numbers, bank login credentials, full account numbers, real provider routing notes, or underwriting notes.
+    A review request is not an approval, offer, or guarantee of funding.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Review Requests
+    description: Manual review request intake.
+paths:
+  /api/review-request:
+    post:
+      operationId: createFundingReadinessReviewRequest
+      tags: [Review Requests]
+      summary: Create a human review request.
+      description: >-
+        Captures a scorecard result and user consent so a human can review readiness and recommend next steps.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequest'
+            examples:
+              borderlineLead:
+                summary: Borderline lead requesting review
+                value:
+                  source: results-page
+                  resultId: demo_result_8f42
+                  score: 64
+                  readinessTier: selective_fit
+                  fundingPurpose: equipment
+                  desiredAmountRange: 25000_75000
+                  summary: Business has revenue and equipment need, but recent bank activity needs human review.
+                  contact:
+                    name: Demo Operator
+                    email: operator@example.com
+                    phone: '555-0111'
+                    businessName: Demo Fleet Services LLC
+                    state: MD
+                  consent:
+                    contactAllowed: true
+                    termsAcknowledged: true
+      responses:
+        '201':
+          description: Review request created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+              examples:
+                created:
+                  summary: Review request accepted
+                  value:
+                    reviewRequestId: demo_review_4c77
+                    queueStatus: received
+                    recommendedPrep:
+                      - Upload or gather the most recent 3-6 business bank statements.
+                      - Prepare equipment quote or invoice if available.
+                      - Confirm funding timeline and intended use of funds.
+                    userMessage: Your review request was received. A human review is recommended before any full funding application.
+                    disclaimer: This review request is not an approval, offer, commitment to lend, or guarantee of funding.
+        '400':
+          description: Invalid review request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ReviewRequest:
+      type: object
+      additionalProperties: false
+      required: [source, score, readinessTier, fundingPurpose, contact, consent]
+      properties:
+        source:
+          type: string
+          enum: [scorecard, results-page, broker-page, partner-page, white-label-page, unknown]
+        resultId:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first]
+        fundingPurpose:
+          type: string
+        desiredAmountRange:
+          type: string
+        summary:
+          type: string
+          maxLength: 1000
+        blockers:
+          type: array
+          items:
+            type: string
+          default: []
+        contact:
+          $ref: '#/components/schemas/PublicContact'
+        consent:
+          $ref: '#/components/schemas/ConsentRecord'
+    PublicContact:
+      type: object
+      additionalProperties: false
+      required: [name, email]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+          maxLength: 30
+        businessName:
+          type: string
+          maxLength: 120
+        state:
+          type: string
+          maxLength: 30
+    ConsentRecord:
+      type: object
+      additionalProperties: false
+      required: [contactAllowed, termsAcknowledged]
+      properties:
+        contactAllowed:
+          type: boolean
+          const: true
+        termsAcknowledged:
+          type: boolean
+          const: true
+    ReviewResponse:
+      type: object
+      additionalProperties: false
+      required: [reviewRequestId, queueStatus, recommendedPrep, userMessage, disclaimer]
+      properties:
+        reviewRequestId:
+          type: string
+        queueStatus:
+          type: string
+          enum: [received, needs_more_information, duplicate_received]
+        recommendedPrep:
+          type: array
+          items:
+            type: string
+        userMessage:
+          type: string
+        disclaimer:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string

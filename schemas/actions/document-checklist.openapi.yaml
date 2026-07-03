@@ -1,0 +1,166 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Document Checklist Action
+  version: 1.0.0
+  summary: Return public-safe funding document preparation checklists.
+  description: >-
+    Public action for recommending common document-prep checklists by funding purpose and readiness tier.
+    It returns educational preparation guidance only. It must not request or expose credentials, full account
+    numbers, Social Security numbers, private provider requirements, underwriting notes, or real borrower PII.
+  x-am-i-fundable-visibility: public_action_browser_safe
+servers:
+  - url: https://YOUR_PUBLIC_DOMAIN_HERE
+    description: Replace with the deployed public site/API domain before connecting the action.
+tags:
+  - name: Document Checklists
+    description: Public-safe funding document preparation.
+paths:
+  /api/documents/checklist:
+    get:
+      operationId: getFundingDocumentChecklist
+      tags: [Document Checklists]
+      summary: Get a document checklist by funding purpose.
+      description: Returns a public-safe checklist for a single funding purpose.
+      security: []
+      parameters:
+        - name: fundingPurpose
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [working_capital, inventory, growth, equipment, real_estate, ecommerce, startup, debt_consolidation, business_credit, not_sure]
+        - name: readinessTier
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [highly_fundable, review_ready, selective_fit, prep_first, unknown]
+      responses:
+        '200':
+          description: Public-safe document checklist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentChecklistResponse'
+              examples:
+                equipment:
+                  summary: Equipment funding prep checklist
+                  value:
+                    checklistId: equipment-document-prep
+                    title: Equipment Funding Document Prep
+                    fundingPurpose: equipment
+                    items:
+                      - label: Recent business bank statements
+                        whyItMatters: Shows current revenue and deposit activity.
+                        sensitivity: standard_business_document
+                      - label: Equipment quote, invoice, or spec sheet
+                        whyItMatters: Helps connect the funding request to the asset being purchased.
+                        sensitivity: standard_business_document
+                      - label: Entity and EIN details
+                        whyItMatters: Confirms business setup for review.
+                        sensitivity: standard_business_document
+                    avoidSending:
+                      - Bank login credentials
+                      - Full Social Security numbers through unsecured forms
+                      - Unrequested full account numbers
+                    nextStep: Gather documents first, then request a human review before applying.
+                    disclaimer: This checklist is preparation guidance only and is not an approval, offer, or guarantee of funding.
+        '400':
+          description: Invalid checklist request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      operationId: buildFundingDocumentChecklist
+      tags: [Document Checklists]
+      summary: Build a checklist from funding profile details.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentChecklistRequest'
+            examples:
+              ecommerce:
+                summary: Ecommerce checklist request
+                value:
+                  fundingPurpose: ecommerce
+                  readinessTier: review_ready
+                  persona: ecommerce_seller
+                  blockers:
+                    - Need platform sales reports
+      responses:
+        '200':
+          description: Public-safe document checklist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentChecklistResponse'
+components:
+  schemas:
+    DocumentChecklistRequest:
+      type: object
+      additionalProperties: false
+      required: [fundingPurpose]
+      properties:
+        fundingPurpose:
+          type: string
+          enum: [working_capital, inventory, growth, equipment, real_estate, ecommerce, startup, debt_consolidation, business_credit, not_sure]
+        readinessTier:
+          type: string
+          enum: [highly_fundable, review_ready, selective_fit, prep_first, unknown]
+          default: unknown
+        persona:
+          type: string
+        blockers:
+          type: array
+          items:
+            type: string
+          default: []
+    DocumentChecklistResponse:
+      type: object
+      additionalProperties: false
+      required: [checklistId, title, fundingPurpose, items, avoidSending, nextStep, disclaimer]
+      properties:
+        checklistId:
+          type: string
+        title:
+          type: string
+        fundingPurpose:
+          type: string
+        items:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ChecklistItem'
+        avoidSending:
+          type: array
+          items:
+            type: string
+        nextStep:
+          type: string
+        disclaimer:
+          type: string
+    ChecklistItem:
+      type: object
+      additionalProperties: false
+      required: [label, whyItMatters, sensitivity]
+      properties:
+        label:
+          type: string
+        whyItMatters:
+          type: string
+        sensitivity:
+          type: string
+          enum: [standard_business_document, sensitive_handle_securely, optional_context]
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required: [error, message]
+      properties:
+        error:
+          type: string
+        message:
+          type: string
