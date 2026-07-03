@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Request · Am I Fundable API Console</title>
+  <meta name="description" content="Static API playground for Am I Fundable public-safe API routes.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-default-method="POST" data-default-route="/api/scorecard/request-review">
+  <header class="shell hero">
+    <nav class="topnav" aria-label="API console navigation">
+      <a class="brand" href="./index.html">Am I Fundable <span>API Console</span></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+<a href="scorecard-submit.html">Scorecard</a>
+<a href="funding-paths.html">Funding Paths</a>
+<a href="document-checklist.html">Documents</a>
+<a href="resource-recommendations.html">Resources</a>
+<a href="review-request.html">Review</a>
+<a href="readiness-report.html">Report</a>
+<a href="lead-routing.html">Lead Routing</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div>
+        <p class="eyebrow">Static-first API playground</p>
+        <h1>Review Request</h1>
+        <p class="lede">Queue a human funding strategy review using demo applicant data.</p>
+      </div>
+      <aside class="safety-card">
+        <strong>Public-safe boundary</strong>
+        <p>This console is for demo/testing only. API output should stay limited to readiness guidance, public categories, checklists, resources, and acknowledgements.</p>
+      </aside>
+    </section>
+  </header>
+
+  <main class="shell layout">
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Request</h2>
+        <p>Edit the route, method, and JSON payload, then run the request.</p>
+      </div>
+
+      <form id="apiForm" class="api-form">
+        <label for="baseUrl">Base URL</label>
+        <input id="baseUrl" value="https://am-i-fundable.vercel.app" autocomplete="off">
+
+        <div class="split">
+          <div>
+            <label for="method">Method</label>
+            <select id="method">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+          <div>
+            <label for="route">Route</label>
+            <input id="route" value="/api/scorecard/request-review" autocomplete="off">
+          </div>
+        </div>
+
+        
+          <label for="requestBody">Request JSON</label>
+          <textarea id="requestBody" spellcheck="false">{
+  "source": "Funding Readiness Scorecard",
+  "requestedReviewType": "funding_path_review",
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Owner",
+    "businessName": "Demo Review LLC",
+    "email": "demo@example.com",
+    "phone": "5555555555",
+    "state": "NC",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "contractor",
+    "monthlyRevenue": 32000,
+    "timeInBusinessMonths": 22,
+    "creditScore": 635,
+    "bankStatus": "consistent",
+    "businessStructure": "entity_with_bank",
+    "fundingPurpose": "equipment_vehicle",
+    "desiredFundingAmount": 65000,
+    "redFlags": [
+      "none"
+    ]
+  }
+}</textarea>
+
+
+        <div class="actions">
+          <button type="submit">Run request</button>
+          <button type="button" id="copyCurl">Copy curl</button>
+          <button type="button" id="resetDemo">Reset demo</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Response</h2>
+        <p>Responses are rendered as formatted JSON.</p>
+      </div>
+      <pre id="responseBox" class="response-box" tabindex="0">{ "status": "ready" }</pre>
+    </section>
+
+    <aside class="panel tips">
+      <h2>Route notes</h2>
+      <ul>
+        <li>Consent is required before a review request.</li>
+<li>This queues a review; it does not issue an offer or underwriting result.</li>
+<li>Use demo contact data only.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="shell footer">
+    <p>This console is static HTML/CSS/JS. No React, no build step, no private values.</p>
+  </footer>
+
+  <script src="./api-console.js"></script>
+</body>
+</html>

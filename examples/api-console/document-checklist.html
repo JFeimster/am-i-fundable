@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document Checklist · Am I Fundable API Console</title>
+  <meta name="description" content="Static API playground for Am I Fundable public-safe API routes.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-default-method="GET" data-default-route="/api/public/document-checklist?fundingPurpose=working_capital">
+  <header class="shell hero">
+    <nav class="topnav" aria-label="API console navigation">
+      <a class="brand" href="./index.html">Am I Fundable <span>API Console</span></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+<a href="scorecard-submit.html">Scorecard</a>
+<a href="funding-paths.html">Funding Paths</a>
+<a href="document-checklist.html">Documents</a>
+<a href="resource-recommendations.html">Resources</a>
+<a href="review-request.html">Review</a>
+<a href="readiness-report.html">Report</a>
+<a href="lead-routing.html">Lead Routing</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div>
+        <p class="eyebrow">Static-first API playground</p>
+        <h1>Document Checklist</h1>
+        <p class="lede">Fetch preparation checklist items by funding purpose or family ID.</p>
+      </div>
+      <aside class="safety-card">
+        <strong>Public-safe boundary</strong>
+        <p>This console is for demo/testing only. API output should stay limited to readiness guidance, public categories, checklists, resources, and acknowledgements.</p>
+      </aside>
+    </section>
+  </header>
+
+  <main class="shell layout">
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Request</h2>
+        <p>Edit the route, method, and JSON payload, then run the request.</p>
+      </div>
+
+      <form id="apiForm" class="api-form">
+        <label for="baseUrl">Base URL</label>
+        <input id="baseUrl" value="https://am-i-fundable.vercel.app" autocomplete="off">
+
+        <div class="split">
+          <div>
+            <label for="method">Method</label>
+            <select id="method">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+          <div>
+            <label for="route">Route</label>
+            <input id="route" value="/api/public/document-checklist?fundingPurpose=working_capital" autocomplete="off">
+          </div>
+        </div>
+
+        
+          <label for="requestBody">Request JSON</label>
+          <textarea id="requestBody" spellcheck="false" disabled>{}</textarea>
+
+
+        <div class="actions">
+          <button type="submit">Run request</button>
+          <button type="button" id="copyCurl">Copy curl</button>
+          <button type="button" id="resetDemo">Reset demo</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Response</h2>
+        <p>Responses are rendered as formatted JSON.</p>
+      </div>
+      <pre id="responseBox" class="response-box" tabindex="0">{ "status": "ready" }</pre>
+    </section>
+
+    <aside class="panel tips">
+      <h2>Route notes</h2>
+      <ul>
+        <li>Checklist output is preparation guidance only.</li>
+<li>Actual requirements depend on review and funding path.</li>
+<li>Try changing fundingPurpose to equipment_vehicle, ecommerce_growth, or business_credit.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="shell footer">
+    <p>This console is static HTML/CSS/JS. No React, no build step, no private values.</p>
+  </footer>
+
+  <script src="./api-console.js"></script>
+</body>
+</html>
