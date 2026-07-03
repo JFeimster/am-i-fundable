@@ -1,0 +1,93 @@
+{
+  "id": "cta-tests-registry",
+  "visibility": "public_build_time_only",
+  "testing_status": "planned_manual_only",
+  "guardrails": [
+    "CTA copy must not imply a funding decision, guaranteed funding, or instant funding.",
+    "CTA links must stay on public-safe internal routes unless explicitly approved.",
+    "No affiliate, provider, or apply URLs belong in this registry."
+  ],
+  "experiments": [
+    {
+      "id": "scorecard-primary-cta",
+      "status": "ready_for_static_use",
+      "pages": [
+        "/",
+        "/scorecard.html",
+        "/broker.html"
+      ],
+      "goal_event": "scorecard_start_clicked",
+      "variants": [
+        {
+          "id": "a",
+          "label": "Get My Funding Readiness Score",
+          "href": "/scorecard.html"
+        },
+        {
+          "id": "b",
+          "label": "Check My Funding Path",
+          "href": "/scorecard.html"
+        },
+        {
+          "id": "c",
+          "label": "See What Funding Lane Fits",
+          "href": "/scorecard.html"
+        }
+      ]
+    },
+    {
+      "id": "manual-review-cta",
+      "status": "ready_for_static_use",
+      "pages": [
+        "/results.html",
+        "/fundable-review.html",
+        "/highly-fundable.html"
+      ],
+      "goal_event": "human_review_clicked",
+      "variants": [
+        {
+          "id": "a",
+          "label": "Request a Human Review",
+          "href": "/fundable-review.html"
+        },
+        {
+          "id": "b",
+          "label": "Have a Strategist Review My File",
+          "href": "/fundable-review.html"
+        },
+        {
+          "id": "c",
+          "label": "Get My Next-Step Review",
+          "href": "/fundable-review.html"
+        }
+      ]
+    },
+    {
+      "id": "broker-partner-cta",
+      "status": "ready_for_static_use",
+      "pages": [
+        "/broker.html",
+        "/white-label.html",
+        "/partners.html"
+      ],
+      "goal_event": "partner_interest_clicked",
+      "variants": [
+        {
+          "id": "a",
+          "label": "Add the Scorecard to My Funnel",
+          "href": "/white-label.html"
+        },
+        {
+          "id": "b",
+          "label": "Explore the Broker Version",
+          "href": "/broker.html"
+        },
+        {
+          "id": "c",
+          "label": "See Partner Embed Options",
+          "href": "/embed-example.html"
+        }
+      ]
+    }
+  ]
+}

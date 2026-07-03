@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/site-page.schema.json",
+  "id": "am-i-fundable-site-config",
+  "visibility": "public_build_time_only",
+  "project": {
+    "name": "Am I Fundable",
+    "product_name": "Funding Readiness Scorecard",
+    "brand_name": "Moonshine Capital",
+    "short_name": "Funding Readiness",
+    "public_description": "A public-safe funding readiness scorecard that helps entrepreneurs understand potential funding paths, document gaps, and recommended next steps before requesting a human review.",
+    "primary_audience": [
+      "entrepreneurs",
+      "brokers",
+      "funding partners",
+      "agency owners"
+    ],
+    "product_flow": [
+      "free_scorecard",
+      "lead_capture",
+      "funding_readiness_result",
+      "recommended_next_step",
+      "human_review",
+      "potential_funding_path_or_prep_workflow"
+    ]
+  },
+  "routes": {
+    "home": "/",
+    "scorecard": "/scorecard.html",
+    "results": "/results.html",
+    "funding_paths": "/funding-paths.html",
+    "documents": "/documents.html",
+    "resources": "/resources.html",
+    "faq": "/faq.html",
+    "privacy": "/privacy.html",
+    "terms": "/terms.html",
+    "thank_you": "/thank-you.html"
+  },
+  "default_cta": {
+    "id": "run-scorecard",
+    "label": "Get My Funding Readiness Score",
+    "href": "/scorecard.html",
+    "audience": "applicant",
+    "event_name": "cta_scorecard_start_clicked"
+  },
+  "secondary_cta": {
+    "id": "request-human-review",
+    "label": "Request a Human Review",
+    "href": "/fundable-review.html",
+    "audience": "review_ready_lead",
+    "event_name": "cta_human_review_clicked"
+  },
+  "support_links": [
+    {
+      "id": "privacy",
+      "label": "Privacy",
+      "href": "/privacy.html"
+    },
+    {
+      "id": "terms",
+      "label": "Terms",
+      "href": "/terms.html"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "href": "/faq.html"
+    }
+  ],
+  "public_safety": {
+    "required_disclaimer": "This scorecard is educational and pre-qualification guidance only. It is not an approval, funding offer, commitment to lend, or guarantee of funding.",
+    "forbidden_public_data": [
+      "provider_names",
+      "provider_ids",
+      "affiliate_urls",
+      "apply_urls",
+      "commission_data",
+      "private_contacts",
+      "private_notes",
+      "routing_secrets",
+      "underwriting_notes",
+      "credentials",
+      "borrower_pii"
+    ],
+    "approved_terms": [
+      "funding readiness",
+      "potential funding path",
+      "may be a fit",
+      "based on your answers",
+      "recommended next step",
+      "subject to review",
+      "human review recommended"
+    ]
+  },
+  "analytics": {
+    "enabled_by_default": false,
+    "mode": "event_taxonomy_only",
+    "notes": "No analytics vendor credentials belong in this public config."
+  }
+}

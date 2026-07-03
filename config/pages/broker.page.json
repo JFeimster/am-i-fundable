@@ -1,0 +1,56 @@
+{
+  "id": "broker-page-config",
+  "visibility": "public_build_time_only",
+  "route": "/broker.html",
+  "page_type": "audience_landing_page",
+  "audience": "brokers",
+  "title": "Funding Readiness Scorecard for Brokers",
+  "meta_description": "Use the Funding Readiness Scorecard to triage borrower readiness, collect cleaner intake, and recommend next steps before a human review.",
+  "hero": {
+    "eyebrow": "Broker intake without the circus",
+    "headline": "Turn cold funding inquiries into cleaner readiness conversations.",
+    "body": "Give prospects a structured scorecard before the first call so you can see potential funding paths, document gaps, and review priority without exposing internal provider logic."
+  },
+  "primary_cta": {
+    "label": "Run the Broker Scorecard",
+    "href": "/scorecard.html"
+  },
+  "secondary_cta": {
+    "label": "See the Embed Example",
+    "href": "/embed-example.html"
+  },
+  "sections": [
+    {
+      "id": "use-cases",
+      "heading": "Broker use cases",
+      "items": [
+        "Lead triage",
+        "Document prep",
+        "Readiness education",
+        "Manual review prioritization",
+        "Nurture segmentation"
+      ]
+    },
+    {
+      "id": "what-it-does-not-do",
+      "heading": "What it does not do",
+      "items": [
+        "It does not approve files.",
+        "It does not expose provider routing.",
+        "It does not replace human review.",
+        "It does not promise rates or funding outcomes."
+      ]
+    },
+    {
+      "id": "next-step",
+      "heading": "Recommended next step",
+      "body": "Embed the public scorecard, route submissions into a review queue, and keep internal matching logic server-side."
+    }
+  ],
+  "guardrails": [
+    "Use funding-readiness language only.",
+    "Do not expose providers, affiliate links, apply links, commissions, private contacts, routing logic, underwriting notes, credentials, or real borrower PII.",
+    "Do not imply approval, final eligibility, best rates, or instant funding.",
+    "Link CTAs to public-safe internal routes only."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "partners-page-config",
+  "visibility": "public_build_time_only",
+  "route": "/partners.html",
+  "page_type": "partner_landing_page",
+  "audience": "partners",
+  "title": "Partner With the Funding Readiness Scorecard",
+  "meta_description": "A public-safe funding readiness tool partners can use to educate audiences and route interested business owners toward a next-step review.",
+  "hero": {
+    "eyebrow": "Partner-ready intake",
+    "headline": "Give your audience funding clarity without throwing them into an application meat grinder.",
+    "body": "The scorecard helps business owners understand readiness, documents, and potential funding paths while keeping provider-specific logic private."
+  },
+  "primary_cta": {
+    "label": "Explore Partner Embed Options",
+    "href": "/embed-example.html"
+  },
+  "secondary_cta": {
+    "label": "View Public Funding Paths",
+    "href": "/funding-paths.html"
+  },
+  "sections": [
+    {
+      "id": "partner-types",
+      "heading": "Useful for",
+      "items": [
+        "Business coaches",
+        "Ecommerce communities",
+        "Real estate investor groups",
+        "Contractor networks",
+        "Local business organizations",
+        "Affiliate publishers"
+      ]
+    },
+    {
+      "id": "trust",
+      "heading": "Trust boundaries",
+      "items": [
+        "Public-safe language",
+        "No provider names in the browser",
+        "No guarantee claims",
+        "Human review when context matters"
+      ]
+    },
+    {
+      "id": "flow",
+      "heading": "Partner flow",
+      "items": [
+        "Educate audience",
+        "Run scorecard",
+        "Show readiness result",
+        "Recommend next step",
+        "Route qualified interest for review"
+      ]
+    }
+  ],
+  "guardrails": [
+    "Use funding-readiness language only.",
+    "Do not expose providers, affiliate links, apply links, commissions, private contacts, routing logic, underwriting notes, credentials, or real borrower PII.",
+    "Do not imply approval, final eligibility, best rates, or instant funding.",
+    "Link CTAs to public-safe internal routes only."
+  ]
+}

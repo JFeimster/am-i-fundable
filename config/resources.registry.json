@@ -1,0 +1,93 @@
+{
+  "id": "resources-registry",
+  "visibility": "public_runtime_browser_safe",
+  "description": "Public-safe resource hub registry for static rendering on /resources.html.",
+  "categories": [
+    {
+      "id": "scorecard",
+      "label": "Scorecard"
+    },
+    {
+      "id": "documents",
+      "label": "Document Prep"
+    },
+    {
+      "id": "funding_paths",
+      "label": "Funding Paths"
+    },
+    {
+      "id": "broker_tools",
+      "label": "Broker Tools"
+    },
+    {
+      "id": "trust",
+      "label": "Privacy & Trust"
+    }
+  ],
+  "resources": [
+    {
+      "id": "scorecard-page",
+      "category": "scorecard",
+      "title": "Full Funding Readiness Scorecard",
+      "format": "page",
+      "href": "/scorecard.html",
+      "summary": "Run the full readiness flow and receive a public-safe result summary."
+    },
+    {
+      "id": "results-explainer",
+      "category": "scorecard",
+      "title": "Result Tier Explainer",
+      "format": "page",
+      "href": "/results.html",
+      "summary": "Understand readiness tiers, blockers, and next steps without treating the result as an approval."
+    },
+    {
+      "id": "funding-paths-guide",
+      "category": "funding_paths",
+      "title": "Funding Paths Guide",
+      "format": "page",
+      "href": "/funding-paths.html",
+      "summary": "Learn how working capital, equipment, real estate, ecommerce, startup, and prep-first paths differ."
+    },
+    {
+      "id": "documents-guide",
+      "category": "documents",
+      "title": "Document Prep Checklist",
+      "format": "page",
+      "href": "/documents.html",
+      "summary": "Prepare common documents before requesting a funding readiness review."
+    },
+    {
+      "id": "broker-version",
+      "category": "broker_tools",
+      "title": "Broker Scorecard Version",
+      "format": "page",
+      "href": "/broker.html",
+      "summary": "Use the scorecard as a safer intake and lead triage surface."
+    },
+    {
+      "id": "embed-demo",
+      "category": "broker_tools",
+      "title": "Embed Example",
+      "format": "page",
+      "href": "/embed-example.html",
+      "summary": "See how the widget can appear inside a partner or broker page."
+    },
+    {
+      "id": "privacy",
+      "category": "trust",
+      "title": "Privacy and Data Use",
+      "format": "page",
+      "href": "/privacy.html",
+      "summary": "Explain what data the public scorecard asks for and what it does not do."
+    },
+    {
+      "id": "terms",
+      "category": "trust",
+      "title": "Terms and Disclaimer",
+      "format": "page",
+      "href": "/terms.html",
+      "summary": "Clarify educational use, no funding guarantee, and human review boundaries."
+    }
+  ]
+}

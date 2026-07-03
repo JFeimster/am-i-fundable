@@ -1,0 +1,65 @@
+{
+  "id": "downloads-registry",
+  "visibility": "public_build_time_only",
+  "description": "Public-safe registry of downloadable assets planned for the Funding Readiness Scorecard ecosystem.",
+  "download_policy": {
+    "lead_capture_required_by_default": false,
+    "allowed_file_types": [
+      "pdf",
+      "md",
+      "csv",
+      "json"
+    ],
+    "forbidden_content": [
+      "provider names",
+      "provider IDs",
+      "affiliate URLs",
+      "apply URLs",
+      "commission data",
+      "private contacts",
+      "private notes",
+      "routing secrets",
+      "underwriting notes",
+      "credentials",
+      "real borrower PII"
+    ]
+  },
+  "downloads": [
+    {
+      "id": "funding-readiness-checklist",
+      "title": "Funding Readiness Checklist",
+      "type": "checklist",
+      "audience": "business_owner",
+      "status": "planned",
+      "public_route": "/resources.html#funding-readiness-checklist",
+      "summary": "A simple checklist for revenue, bank activity, business structure, credit context, and document prep."
+    },
+    {
+      "id": "document-prep-checklist",
+      "title": "Funding Document Prep Checklist",
+      "type": "checklist",
+      "audience": "business_owner",
+      "status": "planned",
+      "public_route": "/documents.html",
+      "summary": "A public-safe document checklist by funding purpose and business stage."
+    },
+    {
+      "id": "broker-scorecard-launch-kit",
+      "title": "Broker Scorecard Launch Kit",
+      "type": "guide",
+      "audience": "broker",
+      "status": "planned",
+      "public_route": "/broker.html",
+      "summary": "Positioning, embed instructions, intake flow, and compliant result-language notes for brokers."
+    },
+    {
+      "id": "white-label-embed-guide",
+      "title": "White-Label Embed Guide",
+      "type": "guide",
+      "audience": "agency_owner",
+      "status": "planned",
+      "public_route": "/white-label.html",
+      "summary": "How to use the scorecard as a public-safe lead capture and readiness triage asset."
+    }
+  ]
+}

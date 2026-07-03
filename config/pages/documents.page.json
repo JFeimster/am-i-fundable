@@ -1,0 +1,71 @@
+{
+  "id": "documents-page-config",
+  "visibility": "public_build_time_only",
+  "route": "/documents.html",
+  "page_type": "document_prep_guide",
+  "audience": "business_owners",
+  "title": "Funding Document Prep Checklist",
+  "meta_description": "Prepare the common documents and business details that help a funding readiness review move faster and avoid wasted applications.",
+  "hero": {
+    "eyebrow": "Prep the file before the pitch",
+    "headline": "Clean documents beat confident chaos.",
+    "body": "The right documents do not guarantee funding, but they make the review conversation cleaner, faster, and less painful."
+  },
+  "primary_cta": {
+    "label": "Run the Scorecard",
+    "href": "/scorecard.html"
+  },
+  "secondary_cta": {
+    "label": "See Funding Paths",
+    "href": "/funding-paths.html"
+  },
+  "checklist_groups": [
+    {
+      "id": "core-business",
+      "heading": "Core business details",
+      "items": [
+        "Legal business name",
+        "Business structure",
+        "EIN or tax ID status",
+        "Business address",
+        "Industry and funding purpose"
+      ]
+    },
+    {
+      "id": "bank-revenue",
+      "heading": "Bank and revenue proof",
+      "items": [
+        "Recent business bank statements",
+        "Revenue snapshots",
+        "Platform sales reports when relevant",
+        "Deposit consistency notes"
+      ]
+    },
+    {
+      "id": "credit-context",
+      "heading": "Credit and obligation context",
+      "items": [
+        "Estimated credit range",
+        "Existing financing obligations",
+        "Recent missed payment context if relevant",
+        "Known tax lien or bankruptcy context if relevant"
+      ]
+    },
+    {
+      "id": "use-case",
+      "heading": "Use-case documents",
+      "items": [
+        "Equipment invoice or quote",
+        "Real estate project summary",
+        "Inventory or purchase order details",
+        "Marketing or growth plan when relevant"
+      ]
+    }
+  ],
+  "guardrails": [
+    "Use funding-readiness language only.",
+    "Do not expose providers, affiliate links, apply links, commissions, private contacts, routing logic, underwriting notes, credentials, or real borrower PII.",
+    "Do not imply approval, final eligibility, best rates, or instant funding.",
+    "Link CTAs to public-safe internal routes only."
+  ]
+}

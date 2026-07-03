@@ -1,0 +1,414 @@
+{
+  "id": "scorecard-form-config",
+  "visibility": "public_runtime_browser_safe",
+  "form_name": "Funding Readiness Scorecard",
+  "route": "/scorecard.html",
+  "method": "client_calculated_then_optional_review_submission",
+  "lead_gate": {
+    "enabled": true,
+    "heading": "Your score is ready.",
+    "body": "Enter your details to view your score, recommended funding paths, and next steps.",
+    "consent_required": true,
+    "consent_text": "I agree to be contacted about funding options and understand this score is not an approval, offer, or guarantee of funding."
+  },
+  "fields": [
+    {
+      "id": "persona",
+      "step_number": 1,
+      "label": "What best describes you?",
+      "help_text": "This helps route the scorecard toward the right funding lane.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": "existing_business",
+          "label": "Existing small business owner"
+        },
+        {
+          "value": "gig_worker",
+          "label": "Gig worker / independent contractor"
+        },
+        {
+          "value": "ecommerce_seller",
+          "label": "Ecommerce or marketplace seller"
+        },
+        {
+          "value": "startup_founder",
+          "label": "Startup founder"
+        },
+        {
+          "value": "real_estate_investor",
+          "label": "Real estate investor"
+        },
+        {
+          "value": "equipment_heavy",
+          "label": "Contractor / trucking / equipment-heavy business"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure yet"
+        }
+      ],
+      "maps_to": "businessPersona"
+    },
+    {
+      "id": "monthly_revenue",
+      "step_number": 2,
+      "label": "What is your average monthly business revenue?",
+      "help_text": "Use your best recent average. This is a readiness estimate, not a funding decision.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": 0,
+          "label": "$0–$2,999"
+        },
+        {
+          "value": 3000,
+          "label": "$3,000–$8,499"
+        },
+        {
+          "value": 8500,
+          "label": "$8,500–$14,999"
+        },
+        {
+          "value": 15000,
+          "label": "$15,000–$19,999"
+        },
+        {
+          "value": 20000,
+          "label": "$20,000–$49,999"
+        },
+        {
+          "value": 50000,
+          "label": "$50,000–$99,999"
+        },
+        {
+          "value": 100000,
+          "label": "$100,000+"
+        }
+      ],
+      "maps_to": "monthlyRevenue"
+    },
+    {
+      "id": "time_in_business",
+      "step_number": 3,
+      "label": "How long have you been operating?",
+      "help_text": "Time in business helps separate startup, prep-first, and established-business paths.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": 0,
+          "label": "Not launched yet"
+        },
+        {
+          "value": 3,
+          "label": "0–3 months"
+        },
+        {
+          "value": 5,
+          "label": "4–5 months"
+        },
+        {
+          "value": 11,
+          "label": "6–11 months"
+        },
+        {
+          "value": 23,
+          "label": "12–23 months"
+        },
+        {
+          "value": 24,
+          "label": "24+ months"
+        }
+      ],
+      "maps_to": "timeInBusinessMonths"
+    },
+    {
+      "id": "credit_score",
+      "step_number": 4,
+      "label": "What is your estimated personal credit score?",
+      "help_text": "A range is fine. This frontend scorecard does not run credit.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": 499,
+          "label": "Below 500"
+        },
+        {
+          "value": 500,
+          "label": "500–579"
+        },
+        {
+          "value": 580,
+          "label": "580–599"
+        },
+        {
+          "value": 600,
+          "label": "600–659"
+        },
+        {
+          "value": 660,
+          "label": "660–679"
+        },
+        {
+          "value": 680,
+          "label": "680–699"
+        },
+        {
+          "value": 700,
+          "label": "700+"
+        }
+      ],
+      "maps_to": "creditScore"
+    },
+    {
+      "id": "bank_status",
+      "step_number": 5,
+      "label": "Do you have a business bank account with regular deposits?",
+      "help_text": "Bank activity helps estimate which funding paths may be realistic enough to review.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": "none",
+          "label": "No business bank account"
+        },
+        {
+          "value": "inconsistent",
+          "label": "Yes, but low or inconsistent deposits"
+        },
+        {
+          "value": "consistent",
+          "label": "Yes, consistent monthly deposits"
+        },
+        {
+          "value": "strong_clean",
+          "label": "Yes, strong deposits and clean activity"
+        },
+        {
+          "value": "nsf_recent",
+          "label": "Yes, but recent NSFs/overdrafts"
+        }
+      ],
+      "maps_to": "bankStatus"
+    },
+    {
+      "id": "business_structure",
+      "step_number": 6,
+      "label": "How is your business currently set up?",
+      "help_text": "A cleaner business structure can make the funding conversation easier.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": "none",
+          "label": "No formal business yet"
+        },
+        {
+          "value": "sole_prop",
+          "label": "Sole proprietor / independent contractor"
+        },
+        {
+          "value": "entity_no_bank",
+          "label": "LLC or corporation, no business bank account"
+        },
+        {
+          "value": "entity_bank",
+          "label": "LLC or corporation with business bank account"
+        },
+        {
+          "value": "entity_bank_ein_clean",
+          "label": "LLC/corp, bank account, EIN, and clean records"
+        }
+      ],
+      "maps_to": "businessStructure"
+    },
+    {
+      "id": "funding_purpose",
+      "step_number": 7,
+      "label": "What do you need funding for?",
+      "help_text": "Use case determines whether the next step is funding review, document prep, or foundation-building.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": "working_capital",
+          "label": "Payroll / emergency working capital"
+        },
+        {
+          "value": "inventory",
+          "label": "Inventory / materials"
+        },
+        {
+          "value": "growth",
+          "label": "Marketing / growth"
+        },
+        {
+          "value": "equipment",
+          "label": "Equipment / vehicle / truck"
+        },
+        {
+          "value": "real_estate",
+          "label": "Real estate purchase or project"
+        },
+        {
+          "value": "ecommerce",
+          "label": "Ecommerce / marketplace growth"
+        },
+        {
+          "value": "startup",
+          "label": "Startup launch capital"
+        },
+        {
+          "value": "debt_consolidation",
+          "label": "Debt consolidation / refinancing"
+        },
+        {
+          "value": "business_credit",
+          "label": "Business credit building"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        }
+      ],
+      "maps_to": "fundingPurpose"
+    },
+    {
+      "id": "desired_amount",
+      "step_number": 8,
+      "label": "How much funding are you seeking?",
+      "help_text": "A realistic request helps separate microcapital, working capital, asset funding, and larger growth paths.",
+      "field_type": "radio",
+      "required": true,
+      "options": [
+        {
+          "value": 4999,
+          "label": "Under $5,000"
+        },
+        {
+          "value": 25000,
+          "label": "$5,000–$25,000"
+        },
+        {
+          "value": 75000,
+          "label": "$25,000–$75,000"
+        },
+        {
+          "value": 150000,
+          "label": "$75,000–$150,000"
+        },
+        {
+          "value": 500000,
+          "label": "$150,000–$500,000"
+        },
+        {
+          "value": 500001,
+          "label": "$500,000+"
+        }
+      ],
+      "maps_to": "desiredFundingAmount"
+    },
+    {
+      "id": "red_flags",
+      "step_number": 9,
+      "label": "Do any caution flags apply?",
+      "help_text": "Pick anything that applies. This keeps routing honest and prevents wasted conversations.",
+      "field_type": "checkbox",
+      "required": true,
+      "options": [
+        {
+          "value": "open_bankruptcy",
+          "label": "Open bankruptcy"
+        },
+        {
+          "value": "tax_lien",
+          "label": "Recent tax lien"
+        },
+        {
+          "value": "recent_late_payments",
+          "label": "Recent missed payments"
+        },
+        {
+          "value": "recent_nsfs",
+          "label": "Recent NSFs / overdrafts"
+        },
+        {
+          "value": "new_bank_account",
+          "label": "Business bank account recently opened"
+        },
+        {
+          "value": "existing_mca",
+          "label": "Existing MCA / daily payment advance"
+        },
+        {
+          "value": "marketplace_suspended",
+          "label": "Suspended marketplace account"
+        },
+        {
+          "value": "no_revenue",
+          "label": "No current revenue"
+        },
+        {
+          "value": "none",
+          "label": "None of these",
+          "exclusive": true
+        }
+      ],
+      "maps_to": "redFlags"
+    }
+  ],
+  "lead_fields": [
+    {
+      "id": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true,
+      "autocomplete": "name"
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "autocomplete": "email"
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true,
+      "autocomplete": "tel"
+    },
+    {
+      "id": "businessName",
+      "label": "Business name",
+      "type": "text",
+      "required": false,
+      "autocomplete": "organization"
+    },
+    {
+      "id": "state",
+      "label": "State",
+      "type": "text",
+      "required": false,
+      "maxlength": 30
+    }
+  ],
+  "validation_messages": {
+    "required_step": "Pick an option to continue.",
+    "required_checkbox": "Pick at least one option to continue.",
+    "lead_required": "Complete the required contact fields to view the result.",
+    "consent_required": "Consent is required before a human review can be requested."
+  },
+  "result_destinations": {
+    "highly_fundable": "/highly-fundable.html",
+    "fundable_review": "/fundable-review.html",
+    "not_ready": "/not-ready.html",
+    "general_results": "/results.html"
+  },
+  "privacy_note": "Public browser code should collect only user-submitted lead fields and must not include private provider, routing, commission, or underwriting data."
+}

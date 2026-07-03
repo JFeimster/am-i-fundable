@@ -1,0 +1,80 @@
+{
+  "id": "result-copy-tests-registry",
+  "visibility": "public_build_time_only",
+  "testing_status": "planned_manual_only",
+  "guardrails": [
+    "Result copy must describe readiness, not approval.",
+    "Do not claim funding decisions or lender-specific outcomes.",
+    "Every variant should point to an educational next step or human review when appropriate."
+  ],
+  "tier_variants": [
+    {
+      "tier_id": "highly_fundable",
+      "score_range": "80-100",
+      "destination": "/highly-fundable.html",
+      "variants": [
+        {
+          "id": "a",
+          "headline": "Strong funding readiness",
+          "body": "Based on your answers, your file may be ready for a faster human review and funding-path conversation."
+        },
+        {
+          "id": "b",
+          "headline": "Your file looks review-ready",
+          "body": "Your answers suggest a stronger readiness profile. The next step is documentation review, not guessing."
+        }
+      ]
+    },
+    {
+      "tier_id": "fundable_review",
+      "score_range": "65-79",
+      "destination": "/fundable-review.html",
+      "variants": [
+        {
+          "id": "a",
+          "headline": "Manual review recommended",
+          "body": "Your answers show potential, but a few details should be reviewed before choosing a funding path."
+        },
+        {
+          "id": "b",
+          "headline": "Close enough to inspect",
+          "body": "This looks like a file where human context matters. Review the documents and next steps before moving forward."
+        }
+      ]
+    },
+    {
+      "tier_id": "selective_fit",
+      "score_range": "45-64",
+      "destination": "/results.html",
+      "variants": [
+        {
+          "id": "a",
+          "headline": "Selective-fit profile",
+          "body": "Some funding paths may be possible, but the file likely needs cleaner documentation or tighter expectations first."
+        },
+        {
+          "id": "b",
+          "headline": "Possible, but not automatic",
+          "body": "Your answers suggest a selective-fit profile. The smart move is to reduce blockers before requesting review."
+        }
+      ]
+    },
+    {
+      "tier_id": "not_ready",
+      "score_range": "0-44",
+      "destination": "/not-ready.html",
+      "variants": [
+        {
+          "id": "a",
+          "headline": "Prep-first recommended",
+          "body": "Your file may need foundation work before a funding conversation makes sense. Start with the cleanup checklist."
+        },
+        {
+          "id": "b",
+          "headline": "Do not rush the application",
+          "body": "The answers point to readiness gaps. Fix the basics first so you do not waste shots with weak timing."
+        }
+      ]
+    }
+  ]
+}

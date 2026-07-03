@@ -1,0 +1,51 @@
+{
+  "id": "am-i-fundable-release-config",
+  "visibility": "public_build_time_only",
+  "release_policy": {
+    "deployment_mode": "manual_controlled_window",
+    "vercel_auto_deploy_should_remain_disabled": true,
+    "do_not_modify_vercel_json_without_authorization": true,
+    "preview_deployments": "disabled_by_policy",
+    "production_deployments": "disabled_until_explicit_release_window",
+    "release_owner_note": "Only open a deployment window intentionally, then close it after production verification."
+  },
+  "release_channels": [
+    {
+      "id": "local_preview",
+      "label": "Local static preview",
+      "purpose": "Validate pages before commit",
+      "required": true
+    },
+    {
+      "id": "pull_request",
+      "label": "Pull request review",
+      "purpose": "Review diffs, safety language, and public/private boundary",
+      "required": true
+    },
+    {
+      "id": "production_window",
+      "label": "Controlled production deployment window",
+      "purpose": "Temporary production deploy when approved",
+      "required": false
+    }
+  ],
+  "pre_release_checks": [
+    "All JSON files parse cleanly.",
+    "Public files do not expose provider, affiliate, apply, commission, routing, underwriting, credential, or borrower PII data.",
+    "Public pages avoid funding-decision, rate-promise, and speed-promise claims.",
+    "Browser-facing code does not import internal-only registries.",
+    "No production secrets are committed.",
+    "vercel.json remains unchanged unless explicitly authorized."
+  ],
+  "suggested_local_commands": [
+    "python -m http.server 8080",
+    "node --check script.js",
+    "find . -name \"*.json\" -maxdepth 4 -print"
+  ],
+  "versioning": {
+    "current_batch": 19,
+    "batch_name": "Public Config Layer",
+    "created_for": "Am I Fundable / Funding Readiness Scorecard",
+    "status": "batch_pack_ready"
+  }
+}
