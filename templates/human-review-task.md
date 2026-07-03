@@ -26,7 +26,7 @@
 - **Red Flags:** {{redFlags}}
 
 ## Reviewer Actions
-1. Check for any indicated {{redFlags}} that require immediate disqualification or specific handling.
-2. Verify if the {{primaryFundingFamily}} aligns with our current active provider network.
-3. If {{leadPriority}} is high, consider expedited outreach.
+1. Check any indicated {{redFlags}} for manual handling, missing context, or do-not-contact concerns.
+2. Verify whether the {{primaryFundingFamily}} aligns with current internal routing rules before outreach.
+3. If {{leadPriority}} is high, consider expedited human review.
 4. Update internal CRM notes with findings from this review.
