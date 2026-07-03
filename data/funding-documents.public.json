@@ -1,0 +1,32 @@
+[
+  {
+    "id": "doc-bank-statements",
+    "name": "Business Bank Statements",
+    "description": "Recent business bank statements to help evaluate monthly revenue.",
+    "typicalRequirement": "Last 3 to 6 months"
+  },
+  {
+    "id": "doc-tax-returns",
+    "name": "Business Tax Returns",
+    "description": "Annual business tax returns for verifying historical revenue.",
+    "typicalRequirement": "Most recent 1 to 2 years"
+  },
+  {
+    "id": "doc-profit-loss",
+    "name": "Profit & Loss (P&L) Statement",
+    "description": "Financial statement summarizing the revenues, costs, and expenses incurred during a specified period.",
+    "typicalRequirement": "Year-to-date or last 12 months"
+  },
+  {
+    "id": "doc-balance-sheet",
+    "name": "Balance Sheet",
+    "description": "A financial statement that reports a company's assets, liabilities, and shareholder equity.",
+    "typicalRequirement": "Current"
+  },
+  {
+    "id": "doc-business-license",
+    "name": "Business License or Registration",
+    "description": "Official documentation proving your business is legally registered.",
+    "typicalRequirement": "Current, active status"
+  }
+]

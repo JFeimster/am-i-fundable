@@ -1,0 +1,14 @@
+[
+  {
+    "id": "gpt-business-plan-helper",
+    "name": "Business Plan Assistant GPT",
+    "description": "An AI tool that can help structure your business plan, a useful step for some funding paths.",
+    "url": "https://example.com/gpts/business-plan"
+  },
+  {
+    "id": "gpt-pitch-deck-reviewer",
+    "name": "Pitch Deck Feedback GPT",
+    "description": "Get optional feedback on your pitch deck before sharing it with investors.",
+    "url": "https://example.com/gpts/pitch-deck"
+  }
+]

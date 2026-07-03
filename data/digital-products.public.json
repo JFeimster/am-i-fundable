@@ -1,0 +1,16 @@
+[
+  {
+    "id": "dp-cash-flow-template",
+    "name": "Cash Flow Forecast Template",
+    "description": "A spreadsheet template to help project your future cash flow.",
+    "url": "https://example.com/products/cash-flow-template",
+    "price": "Free"
+  },
+  {
+    "id": "dp-investor-outreach-scripts",
+    "name": "Investor Outreach Email Scripts",
+    "description": "Templates for communicating with potential investors.",
+    "url": "https://example.com/products/outreach-scripts",
+    "price": "$9.99"
+  }
+]

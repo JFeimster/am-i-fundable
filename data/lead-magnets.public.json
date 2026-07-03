@@ -1,0 +1,16 @@
+[
+  {
+    "id": "lm-funding-prep-guide",
+    "name": "Ultimate Funding Preparation Guide",
+    "description": "A comprehensive guide on how to prepare your business for seeking capital.",
+    "url": "https://example.com/guide",
+    "type": "PDF"
+  },
+  {
+    "id": "lm-credit-improvement-tips",
+    "name": "10 Tips to Improve Your Business Credit",
+    "description": "Actionable steps to help strengthen your business credit profile.",
+    "url": "https://example.com/credit-tips",
+    "type": "PDF"
+  }
+]
