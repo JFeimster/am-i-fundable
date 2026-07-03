@@ -1,0 +1,8 @@
+*.private.json
+*.secrets.json
+.env
+.env.*
+!.env.example
+internal/private/
+private/
+secrets/

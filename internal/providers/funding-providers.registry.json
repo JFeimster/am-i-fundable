@@ -3,13 +3,13 @@
   "name": "Funding Providers",
   "version": "0.2.0",
   "visibility": "internal",
-  "generatedFrom": "Funding Partners Database (Active partners)",
+  "generatedFrom": "Sanitized demo provider dataset",
   "generatedAt": "2026-06-26",
   "entries": [
     {
-      "id": "7-figures-funding",
-      "slug": "7-figures-funding",
-      "name": "7 Figures Funding",
+      "id": "demo-provider-01",
+      "slug": "demo-provider-01",
+      "name": "Demo Provider 01",
       "categories": [
         "Personal",
         "Business"
@@ -52,25 +52,27 @@
         "directory": [
           "Direct"
         ],
-        "affiliateUrl": "https://www.7figurescredit.com?a_aid=MoonshineCapital",
-        "applyUrl": "https://portal.7figurespartners.com/affiliates/panel.php#Home",
-        "commissionRate": "Varies; typically 2-3%",
-        "contactEmail": "partners@7figures.com",
+        "affiliateUrl": null,
+        "applyUrl": null,
+        "commissionRate": null,
+        "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.7figuresfunding.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c809984b5c8dc573aa6b2",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "8fig",
-      "slug": "8fig",
-      "name": "8fig",
+      "id": "demo-provider-02",
+      "slug": "demo-provider-02",
+      "name": "Demo Provider 02",
       "categories": [
         "Business"
       ],
@@ -112,23 +114,25 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "10%",
+        "commissionRate": null,
         "contactEmail": null,
-        "keyContact": "Contact via partner portal",
-        "website": "https://8fig.co/"
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80358660edcb75f4a3de",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "bank-breezy",
-      "slug": "bank-breezy",
-      "name": "Bank Breezy",
+      "id": "demo-provider-03",
+      "slug": "demo-provider-03",
+      "name": "Demo Provider 03",
       "categories": [
         "Business"
       ],
@@ -177,25 +181,27 @@
         "directory": [
           "Direct"
         ],
-        "affiliateUrl": "https://bankbreezy.com/jason/",
-        "applyUrl": "https://bankbreezy.com/funding/jason/",
-        "commissionRate": "2-8%",
+        "affiliateUrl": null,
+        "applyUrl": null,
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://bankbreezy.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2e34bc1bd63c80ef8afad1d34a091033",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "business-credit-workshop",
-      "slug": "business-credit-workshop",
-      "name": "Business Credit Workshop",
+      "id": "demo-provider-04",
+      "slug": "demo-provider-04",
+      "name": "Demo Provider 04",
       "categories": [
         "Personal",
         "Consulting"
@@ -235,17 +241,19 @@
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1ed4bc1bd63c8085bb9ccfdaac089d57",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "capchase",
-      "slug": "capchase",
-      "name": "Capchase",
+      "id": "demo-provider-05",
+      "slug": "demo-provider-05",
+      "name": "Demo Provider 05",
       "categories": [
         "Business"
       ],
@@ -281,25 +289,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://capchase.com/referrals?referralId=395c26d9",
-        "applyUrl": "https://capchase.com/referrals?referralId=395c26d9",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://capchase.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1ed4bc1bd63c8033a9b4ceefd73bdda5",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "credibly",
-      "slug": "credibly",
-      "name": "Credibly",
+      "id": "demo-provider-06",
+      "slug": "demo-provider-06",
+      "name": "Demo Provider 06",
       "categories": [
         "Business"
       ],
@@ -341,23 +351,25 @@
         "directory": [],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically 1-3%",
+        "commissionRate": null,
         "contactEmail": null,
-        "keyContact": "Contact via partner portal",
+        "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c8082acf9df9478b17849",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "credit-suite",
-      "slug": "credit-suite",
-      "name": "Credit Suite",
+      "id": "demo-provider-07",
+      "slug": "demo-provider-07",
+      "name": "Demo Provider 07",
       "categories": [
         "Personal",
         "Consulting",
@@ -393,23 +405,25 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically a flat fee per referral",
+        "commissionRate": null,
         "contactEmail": null,
-        "keyContact": "Contact via partner portal",
-        "website": "https://creditsuite.com/"
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80269e58ca4525cf3cbf",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "david-allen-capital",
-      "slug": "david-allen-capital",
-      "name": "David Allen Capital",
+      "id": "demo-provider-08",
+      "slug": "demo-provider-08",
+      "name": "Demo Provider 08",
       "categories": [
         "Business"
       ],
@@ -456,25 +470,27 @@
         "directory": [
           "Direct"
         ],
-        "affiliateUrl": "https://davidallencapital.com/jason/",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically 2-8% of funded amount",
-        "contactEmail": "support@davidallencapital.com",
-        "keyContact": "support@davidallencapital.com",
-        "website": "https://davidallencapital.com"
+        "commissionRate": null,
+        "contactEmail": null,
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80369ef1fbeeab04f27b",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "dlp-capital",
-      "slug": "dlp-capital",
-      "name": "DLP Capital",
+      "id": "demo-provider-09",
+      "slug": "demo-provider-09",
+      "name": "Demo Provider 09",
       "categories": [
         "Real Estate"
       ],
@@ -511,23 +527,25 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Lead Converted to Contact: $250.00",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1ed4bc1bd63c80e59381d43190a92e17",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "equitynet",
-      "slug": "equitynet",
-      "name": "EquityNet",
+      "id": "demo-provider-10",
+      "slug": "demo-provider-10",
+      "name": "Demo Provider 10",
       "categories": [
         "Marketplace"
       ],
@@ -559,25 +577,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://equitynetinc.sjv.io/Kj1aOv",
-        "applyUrl": "https://equitynetinc.sjv.io/Kj1aOv",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80f7911cd3444f7c4a07",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "finta-io",
-      "slug": "finta-io",
-      "name": "Finta.io",
+      "id": "demo-provider-11",
+      "slug": "demo-provider-11",
+      "name": "Demo Provider 11",
       "categories": [
         "Software"
       ],
@@ -608,26 +628,26 @@
         "affiliateStatus": "active",
         "directory": [],
         "affiliateUrl": null,
-        "applyUrl": "https://partners.dub.co/programs",
-        "commissionRate": "10%",
+        "applyUrl": null,
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2324bc1bd63c80c2a530f30186694a83",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
         "notes": [
-          "affiliate link present in CRM but not a clean URL; reconfirm"
+          "Removed from public repo. Store operational notes in a private system."
         ]
       }
     },
     {
-      "id": "fora-financial",
-      "slug": "fora-financial",
-      "name": "Fora Financial",
+      "id": "demo-provider-12",
+      "slug": "demo-provider-12",
+      "name": "Demo Provider 12",
       "categories": [
         "Business"
       ],
@@ -668,25 +688,27 @@
           "Impact",
           "Flex Offers"
         ],
-        "affiliateUrl": "https://forafinancial.pxf.io/c/2229127/2015280/24953",
-        "applyUrl": "https://forafinancial.pxf.io/gOWX1v",
-        "commissionRate": "Funded: 4%",
-        "contactEmail": "sales@forafinancial.com",
+        "affiliateUrl": null,
+        "applyUrl": null,
+        "commissionRate": null,
+        "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.forafinancial.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c804e9135c30d904e8c6b",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "fundandgrow",
-      "slug": "fundandgrow",
-      "name": "Fund&Grow",
+      "id": "demo-provider-13",
+      "slug": "demo-provider-13",
+      "name": "Demo Provider 13",
       "categories": [
         "Personal",
         "Business",
@@ -725,25 +747,27 @@
         "directory": [
           "Direct"
         ],
-        "affiliateUrl": "https://www.fundandgrow.com/jasonfeimster/",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically a flat fee per client",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.fundandgrow.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80878a7ccc3fea92f458",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "gator-lending",
-      "slug": "gator-lending",
-      "name": "Gator Lending",
+      "id": "demo-provider-14",
+      "slug": "demo-provider-14",
+      "name": "Demo Provider 14",
       "categories": [
         "Real Estate"
       ],
@@ -790,17 +814,19 @@
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/25b4bc1bd63c8035ae57ce72991ce002",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "gokapital",
-      "slug": "gokapital",
-      "name": "GoKapital",
+      "id": "demo-provider-15",
+      "slug": "demo-provider-15",
+      "name": "Demo Provider 15",
       "categories": [
         "Personal",
         "Business",
@@ -851,24 +877,26 @@
         "affiliateStatus": "active",
         "directory": [],
         "affiliateUrl": null,
-        "applyUrl": "https://www.cognitoforms.com/GoKapitalInc/businessloanapplication",
-        "commissionRate": "Varies; typically 1-3%",
+        "applyUrl": null,
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://gokapital.com"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80bba589c7cc4a13bdfe",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "guidant",
-      "slug": "guidant",
-      "name": "Guidant",
+      "id": "demo-provider-16",
+      "slug": "demo-provider-16",
+      "name": "Demo Provider 16",
       "categories": [
         "Business"
       ],
@@ -904,25 +932,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://www.gfprequal.com/mc",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically a flat fee per referral",
+        "commissionRate": null,
         "contactEmail": null,
-        "keyContact": "Contact via partner portal",
+        "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c805d9ad3eef3691c79a8",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "kiava",
-      "slug": "kiava",
-      "name": "Kiava",
+      "id": "demo-provider-17",
+      "slug": "demo-provider-17",
+      "name": "Demo Provider 17",
       "categories": [
         "Real Estate"
       ],
@@ -954,7 +984,7 @@
         "directory": [
           "PartnerStack"
         ],
-        "affiliateUrl": "https://try.kiavi.com/wc6dxe4vsra5",
+        "affiliateUrl": null,
         "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
@@ -962,17 +992,19 @@
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/3264bc1bd63c802d9a57de4411c0f976",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "new-silver",
-      "slug": "new-silver",
-      "name": "New Silver",
+      "id": "demo-provider-18",
+      "slug": "demo-provider-18",
+      "name": "Demo Provider 18",
       "categories": [
         "Real Estate"
       ],
@@ -1009,25 +1041,27 @@
         "directory": [
           "Flex Offers"
         ],
-        "affiliateUrl": "https://fxo.co/ItIN",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "$50 per completed loan application; $750 per qualified sale",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://newsilver.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/25b4bc1bd63c80509586eea6588c5a72",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "onramp",
-      "slug": "onramp",
-      "name": "Onramp",
+      "id": "demo-provider-19",
+      "slug": "demo-provider-19",
+      "name": "Demo Provider 19",
       "categories": [
         "Business"
       ],
@@ -1069,23 +1103,25 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Typically 1-3%",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.onrampfunds.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80caa1e6f6ee21169fbc",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "opm-mastery",
-      "slug": "opm-mastery",
-      "name": "OPM Mastery",
+      "id": "demo-provider-20",
+      "slug": "demo-provider-20",
+      "name": "Demo Provider 20",
       "categories": [
         "Personal",
         "Business"
@@ -1125,25 +1161,27 @@
         "directory": [
           "Direct"
         ],
-        "affiliateUrl": "https://opmmastery.referralrock.com/v2/1",
-        "applyUrl": "https://opmmastery.referralrock.com/l/JASONFEIMS03/",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://opmmastery.com"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/22d4bc1bd63c80f8b5fbe8c6d6b691fc",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "payability",
-      "slug": "payability",
-      "name": "Payability",
+      "id": "demo-provider-21",
+      "slug": "demo-provider-21",
+      "name": "Demo Provider 21",
       "categories": [
         "Business"
       ],
@@ -1183,25 +1221,27 @@
         "directory": [
           "Tapfiliate"
         ],
-        "affiliateUrl": "https://fas.st/t/P7LZc7v7",
-        "applyUrl": "https://payability.tapfiliate.com/p/new/dashboard/",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
-        "contactEmail": "partners@payability",
+        "contactEmail": null,
         "keyContact": null,
-        "website": "https://payability.com"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2394bc1bd63c8090aa17f903852220da",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "ramp",
-      "slug": "ramp",
-      "name": "Ramp",
+      "id": "demo-provider-22",
+      "slug": "demo-provider-22",
+      "name": "Demo Provider 22",
       "categories": [
         "Business",
         "Software"
@@ -1234,7 +1274,7 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://api.fintelconnect.com/t/l/645b368ec92e38001ba614ac",
+        "affiliateUrl": null,
         "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
@@ -1242,17 +1282,19 @@
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/37e8bd3a4fd44987adddf592833c800e",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "rok-financial",
-      "slug": "rok-financial",
-      "name": "ROK Financial",
+      "id": "demo-provider-23",
+      "slug": "demo-provider-23",
+      "name": "Demo Provider 23",
       "categories": [
         "Personal",
         "Business",
@@ -1293,25 +1335,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://go.mypartner.io/business-financing/?ref=0014x00000H3JAsAAN",
-        "applyUrl": "https://rok.my.site.com/MyPartner/s/",
-        "commissionRate": "Varies; typically 1-3%",
-        "contactEmail": "ckelleher@rok.biz | Partners@Rok.biz",
-        "keyContact": "Christian Kelleher",
-        "website": "https://www.rok.biz/"
+        "affiliateUrl": null,
+        "applyUrl": null,
+        "commissionRate": null,
+        "contactEmail": null,
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80598b49df8944065ac6",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "sellersfi",
-      "slug": "sellersfi",
-      "name": "SellersFi",
+      "id": "demo-provider-24",
+      "slug": "demo-provider-24",
+      "name": "Demo Provider 24",
       "categories": [
         "Business"
       ],
@@ -1351,23 +1395,25 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Varies; typically 1-3%",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80728751f147b19f562a",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "stilt",
-      "slug": "stilt",
-      "name": "Stilt",
+      "id": "demo-provider-25",
+      "slug": "demo-provider-25",
+      "name": "Demo Provider 25",
       "categories": [
         "Personal"
       ],
@@ -1401,25 +1447,27 @@
         "directory": [
           "Flex Offers"
         ],
-        "affiliateUrl": "https://fxo.co/IwSM",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "0.8% on Approved Loan orders.",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2704bc1bd63c803eb35ac5e767d03ecb",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "subto",
-      "slug": "subto",
-      "name": "Subto",
+      "id": "demo-provider-26",
+      "slug": "demo-provider-26",
+      "name": "Demo Provider 26",
       "categories": [
         "Real Estate"
       ],
@@ -1458,20 +1506,22 @@
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.subto.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2e34bc1bd63c80258a67d37345aa122c",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "the-finance-factory",
-      "slug": "the-finance-factory",
-      "name": "The Finance Factory",
+      "id": "demo-provider-27",
+      "slug": "demo-provider-27",
+      "name": "Demo Provider 27",
       "categories": [
         "Personal",
         "Business"
@@ -1514,25 +1564,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://lp.thefinancefactory.com/lp/r/6018",
-        "applyUrl": "https://lp.thefinancefactory.com/lp/r/6018",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
         "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1ed4bc1bd63c806a83e2fa1ff2317756",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "uncapped",
-      "slug": "uncapped",
-      "name": "Uncapped",
+      "id": "demo-provider-28",
+      "slug": "demo-provider-28",
+      "name": "Demo Provider 28",
       "categories": [
         "Business"
       ],
@@ -1568,25 +1620,27 @@
       "affiliate": {
         "affiliateStatus": "active",
         "directory": [],
-        "affiliateUrl": "https://portal.weareuncapped.com/registration?referral=moonshinecapital",
-        "applyUrl": "https://login.weareuncapped.com/login",
+        "affiliateUrl": null,
+        "applyUrl": null,
         "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://weareuncapped.com"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/2f0852ec08c044818caf03394c199180",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "uplyft-capital",
-      "slug": "uplyft-capital",
-      "name": "Uplyft Capital",
+      "id": "demo-provider-29",
+      "slug": "demo-provider-29",
+      "name": "Demo Provider 29",
       "categories": [
         "Business"
       ],
@@ -1627,24 +1681,26 @@
           "Flex Offers"
         ],
         "affiliateUrl": null,
-        "applyUrl": "https://uplyftcapital.com/",
-        "commissionRate": "Varies; typically 2-4%",
+        "applyUrl": null,
+        "commissionRate": null,
         "contactEmail": null,
-        "keyContact": "Contact via partner portal",
-        "website": "https://uplyftcapital.com/"
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c80c08df8ed1b00bc0dad",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "upstart",
-      "slug": "upstart",
-      "name": "Upstart",
+      "id": "demo-provider-30",
+      "slug": "demo-provider-30",
+      "name": "Demo Provider 30",
       "categories": [
         "Personal"
       ],
@@ -1682,25 +1738,27 @@
         "directory": [
           "Impact"
         ],
-        "affiliateUrl": "https://upstart.9c65.net/qnKBjj",
+        "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "1.4% of funded loans.",
+        "commissionRate": null,
         "contactEmail": null,
         "keyContact": null,
-        "website": "https://www.upstart.com/"
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1c54bc1bd63c805697ded07f815ddee1",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     },
     {
-      "id": "visio-lending",
-      "slug": "visio-lending",
-      "name": "Visio Lending",
+      "id": "demo-provider-31",
+      "slug": "demo-provider-31",
+      "name": "Demo Provider 31",
       "categories": [
         "Real Estate"
       ],
@@ -1740,17 +1798,19 @@
         ],
         "affiliateUrl": null,
         "applyUrl": null,
-        "commissionRate": "Qualified Lead: $50.00",
-        "contactEmail": "mark.gochenour@visiolending.com",
-        "keyContact": "Mark Gochenour",
-        "website": "https://visiolending.com/"
+        "commissionRate": null,
+        "contactEmail": null,
+        "keyContact": null,
+        "website": null
       },
       "source": {
-        "derivedFrom": "Funding Partners Database",
-        "notionUrl": "https://app.notion.com/p/1ea4bc1bd63c8004ae40e4ff07fb81f3",
+        "derivedFrom": "Private source removed from public repo",
+        "notionUrl": null,
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": []
+        "notes": [
+          "Removed from public repo. Store operational notes in a private system."
+        ]
       }
     }
   ]
