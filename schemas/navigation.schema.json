@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/navigation.schema.json",
+  "title": "Navigation",
+  "description": "Validates browser-safe navigation and footer structures.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "header",
+    "footer"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe"
+      ]
+    },
+    "brand": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mark": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6
+        },
+        "home_path": {
+          "type": "string",
+          "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+        }
+      },
+      "required": [
+        "name",
+        "home_path"
+      ],
+      "additionalProperties": false
+    },
+    "header": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/navItem"
+      }
+    },
+    "footer": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/navGroup"
+      }
+    },
+    "legal_notice": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Public-safe disclaimer language; must avoid approval or guarantee claims.",
+      "not": {
+        "pattern": "(?i)(guaranteed|instant approval|approved lender|best rate)"
+      }
+    }
+  },
+  "$defs": {
+    "navItem": {
+      "type": "object",
+      "required": [
+        "label",
+        "href"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "href": {
+          "type": "string",
+          "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+        },
+        "aria_label": {
+          "type": "string"
+        },
+        "is_cta": {
+          "type": "boolean",
+          "default": false
+        },
+        "audience": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "navGroup": {
+      "type": "object",
+      "required": [
+        "title",
+        "items"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/navItem"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

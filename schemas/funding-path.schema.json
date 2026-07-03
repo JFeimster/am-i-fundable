@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/funding-path.schema.json",
+  "title": "Funding Path",
+  "description": "Validates public funding-family descriptions without exposing providers, affiliate URLs, or internal routing secrets.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "funding_paths"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe"
+      ]
+    },
+    "funding_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "summary",
+          "best_for",
+          "common_requirements",
+          "not_a_fit_when",
+          "next_step"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "best_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "not": {
+                "anyOf": [
+                  {
+                    "pattern": "(?i)guaranteed funding"
+                  },
+                  {
+                    "pattern": "(?i)instant approval"
+                  },
+                  {
+                    "pattern": "(?i)final eligibility"
+                  },
+                  {
+                    "pattern": "(?i)best rates"
+                  },
+                  {
+                    "pattern": "(?i)approved"
+                  },
+                  {
+                    "pattern": "(?i)approval guaranteed"
+                  }
+                ]
+              }
+            },
+            "minItems": 1
+          },
+          "common_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "not": {
+                "anyOf": [
+                  {
+                    "pattern": "(?i)guaranteed funding"
+                  },
+                  {
+                    "pattern": "(?i)instant approval"
+                  },
+                  {
+                    "pattern": "(?i)final eligibility"
+                  },
+                  {
+                    "pattern": "(?i)best rates"
+                  },
+                  {
+                    "pattern": "(?i)approved"
+                  },
+                  {
+                    "pattern": "(?i)approval guaranteed"
+                  }
+                ]
+              }
+            },
+            "minItems": 1
+          },
+          "not_a_fit_when": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "not": {
+                "anyOf": [
+                  {
+                    "pattern": "(?i)guaranteed funding"
+                  },
+                  {
+                    "pattern": "(?i)instant approval"
+                  },
+                  {
+                    "pattern": "(?i)final eligibility"
+                  },
+                  {
+                    "pattern": "(?i)best rates"
+                  },
+                  {
+                    "pattern": "(?i)approved"
+                  },
+                  {
+                    "pattern": "(?i)approval guaranteed"
+                  }
+                ]
+              }
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "risk_notes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "not": {
+                "anyOf": [
+                  {
+                    "pattern": "(?i)guaranteed funding"
+                  },
+                  {
+                    "pattern": "(?i)instant approval"
+                  },
+                  {
+                    "pattern": "(?i)final eligibility"
+                  },
+                  {
+                    "pattern": "(?i)best rates"
+                  },
+                  {
+                    "pattern": "(?i)approved"
+                  },
+                  {
+                    "pattern": "(?i)approval guaranteed"
+                  }
+                ]
+              }
+            }
+          },
+          "next_step": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "page_path": {
+            "type": "string",
+            "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+          }
+        },
+        "additionalProperties": false,
+        "not": {
+          "required": [
+            "provider_name",
+            "provider_id",
+            "affiliate_url",
+            "apply_url",
+            "commission"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

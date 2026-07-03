@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/skill.schema.json",
+  "title": "Skill",
+  "description": "Validates repo skill files for agents, automations, and repeatable operator workflows.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "name",
+    "purpose",
+    "inputs",
+    "workflow",
+    "outputs",
+    "safety"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe",
+        "public_build_time_only",
+        "server_side_internal",
+        "internal_not_public"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "required"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "user",
+              "scorecard_result",
+              "site_data",
+              "internal_registry",
+              "manual_review"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "workflow": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "safety": {
+      "type": "object",
+      "required": [
+        "forbidden_claims",
+        "private_data_rules",
+        "escalation_rules"
+      ],
+      "properties": {
+        "forbidden_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "private_data_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "escalation_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    }
+  },
+  "additionalProperties": false
+}

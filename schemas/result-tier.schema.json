@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/result-tier.schema.json",
+  "title": "Result Tier",
+  "description": "Validates funding readiness result tiers and safe next-step copy.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "tiers"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe"
+      ]
+    },
+    "tiers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "min_score",
+          "max_score",
+          "summary",
+          "recommended_next_step",
+          "result_path",
+          "disclaimer"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "min_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "max_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "tone": {
+            "type": "string",
+            "enum": [
+              "encouraging",
+              "review_needed",
+              "prep_first",
+              "urgent_review"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "recommended_next_step": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "result_path": {
+            "type": "string",
+            "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+          },
+          "cta": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "not": {
+                  "anyOf": [
+                    {
+                      "pattern": "(?i)guaranteed funding"
+                    },
+                    {
+                      "pattern": "(?i)instant approval"
+                    },
+                    {
+                      "pattern": "(?i)final eligibility"
+                    },
+                    {
+                      "pattern": "(?i)best rates"
+                    },
+                    {
+                      "pattern": "(?i)approved"
+                    },
+                    {
+                      "pattern": "(?i)approval guaranteed"
+                    }
+                  ]
+                }
+              },
+              "href": {
+                "type": "string",
+                "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+              },
+              "style": {
+                "type": "string",
+                "enum": [
+                  "primary",
+                  "secondary",
+                  "muted",
+                  "text"
+                ]
+              },
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_:-]+$"
+              },
+              "audience": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ],
+            "additionalProperties": false
+          },
+          "recommended_documents": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "disclaimer": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public-safe disclaimer language; must avoid approval or guarantee claims.",
+            "not": {
+              "pattern": "(?i)(guaranteed|instant approval|approved lender|best rate)"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

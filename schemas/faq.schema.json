@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/faq.schema.json",
+  "title": "FAQ Data",
+  "description": "Validates public-safe FAQ content suitable for site pages and FAQPage structured data.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "questions"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe"
+      ]
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "question",
+          "answer",
+          "category"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "scorecard",
+              "results",
+              "documents",
+              "funding_paths",
+              "broker",
+              "partner",
+              "white_label",
+              "privacy",
+              "terms"
+            ]
+          },
+          "page_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "schema_eligible": {
+            "type": "boolean",
+            "default": true
+          },
+          "sort_order": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

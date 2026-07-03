@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/document-checklist.schema.json",
+  "title": "Document Checklist",
+  "description": "Validates public-safe funding document preparation checklists by purpose or funding family.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "checklists"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe"
+      ]
+    },
+    "checklists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "audience",
+          "items",
+          "safe_note"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "funding_path_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "audience": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "label",
+                "why_it_matters",
+                "required_level"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "not": {
+                    "anyOf": [
+                      {
+                        "pattern": "(?i)guaranteed funding"
+                      },
+                      {
+                        "pattern": "(?i)instant approval"
+                      },
+                      {
+                        "pattern": "(?i)final eligibility"
+                      },
+                      {
+                        "pattern": "(?i)best rates"
+                      },
+                      {
+                        "pattern": "(?i)approved"
+                      },
+                      {
+                        "pattern": "(?i)approval guaranteed"
+                      }
+                    ]
+                  }
+                },
+                "why_it_matters": {
+                  "type": "string",
+                  "minLength": 1,
+                  "not": {
+                    "anyOf": [
+                      {
+                        "pattern": "(?i)guaranteed funding"
+                      },
+                      {
+                        "pattern": "(?i)instant approval"
+                      },
+                      {
+                        "pattern": "(?i)final eligibility"
+                      },
+                      {
+                        "pattern": "(?i)best rates"
+                      },
+                      {
+                        "pattern": "(?i)approved"
+                      },
+                      {
+                        "pattern": "(?i)approval guaranteed"
+                      }
+                    ]
+                  }
+                },
+                "required_level": {
+                  "type": "string",
+                  "enum": [
+                    "core",
+                    "recommended",
+                    "conditional",
+                    "nice_to_have"
+                  ]
+                },
+                "applies_when": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "safe_note": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public-safe disclaimer language; must avoid approval or guarantee claims.",
+            "not": {
+              "pattern": "(?i)(guaranteed|instant approval|approved lender|best rate)"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

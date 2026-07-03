@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/crm-stage-map.schema.json",
+  "title": "CRM Stage Map",
+  "description": "Validates internal CRM stage mapping without exposing real CRM IDs or private provider data.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "crm",
+    "stages"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "server_side_internal",
+        "internal_not_public"
+      ]
+    },
+    "crm": {
+      "type": "object",
+      "required": [
+        "name",
+        "environment",
+        "uses_demo_values"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "demo_crm",
+            "hubspot_placeholder",
+            "gohighlevel_placeholder",
+            "notion_placeholder",
+            "airtable_placeholder",
+            "custom"
+          ]
+        },
+        "environment": {
+          "type": "string",
+          "enum": [
+            "demo",
+            "staging",
+            "production_template"
+          ]
+        },
+        "uses_demo_values": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "description",
+          "entry_conditions",
+          "exit_next_steps"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "crm_stage_key": {
+            "type": "string",
+            "pattern": "^demo_[a-z0-9_]+$"
+          },
+          "entry_conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "exit_next_steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "default_task_template_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

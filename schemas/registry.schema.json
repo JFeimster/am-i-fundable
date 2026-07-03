@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/registry.schema.json",
+  "title": "Registry Envelope",
+  "description": "Generic envelope schema for Am I Fundable registries, including public and internal registries.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "visibility",
+    "version",
+    "owner",
+    "records"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe",
+        "public_build_time_only",
+        "server_side_internal",
+        "internal_not_public"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "ai_generated",
+        "csv_import",
+        "api_export",
+        "demo_seed",
+        "derived"
+      ]
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "active",
+              "deprecated",
+              "archived"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public_runtime_browser_safe",
+              "public_build_time_only",
+              "server_side_internal",
+              "internal_not_public"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "forbidden_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "provider_id",
+        "affiliate_url",
+        "apply_url",
+        "commission",
+        "private_contact",
+        "routing_secret",
+        "underwriting_notes"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

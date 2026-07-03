@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/cta.schema.json",
+  "title": "CTA Registry",
+  "description": "Validates public-safe call-to-action registries by audience, tier, and page context.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "ctas"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe",
+        "public_build_time_only"
+      ]
+    },
+    "ctas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "href",
+          "intent",
+          "safe_disclaimer"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "anyOf": [
+                {
+                  "pattern": "(?i)guaranteed funding"
+                },
+                {
+                  "pattern": "(?i)instant approval"
+                },
+                {
+                  "pattern": "(?i)final eligibility"
+                },
+                {
+                  "pattern": "(?i)best rates"
+                },
+                {
+                  "pattern": "(?i)approved"
+                },
+                {
+                  "pattern": "(?i)approval guaranteed"
+                }
+              ]
+            }
+          },
+          "href": {
+            "type": "string",
+            "pattern": "^\\/[a-z0-9][a-z0-9\\-/]*\\.?(html|json|md|xml|txt)?(#[-a-z0-9_]+)?$"
+          },
+          "intent": {
+            "type": "string",
+            "enum": [
+              "start_scorecard",
+              "request_review",
+              "view_resources",
+              "prepare_documents",
+              "broker_demo",
+              "partner_embed",
+              "retake_scorecard",
+              "learn_more"
+            ]
+          },
+          "audiences": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "page_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "result_tiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "safe_disclaimer": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public-safe disclaimer language; must avoid approval or guarantee claims.",
+            "not": {
+              "pattern": "(?i)(guaranteed|instant approval|approved lender|best rate)"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

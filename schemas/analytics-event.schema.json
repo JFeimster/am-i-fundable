@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://am-i-fundable.local/schemas/webhook-event.schema.json",
-  "title": "Webhook Event",
-  "description": "Validates internal automation event definitions and safe payload contracts.",
+  "$id": "https://am-i-fundable.local/schemas/analytics-event.schema.json",
+  "title": "Analytics Event",
+  "description": "Validates public-safe analytics event taxonomy. Events must not contain borrower PII or private provider data.",
   "type": "object",
   "required": [
     "id",
@@ -17,8 +17,8 @@
     "visibility": {
       "type": "string",
       "enum": [
-        "server_side_internal",
-        "internal_not_public"
+        "public_runtime_browser_safe",
+        "public_build_time_only"
       ]
     },
     "events": {
@@ -27,42 +27,45 @@
         "type": "object",
         "required": [
           "id",
-          "event_name",
-          "description",
-          "direction",
-          "payload_fields"
+          "name",
+          "trigger",
+          "category",
+          "allowed_properties"
         ],
         "properties": {
           "id": {
             "type": "string",
             "pattern": "^[a-z0-9][a-z0-9_-]*$"
           },
-          "event_name": {
+          "name": {
             "type": "string",
-            "pattern": "^[a-z]+(\\.[a-z0-9_]+)+$"
+            "pattern": "^[a-z]+(_[a-z0-9]+)*$"
           },
-          "description": {
+          "trigger": {
             "type": "string",
             "minLength": 1
           },
-          "direction": {
+          "category": {
             "type": "string",
             "enum": [
-              "inbound",
-              "outbound",
-              "internal"
+              "navigation",
+              "scorecard",
+              "lead_capture",
+              "result",
+              "resource",
+              "partner",
+              "embed",
+              "error"
             ]
           },
-          "payload_fields": {
+          "allowed_properties": {
             "type": "array",
-            "minItems": 1,
             "items": {
               "type": "object",
               "required": [
                 "name",
                 "type",
-                "required",
-                "pii_classification"
+                "privacy_level"
               ],
               "properties": {
                 "name": {
@@ -75,23 +78,15 @@
                     "string",
                     "number",
                     "integer",
-                    "boolean",
-                    "array",
-                    "object",
-                    "null"
+                    "boolean"
                   ]
                 },
-                "required": {
-                  "type": "boolean"
-                },
-                "pii_classification": {
+                "privacy_level": {
                   "type": "string",
                   "enum": [
-                    "none",
-                    "lead_contact",
-                    "business_profile",
-                    "sensitive",
-                    "derived_score"
+                    "anonymous",
+                    "derived_non_pii",
+                    "page_context"
                   ]
                 },
                 "description": {
@@ -101,12 +96,19 @@
               "additionalProperties": false
             }
           },
-          "retention_note": {
-            "type": "string"
-          },
-          "public_safe": {
-            "type": "boolean",
-            "default": false
+          "do_not_send": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "name",
+              "email",
+              "phone",
+              "provider_id",
+              "affiliate_url",
+              "apply_url"
+            ]
           }
         },
         "additionalProperties": false

@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.local/schemas/lead-routing-rule.schema.json",
+  "title": "Lead Routing Rule",
+  "description": "Validates server-side internal lead routing rules. These files must never be imported by browser-facing code.",
+  "type": "object",
+  "required": [
+    "id",
+    "visibility",
+    "rules"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "server_side_internal",
+        "internal_not_public"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "conditions",
+          "actions",
+          "human_review_required"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "conditions": {
+            "type": "object",
+            "properties": {
+              "score_min": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "score_max": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "personas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "funding_purposes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "red_flags_any": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "desired_amount_min": {
+                "type": "number",
+                "minimum": 0
+              },
+              "desired_amount_max": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "type",
+                "value"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "assign_queue",
+                    "apply_tag",
+                    "create_task",
+                    "send_nurture_path",
+                    "recommend_review",
+                    "suppress_public_match"
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "human_review_required": {
+            "type": "boolean"
+          },
+          "internal_note": {
+            "type": "string"
+          },
+          "public_message_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          }
+        },
+        "additionalProperties": false,
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "provider_id"
+              ]
+            },
+            {
+              "required": [
+                "affiliate_url"
+              ]
+            },
+            {
+              "required": [
+                "apply_url"
+              ]
+            },
+            {
+              "required": [
+                "commission"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
