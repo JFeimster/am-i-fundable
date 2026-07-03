@@ -1,35 +1,53 @@
-# Batch API-5 — Docs + Examples
+# Batch API-6 — Testing + Validation
 
 Generated for: Am I Fundable / Funding Readiness Scorecard
 
-## Created docs
+## Created test files
 
-- `/docs/api/README.md`
-- `/docs/api/public-routes.md`
-- `/docs/api/request-response-examples.md`
-- `/docs/api/gpt-actions-setup.md`
-- `/docs/api/public-data-boundary.md`
-- `/docs/api/error-handling.md`
+- `/tests/api/health.test.js`
+- `/tests/api/public-funding-paths.test.js`
+- `/tests/api/document-checklist.test.js`
+- `/tests/api/resource-recommendations.test.js`
+- `/tests/api/request-review.test.js`
+- `/tests/api/readiness-report.test.js`
+- `/tests/api/public-boundary.test.js`
+- `/tests/schemas/api-schemas.test.js`
 
-## Created examples
+## Created validation scripts
 
-- `/examples/api/scorecard-submit-request.hot.json`
-- `/examples/api/scorecard-submit-response.hot.json`
-- `/examples/api/funding-paths-response.json`
-- `/examples/api/document-checklist-response.json`
-- `/examples/api/readiness-report-request.json`
-- `/examples/api/readiness-report-response.json`
-- `/examples/api/error-response.validation.json`
+- `/scripts/validate-api-schemas.js`
+- `/scripts/validate-openapi.js`
+- `/scripts/validate-api-examples.js`
+- `/scripts/check-public-api-safety.js`
+
+## Suggested package.json additions
+
+Add these scripts after the batch files are added:
+
+```json
+{
+  "scripts": {
+    "test:api": "node --test tests/api/*.test.js",
+    "test:schemas": "node --test tests/schemas/*.test.js",
+    "validate:api-schemas": "node scripts/validate-api-schemas.js",
+    "validate:openapi": "node scripts/validate-openapi.js",
+    "validate:api-examples": "node scripts/validate-api-examples.js",
+    "check:public-api-safety": "node scripts/check-public-api-safety.js",
+    "validate:api": "npm run validate:api-schemas && npm run validate:openapi && npm run validate:api-examples && npm run check:public-api-safety",
+    "test:api-all": "npm run validate:api && npm run test:api && npm run test:schemas"
+  }
+}
+```
 
 ## Notes
 
-- All examples use demo data only.
-- Public examples avoid provider names, provider IDs, apply URLs, affiliate URLs, commissions, private contacts, routing notes, underwriting notes, and secrets.
-- Docs are designed to support Custom GPT Actions, broker/partner embeds, and API testing.
+- Tests use Node's built-in `node:test` runner.
+- Tests assume Batch API-1 through API-5 files have been added before running.
+- Validation scripts are dependency-free and static-first.
+- Public API safety checks block sensitive field references and restricted outcome language.
 - No `vercel.json` changes are included.
 
 ## Validation
 
-- JSON example parse validation: passed.
-- Markdown readability check: passed.
+- JS syntax check: passed.
 - Restricted outcome-language scan: passed.
