@@ -1,1 +1,1 @@
-{"version":2,"builds":[{"src":"package.json","use":"@vercel/static-build","config":{"distDir":"dist"}}],"ignoreCommand":"node scripts/vercel-ignore-preview.js","git":{"deploymentEnabled":{"main":true,"*":false}}}
+{"version":2,"builds":[{"src":"package.json","use":"@vercel/static-build","config":{"distDir":"dist"}}],"ignoreCommand":"node scripts/vercel-ignore-preview.js","git":{"deploymentEnabled":{"main":false,"*":false}}}
