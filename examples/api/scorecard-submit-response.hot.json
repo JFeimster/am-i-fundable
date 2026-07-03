@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "message": "Score received for review. This is not an approval, offer, or guarantee of funding.",
+  "leadId": "frs_demo_hot_001",
+  "reviewStatus": "queued_for_strategy_review",
+  "publicResult": {
+    "score": 92,
+    "tier": {
+      "id": "highly_fundable",
+      "label": "Highly Fundable",
+      "summary": "Your answers show stronger readiness signals. A fast document review may be the right next step."
+    },
+    "leadPriority": "hot",
+    "primaryFundingFamily": "Fast Working Capital",
+    "secondaryFundingFamilies": [
+      "Business Line of Credit",
+      "Structured Growth Capital"
+    ],
+    "recommendationCards": [
+      {
+        "label": "Fast Working Capital",
+        "summary": "Potential path for operators with recurring deposits and short-term cash-flow needs.",
+        "nextStep": "Prepare recent business bank statements."
+      },
+      {
+        "label": "Business Line of Credit",
+        "summary": "Potential revolving-access path for businesses with stronger revenue, credit, and operating history.",
+        "nextStep": "Review revenue, credit band, and time in business."
+      }
+    ],
+    "strengths": [
+      "Meaningful monthly revenue signal",
+      "Operating history supports deeper review",
+      "Credit profile may support more funding paths",
+      "Business bank activity available for review"
+    ],
+    "risks": [],
+    "nextSteps": [
+      "Prepare recent bank statements",
+      "Confirm funding purpose",
+      "Request a funding strategy review"
+    ],
+    "recommendedDocuments": [
+      "Recent business bank statements",
+      "Business information",
+      "Funding purpose notes"
+    ],
+    "manualReviewRecommended": false,
+    "cta": {
+      "label": "Request Review",
+      "url": "#strategy-review"
+    },
+    "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+  },
+  "nextStep": "Prepare documents and review the recommended funding path with a funding strategist.",
+  "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+}

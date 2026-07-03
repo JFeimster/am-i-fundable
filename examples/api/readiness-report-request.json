@@ -1,0 +1,29 @@
+{
+  "format": "both",
+  "applicant": {
+    "businessName": "Demo Growth LLC",
+    "state": "DC"
+  },
+  "answers": {
+    "businessPersona": "local_service_business",
+    "monthlyRevenue": 85000,
+    "timeInBusinessMonths": 36,
+    "creditScore": 710,
+    "bankStatus": "strong_clean",
+    "businessStructure": "entity_bank_ein_clean",
+    "fundingPurpose": "working_capital",
+    "desiredFundingAmount": 125000,
+    "redFlags": [
+      "none"
+    ]
+  },
+  "resources": [
+    {
+      "id": "document-prep-checklist",
+      "title": "Funding Document Prep Checklist",
+      "type": "checklist",
+      "path": "/documents.html",
+      "summary": "Organize bank statements, business details, and funding-purpose notes before requesting review."
+    }
+  ]
+}

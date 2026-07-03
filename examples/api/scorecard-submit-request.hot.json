@@ -1,0 +1,32 @@
+{
+  "source": "Funding Readiness Scorecard",
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Owner",
+    "businessName": "Demo Growth LLC",
+    "email": "demo@example.com",
+    "phone": "5555555555",
+    "state": "DC",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "local_service_business",
+    "monthlyRevenue": 85000,
+    "timeInBusinessMonths": 36,
+    "creditScore": 710,
+    "bankStatus": "strong_clean",
+    "businessStructure": "entity_bank_ein_clean",
+    "fundingPurpose": "working_capital",
+    "desiredFundingAmount": 125000,
+    "redFlags": [
+      "none"
+    ]
+  },
+  "metadata": {
+    "utmSource": "demo",
+    "utmMedium": "api-example",
+    "utmCampaign": "funding-readiness",
+    "pageUrl": "https://am-i-fundable.vercel.app/scorecard.html",
+    "embedPartnerId": "demo-partner"
+  }
+}

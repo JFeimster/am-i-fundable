@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": "funding_paths_generated",
+  "score": 88,
+  "tier": {
+    "id": "highly_fundable",
+    "label": "Highly Fundable",
+    "summary": "Your answers show stronger readiness signals. A fast document review may be the right next step."
+  },
+  "humanReviewRequired": false,
+  "recommendations": [
+    {
+      "familyId": "fast-working-capital",
+      "publicLabel": "Fast Working Capital",
+      "fitScoreBand": "strong_review_signal",
+      "summary": "Potential path for businesses with recurring deposits and short-term cash-flow needs.",
+      "nextSteps": [
+        "Prepare recent bank statements",
+        "Confirm funding purpose",
+        "Review next steps with a funding strategist"
+      ]
+    },
+    {
+      "familyId": "business-line-of-credit",
+      "publicLabel": "Business Line of Credit",
+      "fitScoreBand": "possible_review_signal",
+      "summary": "Potential revolving-access path for businesses with stronger revenue, credit, and operating history.",
+      "nextSteps": [
+        "Prepare recent bank statements",
+        "Review credit profile",
+        "Confirm funding purpose"
+      ]
+    }
+  ],
+  "nextStep": "Review these public-safe funding path categories with a funding strategist before provider-specific direction is shared.",
+  "message": "Potential funding paths generated for review. This is not an approval, offer, underwriting decision, or guarantee of funding."
+}

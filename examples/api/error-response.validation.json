@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": {
+    "code": "validation_error",
+    "message": "Request validation failed.",
+    "requestId": "err_demo_001",
+    "details": [
+      {
+        "field": "answers.monthlyRevenue",
+        "message": "monthlyRevenue must be a positive number or zero."
+      },
+      {
+        "field": "applicant.consent",
+        "message": "Consent is required before requesting follow-up review."
+      }
+    ]
+  },
+  "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+}

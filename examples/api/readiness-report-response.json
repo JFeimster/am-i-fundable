@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "status": "report_generated",
+  "message": "Readiness report generated. This is educational guidance only and not a funding offer.",
+  "report": {
+    "title": "Demo Growth LLC Funding Readiness Summary",
+    "generatedAt": "2026-07-03T15:32:11.000Z",
+    "applicant": {
+      "businessName": "Demo Growth LLC",
+      "state": "DC"
+    },
+    "result": {
+      "score": 92,
+      "tier": {
+        "id": "highly_fundable",
+        "label": "Highly Fundable",
+        "summary": "Your answers show stronger readiness signals. A fast document review may be the right next step."
+      },
+      "leadPriority": "hot",
+      "primaryFundingFamily": "Fast Working Capital",
+      "secondaryFundingFamilies": [
+        "Business Line of Credit",
+        "Structured Growth Capital"
+      ],
+      "recommendationCards": [
+        {
+          "label": "Fast Working Capital",
+          "summary": "Potential path for operators with recurring deposits and short-term cash-flow needs.",
+          "nextStep": "Prepare recent business bank statements."
+        }
+      ],
+      "strengths": [
+        "Meaningful monthly revenue signal",
+        "Operating history supports deeper review",
+        "Credit profile may support more funding paths"
+      ],
+      "risks": [],
+      "nextSteps": [
+        "Prepare recent bank statements",
+        "Confirm funding purpose",
+        "Request a funding strategy review"
+      ],
+      "recommendedDocuments": [
+        "Recent business bank statements",
+        "Business information",
+        "Funding purpose notes"
+      ],
+      "manualReviewRecommended": false,
+      "cta": {
+        "label": "Request Review",
+        "url": "#strategy-review"
+      },
+      "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+    },
+    "sections": [
+      {
+        "id": "readiness-summary",
+        "title": "Readiness Summary",
+        "body": [
+          "Demo Growth LLC received a funding readiness score of 92.",
+          "Current tier: Highly Fundable.",
+          "Primary review path: Fast Working Capital."
+        ]
+      },
+      {
+        "id": "documents",
+        "title": "Documents to Prepare",
+        "items": [
+          "Recent business bank statements",
+          "Business information",
+          "Funding purpose notes"
+        ]
+      }
+    ],
+    "markdown": "# Demo Growth LLC Funding Readiness Summary\\n\\nGenerated: 2026-07-03T15:32:11.000Z\\n\\n## Readiness Summary\\n\\nDemo Growth LLC received a funding readiness score of 92.\\n\\nCurrent tier: Highly Fundable.\\n\\nPrimary review path: Fast Working Capital.\\n\\n> This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding.\\n",
+    "disclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+  }
+}

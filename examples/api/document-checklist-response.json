@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "familyId": "fast-working-capital",
+  "fundingPurpose": "working_capital",
+  "title": "Fast Working Capital Document Prep Checklist",
+  "items": [
+    {
+      "id": "business-info",
+      "label": "Business information",
+      "detail": "Legal name, entity type, state, EIN status, and contact details."
+    },
+    {
+      "id": "bank-statements",
+      "label": "Recent business bank statements",
+      "detail": "Prepare the most recent 3 to 6 months when available."
+    },
+    {
+      "id": "funding-purpose",
+      "label": "Funding purpose notes",
+      "detail": "Summarize how funds would be used and why now."
+    }
+  ],
+  "nextStep": "Collect the strongest available documents before requesting a funding strategy review.",
+  "disclaimer": "Document checklists are preparation guidance only. Actual requirements depend on review and funding path."
+}
