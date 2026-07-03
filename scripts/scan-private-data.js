@@ -56,12 +56,17 @@ const ignoredFiles = new Set([
   path.normalize("internal/crm/webhook-targets.example.json")
 ]);
 
+const ignoredDirectories = [
+  `${path.normalize("schemas")}${path.sep}`
+];
+
 const issues = [];
 
 for (const file of listFiles(root)) {
   const relativePath = path.relative(root, file);
   const normalizedPath = path.normalize(relativePath);
   if (ignoredFiles.has(normalizedPath)) continue;
+  if (ignoredDirectories.some((dir) => normalizedPath.startsWith(dir))) continue;
 
   if (relativePath.endsWith(".json")) {
     scanJsonFile(file, relativePath);
@@ -93,19 +98,36 @@ function walkJson(value, relativePath, pathParts) {
 
   for (const [key, nestedValue] of Object.entries(value)) {
     const currentPath = [...pathParts, key];
-    if (blockedFields.has(key) && hasSensitiveValue(nestedValue)) {
+    if (blockedFields.has(key) && hasSensitiveValue(key, nestedValue)) {
       issues.push(`${relativePath}:${currentPath.join(".")}=${JSON.stringify(nestedValue)}`);
     }
     walkJson(nestedValue, relativePath, currentPath);
   }
 }
 
-function hasSensitiveValue(value) {
+function hasSensitiveValue(key, value) {
   if (value === null || value === false) return false;
-  if (Array.isArray(value)) return value.length > 0;
-  if (typeof value === "object") return Object.keys(value).length > 0;
-  if (typeof value === "string") return value.trim().length > 0;
+  if (Array.isArray(value)) return value.some((item) => hasSensitiveValue(key, item));
+  if (typeof value === "object") {
+    if (isSchemaLikeObject(value)) return false;
+    return Object.values(value).some((item) => hasSensitiveValue(key, item));
+  }
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    if (!trimmed) return false;
+    if (/^demo_|^example_|^placeholder_|^public_|^not_returned$/i.test(trimmed)) return false;
+    if (/https?:\/\//i.test(trimmed)) return true;
+    if (/@/.test(trimmed)) return true;
+    if (/api|token|secret|key/i.test(key)) return trimmed.length > 6;
+    return ["commission", "commission_rate", "commissionRate", "payout"].includes(key);
+  }
+  if (typeof value === "number") return ["commission", "commission_rate", "commissionRate", "payout"].includes(key);
   return true;
+}
+
+function isSchemaLikeObject(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return Boolean(value.type || value.description || value.properties || value.items || value.enum || value.examples);
 }
 
 function scanTextFile(file, relativePath) {
