@@ -1,1 +1,1 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","outputDirectory":"dist","git":{"deploymentEnabled":{"main":true,"*":true}}}
+{"$schema":"https://openapi.vercel.sh/vercel.json","outputDirectory":"dist","git":{"deploymentEnabled":{"main":false,"*":false}}}
