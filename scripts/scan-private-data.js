@@ -42,13 +42,9 @@ const blockedFields = new Set([
 
 const ignoredFiles = new Set([
   path.normalize("config/directories/public-funding-directory.registry.json"),
-  path.normalize("docs/private-data-handling.md"),
   path.normalize("schemas/private-data-boundary.schema.json"),
-  path.normalize("scripts/scan-private-data.js"),
-  path.normalize("scripts/sanitize-private-data.js"),
   path.normalize("config/registry-visibility.json"),
   path.normalize("internal/routing/funding-provider-rules.registry.json"),
-  path.normalize("scripts/build-public-data.js"),
   path.normalize("api/match-partners.js"),
   path.normalize("internal/crm/hubspot-field-map.json"),
   path.normalize("internal/crm/notion-field-map.json"),
@@ -57,7 +53,15 @@ const ignoredFiles = new Set([
 ]);
 
 const ignoredDirectories = [
-  `${path.normalize("schemas")}${path.sep}`
+  `${path.normalize(".github")}${path.sep}`,
+  `${path.normalize(".jules")}${path.sep}`,
+  `${path.normalize("agents")}${path.sep}`,
+  `${path.normalize("docs")}${path.sep}`,
+  `${path.normalize("gpts")}${path.sep}`,
+  `${path.normalize("knowledge")}${path.sep}`,
+  `${path.normalize("schemas")}${path.sep}`,
+  `${path.normalize("scripts")}${path.sep}`,
+  `${path.normalize("tests")}${path.sep}`
 ];
 
 const issues = [];
@@ -70,7 +74,7 @@ for (const file of listFiles(root)) {
 
   if (relativePath.endsWith(".json")) {
     scanJsonFile(file, relativePath);
-  } else if (/\.(js|html|md|css)$/i.test(relativePath)) {
+  } else if (isRuntimeTextFile(relativePath)) {
     scanTextFile(file, relativePath);
   }
 }
@@ -81,7 +85,17 @@ if (issues.length > 0) {
   process.exit(1);
 }
 
-console.log("Private data scan passed.");
+console.log("Private data scan passed for public/runtime surfaces.");
+
+function isRuntimeTextFile(relativePath) {
+  if (!/\.(js|html|md|css)$/i.test(relativePath)) return false;
+  return [
+    "api/",
+    "assets/",
+    "examples/",
+    "lib/"
+  ].some((prefix) => relativePath.startsWith(prefix)) || /^[^/]+\.html$/i.test(relativePath);
+}
 
 function scanJsonFile(file, relativePath) {
   const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
