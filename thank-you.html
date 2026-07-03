@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Thank You | Moonshine Capital</title>
+  <meta name="description" content="Post-submit thank-you page with public-safe next steps after someone completes the Funding Readiness Scorecard." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,24 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Submission received</div>
+        <h1>Your scorecard submission made it through the front gate.</h1>
+        <p>Use this page after a scorecard or review request submission. It sets expectations without promising approval, timelines, or funding outcomes.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="documents.html">Prep Documents</a>
+          <a class="btn btn-secondary" href="results.html">Read Result Tiers</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">What happens next</div>
+          <h2>Clean next steps beat inbox limbo.</h2>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><span class="utility-number">01</span><h3>Review your score summary</h3><p>Use the result tier to understand your readiness signals, likely blockers, and recommended next step.</p></article>
+          <article class="utility-card"><span class="utility-number">02</span><h3>Start document prep</h3><p>Gather bank statements, revenue proof, business setup details, and use-of-funds notes.</p></article>
+          <article class="utility-card"><span class="utility-number">03</span><h3>Wait for human context</h3><p>A qualified reviewer may need more details before any specific funding path conversation makes sense.</p></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+        <p class="safe-note">Submitting the scorecard is not a funding application, approval, offer, or commitment to lend.</p>
       </section>
     </main>
       <footer class="site-footer">

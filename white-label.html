@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>White Label Funding Readiness Scorecard | Moonshine Capital</title>
+  <meta name="description" content="White-label scorecard pitch page for brokers, agencies, and partners that want a safe embeddable funding readiness tool." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,35 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">White-label scorecard</div>
+        <h1>Put the funding readiness front door on your brand.</h1>
+        <p>The white-label version gives brokers and agencies a clean education-first intake asset that can be embedded on landing pages, partner hubs, and resource libraries.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="embed-example.html">View Embed Example</a>
+          <a class="btn btn-secondary" href="broker.html">Broker Use Case</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">What it includes</div>
+          <h2>A practical intake layer, not a magic vending machine.</h2>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>Embeddable widget</h3><p>Drop the scorecard into a page with a simple iframe or embed block while keeping the host site lightweight.</p></article>
+          <article class="utility-card"><h3>Public-safe result copy</h3><p>Result language explains readiness, potential paths, blockers, and next steps without making funding promises.</p></article>
+          <article class="utility-card"><h3>Review-first handoff</h3><p>Warm and high-readiness users can be routed to a human review step instead of an unfiltered application dump.</p></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+      </section>
+      <section class="utility-section">
+        <div class="section-heading">
+          <div class="section-kicker">Implementation model</div>
+          <h2>Three ways to deploy it.</h2>
+        </div>
+        <div class="utility-grid">
+          <article class="utility-card"><span class="utility-number">01</span><h3>General public scorecard</h3><p>Use the default version for broad entrepreneur traffic.</p></article>
+          <article class="utility-card"><span class="utility-number">02</span><h3>Broker landing page</h3><p>Frame it as a cleaner intake tool for business owners and referral partners.</p></article>
+          <article class="utility-card"><span class="utility-number">03</span><h3>Partner resource page</h3><p>Embed it inside a partner’s resource hub, newsletter landing page, or community portal.</p></article>
+        </div>
+        <p class="safe-note">White-label deployment should not expose provider registries, private destination links, private referral links, commissions, or private routing notes in browser-facing code.</p>
       </section>
     </main>
       <footer class="site-footer">

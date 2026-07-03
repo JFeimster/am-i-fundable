@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Privacy | Moonshine Capital</title>
+  <meta name="description" content="Privacy and data-use page for the Funding Readiness Scorecard explaining information collected, use, consent, and public-safe boundaries." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,40 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Privacy</div>
+        <h1>Data-use clarity beats creepy funnel goblin behavior.</h1>
+        <p>This page explains what the scorecard may collect, why it is collected, and how users should think about consent and review.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="terms.html">Terms</a>
         </div>
-      </section>      <section class="utility-section light">
-        <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+      </section>      <section class="utility-section">
+        <div class="legal-copy">
+          <div class="section-kicker">Privacy and data use</div>
+          <h2>What information the scorecard may collect</h2>
+          <p>The Funding Readiness Scorecard may collect business-readiness answers such as business type, revenue range, time in business, credit score range, business bank status, business structure, funding purpose, desired amount, and selected red flags.</p>
+          <p>If a lead form is enabled, it may also collect contact details such as name, email, phone number, business name, and state so a score summary or review follow-up can be provided.</p>
+
+          <h2>How information may be used</h2>
+          <ul>
+            <li>To calculate and display a funding-readiness score.</li>
+            <li>To explain potential funding paths and preparation steps based on the user’s answers.</li>
+            <li>To support a human review when the user requests or consents to follow-up.</li>
+            <li>To improve public-safe scorecard content, resources, and educational workflows.</li>
+          </ul>
+
+          <h2>What this page does not do</h2>
+          <p>This public site does not publish private provider names, provider identifiers, private referral links, private destination links, private economics, nonpublic contact information, internal private routing logic, private review notes, secure access material, or real borrower PII.</p>
+
+          <h2>Consent and contact</h2>
+          <p>When a contact form is submitted, users should expect follow-up related to funding-readiness guidance, document preparation, review, or potential next steps. Users should not submit sensitive documents through unsecured forms or public pages.</p>
+
+          <h2>No sale of private financial promises</h2>
+          <p>The scorecard is educational. Submitting information does not create an approval, offer, commitment to lend, or guarantee of funding.</p>
+
+          <h2>Security note</h2>
+          <p>Public pages should be treated as public-facing surfaces. Sensitive documents, secure access material, private borrower records, and internal partner data should stay in secure server-side systems only.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
-        </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
       </section>
     </main>
       <footer class="site-footer">

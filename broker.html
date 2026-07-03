@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Broker Scorecard | Moonshine Capital</title>
+  <meta name="description" content="Broker-facing Funding Readiness Scorecard page for cleaner intake, better lead routing, and responsible pre-review workflows." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,36 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Broker intake</div>
+        <h1>Stop feeding messy leads into your pipeline meat grinder.</h1>
+        <p>Use the scorecard as a front-door filter for business owners, referral partners, and inbound campaigns. Better context, cleaner calls, fewer fantasy files.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Use the Scorecard</a>
+          <a class="btn btn-secondary" href="white-label.html">White-Label Version</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">Broker workflow</div>
+          <h2>Score first. Route second. Sell third.</h2>
+          <p>The broker version is designed to improve intake quality without exposing internal routing, partner logic, or private economics.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><span class="utility-number">01</span><h3>Capture clean answers</h3><p>Revenue, time in business, credit range, deposits, structure, use case, funding amount, and red flags.</p></article>
+          <article class="utility-card"><span class="utility-number">02</span><h3>Separate next steps</h3><p>High-readiness files go to strategy review. Borderline files go to manual review. Prep-first files go to nurture.</p></article>
+          <article class="utility-card"><span class="utility-number">03</span><h3>Keep public pages safe</h3><p>No provider names, no private IDs, no payout terms, no promises, and no browser-facing private routing logic.</p></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+      </section>
+      <section class="utility-section">
+        <div class="section-heading">
+          <div class="section-kicker">Best use cases</div>
+          <h2>Where brokers can plug this in.</h2>
+        </div>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>Lead magnet</h3><p>Send cold traffic to a readiness quiz instead of an intimidating funding application.</p></article>
+          <article class="utility-card"><h3>Referral filter</h3><p>Give referral partners a safe intake link so they can send more useful prospects.</p></article>
+          <article class="utility-card"><h3>Review queue</h3><p>Use scores and red flags to prioritize call backs without pretending the score is a decision.</p></article>
+        </div>
+        <p class="safe-note">Broker-facing workflows must still use human review before any specific recommendation, funding conversation, or partner handoff.</p>
       </section>
     </main>
       <footer class="site-footer">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Terms | Moonshine Capital</title>
+  <meta name="description" content="Terms and funding-readiness disclaimer page for the Funding Readiness Scorecard." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,39 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Terms</div>
+        <h1>The grown-up page nobody reads until the raccoon gets into the wiring.</h1>
+        <p>These terms frame the scorecard as educational readiness guidance and clarify what the tool is not.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="privacy.html">Privacy</a>
         </div>
-      </section>      <section class="utility-section light">
-        <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+      </section>      <section class="utility-section">
+        <div class="legal-copy">
+          <div class="section-kicker">Terms and disclaimer</div>
+          <h2>Educational funding-readiness tool</h2>
+          <p>The Funding Readiness Scorecard provides educational guidance based on user-submitted answers. It helps users think through readiness signals, potential funding path categories, common blockers, and document preparation.</p>
+
+          <h2>Not an approval or funding offer</h2>
+          <p>The scorecard is not an approval, denial, offer, commitment to lend, a final funding decision decision, or guarantee of funding. Specific options, if any, depend on review, documentation, business performance, credit profile, funding purpose, timing, and applicable criteria.</p>
+
+          <h2>No professional advice</h2>
+          <p>The scorecard does not provide legal, tax, credit repair, accounting, lending, or financial advice. Users should consult qualified professionals for advice about their specific situation.</p>
+
+          <h2>No provider-specific claims</h2>
+          <p>Public pages intentionally avoid real provider names, provider identifiers, private referral links, private destination links, private economics, nonpublic contact information, nonpublic notes, private routing logic, private review notes, secure access material, and real borrower PII.</p>
+
+          <h2>User responsibility</h2>
+          <ul>
+            <li>Users are responsible for providing accurate information.</li>
+            <li>Users should not submit sensitive documents through unsecured public forms.</li>
+            <li>Users should review any future funding documents carefully before signing.</li>
+            <li>Users should understand that readiness guidance can change when additional context is reviewed.</li>
+          </ul>
+
+          <h2>Broker and partner use</h2>
+          <p>Brokers, affiliates, agencies, partners, and publishers may use public-safe pages and embeds as educational intake tools. They should not modify the copy to make guarantees, lender-specific promises, best-rate claims, instant-approval claims, or credit repair claims.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
-        </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
       </section>
     </main>
       <footer class="site-footer">

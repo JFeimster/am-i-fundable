@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Funding Document Checklist | Moonshine Capital</title>
+  <meta name="description" content="A public-safe funding document preparation checklist for business owners before requesting a funding readiness review." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,28 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Document prep</div>
+        <h1>The file wins before the pitch does.</h1>
+        <p>A clean document packet gives a reviewer enough signal to understand the business without playing 47 rounds of email fetch.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="results.html">See Result Tiers</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">Core checklist</div>
+          <h2>Start with the boring stuff. Boring gets funded faster than chaos.</h2>
+          <p>Prepare copies for review, but do not upload sensitive documents through unsecured channels.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>Business identity</h3><ul><li>Legal business name and DBA, if any</li><li>Entity type and formation state</li><li>EIN confirmation or tax ID reference</li><li>Business address and operating location</li></ul></article>
+          <article class="utility-card"><h3>Revenue proof</h3><ul><li>Recent business bank statements</li><li>Processor or marketplace sales reports</li><li>Invoices, receivables, or contracts where relevant</li><li>Seasonality notes if revenue swings hard</li></ul></article>
+          <article class="utility-card"><h3>Bank activity</h3><ul><li>Business account statements</li><li>Deposit pattern notes</li><li>Recent NSF or overdraft explanation, if applicable</li><li>Existing payment obligations summary</li></ul></article>
+          <article class="utility-card"><h3>Funding purpose</h3><ul><li>Amount requested</li><li>Use of funds breakdown</li><li>Timing need</li><li>Expected business impact</li></ul></article>
+          <article class="utility-card"><h3>Asset or project details</h3><ul><li>Equipment quote or invoice</li><li>Property address and project numbers</li><li>Inventory plan or purchase order</li><li>Vendor estimate or contractor scope</li></ul></article>
+          <article class="utility-card"><h3>Review notes</h3><ul><li>Credit context</li><li>Open liens or legal issues to disclose</li><li>Existing advance or loan obligations</li><li>Anything unusual a reviewer should know upfront</li></ul></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+        <p class="safe-note">Document preparation improves review quality. It does not guarantee funding, pricing, eligibility, or timeline.</p>
       </section>
     </main>
       <footer class="site-footer">

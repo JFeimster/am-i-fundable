@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Funding Paths | Moonshine Capital</title>
+  <meta name="description" content="Public-safe explanation of funding path families supported by the Funding Readiness Scorecard without provider names or private routing logic." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,28 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Funding paths</div>
+        <h1>Funding has lanes. Stop driving every deal into the same ditch.</h1>
+        <p>This page explains funding families in plain English without exposing provider names, partner IDs, private routing rules, or payout logic.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="documents.html">View Documents</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">Public-safe funding families</div>
+          <h2>Match the money to the job.</h2>
+          <p>These are broad readiness categories. Specific options depend on review, documentation, business performance, credit profile, and timing.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><span class="utility-number">01</span><h3>Fast Working Capital</h3><p>For payroll gaps, emergency cash needs, inventory turns, materials, or short-cycle operating pressure.</p><ul><li>Helpful signals: revenue, deposits, clean bank activity.</li><li>Watchouts: recent NSFs, stacked daily payments, unclear use of funds.</li></ul></article>
+          <article class="utility-card"><span class="utility-number">02</span><h3>Structured Growth Capital</h3><p>For established operators with clearer financials, stronger documentation, and growth projects that need breathing room.</p><ul><li>Helpful signals: time in business, revenue trend, organized records.</li><li>Watchouts: inflated asks, missing statements, weak repayment story.</li></ul></article>
+          <article class="utility-card"><span class="utility-number">03</span><h3>Startup / Credit Leverage</h3><p>For newer founders where business history may be thin and personal credit, setup, and planning matter more.</p><ul><li>Helpful signals: strong profile, entity setup, clean plan.</li><li>Watchouts: no revenue, no bank activity, unclear business model.</li></ul></article>
+          <article class="utility-card"><span class="utility-number">04</span><h3>Equipment & Asset Funding</h3><p>For trucks, machinery, contractor tools, vehicles, and other asset-backed needs.</p><ul><li>Helpful signals: quote/invoice, business use case, revenue support.</li><li>Watchouts: personal-use assets, vague equipment details, weak cash flow.</li></ul></article>
+          <article class="utility-card"><span class="utility-number">05</span><h3>Real Estate Capital</h3><p>For investor, rental, bridge, fix-and-flip, and commercial real estate scenarios where property details matter.</p><ul><li>Helpful signals: address, purchase price, ARV, exit plan.</li><li>Watchouts: no project numbers, unclear ownership, weak reserves.</li></ul></article>
+          <article class="utility-card"><span class="utility-number">06</span><h3>E-commerce Seller Capital</h3><p>For marketplace sellers using platform sales, inventory velocity, and store performance to support a growth request.</p><ul><li>Helpful signals: sales history, store health, inventory plan.</li><li>Watchouts: suspended accounts, stockout chaos, no platform proof.</li></ul></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+        <p class="safe-note">This page intentionally avoids provider-specific claims. It explains broad potential funding paths only.</p>
       </section>
     </main>
       <footer class="site-footer">

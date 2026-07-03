@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Funding Readiness Results | Moonshine Capital</title>
+  <meta name="description" content="Understand Funding Readiness Scorecard tiers, what each tier means, and what next step is recommended after the scorecard." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,58 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Result tiers</div>
+        <h1>Your score is a routing signal, not a crystal ball.</h1>
+        <p>The result page explains how to interpret readiness tiers without pretending a score is an approval, offer, or a final funding decision decision.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="documents.html">Prep Documents</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">How to read the result</div>
+          <h2>Four public-safe result lanes.</h2>
+          <p>Each tier points to a recommended next step. The point is to reduce bad applications and help the business owner understand what to improve or prepare.</p>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid four">
+          <article class="utility-card">
+            <span class="mini-metric">80–100</span>
+            <h3>Highly Fundable</h3>
+            <p>Strong readiness signals. A strategy review may help confirm documents, funding purpose, and realistic path selection.</p>
+            <a class="btn btn-primary" href="highly-fundable.html">View Next Step</a>
+          </article>
+          <article class="utility-card">
+            <span class="mini-metric">65–79</span>
+            <h3>Fundable Review</h3>
+            <p>Promising file, but context matters. Human review is recommended before pushing the owner into a specific path.</p>
+            <a class="btn btn-primary" href="fundable-review.html">Request Review</a>
+          </article>
+          <article class="utility-card">
+            <span class="mini-metric">45–64</span>
+            <h3>Selective Fit</h3>
+            <p>Some signals may support a potential path, but the file likely needs cleaner documents or a narrower use case.</p>
+            <a class="btn btn-secondary" href="documents.html">Build the File</a>
+          </article>
+          <article class="utility-card">
+            <span class="mini-metric">0–44</span>
+            <h3>Prep First</h3>
+            <p>The fastest move is usually cleanup: bank activity, revenue proof, business setup, credit context, or better timing.</p>
+            <a class="btn btn-secondary" href="not-ready.html">Start Recovery</a>
+          </article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+        <p class="safe-note">A readiness result is not an approval or denial. It is an educational routing layer that helps identify what may be realistic, what may need review, and what needs cleanup before a funding conversation.</p>
+      </section>
+      <section class="utility-section">
+        <div class="section-heading">
+          <div class="section-kicker">Next-step logic</div>
+          <h2>Do not confuse “more leads” with better routing.</h2>
+          <p>The scorecard should push users toward the next responsible action, not the noisiest button.</p>
+        </div>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>High-readiness users</h3><p>Prepare bank statements, revenue proof, entity details, and a clear funding purpose before a strategy conversation.</p></article>
+          <article class="utility-card"><h3>Borderline users</h3><p>Use human review to sort real potential from missing context. The machine gives signal; the human catches nuance.</p></article>
+          <article class="utility-card"><h3>Low-readiness users</h3><p>Send to a nurture path that builds the funding file instead of wasting everyone’s time with fantasy applications.</p></article>
+        </div>
       </section>
     </main>
       <footer class="site-footer">

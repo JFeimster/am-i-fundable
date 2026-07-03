@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Fundable Review | Moonshine Capital</title>
+  <meta name="description" content="Manual review page for warm or borderline Funding Readiness Scorecard users who may need human context before routing." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,36 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Manual review</div>
+        <h1>You may have a file worth looking at. Now let a human make sure the machine didn’t miss the plot.</h1>
+        <p>This page is for users whose answers show potential but need context before a responsible next step can be recommended.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="documents.html">Prep Review Packet</a>
+          <a class="btn btn-secondary" href="results.html">Review Results</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">Review triggers</div>
+          <h2>When a human review makes sense.</h2>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>Strong revenue, messy context</h3><p>The business has activity, but bank behavior, documentation, or obligations need a second look.</p></article>
+          <article class="utility-card"><h3>Newer business, strong profile</h3><p>The business may be early, but credit profile, setup, or use case could support a more nuanced conversation.</p></article>
+          <article class="utility-card"><h3>Specific use case</h3><p>Equipment, real estate, inventory, or marketplace growth may require documents that a generic quiz cannot judge.</p></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+      </section>
+      <section class="utility-section">
+        <div class="section-heading">
+          <div class="section-kicker">Before review</div>
+          <h2>Bring signal, not vibes.</h2>
+        </div>
+        <ul class="plain-list">
+          <li>Know the funding purpose and amount requested.</li>
+          <li>Gather recent bank statements and revenue proof.</li>
+          <li>Prepare a short explanation for any red flags.</li>
+          <li>Understand that review may result in a prep path instead of an immediate funding conversation.</li>
+        </ul>
+        <p class="safe-note">Human review is recommended for context. It is not an approval, offer, or guarantee.</p>
       </section>
     </main>
       <footer class="site-footer">

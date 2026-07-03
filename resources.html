@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Resources | Moonshine Capital</title>
+  <meta name="description" content="Resource hub for Funding Readiness Scorecard pages, checklists, FAQs, funding path explainers, and broker tools." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,37 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">Resource hub</div>
+        <h1>Everything useful, minus the PDF graveyard energy.</h1>
+        <p>Use this hub to jump into the scorecard, result explanations, document prep, funding paths, broker pages, partner pages, and public-safe FAQs.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="faq.html">Read FAQ</a>
         </div>
       </section>      <section class="utility-section light">
         <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+          <div class="section-kicker">Start here</div>
+          <h2>Pick the next useful page.</h2>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="utility-grid">
+          <article class="utility-card"><h3>Scorecard</h3><p>Run the full Funding Readiness Scorecard.</p><a class="btn btn-primary" href="scorecard.html">Open</a></article>
+          <article class="utility-card"><h3>Results</h3><p>Understand readiness tiers and next steps.</p><a class="btn btn-primary" href="results.html">Open</a></article>
+          <article class="utility-card"><h3>Funding Paths</h3><p>Explore public-safe funding families.</p><a class="btn btn-primary" href="funding-paths.html">Open</a></article>
+          <article class="utility-card"><h3>Documents</h3><p>Build a cleaner review packet.</p><a class="btn btn-primary" href="documents.html">Open</a></article>
+          <article class="utility-card"><h3>Broker Page</h3><p>Use the scorecard as a broker intake tool.</p><a class="btn btn-primary" href="broker.html">Open</a></article>
+          <article class="utility-card"><h3>Embed Example</h3><p>See the widget embedded in another page.</p><a class="btn btn-primary" href="embed-example.html">Open</a></article>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
+      </section>
+      <section class="utility-section">
+        <div class="section-heading">
+          <div class="section-kicker">Compliance-safe education</div>
+          <h2>What these resources will not do.</h2>
+        </div>
+        <ul class="plain-list">
+          <li>They will not name private providers or expose routing rules.</li>
+          <li>They will not promise approvals, funding, specific pricing, or a final funding decision.</li>
+          <li>They will not replace human review when a file has nuance, risk, or missing context.</li>
+        </ul>
       </section>
     </main>
       <footer class="site-footer">

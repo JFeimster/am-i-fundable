@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funding Readiness Scorecard | Moonshine Capital</title>
+  <meta name="description" content="Run the full Funding Readiness Scorecard and get a public-safe readiness tier, potential funding paths, blockers, and next steps." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .utility-main { padding-top: 76px; }
+    .utility-hero { position: relative; padding: clamp(96px, 12vw, 150px) clamp(20px, 7vw, 112px) clamp(54px, 8vw, 92px); background: radial-gradient(circle at 78% 12%, rgba(46,212,122,.18), transparent 32%), radial-gradient(circle at 12% 85%, rgba(212,166,78,.20), transparent 30%), linear-gradient(135deg, #07111f 0%, #0a1728 58%, #0f2236 100%); border-bottom: 1px solid rgba(255,255,255,.12); }
+    .utility-hero h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.9rem, 7vw, 6rem); line-height: .93; letter-spacing: -.06em; margin: 24px 0 18px; max-width: 1050px; }
+    .utility-hero p { max-width: 780px; color: #c2d2e4; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.72; }
+    .utility-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .utility-section { padding: clamp(64px, 8vw, 104px) clamp(20px, 6vw, 96px); background: #081423; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .utility-section.alt { background: linear-gradient(180deg, #07111f, #0a1728); }
+    .utility-section.light { background: #f7f9fc; color: #142033; }
+    .utility-section.light p, .utility-section.light li { color: #526174; }
+    .utility-section.light .section-kicker { color: #8a6421; border-color: rgba(212,166,78,.40); background: rgba(212,166,78,.12); }
+    .utility-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
+    .utility-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .utility-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .utility-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); border-radius: 28px; padding: 26px; box-shadow: 0 24px 70px rgba(0,0,0,.25); }
+    .utility-section.light .utility-card { background: #fff; border-color: #e1e8f2; box-shadow: 0 18px 45px rgba(20,32,51,.08); }
+    .utility-card h2, .utility-card h3 { margin: 8px 0 10px; color: inherit; }
+    .utility-card p, .utility-card li { line-height: 1.65; }
+    .utility-card ul, .utility-card ol { padding-left: 20px; margin-bottom: 0; }
+    .utility-number { display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #07111f; font-weight: 950; }
+    .safe-note { margin-top: 26px; padding: 18px 20px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: #c2d2e4; line-height: 1.65; border-radius: 18px; }
+    .utility-section.light .safe-note { background: #edf3f9; border-color: #d8e3ee; color: #526174; }
+    .plain-list { display: grid; gap: 14px; list-style: none; padding-left: 0; }
+    .plain-list li { padding: 16px 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(255,255,255,.04); }
+    .utility-section.light .plain-list li { border-color: #e1e8f2; background: #fff; }
+    .code-box { display: block; overflow-x: auto; white-space: pre; padding: 20px; border-radius: 18px; background: #050b14; color: #d7e2ee; border: 1px solid rgba(255,255,255,.14); font-size: .92rem; line-height: 1.5; }
+    .page-note { color: #a7b7c8; font-size: .96rem; }
+    .legal-copy { max-width: 980px; }
+    .legal-copy h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 42px; }
+    .legal-copy p, .legal-copy li { line-height: 1.75; color: #c2d2e4; }
+    .legal-copy a { color: var(--gold-2); text-decoration: underline; text-underline-offset: 4px; }
+    .mini-metric { display: block; color: var(--gold-2); font-weight: 950; letter-spacing: .12em; text-transform: uppercase; font-size: .76rem; }
+    .embedded-frame-wrap { margin-top: 28px; padding: 16px; border-radius: 28px; background: #fff; box-shadow: 0 26px 80px rgba(0,0,0,.28); }
+    .embedded-frame-wrap iframe { width: 100%; min-height: 820px; border: 0; border-radius: 20px; background: #fff; }
+    @media (max-width: 900px) {
+      .main-nav { display: none; }
+      .utility-grid, .utility-grid.two, .utility-grid.four { grid-template-columns: 1fr; }
+      .utility-main { padding-top: 72px; }
+      .embedded-frame-wrap iframe { min-height: 980px; }
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="site-shell">
+      <header class="site-header" id="top">
+        <a class="brand-lockup" href="index.html" aria-label="Funding Readiness Scorecard home">
+          <span class="brand-mark">MC</span>
+          <span>
+            <strong>Moonshine Capital</strong>
+            <em>Funding Readiness Scorecard</em>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="scorecard.html">Scorecard</a>
+          <a href="funding-paths.html">Funding Paths</a>
+          <a href="documents.html">Documents</a>
+          <a href="broker.html">Brokers</a>
+          <a href="resources.html">Resources</a>
+          <a class="nav-cta" href="scorecard.html">Get My Score</a>
+        </nav>
+      </header>
+    <main class="utility-main">
+      <section class="utility-hero">
+        <div class="section-kicker">Free assessment</div>
+        <h1>Run the full Funding Readiness Scorecard.</h1>
+        <p>This dedicated scorecard page keeps the assessment separate from the homepage so owners, brokers, and partners can send traffic straight to the tool.</p>
+        <div class="utility-actions">
+          <a class="btn btn-primary" href="#scorecard">Start the Scorecard</a>
+          <a class="btn btn-secondary" href="funding-paths.html">Review Funding Paths</a>
+        </div>
+      </section>
+      <section class="section scorecard-section" id="scorecard">
+        <div class="section-heading centered">
+          <div class="section-kicker">Full-page scorecard</div>
+          <h2>Get your Funding Readiness Score</h2>
+          <p>Answer the questions, unlock your score, and see public-safe next steps. This is readiness guidance, not a funding decision.</p>
+        </div>
+
+        <div class="scorecard-shell" data-scorecard>
+          <div class="scorecard-topbar">
+            <div>
+              <span class="mini-label">Progress</span>
+              <strong data-step-label>Question 1 of 9</strong>
+            </div>
+            <div class="score-pill" data-score-preview>Score pending</div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" data-progress-fill></div>
+          </div>
+
+          <form class="quiz-form" data-quiz-form>
+            <fieldset class="quiz-step is-active" data-step="0">
+              <legend>What best describes you?</legend>
+              <p class="step-help">This helps route the scorecard toward the right funding lane.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="persona" value="existing_business" required><span>Existing small business owner</span></label>
+                <label><input type="radio" name="persona" value="gig_worker"><span>Gig worker / independent contractor</span></label>
+                <label><input type="radio" name="persona" value="ecommerce_seller"><span>Ecommerce or marketplace seller</span></label>
+                <label><input type="radio" name="persona" value="startup_founder"><span>Startup founder</span></label>
+                <label><input type="radio" name="persona" value="real_estate_investor"><span>Real estate investor</span></label>
+                <label><input type="radio" name="persona" value="equipment_heavy"><span>Contractor / trucking / equipment-heavy business</span></label>
+                <label><input type="radio" name="persona" value="not_sure"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="1">
+              <legend>What is your average monthly business revenue?</legend>
+              <p class="step-help">Revenue is one of the biggest readiness signals for working capital, lines, and revenue-based funding paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="monthlyRevenue" value="0" required><span>$0–$2,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="3000"><span>$3,000–$8,499</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="8500"><span>$8,500–$14,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="15000"><span>$15,000–$19,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="20000"><span>$20,000–$49,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="50000"><span>$50,000–$99,999</span></label>
+                <label><input type="radio" name="monthlyRevenue" value="100000"><span>$100,000+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="2">
+              <legend>How long have you been operating?</legend>
+              <p class="step-help">Time in business separates startup prep, early-stage options, and stronger business funding paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="timeInBusiness" value="0" required><span>Not launched yet</span></label>
+                <label><input type="radio" name="timeInBusiness" value="3"><span>0–3 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="5"><span>4–5 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="11"><span>6–11 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="23"><span>12–23 months</span></label>
+                <label><input type="radio" name="timeInBusiness" value="24"><span>24+ months</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="3">
+              <legend>What is your estimated personal credit score?</legend>
+              <p class="step-help">A range is fine. This frontend scorecard does not run credit.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="creditScore" value="499" required><span>Below 500</span></label>
+                <label><input type="radio" name="creditScore" value="500"><span>500–579</span></label>
+                <label><input type="radio" name="creditScore" value="580"><span>580–599</span></label>
+                <label><input type="radio" name="creditScore" value="600"><span>600–659</span></label>
+                <label><input type="radio" name="creditScore" value="660"><span>660–679</span></label>
+                <label><input type="radio" name="creditScore" value="680"><span>680–699</span></label>
+                <label><input type="radio" name="creditScore" value="700"><span>700+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="4">
+              <legend>Do you have a business bank account with regular deposits?</legend>
+              <p class="step-help">Bank activity can make or break speed-focused funding paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="bankStatus" value="none" required><span>No business bank account</span></label>
+                <label><input type="radio" name="bankStatus" value="inconsistent"><span>Yes, but low or inconsistent deposits</span></label>
+                <label><input type="radio" name="bankStatus" value="consistent"><span>Yes, consistent monthly deposits</span></label>
+                <label><input type="radio" name="bankStatus" value="strong_clean"><span>Yes, strong deposits and clean activity</span></label>
+                <label><input type="radio" name="bankStatus" value="nsf_recent"><span>Yes, but recent NSFs/overdrafts</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="5">
+              <legend>How is your business currently set up?</legend>
+              <p class="step-help">A cleaner structure usually creates cleaner funding conversations.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="businessStructure" value="none" required><span>No formal business yet</span></label>
+                <label><input type="radio" name="businessStructure" value="sole_prop"><span>Sole proprietor / independent contractor</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_no_bank"><span>LLC or corporation, no business bank account</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_bank"><span>LLC or corporation with business bank account</span></label>
+                <label><input type="radio" name="businessStructure" value="entity_bank_ein_clean"><span>LLC/corp, bank account, EIN, and clean records</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="6">
+              <legend>What do you need funding for?</legend>
+              <p class="step-help">Use case determines whether the likely route is working capital, equipment, startup prep, real estate, or another path.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="fundingPurpose" value="working_capital" required><span>Payroll / emergency working capital</span></label>
+                <label><input type="radio" name="fundingPurpose" value="inventory"><span>Inventory / materials</span></label>
+                <label><input type="radio" name="fundingPurpose" value="growth"><span>Marketing / growth</span></label>
+                <label><input type="radio" name="fundingPurpose" value="equipment"><span>Equipment / vehicle / truck</span></label>
+                <label><input type="radio" name="fundingPurpose" value="real_estate"><span>Real estate purchase or project</span></label>
+                <label><input type="radio" name="fundingPurpose" value="ecommerce"><span>Ecommerce / marketplace growth</span></label>
+                <label><input type="radio" name="fundingPurpose" value="startup"><span>Startup launch capital</span></label>
+                <label><input type="radio" name="fundingPurpose" value="debt_consolidation"><span>Debt consolidation / refinancing</span></label>
+                <label><input type="radio" name="fundingPurpose" value="business_credit"><span>Business credit building</span></label>
+                <label><input type="radio" name="fundingPurpose" value="not_sure"><span>Not sure</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="7">
+              <legend>How much funding are you seeking?</legend>
+              <p class="step-help">A realistic funding amount helps separate microcapital, working capital, real estate, and larger growth paths.</p>
+              <div class="option-grid">
+                <label><input type="radio" name="desiredAmount" value="4999" required><span>Under $5,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="25000"><span>$5,000–$25,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="75000"><span>$25,000–$75,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="150000"><span>$75,000–$150,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="500000"><span>$150,000–$500,000</span></label>
+                <label><input type="radio" name="desiredAmount" value="500001"><span>$500,000+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quiz-step" data-step="8">
+              <legend>Do any red flags apply?</legend>
+              <p class="step-help">Pick anything that applies. This helps prevent bad routing and wasted applications.</p>
+              <div class="option-grid checkbox-grid">
+                <label><input type="checkbox" name="redFlags" value="open_bankruptcy"><span>Open bankruptcy</span></label>
+                <label><input type="checkbox" name="redFlags" value="tax_lien"><span>Recent tax lien</span></label>
+                <label><input type="checkbox" name="redFlags" value="recent_late_payments"><span>Recent missed payments</span></label>
+                <label><input type="checkbox" name="redFlags" value="recent_nsfs"><span>Recent NSFs / overdrafts</span></label>
+                <label><input type="checkbox" name="redFlags" value="new_bank_account"><span>Business bank account recently opened</span></label>
+                <label><input type="checkbox" name="redFlags" value="existing_mca"><span>Existing MCA / daily payment advance</span></label>
+                <label><input type="checkbox" name="redFlags" value="marketplace_suspended"><span>Suspended marketplace account</span></label>
+                <label><input type="checkbox" name="redFlags" value="no_revenue"><span>No current revenue</span></label>
+                <label><input type="checkbox" name="redFlags" value="none"><span>None of these</span></label>
+              </div>
+            </fieldset>
+
+            <div class="quiz-actions">
+              <button class="btn btn-muted" type="button" data-prev>Back</button>
+              <button class="btn btn-primary" type="button" data-next>Next</button>
+              <button class="btn btn-primary is-hidden" type="submit" data-submit>Calculate My Score</button>
+            </div>
+          </form>
+
+          <section class="lead-gate is-hidden" data-lead-gate aria-live="polite">
+            <div class="gate-card">
+              <span class="section-kicker">Your score is ready</span>
+              <h3>Where should we send the funding path summary?</h3>
+              <p>Enter your details to view your score, recommended funding paths, and next steps.</p>
+              <form class="lead-form" data-lead-form>
+                <div class="field-grid">
+                  <label>Name<input type="text" name="name" placeholder="Jane Founder" required></label>
+                  <label>Email<input type="email" name="email" placeholder="jane@business.com" required></label>
+                  <label>Phone<input type="tel" name="phone" placeholder="(555) 555-5555" required></label>
+                  <label>Business name<input type="text" name="businessName" placeholder="Your Business LLC"></label>
+                  <label>State<input type="text" name="state" placeholder="VA, DC, MD, etc." maxlength="30"></label>
+                </div>
+                <label class="consent-line">
+                  <input type="checkbox" name="consent" required>
+                  <span>I agree to be contacted about funding options and understand this score is not an approval, offer, or guarantee of funding.</span>
+                </label>
+                <button class="btn btn-primary" type="submit">Reveal My Score</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="result-panel is-hidden" data-result-panel aria-live="polite">
+            <div class="result-hero-card">
+              <div class="score-ring" data-score-ring>
+                <span data-result-score>0</span>
+                <small>/100</small>
+              </div>
+              <div>
+                <span class="section-kicker">Funding Readiness Score</span>
+                <h3 data-result-tier>Score Tier</h3>
+                <p data-result-copy>Result interpretation appears here.</p>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <article class="result-card">
+                <h4>Best-fit funding paths</h4>
+                <ul data-result-paths></ul>
+              </article>
+              <article class="result-card">
+                <h4>Potential blockers</h4>
+                <ul data-result-risks></ul>
+              </article>
+              <article class="result-card">
+                <h4>Recommended next steps</h4>
+                <ul data-result-next></ul>
+              </article>
+              <article class="result-card accent-card">
+                <h4>Documents you may need</h4>
+                <ul>
+                  <li>Recent business bank statements</li>
+                  <li>Credit profile details</li>
+                  <li>Proof of revenue or platform sales</li>
+                  <li>Entity, EIN, or business structure details</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="result-actions">
+              <a class="btn btn-primary" data-result-cta href="fundable-review.html">Review My Funding Path</a>
+              <button class="btn btn-muted" type="button" data-restart>Retake Scorecard</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+    </main>
+      <footer class="site-footer">
+        <p><strong>Moonshine Capital</strong> · Funding readiness guidance for business owners who need options, not bank-lobby theater.</p>
+        <p class="disclaimer">This scorecard is for educational funding-readiness guidance only. It is not an approval, offer, commitment to lend, or guarantee of funding. Actual options depend on review, documentation, business performance, credit profile, and applicable funding criteria.</p>
+      </footer>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

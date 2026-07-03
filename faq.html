@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Embed Example | Moonshine Capital</title>
-  <meta name="description" content="Clean demo page showing how the Funding Readiness Scorecard widget can be embedded into another page." />
+  <title>Funding Readiness FAQ | Moonshine Capital</title>
+  <meta name="description" content="SEO-friendly FAQ about the Funding Readiness Scorecard, funding readiness, document prep, review, brokers, partners, and data use." />
   <link rel="stylesheet" href="styles.css" />
 
   <style>
@@ -72,29 +72,30 @@
       </header>
     <main class="utility-main">
       <section class="utility-hero">
-        <div class="section-kicker">Embed demo</div>
-        <h1>Here is what the scorecard looks like inside another page.</h1>
-        <p>This example page demonstrates a public-safe iframe embed pattern for a broker, partner, or resource page.</p>
+        <div class="section-kicker">FAQ</div>
+        <h1>Questions before you press the funding readiness button?</h1>
+        <p>Straight answers for business owners, brokers, and partners. No mystical lender fog machine.</p>
         <div class="utility-actions">
-          <a class="btn btn-primary" href="scorecard.html">Open Full Scorecard</a>
-          <a class="btn btn-secondary" href="white-label.html">White-Label Details</a>
+          <a class="btn btn-primary" href="scorecard.html">Run the Scorecard</a>
+          <a class="btn btn-secondary" href="privacy.html">Privacy</a>
         </div>
       </section>      <section class="utility-section light">
-        <div class="section-heading">
-          <div class="section-kicker">Iframe example</div>
-          <h2>Copy-safe embed pattern.</h2>
-          <p>This demo references the existing widget surface using a relative path so the repo stays static-first.</p>
+        <div class="section-heading centered">
+          <div class="section-kicker">Frequently asked questions</div>
+          <h2>Funding readiness, minus the smoke machine.</h2>
         </div>
-        <code class="code-box">&lt;iframe
-  title=&quot;Funding Readiness Scorecard&quot;
-  src=&quot;widget.html&quot;
-  loading=&quot;lazy&quot;
-  style=&quot;width:100%;min-height:820px;border:0;&quot;&gt;
-&lt;/iframe&gt;</code>
-        <div class="embedded-frame-wrap" aria-label="Embedded scorecard preview">
-          <iframe title="Funding Readiness Scorecard widget preview" src="widget.html" loading="lazy"></iframe>
+        <div class="faq-list">
+          <details open><summary>Is the Funding Readiness Scorecard an approval?</summary><p>No. It is an educational readiness tool. It is not an approval, offer, commitment to lend, or guarantee of funding.</p></details>
+          <details><summary>Does the scorecard run my credit?</summary><p>No. The frontend scorecard uses the answers you provide. A later review process may request more information, but this static page does not run credit.</p></details>
+          <details><summary>What does a high score mean?</summary><p>A high score means your answers show stronger readiness signals. It does not mean funding is guaranteed or that a specific option is available.</p></details>
+          <details><summary>What if I get a low score?</summary><p>A low score usually means the file needs preparation: cleaner bank activity, revenue proof, business setup, better documentation, or a more realistic funding amount.</p></details>
+          <details><summary>Which funding paths are covered?</summary><p>The scorecard explains broad categories such as working capital, structured growth capital, startup or credit leverage, equipment, real estate, and e-commerce seller capital.</p></details>
+          <details><summary>Can brokers use this tool?</summary><p>Yes. Brokers can use it as a safer intake layer to understand lead readiness before a conversation. Broker workflows should still rely on human review.</p></details>
+          <details><summary>Can partners embed the scorecard?</summary><p>Yes. The widget can be embedded on public pages using a browser-safe surface. It should not expose internal registries or private partner data.</p></details>
+          <details><summary>What documents should I prepare?</summary><p>Common documents include recent bank statements, revenue proof, entity details, funding purpose notes, and any project-specific documents such as equipment quotes or property details.</p></details>
+          <details><summary>Is this legal, tax, credit repair, or financial advice?</summary><p>No. The scorecard provides educational funding-readiness guidance only.</p></details>
+          <details><summary>What happens after I submit my information?</summary><p>Your information may be used to provide a score summary, recommend a next step, or support a human review. See the privacy page for data-use details.</p></details>
         </div>
-        <p class="safe-note">The embed should load public-safe scorecard UI only. Browser-facing embeds must not import internal routing registries or private partner data.</p>
       </section>
     </main>
       <footer class="site-footer">
