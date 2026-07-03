@@ -1,0 +1,27 @@
+# Am I Fundable ownership rules
+# Keep this intentionally simple. The repo owner should review safety-critical surfaces.
+
+* @JFeimster
+
+# Public site and browser-facing assets
+*.html @JFeimster
+/assets/ @JFeimster
+/site-data/ @JFeimster
+/config/ @JFeimster
+
+# Internal routing, CRM, automation, and partner registries
+/internal/ @JFeimster
+
+# Schemas, actions, and validation utilities
+/schemas/ @JFeimster
+/scripts/ @JFeimster
+
+# Agent/GPT packaging and knowledge files
+/agents/ @JFeimster
+/gpts/ @JFeimster
+/knowledge/ @JFeimster
+
+# Repo operations
+/.github/ @JFeimster
+/.jules/ @JFeimster
+vercel.json @JFeimster

@@ -1,0 +1,37 @@
+name: Manual Deploy Policy Note
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "vercel.json"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deployment-policy-note:
+    name: Deployment policy reminder — no deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print deployment policy
+        run: |
+          echo "This repository is static-first and deployment-controlled."
+          echo "Do not enable Vercel production or preview auto-deploys unless a deployment window is explicitly approved."
+          echo "This workflow is a reminder only. It does not deploy."
+
+      - name: Check vercel.json deployment flags when present
+        run: |
+          if [ -f vercel.json ]; then
+            echo "vercel.json found. Review deploymentEnabled settings before merge."
+            cat vercel.json
+          else
+            echo "No vercel.json found in this checkout."
+          fi

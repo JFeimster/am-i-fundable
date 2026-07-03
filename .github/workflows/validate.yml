@@ -1,0 +1,44 @@
+name: Validate Repo
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validation only — no deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install package lock dependencies if present
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install --ignore-scripts
+          fi
+
+      - name: Run repository validation
+        run: npm run validate
+
+      - name: Confirm workflow does not deploy
+        run: |
+          echo "Validation complete."
+          echo "This workflow does not deploy, release, publish, or change Vercel settings."
