@@ -1,0 +1,80 @@
+{
+  "id": "funding-lead-fields",
+  "name": "Funding Lead Fields",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "purpose": "Shared lead-capture field definitions for the scorecard widget, landing page, API routes, and CRM mapping.",
+  "fields": [
+    {
+      "id": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "required": true,
+      "public": true
+    },
+    {
+      "id": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "required": false,
+      "public": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "public": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true,
+      "public": true
+    },
+    {
+      "id": "businessName",
+      "label": "Business Name",
+      "type": "text",
+      "required": false,
+      "public": true
+    },
+    {
+      "id": "state",
+      "label": "State",
+      "type": "text",
+      "required": false,
+      "public": true
+    },
+    {
+      "id": "consent",
+      "label": "Contact Consent",
+      "type": "checkbox",
+      "required": true,
+      "public": true
+    },
+    {
+      "id": "source",
+      "label": "Lead Source",
+      "type": "hidden",
+      "required": true,
+      "public": false
+    },
+    {
+      "id": "fundingReadinessScore",
+      "label": "Funding Readiness Score",
+      "type": "number",
+      "required": true,
+      "public": false
+    },
+    {
+      "id": "scoreTier",
+      "label": "Score Tier",
+      "type": "text",
+      "required": true,
+      "public": false
+    }
+  ],
+  "consentCopy": "I agree to be contacted about funding options and understand this score is not an approval, offer, or guarantee of funding."
+}

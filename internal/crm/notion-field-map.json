@@ -1,0 +1,19 @@
+{
+  "id": "notion-field-map",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "database": "Funding Pipeline / Funding Review Requests",
+  "fields": {
+    "Name": "applicant.firstName + applicant.lastName",
+    "Email": "applicant.email",
+    "Phone": "applicant.phone",
+    "Company": "applicant.businessName",
+    "State": "applicant.state",
+    "Funding Readiness Score": "scoreResult.score",
+    "Score Tier": "scoreResult.tier.label",
+    "Funding Lane": "scoreResult.primaryFundingFamily",
+    "Priority": "scoreResult.leadPriority",
+    "Source": "source"
+  },
+  "notes": "Use NOTION_TOKEN and NOTION_FUNDING_PIPELINE_DATABASE_ID environment variables. Do not commit secrets."
+}

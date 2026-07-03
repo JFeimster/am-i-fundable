@@ -1,0 +1,20 @@
+{
+  "id": "manual-review-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "triggerManualReviewWhen": [
+    "score < 65",
+    "major red flag selected",
+    "requested amount appears high relative to monthly revenue",
+    "funding purpose is unclear",
+    "real estate, equipment, or ecommerce details are incomplete",
+    "applicant asks for debt consolidation/refinance",
+    "data is contradictory or missing"
+  ],
+  "reviewerGuidance": [
+    "Use the score as a triage signal only.",
+    "Do not tell the applicant they are approved or guaranteed funding.",
+    "Verify documents before naming provider-specific next steps.",
+    "Route publicly by funding path; route internally by provider/product fit."
+  ]
+}

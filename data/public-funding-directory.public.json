@@ -1,0 +1,112 @@
+{
+  "id": "public-funding-directory",
+  "name": "Public Funding Directory",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "entries": [
+    {
+      "id": "business-line-of-credit",
+      "title": "Business Line of Credit",
+      "description": "Potential revolving-access path for businesses with stronger revenue, credit, and operating history.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "equipment-asset-backed",
+      "title": "Equipment / Truck / Asset-Backed Funding",
+      "description": "Potential path for revenue-producing equipment, vehicles, trucks, repairs, or asset-backed needs.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "ecommerce-marketplace-capital",
+      "title": "Ecommerce / Marketplace Seller Capital",
+      "description": "Potential path for ecommerce or marketplace sellers with sales history and platform data.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "real-estate-asset-secured",
+      "title": "Real Estate / Asset-Secured Capital",
+      "description": "Potential path for property-backed or project-specific capital.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "startup-credit-leverage",
+      "title": "Startup / Credit-Leverage Funding",
+      "description": "Potential path for newer operators where personal credit, income, and clean setup may matter more than business history.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "fast-working-capital",
+      "title": "Fast Working Capital",
+      "description": "Potential path for operators with recurring business deposits and short-term cash-flow needs.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Score",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "business-credit-builder",
+      "title": "Business Credit Builder / Funding Prep",
+      "description": "Prep path for owners who need better setup, documents, banking posture, or credit readiness before a deeper funding review.",
+      "category": "Funding Path",
+      "ctaLabel": "Get My Funding Prep Checklist",
+      "ctaUrl": "#scorecard",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    },
+    {
+      "id": "manual-review",
+      "title": "Manual Funding Strategy Review",
+      "description": "Human review path when the answers need context before suggesting a funding direction.",
+      "category": "Funding Path",
+      "ctaLabel": "Speak With a Funding Strategist",
+      "ctaUrl": "#strategy-review",
+      "tags": [
+        "funding-readiness",
+        "public-safe",
+        "scorecard"
+      ]
+    }
+  ]
+}

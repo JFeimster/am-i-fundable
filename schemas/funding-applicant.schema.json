@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://distilledfunding.local/schemas/funding-applicant.schema.json",
+  "title": "Funding Applicant",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "email",
+    "phone",
+    "consent"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "minLength": 7
+    },
+    "businessName": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "boolean",
+      "const": true
+    },
+    "source": {
+      "type": "string",
+      "default": "Funding Readiness Scorecard"
+    }
+  }
+}

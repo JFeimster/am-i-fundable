@@ -1,0 +1,19 @@
+{
+  "id": "hubspot-field-map",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "object": "deal_or_contact",
+  "fields": {
+    "email": "email",
+    "phone": "phone",
+    "businessName": "company",
+    "state": "state",
+    "fundingReadinessScore": "funding_readiness_score",
+    "scoreTier": "funding_readiness_tier",
+    "primaryFundingFamily": "primary_funding_family",
+    "leadPriority": "lead_priority",
+    "desiredFundingAmount": "desired_funding_amount",
+    "fundingPurpose": "funding_purpose"
+  },
+  "notes": "Use private app token from HUBSPOT_PRIVATE_APP_TOKEN. Do not commit secrets."
+}

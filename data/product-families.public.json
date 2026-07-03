@@ -1,0 +1,203 @@
+{
+  "id": "product-families-public",
+  "name": "Public Product Families",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "entries": [
+    {
+      "id": "business-line-of-credit",
+      "sourceFamilyId": "business-line-access",
+      "label": "Business Line of Credit",
+      "summary": "Potential revolving-access path for businesses with stronger revenue, credit, and operating history.",
+      "bestFor": [
+        "Business bank statements",
+        "Operating history",
+        "Credit profile review"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Business bank statements",
+        "Operating history",
+        "Credit profile review"
+      ],
+      "typicalSpeedNote": "Typically requires deeper review",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "equipment-asset-backed",
+      "sourceFamilyId": "equipment-finance",
+      "label": "Equipment / Truck / Asset-Backed Funding",
+      "summary": "Potential path for revenue-producing equipment, vehicles, trucks, repairs, or asset-backed needs.",
+      "bestFor": [
+        "Equipment quote or invoice",
+        "Business information",
+        "Asset details"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Equipment quote or invoice",
+        "Business information",
+        "Asset details"
+      ],
+      "typicalSpeedNote": "Depends on asset, quote, and lender review",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "ecommerce-marketplace-capital",
+      "sourceFamilyId": "marketplace-capital",
+      "label": "Ecommerce / Marketplace Seller Capital",
+      "summary": "Potential path for ecommerce or marketplace sellers with sales history and platform data.",
+      "bestFor": [
+        "Marketplace/store sales history",
+        "Platform access or reports",
+        "Bank activity"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Marketplace/store sales history",
+        "Platform access or reports",
+        "Bank activity"
+      ],
+      "typicalSpeedNote": "Platform data may speed up review",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "real-estate-asset-secured",
+      "sourceFamilyId": "real-estate-capital",
+      "label": "Real Estate / Asset-Secured Capital",
+      "summary": "Potential path for property-backed or project-specific capital.",
+      "bestFor": [
+        "Property details",
+        "Purchase contract or project scope",
+        "Entity and borrower profile"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Property details",
+        "Purchase contract or project scope",
+        "Entity and borrower profile"
+      ],
+      "typicalSpeedNote": "Project and collateral review required",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "startup-credit-leverage",
+      "sourceFamilyId": "startup-credit-leverage",
+      "label": "Startup / Credit-Leverage Funding",
+      "summary": "Potential path for newer operators where personal credit, income, and clean setup may matter more than business history.",
+      "bestFor": [
+        "Personal credit profile",
+        "Income verification",
+        "Entity and banking setup"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Personal credit profile",
+        "Income verification",
+        "Entity and banking setup"
+      ],
+      "typicalSpeedNote": "Depends heavily on credit and documentation",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "fast-working-capital",
+      "sourceFamilyId": "working-capital",
+      "label": "Fast Working Capital",
+      "summary": "Potential path for operators with recurring business deposits and short-term cash-flow needs.",
+      "bestFor": [
+        "Recent business bank statements",
+        "Clear funding purpose",
+        "Business revenue history"
+      ],
+      "watchOutFor": [
+        "Actual options depend on review, documentation, lender criteria, business performance, and credit profile."
+      ],
+      "commonDocuments": [
+        "Recent business bank statements",
+        "Clear funding purpose",
+        "Business revenue history"
+      ],
+      "typicalSpeedNote": "Fast review possible when documents are ready",
+      "primaryCta": {
+        "label": "Get My Funding Score",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "business-credit-builder",
+      "sourceFamilyId": "readiness-prep",
+      "label": "Business Credit Builder / Funding Prep",
+      "summary": "Prep path for owners who need better setup, documents, banking posture, or credit readiness before a deeper funding review.",
+      "bestFor": [
+        "New businesses",
+        "Low-documentation applicants",
+        "Owners with red flags or incomplete setup"
+      ],
+      "watchOutFor": [
+        "This is an educational and readiness path, not a funding offer."
+      ],
+      "commonDocuments": [
+        "Entity documents",
+        "EIN confirmation",
+        "Business bank account setup",
+        "Basic bookkeeping records"
+      ],
+      "typicalSpeedNote": "Prep timeline depends on the gaps found.",
+      "primaryCta": {
+        "label": "Get My Funding Prep Checklist",
+        "href": "#scorecard"
+      }
+    },
+    {
+      "id": "manual-review",
+      "sourceFamilyId": "manual-review",
+      "label": "Manual Funding Strategy Review",
+      "summary": "Human review path when the answers need context before suggesting a funding direction.",
+      "bestFor": [
+        "Mixed signals",
+        "Large requested amount",
+        "Specialized use of funds",
+        "Caution flags"
+      ],
+      "watchOutFor": [
+        "A review is not an approval, offer, or commitment to lend."
+      ],
+      "commonDocuments": [
+        "Bank statements",
+        "Funding purpose details",
+        "Business overview",
+        "Relevant supporting documents"
+      ],
+      "typicalSpeedNote": "Review timing depends on document readiness and complexity.",
+      "primaryCta": {
+        "label": "Speak With a Funding Strategist",
+        "href": "#strategy-review"
+      }
+    }
+  ]
+}

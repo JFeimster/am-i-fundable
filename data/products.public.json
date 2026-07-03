@@ -1,0 +1,211 @@
+{
+  "id": "products-public",
+  "name": "Public Funding Path Summaries",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "generatedFrom": "internal/products/funding-products.registry.json",
+  "note": "White-labeled summaries only. Provider names, provider IDs, affiliate URLs, apply URLs, commissions, and internal routing rules are intentionally omitted.",
+  "entries": [
+    {
+      "id": "business-line-of-credit",
+      "label": "Business Line of Credit",
+      "summary": "Potential revolving-access path for businesses with stronger revenue, credit, and operating history.",
+      "category": [
+        "Business"
+      ],
+      "fundingTypes": [
+        "Revolving Line"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 5000,
+        "maxObserved": 500000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 600,
+        "monthlyRevenueFloorObserved": 15000,
+        "timeInBusinessFloorObservedMonths": 12
+      },
+      "commonRequirements": [
+        "Business bank statements",
+        "Operating history",
+        "Credit profile review"
+      ],
+      "typicalSpeedNote": "Typically requires deeper review",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 4
+    },
+    {
+      "id": "equipment-asset-backed",
+      "label": "Equipment / Truck / Asset-Backed Funding",
+      "summary": "Potential path for revenue-producing equipment, vehicles, trucks, repairs, or asset-backed needs.",
+      "category": [
+        "Business"
+      ],
+      "fundingTypes": [
+        "Asset Backed"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 10000,
+        "maxObserved": 50000000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 580,
+        "monthlyRevenueFloorObserved": 15000,
+        "timeInBusinessFloorObservedMonths": 12
+      },
+      "commonRequirements": [
+        "Equipment quote or invoice",
+        "Business information",
+        "Asset details"
+      ],
+      "typicalSpeedNote": "Depends on asset, quote, and lender review",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 5
+    },
+    {
+      "id": "ecommerce-marketplace-capital",
+      "label": "Ecommerce / Marketplace Seller Capital",
+      "summary": "Potential path for ecommerce or marketplace sellers with sales history and platform data.",
+      "category": [
+        "Business"
+      ],
+      "fundingTypes": [
+        "Factoring",
+        "Revenue Advance",
+        "Revenue Based"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 1000,
+        "maxObserved": 10000000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 600,
+        "monthlyRevenueFloorObserved": 2000,
+        "timeInBusinessFloorObservedMonths": 3
+      },
+      "commonRequirements": [
+        "Marketplace/store sales history",
+        "Platform access or reports",
+        "Bank activity"
+      ],
+      "typicalSpeedNote": "Platform data may speed up review",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 5
+    },
+    {
+      "id": "real-estate-asset-secured",
+      "label": "Real Estate / Asset-Secured Capital",
+      "summary": "Potential path for property-backed or project-specific capital.",
+      "category": [
+        "Personal",
+        "Real Estate"
+      ],
+      "fundingTypes": [
+        "Hard Money",
+        "Mortgage"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 20000,
+        "maxObserved": 100000000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 650,
+        "monthlyRevenueFloorObserved": null,
+        "timeInBusinessFloorObservedMonths": null
+      },
+      "commonRequirements": [
+        "Property details",
+        "Purchase contract or project scope",
+        "Entity and borrower profile"
+      ],
+      "typicalSpeedNote": "Project and collateral review required",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 10
+    },
+    {
+      "id": "startup-credit-leverage",
+      "label": "Startup / Credit-Leverage Funding",
+      "summary": "Potential path for newer operators where personal credit, income, and clean setup may matter more than business history.",
+      "category": [
+        "Business",
+        "Personal"
+      ],
+      "fundingTypes": [
+        "Credit Card",
+        "Equity",
+        "Installment Loan",
+        "Revolving Line",
+        "Service",
+        "Term Loan",
+        "Unsecured Line"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 500,
+        "maxObserved": 5000000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 660,
+        "monthlyRevenueFloorObserved": 30000,
+        "timeInBusinessFloorObservedMonths": null
+      },
+      "commonRequirements": [
+        "Personal credit profile",
+        "Income verification",
+        "Entity and banking setup"
+      ],
+      "typicalSpeedNote": "Depends heavily on credit and documentation",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 13
+    },
+    {
+      "id": "fast-working-capital",
+      "label": "Fast Working Capital",
+      "summary": "Potential path for operators with recurring business deposits and short-term cash-flow needs.",
+      "category": [
+        "Business"
+      ],
+      "fundingTypes": [
+        "Factoring",
+        "Installment Loan",
+        "Revenue Advance",
+        "Service",
+        "Term Loan"
+      ],
+      "typicalAmountRange": {
+        "minObserved": 500,
+        "maxObserved": 5000000
+      },
+      "commonSignals": {
+        "creditScoreFloorObserved": 500,
+        "monthlyRevenueFloorObserved": 3000,
+        "timeInBusinessFloorObservedMonths": 3
+      },
+      "commonRequirements": [
+        "Recent business bank statements",
+        "Clear funding purpose",
+        "Business revenue history"
+      ],
+      "typicalSpeedNote": "Fast review possible when documents are ready",
+      "cta": {
+        "label": "Review This Funding Path",
+        "href": "#scorecard"
+      },
+      "sourceProductCount": 22
+    }
+  ]
+}

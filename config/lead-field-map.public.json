@@ -1,0 +1,42 @@
+{
+  "id": "lead-field-map-public",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "fields": {
+    "firstName": {
+      "label": "First Name",
+      "inputName": "firstName",
+      "type": "text"
+    },
+    "lastName": {
+      "label": "Last Name",
+      "inputName": "lastName",
+      "type": "text"
+    },
+    "email": {
+      "label": "Email",
+      "inputName": "email",
+      "type": "email"
+    },
+    "phone": {
+      "label": "Phone",
+      "inputName": "phone",
+      "type": "tel"
+    },
+    "businessName": {
+      "label": "Business Name",
+      "inputName": "businessName",
+      "type": "text"
+    },
+    "state": {
+      "label": "State",
+      "inputName": "state",
+      "type": "text"
+    },
+    "consent": {
+      "label": "Consent",
+      "inputName": "consent",
+      "type": "checkbox"
+    }
+  }
+}

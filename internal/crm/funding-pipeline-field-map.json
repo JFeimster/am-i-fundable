@@ -1,0 +1,19 @@
+{
+  "id": "funding-pipeline-field-map",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "maps": {
+    "name": "applicant.firstName + applicant.lastName",
+    "email": "applicant.email",
+    "phone": "applicant.phone",
+    "company": "applicant.businessName",
+    "state": "applicant.state",
+    "lowest_monthly_revenue": "answers.monthlyRevenue",
+    "revenue_band": "answers.monthlyRevenueBand",
+    "funding_lane": "scoreResult.primaryFundingFamily",
+    "lead_status": "reviewStatus",
+    "priority": "scoreResult.leadPriority",
+    "source": "source",
+    "notes": "scoreResult.risks + scoreResult.nextSteps"
+  }
+}

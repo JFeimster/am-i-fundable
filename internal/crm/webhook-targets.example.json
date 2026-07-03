@@ -1,0 +1,32 @@
+{
+  "id": "webhook-targets-example",
+  "version": "1.0.0",
+  "visibility": "server_side_internal_example",
+  "targets": {
+    "n8n": {
+      "enabled": false,
+      "envVar": "N8N_SCORECARD_WEBHOOK_URL",
+      "description": "POST score submissions to n8n for routing and notification."
+    },
+    "hubspot": {
+      "enabled": false,
+      "envVar": "HUBSPOT_PRIVATE_APP_TOKEN",
+      "description": "Create/update contact and deal records."
+    },
+    "notion": {
+      "enabled": false,
+      "envVar": "NOTION_TOKEN",
+      "description": "Create a Funding Pipeline database record."
+    },
+    "airtable": {
+      "enabled": false,
+      "envVar": "AIRTABLE_API_KEY",
+      "description": "Create a funding lead row."
+    },
+    "googleSheets": {
+      "enabled": false,
+      "envVar": "GOOGLE_SERVICE_ACCOUNT_JSON",
+      "description": "Append score result to a sheet."
+    }
+  }
+}

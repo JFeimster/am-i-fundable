@@ -1,0 +1,101 @@
+{
+  "id": "funding-routing-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "routingOrder": [
+    "hard_disqualifier_review",
+    "business_type_specialization",
+    "funding_purpose_fit",
+    "revenue_tib_credit_fit",
+    "desired_amount_fit",
+    "manual_review_safety"
+  ],
+  "familyRouting": [
+    {
+      "familyId": "fast-working-capital",
+      "when": {
+        "minMonthlyRevenue": 10000,
+        "minTimeInBusinessMonths": 6,
+        "fundingPurposes": [
+          "working_capital",
+          "inventory_materials",
+          "growth_marketing"
+        ]
+      },
+      "publicLabel": "Fast Working Capital"
+    },
+    {
+      "familyId": "business-line-of-credit",
+      "when": {
+        "minMonthlyRevenue": 15000,
+        "minTimeInBusinessMonths": 12,
+        "minCreditScore": 600
+      },
+      "publicLabel": "Business Line of Credit"
+    },
+    {
+      "familyId": "structured-growth-capital",
+      "when": {
+        "minMonthlyRevenue": 20000,
+        "minTimeInBusinessMonths": 12,
+        "minCreditScore": 600
+      },
+      "publicLabel": "Structured Growth Capital"
+    },
+    {
+      "familyId": "startup-credit-leverage",
+      "when": {
+        "maxTimeInBusinessMonths": 6,
+        "minCreditScore": 680
+      },
+      "publicLabel": "Startup / Credit-Leverage Funding"
+    },
+    {
+      "familyId": "equipment-asset-backed",
+      "when": {
+        "businessPersonas": [
+          "equipment_heavy"
+        ],
+        "fundingPurposes": [
+          "equipment_vehicle"
+        ]
+      },
+      "publicLabel": "Equipment / Truck / Asset-Backed Funding"
+    },
+    {
+      "familyId": "real-estate-asset-secured",
+      "when": {
+        "businessPersonas": [
+          "real_estate_investor"
+        ],
+        "fundingPurposes": [
+          "real_estate"
+        ]
+      },
+      "publicLabel": "Real Estate / Asset-Secured Capital"
+    },
+    {
+      "familyId": "ecommerce-marketplace-capital",
+      "when": {
+        "businessPersonas": [
+          "ecommerce_seller"
+        ],
+        "fundingPurposes": [
+          "ecommerce_growth"
+        ]
+      },
+      "publicLabel": "Ecommerce / Marketplace Seller Capital"
+    },
+    {
+      "familyId": "business-credit-builder",
+      "when": {
+        "maxScore": 44
+      },
+      "publicLabel": "Business Credit Builder / Funding Prep"
+    }
+  ],
+  "defaultRoute": {
+    "familyId": "manual-review",
+    "publicLabel": "Manual Funding Strategy Review"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "provider-categories-public",
+  "name": "Provider Category Summaries",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "note": "This file intentionally avoids naming individual providers or exposing affiliate/apply details.",
+  "entries": [
+    {
+      "id": "working-capital-network",
+      "label": "Working Capital Network",
+      "description": "Potential capital paths for operators with recurring deposits and short-term cash flow needs.",
+      "relatedFamilies": [
+        "fast-working-capital",
+        "revenue-based-funding"
+      ]
+    },
+    {
+      "id": "business-line-network",
+      "label": "Business Line Network",
+      "description": "Potential revolving-access paths for businesses with stronger revenue, credit, and operating history.",
+      "relatedFamilies": [
+        "business-line-of-credit"
+      ]
+    },
+    {
+      "id": "startup-credit-network",
+      "label": "Startup / Credit-Leverage Network",
+      "description": "Potential paths for newer operators where credit and income may matter more than business history.",
+      "relatedFamilies": [
+        "startup-credit-leverage",
+        "business-credit-builder"
+      ]
+    },
+    {
+      "id": "asset-capital-network",
+      "label": "Asset-Secured Capital Network",
+      "description": "Potential paths for equipment, vehicles, trucks, real estate, and other asset-backed needs.",
+      "relatedFamilies": [
+        "equipment-asset-backed",
+        "real-estate-asset-secured"
+      ]
+    },
+    {
+      "id": "marketplace-seller-network",
+      "label": "Marketplace Seller Capital Network",
+      "description": "Potential paths for ecommerce sellers with platform/store sales history.",
+      "relatedFamilies": [
+        "ecommerce-marketplace-capital"
+      ]
+    }
+  ]
+}

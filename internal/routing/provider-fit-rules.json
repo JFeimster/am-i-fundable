@@ -1,0 +1,30 @@
+{
+  "id": "provider-fit-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "minimumFitScoreForInternalReview": 50,
+  "maxInternalMatches": 5,
+  "publicResponseMode": "white_labeled_funding_paths_only",
+  "weights": {
+    "creditScore": 20,
+    "monthlyRevenue": 25,
+    "timeInBusiness": 20,
+    "productFamily": 20,
+    "industryAppetite": 10,
+    "geography": 5,
+    "startupFit": 5,
+    "solePropFit": 5
+  },
+  "penalties": {
+    "restrictedIndustry": 30,
+    "hardDisqualifier": 40,
+    "missingCriticalData": 10
+  },
+  "safeOutputFields": [
+    "publicLabel",
+    "familyId",
+    "fitScoreBand",
+    "reasonCodes",
+    "nextSteps"
+  ]
+}

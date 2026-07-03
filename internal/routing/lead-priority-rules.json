@@ -1,0 +1,64 @@
+{
+  "id": "lead-priority-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "priorities": [
+    {
+      "id": "hot",
+      "label": "Hot Funding Review",
+      "scoreRange": [
+        80,
+        100
+      ],
+      "sla": "Same business day review",
+      "internalAction": "Create high-priority funding review task"
+    },
+    {
+      "id": "warm",
+      "label": "Funding Strategy Review",
+      "scoreRange": [
+        65,
+        79
+      ],
+      "sla": "1 business day review",
+      "internalAction": "Create standard review task"
+    },
+    {
+      "id": "nurture",
+      "label": "Selective Program / Prep Review",
+      "scoreRange": [
+        45,
+        64
+      ],
+      "sla": "Route to prep plus optional review",
+      "internalAction": "Create nurture task and checklist email"
+    },
+    {
+      "id": "education",
+      "label": "Funding Prep / Credit Builder Nurture",
+      "scoreRange": [
+        0,
+        44
+      ],
+      "sla": "Nurture sequence",
+      "internalAction": "Send prep checklist; do not route to funding partner automatically"
+    }
+  ],
+  "escalators": [
+    {
+      "id": "high-revenue-manual-escalation",
+      "condition": "monthlyRevenue >= 50000 and score < 65",
+      "effect": "manual_review"
+    },
+    {
+      "id": "real-estate-or-equipment-specialist",
+      "condition": "fundingPurpose in real_estate,equipment_vehicle",
+      "effect": "specialist_review"
+    },
+    {
+      "id": "red-flag-human-review",
+      "condition": "any major red flag selected",
+      "effect": "manual_review"
+    }
+  ]
+}

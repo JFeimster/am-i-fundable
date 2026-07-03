@@ -1,0 +1,57 @@
+{
+  "id": "intake-verification-paths",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "paths": [
+    {
+      "id": "standard-business-review",
+      "label": "Standard Business Review",
+      "requiredChecks": [
+        "identity",
+        "bank_activity",
+        "funding_purpose",
+        "consent"
+      ]
+    },
+    {
+      "id": "startup-credit-review",
+      "label": "Startup / Credit-Leverage Review",
+      "requiredChecks": [
+        "identity",
+        "credit_profile",
+        "income_documentation",
+        "entity_setup"
+      ]
+    },
+    {
+      "id": "ecommerce-review",
+      "label": "Ecommerce / Marketplace Review",
+      "requiredChecks": [
+        "identity",
+        "platform_sales",
+        "bank_activity",
+        "account_status"
+      ]
+    },
+    {
+      "id": "equipment-review",
+      "label": "Equipment / Asset Review",
+      "requiredChecks": [
+        "identity",
+        "asset_quote",
+        "business_profile",
+        "bank_activity"
+      ]
+    },
+    {
+      "id": "red-flag-review",
+      "label": "Manual Caution-Flag Review",
+      "requiredChecks": [
+        "identity",
+        "red_flag_context",
+        "documents",
+        "human_review"
+      ]
+    }
+  ]
+}

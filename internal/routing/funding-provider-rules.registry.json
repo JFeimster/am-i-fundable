@@ -1,0 +1,38 @@
+{
+  "id": "funding-provider-rules",
+  "name": "Funding Provider Rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "purpose": "Private routing and review rules used by API routes only. Do not expose this file to browsers or public static endpoints.",
+  "rules": [
+    {
+      "id": "do-not-render-provider-data-client-side",
+      "severity": "blocker",
+      "appliesTo": [
+        "browser",
+        "static-json",
+        "public-api-response"
+      ],
+      "rule": "Never expose provider names, affiliate URLs, apply URLs, commissions, contact emails, private notes, or internal routing notes in public files."
+    },
+    {
+      "id": "human-review-before-provider-recommendation",
+      "severity": "high",
+      "appliesTo": [
+        "match-partners",
+        "lender-match-review"
+      ],
+      "rule": "Return white-labeled funding paths publicly; provider-specific routing should be sent only to internal review or CRM workflows."
+    },
+    {
+      "id": "no-approval-language",
+      "severity": "blocker",
+      "appliesTo": [
+        "all-results",
+        "alerts",
+        "emails"
+      ],
+      "rule": "Do not claim approval, guaranteed funding, qualification, underwriting outcome, or final eligibility."
+    }
+  ]
+}

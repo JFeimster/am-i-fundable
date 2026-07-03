@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://distilledfunding.local/schemas/partner-match-result.schema.json",
+  "title": "Partner Match Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "message",
+    "humanReviewRequired",
+    "recommendations"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "humanReviewRequired": {
+      "type": "boolean"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "familyId",
+          "publicLabel",
+          "fitScoreBand",
+          "summary",
+          "nextSteps"
+        ],
+        "properties": {
+          "familyId": {
+            "type": "string"
+          },
+          "publicLabel": {
+            "type": "string"
+          },
+          "fitScoreBand": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "nextSteps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "internalMatchCount": {
+      "type": "number"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "product-fit-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "scoring": {
+    "creditScoreMeetsMinimum": 20,
+    "monthlyRevenueMeetsMinimum": 25,
+    "timeInBusinessMeetsMinimum": 20,
+    "fundingPurposeMatchesFamily": 20,
+    "desiredAmountWithinRange": 10,
+    "startupEligibleWhenNew": 5
+  },
+  "minimumFitScoreForInternalReview": 50,
+  "rules": [
+    {
+      "id": "credit-minimum",
+      "description": "Applicant credit score should meet or exceed product minimum when a minimum exists."
+    },
+    {
+      "id": "revenue-minimum",
+      "description": "Applicant monthly revenue should meet product minimum when a minimum exists."
+    },
+    {
+      "id": "time-in-business-minimum",
+      "description": "Applicant operating history should meet product minimum when a minimum exists."
+    },
+    {
+      "id": "amount-range",
+      "description": "Desired amount should sit within or near product funding range; exceptions require manual review."
+    }
+  ]
+}

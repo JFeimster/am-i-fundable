@@ -1,0 +1,63 @@
+{
+  "id": "disqualifier-rules",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "redFlags": [
+    {
+      "id": "open_bankruptcy",
+      "severity": "major",
+      "scorePenalty": 25,
+      "manualReviewRequired": true,
+      "publicMessage": "Open bankruptcy may require a specialist review before next steps."
+    },
+    {
+      "id": "tax_lien",
+      "severity": "major",
+      "scorePenalty": 15,
+      "manualReviewRequired": true,
+      "publicMessage": "Tax liens may affect available paths and should be reviewed."
+    },
+    {
+      "id": "recent_missed_payments",
+      "severity": "moderate",
+      "scorePenalty": 10,
+      "manualReviewRequired": true,
+      "publicMessage": "Recent missed payments may narrow available options."
+    },
+    {
+      "id": "recent_nsfs",
+      "severity": "moderate",
+      "scorePenalty": 10,
+      "manualReviewRequired": true,
+      "publicMessage": "Recent bank activity issues should be reviewed before applying."
+    },
+    {
+      "id": "new_bank_account",
+      "severity": "moderate",
+      "scorePenalty": 8,
+      "manualReviewRequired": false,
+      "publicMessage": "A recently opened business bank account may limit document history."
+    },
+    {
+      "id": "existing_daily_advance",
+      "severity": "major",
+      "scorePenalty": 10,
+      "manualReviewRequired": true,
+      "publicMessage": "Existing daily or frequent-payment advances should be reviewed carefully."
+    },
+    {
+      "id": "marketplace_suspended",
+      "severity": "major",
+      "scorePenalty": 15,
+      "manualReviewRequired": true,
+      "publicMessage": "A suspended marketplace account may limit platform-based funding paths."
+    },
+    {
+      "id": "no_current_revenue",
+      "severity": "major",
+      "scorePenalty": 20,
+      "manualReviewRequired": true,
+      "publicMessage": "No current revenue may shift the recommendation toward setup or credit-readiness paths."
+    }
+  ]
+}

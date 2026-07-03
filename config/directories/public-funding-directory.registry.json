@@ -1,0 +1,28 @@
+{
+  "id": "public-funding-directory-config",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "sourceData": "/data/public-funding-directory.public.json",
+  "route": "/funding/readiness-scorecard",
+  "filters": [
+    "category",
+    "tags"
+  ],
+  "displayFields": [
+    "title",
+    "description",
+    "ctaLabel"
+  ],
+  "blockedFields": [
+    "providerName",
+    "providerId",
+    "affiliateUrl",
+    "applyUrl",
+    "commissionRate",
+    "contactEmail"
+  ],
+  "defaultCta": {
+    "label": "Get My Funding Score",
+    "href": "#scorecard"
+  }
+}

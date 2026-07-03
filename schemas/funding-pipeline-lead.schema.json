@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://distilledfunding.local/schemas/funding-pipeline-lead.schema.json",
+  "title": "Funding Pipeline Lead",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id",
+    "source",
+    "applicant",
+    "scoreResult",
+    "createdAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "applicant": {
+      "$ref": "./funding-applicant.schema.json"
+    },
+    "answers": {
+      "type": "object"
+    },
+    "scoreResult": {
+      "type": "object"
+    },
+    "leadPriority": {
+      "type": "string",
+      "enum": [
+        "hot",
+        "warm",
+        "nurture",
+        "education"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewStatus": {
+      "type": "string",
+      "enum": [
+        "new",
+        "queued_for_review",
+        "reviewed",
+        "nurture",
+        "closed"
+      ]
+    }
+  }
+}
