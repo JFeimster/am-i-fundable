@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "am-i-fundable-components-registry",
+  "name": "Am I Fundable Components Registry",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "description": "Reusable public-safe component inventory for the Funding Readiness Scorecard static site, result pages, embed surfaces, and printable report views.",
+  "globalRules": [
+    "Use funding-readiness language only.",
+    "Do not expose sensitive partner, routing, payout, contact, credential, or borrower details.",
+    "Do not use certainty-based lending copy, rate promises, speed promises, credit-outcome promises, or final decision language.",
+    "Browser-facing components must never import internal-only registries."
+  ],
+  "components": [
+    {
+      "id": "site-header",
+      "name": "Site Header",
+      "cssFiles": [
+        "/assets/css/base.css",
+        "/assets/css/components.css"
+      ],
+      "selectors": [
+        ".frs-site-header",
+        ".site-header",
+        ".frs-brand",
+        ".frs-nav"
+      ],
+      "purpose": "Consistent navigation across static pages.",
+      "safeCopyNotes": "Navigation labels should route to public pages only."
+    },
+    {
+      "id": "hero-section",
+      "name": "Hero Section",
+      "cssFiles": [
+        "/assets/css/base.css",
+        "/assets/css/components.css"
+      ],
+      "selectors": [
+        ".frs-hero",
+        ".frs-hero-inner",
+        ".frs-hero-actions"
+      ],
+      "purpose": "Page-level intro block with headline, lede, and CTA.",
+      "safeCopyNotes": "CTA should invite scorecard use or review request, not application certainty."
+    },
+    {
+      "id": "cta-button",
+      "name": "CTA Button",
+      "cssFiles": [
+        "/assets/css/components.css"
+      ],
+      "selectors": [
+        ".frs-btn",
+        ".btn",
+        ".frs-btn-primary",
+        ".btn-primary"
+      ],
+      "purpose": "Primary and secondary action links.",
+      "safeCopyNotes": "Use labels such as Get My Score, Request Review, View Documents, or Explore Funding Paths."
+    },
+    {
+      "id": "scorecard-shell",
+      "name": "Scorecard Shell",
+      "cssFiles": [
+        "/assets/css/scorecard.css"
+      ],
+      "selectors": [
+        ".scorecard-shell",
+        ".frs-scorecard-shell",
+        ".quiz-form",
+        ".option-grid"
+      ],
+      "purpose": "Dedicated full-page scorecard and form flow.",
+      "safeCopyNotes": "Collect only necessary user-entered fields; consent copy should explain the score is readiness guidance and subject to review."
+    },
+    {
+      "id": "result-summary",
+      "name": "Result Summary",
+      "cssFiles": [
+        "/assets/css/results.css"
+      ],
+      "selectors": [
+        ".result-hero-card",
+        ".frs-result-hero-card",
+        ".score-ring",
+        ".frs-score-ring"
+      ],
+      "purpose": "Displays score tier, readiness explanation, and next steps.",
+      "safeCopyNotes": "Describe readiness, potential paths, blockers, and recommended next steps."
+    },
+    {
+      "id": "result-card-grid",
+      "name": "Result Card Grid",
+      "cssFiles": [
+        "/assets/css/results.css"
+      ],
+      "selectors": [
+        ".result-grid",
+        ".frs-result-grid",
+        ".result-card",
+        ".frs-result-card"
+      ],
+      "purpose": "Shows funding paths, blockers, next steps, and document prep.",
+      "safeCopyNotes": "Cards should not name providers or expose internal matching logic."
+    },
+    {
+      "id": "faq-list",
+      "name": "FAQ List",
+      "cssFiles": [
+        "/assets/css/components.css"
+      ],
+      "selectors": [
+        ".frs-faq-list",
+        ".faq-list"
+      ],
+      "purpose": "Accessible question-and-answer sections for public pages.",
+      "safeCopyNotes": "FAQ copy should be educational and avoid lending promises."
+    },
+    {
+      "id": "embed-widget",
+      "name": "Embed Widget",
+      "cssFiles": [
+        "/assets/css/embed.css"
+      ],
+      "selectors": [
+        ".frs-embed",
+        ".frs-embed-shell",
+        ".frs-embed-btn"
+      ],
+      "purpose": "Scoped scorecard embed surface for broker or partner sites.",
+      "safeCopyNotes": "Embed must avoid host-page CSS pollution and private registry calls."
+    },
+    {
+      "id": "print-report",
+      "name": "Printable Report",
+      "cssFiles": [
+        "/assets/css/print-report.css"
+      ],
+      "selectors": [
+        ".frs-print-title",
+        ".frs-print-disclaimer",
+        ".frs-print-page-break"
+      ],
+      "purpose": "Print-friendly funding readiness summary.",
+      "safeCopyNotes": "Printed reports must include readiness guidance and review-required disclaimers."
+    }
+  ],
+  "pageUsage": {
+    "/scorecard.html": [
+      "site-header",
+      "hero-section",
+      "scorecard-shell",
+      "faq-list"
+    ],
+    "/results.html": [
+      "site-header",
+      "hero-section",
+      "result-summary",
+      "result-card-grid"
+    ],
+    "/funding-paths.html": [
+      "site-header",
+      "hero-section",
+      "result-card-grid"
+    ],
+    "/documents.html": [
+      "site-header",
+      "hero-section",
+      "result-card-grid"
+    ],
+    "/embed-example.html": [
+      "site-header",
+      "hero-section",
+      "embed-widget"
+    ],
+    "/faq.html": [
+      "site-header",
+      "hero-section",
+      "faq-list"
+    ],
+    "/thank-you.html": [
+      "site-header",
+      "hero-section",
+      "result-card-grid"
+    ],
+    "/not-ready.html": [
+      "site-header",
+      "hero-section",
+      "result-card-grid"
+    ],
+    "/fundable-review.html": [
+      "site-header",
+      "hero-section",
+      "result-summary"
+    ],
+    "/highly-fundable.html": [
+      "site-header",
+      "hero-section",
+      "result-summary"
+    ]
+  }
+}
