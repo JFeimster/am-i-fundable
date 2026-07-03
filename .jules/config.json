@@ -1,0 +1,98 @@
+{
+  "project": {
+    "name": "Funding Readiness Scorecard",
+    "repo": "https://github.com/JFeimster/am-i-fundable",
+    "workingBranch": "codex/batch-1-7-integration",
+    "publicRepo": true,
+    "primaryLocalPath": "C:\\Users\\jason\\OneDrive\\Desktop\\Vercel Projects\\Am I Fundable Clean"
+  },
+  "julesResponsibilities": [
+    "documentation",
+    "knowledge files",
+    "workflow templates",
+    "nurture templates",
+    "optional ecosystem files",
+    "repo support files"
+  ],
+  "doNotModifyWithoutExplicitInstruction": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "widget.html",
+    "widget.css",
+    "widget.js",
+    "embed-example.html",
+    "vercel.json"
+  ],
+  "neverCommit": [
+    "real affiliate URLs",
+    "real apply URLs",
+    "commission rates",
+    "provider contacts",
+    "applicant PII",
+    "API keys",
+    "tokens",
+    "secrets",
+    "webhook secrets",
+    "private routing notes",
+    "underwriting notes",
+    "portal URLs"
+  ],
+  "safeLanguage": [
+    "funding readiness",
+    "possible fit",
+    "recommended path",
+    "next step",
+    "human review",
+    "subject to review",
+    "not an approval",
+    "not a guarantee"
+  ],
+  "blockedLanguage": [
+    "approved",
+    "guaranteed",
+    "you qualify",
+    "instant approval",
+    "final eligibility",
+    "underwriting complete",
+    "best rates guaranteed",
+    "guaranteed funding"
+  ],
+  "batchesForJules": [
+    {
+      "batch": 11,
+      "name": "Result Content + Nurture Assets",
+      "promptFile": ".jules/prompts/jules-batch-11-12.md"
+    },
+    {
+      "batch": 12,
+      "name": "Workflow Automations",
+      "promptFile": ".jules/prompts/jules-batch-11-12.md"
+    },
+    {
+      "batch": 13,
+      "name": "Knowledge Base Support",
+      "promptFile": ".jules/prompts/jules-batch-13-14.md"
+    },
+    {
+      "batch": 14,
+      "name": "Docs + Deployment",
+      "promptFile": ".jules/prompts/jules-batch-13-14.md"
+    },
+    {
+      "batch": 16,
+      "name": "Optional Repo/Site Ecosystem Files",
+      "promptFile": ".jules/prompts/jules-batch-16.md"
+    }
+  ],
+  "validation": {
+    "defaultCommand": "npm run validate",
+    "requiredChecks": [
+      "JSON validation",
+      "private data scan",
+      "approval language scan",
+      "markdown readability",
+      "vercel.json unchanged"
+    ]
+  }
+}
