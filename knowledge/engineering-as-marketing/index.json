@@ -1,0 +1,8 @@
+{
+  "name": "Engineering as Marketing",
+  "description": "Context on using the scorecard for lead capture, widgets, and GPT actions.",
+  "documents": [
+    "README.md",
+    "examples.md"
+  ]
+}
