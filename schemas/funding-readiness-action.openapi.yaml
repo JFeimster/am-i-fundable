@@ -1,0 +1,462 @@
+openapi: 3.1.0
+info:
+  title: Funding Readiness Scorecard Action API
+  version: 1.0.0
+  summary: Public-safe action surface for funding readiness scoring and review routing.
+  description: >
+    This API supports educational funding readiness scoring, possible funding-path review,
+    and human follow-up routing. Responses are public-safe and do not expose internal
+    provider registries, partner contacts, commissions, or private notes.
+servers:
+  - url: https://example.com
+    description: Replace with the deployed site origin.
+tags:
+  - name: Health
+    description: Service status checks.
+  - name: Score Submission
+    description: Accepts a scorecard result for follow-up review.
+  - name: Funding Path Review
+    description: Returns public-safe possible funding-path guidance.
+  - name: Human Review
+    description: Queues a follow-up review request for a funding strategist.
+security: []
+paths:
+  /api/health:
+    get:
+      operationId: getFundingReadinessHealth
+      tags:
+        - Health
+      summary: Check service health
+      description: Returns a basic service heartbeat for the funding readiness experience.
+      responses:
+        "200":
+          description: Healthy service response.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+  /api/submit-score:
+    post:
+      operationId: submitFundingReadinessScore
+      tags:
+        - Score Submission
+      summary: Submit a funding readiness result for review
+      description: >
+        Accepts applicant contact details, normalized answers, and a public-safe score result.
+        This route records the submission for follow-up review and may forward it to an external
+        workflow when configured.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitScoreRequest"
+      responses:
+        "200":
+          description: Submission accepted for review.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmitScoreResponse"
+        "400":
+          description: Missing applicant contact data, consent, or valid answers.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "405":
+          description: Method not allowed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error while processing the submission.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /api/match-partners:
+    post:
+      operationId: reviewPossibleFundingPaths
+      tags:
+        - Funding Path Review
+      summary: Generate public-safe possible funding paths
+      description: >
+        Reviews applicant readiness signals against internal server-side matching logic and
+        returns only white-labeled public recommendations. Internal provider names, links,
+        and routing details are never returned.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MatchPartnersRequest"
+      responses:
+        "200":
+          description: Possible funding paths returned for review.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MatchPartnersResponse"
+        "405":
+          description: Method not allowed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error while generating recommendations.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /api/lender-match-review:
+    post:
+      operationId: queueFundingReadinessReview
+      tags:
+        - Human Review
+      summary: Queue a human review request
+      description: >
+        Creates a public-safe follow-up review request when a score or stated need needs more
+        context before a responsible recommended path can be shared.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LenderMatchReviewRequest"
+      responses:
+        "200":
+          description: Review request queued.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LenderMatchReviewResponse"
+        "405":
+          description: Method not allowed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error while queueing review.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - service
+        - status
+        - timestamp
+      properties:
+        ok:
+          type: boolean
+          const: true
+        service:
+          type: string
+          example: funding-readiness-scorecard
+        status:
+          type: string
+          example: healthy
+        timestamp:
+          type: string
+          format: date-time
+    Applicant:
+      type: object
+      additionalProperties: false
+      required:
+        - email
+        - phone
+        - consent
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        businessName:
+          type: string
+        state:
+          type: string
+        consent:
+          type: boolean
+          const: true
+    Answers:
+      type: object
+      additionalProperties: false
+      required:
+        - businessPersona
+        - monthlyRevenue
+        - timeInBusinessMonths
+        - creditScore
+        - bankStatus
+        - businessStructure
+        - fundingPurpose
+        - desiredFundingAmount
+        - redFlags
+      properties:
+        businessPersona:
+          type: string
+        monthlyRevenue:
+          type: number
+          minimum: 0
+        timeInBusinessMonths:
+          type: number
+          minimum: 0
+        creditScore:
+          type: number
+          minimum: 0
+        bankStatus:
+          type: string
+        businessStructure:
+          type: string
+        fundingPurpose:
+          type: string
+        desiredFundingAmount:
+          type: number
+          minimum: 0
+        redFlags:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+    Tier:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - label
+        - summary
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        summary:
+          type: string
+    PublicScoreResult:
+      type: object
+      additionalProperties: false
+      required:
+        - score
+        - tier
+        - leadPriority
+        - primaryFundingFamily
+        - secondaryFundingFamilies
+        - strengths
+        - risks
+        - nextSteps
+        - manualReviewRecommended
+      properties:
+        valid:
+          type: boolean
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        tier:
+          $ref: "#/components/schemas/Tier"
+        leadPriority:
+          type: string
+          enum:
+            - hot
+            - warm
+            - nurture
+            - education
+        primaryFundingFamily:
+          type: string
+        secondaryFundingFamilies:
+          type: array
+          items:
+            type: string
+        recommendationCards:
+          type: array
+          items:
+            type: object
+        strengths:
+          type: array
+          items:
+            type: string
+        risks:
+          type: array
+          items:
+            type: string
+        nextSteps:
+          type: array
+          items:
+            type: string
+        recommendedDocuments:
+          type: array
+          items:
+            type: string
+        manualReviewRecommended:
+          type: boolean
+        cta:
+          type: object
+          additionalProperties: false
+          properties:
+            label:
+              type: string
+            url:
+              type: string
+        calculatedAt:
+          type: string
+          format: date-time
+    SubmitScoreRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - applicant
+        - answers
+      properties:
+        source:
+          type: string
+          example: Funding Readiness Scorecard Widget
+        applicant:
+          $ref: "#/components/schemas/Applicant"
+        answers:
+          $ref: "#/components/schemas/Answers"
+        scoreResult:
+          $ref: "#/components/schemas/PublicScoreResult"
+    SubmitScoreResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - message
+        - leadId
+        - publicResult
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+        leadId:
+          type: string
+        publicResult:
+          type: object
+          additionalProperties: false
+          required:
+            - score
+            - tier
+            - primaryFundingFamily
+            - leadPriority
+            - manualReviewRecommended
+          properties:
+            score:
+              type: integer
+              minimum: 0
+              maximum: 100
+            tier:
+              $ref: "#/components/schemas/Tier"
+            primaryFundingFamily:
+              type: string
+            leadPriority:
+              type: string
+            manualReviewRecommended:
+              type: boolean
+    PublicRecommendation:
+      type: object
+      additionalProperties: false
+      required:
+        - familyId
+        - publicLabel
+        - fitScoreBand
+        - summary
+        - nextSteps
+      properties:
+        familyId:
+          type: string
+        publicLabel:
+          type: string
+        fitScoreBand:
+          type: string
+        summary:
+          type: string
+        nextSteps:
+          type: array
+          items:
+            type: string
+    MatchPartnersRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        applicant:
+          $ref: "#/components/schemas/Answers"
+        answers:
+          $ref: "#/components/schemas/Answers"
+    MatchPartnersResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - message
+        - humanReviewRequired
+        - recommendations
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+        humanReviewRequired:
+          type: boolean
+        recommendations:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicRecommendation"
+        internalMatchCount:
+          type: number
+    LenderMatchReviewRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        source:
+          type: string
+        applicant:
+          $ref: "#/components/schemas/Applicant"
+        scoreResult:
+          $ref: "#/components/schemas/PublicScoreResult"
+        requestedReviewType:
+          type: string
+          default: funding_path_review
+    LenderMatchReviewResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - reviewId
+        - message
+        - nextStep
+      properties:
+        ok:
+          type: boolean
+        reviewId:
+          type: string
+        message:
+          type: string
+        nextStep:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - error
+      properties:
+        error:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+        requestId:
+          type: string

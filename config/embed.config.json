@@ -1,0 +1,60 @@
+{
+  "id": "funding-readiness-scorecard-embed",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "name": "Funding Readiness Scorecard Embed",
+  "widget": {
+    "path": "/widget.html",
+    "title": "Funding Readiness Scorecard",
+    "loading": "lazy",
+    "minHeight": 980,
+    "border": 0,
+    "borderRadius": 28,
+    "responsiveWidth": "100%"
+  },
+  "events": [
+    {
+      "name": "fundingReadinessCalculated",
+      "source": "widget",
+      "target": "embed_host",
+      "description": "Fires after the browser-side score is calculated and rendered."
+    }
+  ],
+  "api": {
+    "health": "/api/health",
+    "submitScore": "/api/submit-score",
+    "matchPartners": "/api/match-partners",
+    "lenderMatchReview": "/api/lender-match-review"
+  },
+  "submission": {
+    "defaultSource": "Funding Readiness Scorecard Embed",
+    "requiresConsent": true,
+    "contactFields": [
+      "name",
+      "email",
+      "phone",
+      "businessName",
+      "state"
+    ]
+  },
+  "compliance": {
+    "publicSafeOnly": true,
+    "humanReviewLanguage": true,
+    "disallowedClaims": [
+      "certainty_outcome_language",
+      "final_decision_language",
+      "pricing_promise_language",
+      "review_complete_language"
+    ],
+    "neverExpose": [
+      "internal provider data",
+      "private affiliate URLs",
+      "private apply URLs",
+      "commissions",
+      "contacts",
+      "secrets",
+      "tokens",
+      "provider notes"
+    ]
+  }
+}

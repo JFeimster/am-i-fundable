@@ -1,0 +1,48 @@
+{
+  "id": "funding-tool-registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "tools": [
+    {
+      "id": "funding-readiness-scorecard",
+      "name": "Funding Readiness Scorecard",
+      "brandId": "moonshine-capital",
+      "category": "lead-generation",
+      "visibility": "public_runtime_browser_safe",
+      "entrypoints": [
+        "/",
+        "/widget",
+        "/embed-example"
+      ],
+      "publicCapabilities": [
+        "capture readiness answers",
+        "calculate a public-safe funding readiness score",
+        "show safe next steps",
+        "capture lead consent",
+        "submit a score for follow-up review"
+      ],
+      "routeReferences": [
+        "/api/health",
+        "/api/submit-score",
+        "/api/match-partners",
+        "/api/lender-match-review"
+      ],
+      "configReferences": [
+        "/config/pages/funding-readiness-scorecard.page.json",
+        "/config/pages/funding-pages.registry.json",
+        "/config/routes.json",
+        "/config/assets.json",
+        "/config/control/funding-readiness.control.json",
+        "/config/funnels/funding-readiness-scorecard.json",
+        "/config/brands/moonshine-capital.json"
+      ],
+      "safety": {
+        "publicDataOnly": true,
+        "noPrivateProviderData": true,
+        "noAffiliateLinks": true,
+        "humanReviewAvailable": true
+      }
+    }
+  ]
+}

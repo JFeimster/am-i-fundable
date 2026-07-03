@@ -1,0 +1,64 @@
+{
+  "id": "funding-readiness-scorecard-funnel",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "entryPoint": "/",
+  "goal": "Capture a readiness score, present safe guidance, and route interested visitors to follow-up or review.",
+  "stages": [
+    {
+      "id": "awareness",
+      "label": "Awareness",
+      "description": "Visitor lands on the scorecard page or opens the widget."
+    },
+    {
+      "id": "assessment",
+      "label": "Assessment",
+      "description": "Visitor completes the funding readiness questions."
+    },
+    {
+      "id": "result",
+      "label": "Result",
+      "description": "Visitor sees score, tier, risks, strengths, and next steps."
+    },
+    {
+      "id": "lead_capture",
+      "label": "Lead Capture",
+      "description": "Visitor opts in to share contact details for follow-up."
+    },
+    {
+      "id": "routing",
+      "label": "Routing",
+      "description": "Submission can go to score submission, partner matching, or human review."
+    }
+  ],
+  "events": [
+    "fundingReadinessCalculated",
+    "leadCaptured",
+    "scoreSubmitted",
+    "partnerMatchRequested",
+    "humanReviewQueued"
+  ],
+  "nextActions": [
+    {
+      "id": "submit-score",
+      "label": "Submit Score",
+      "href": "/api/submit-score"
+    },
+    {
+      "id": "match-partners",
+      "label": "Match Partners",
+      "href": "/api/match-partners"
+    },
+    {
+      "id": "lender-match-review",
+      "label": "Request Human Review",
+      "href": "/api/lender-match-review"
+    }
+  ],
+  "safety": {
+    "publicSafeOnly": true,
+    "noFinalDecisionLanguage": true,
+    "noPrivateProviderExposure": true
+  }
+}
