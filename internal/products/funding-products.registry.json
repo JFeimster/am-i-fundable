@@ -18,8 +18,8 @@
       "id": "7figs-stacking",
       "slug": "7figs-stacking",
       "name": "Startup Funding: 0% Business Credit Card Stacking",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Unsecured Line",
@@ -41,17 +41,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-personal-startup",
       "slug": "7figs-personal-startup",
       "name": "Startup Funding: Personal Term Loans",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Installment Loan",
@@ -73,17 +74,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-bloc",
       "slug": "7figs-bloc",
       "name": "Business Line of Credit",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "business-line-access",
       "category": "Business",
       "fundingType": "Revolving Line",
@@ -105,18 +107,19 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "verified",
         "lastVerified": "2026-06-26",
-        "notes": "Product sheet lists 600 min FICO for the BLOC specifically; the 7 Figures provider-level affiliate requirement is 680+ overall. Using product-level 600 here."
+        "notes": "Product sheet lists 600 min FICO for the BLOC specifically; the 7 Figures provider-level affiliate requirement is 680+ overall. Using product-level 600 here.",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-mca",
       "slug": "7figs-mca",
       "name": "Short Term Business Loan (MCA)",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -138,17 +141,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-equip",
       "slug": "7figs-equip",
       "name": "Equipment Funding",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "equipment-finance",
       "category": "Business",
       "fundingType": "Asset Backed",
@@ -170,17 +174,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-cre",
       "slug": "7figs-cre",
       "name": "Commercial Real Estate",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -202,17 +207,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-sba",
       "slug": "7figs-sba",
       "name": "SBA Loans",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -234,9 +240,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -244,8 +251,8 @@
       "id": "7figs-personal-term",
       "slug": "7figs-personal-term",
       "name": "Personal Term Loans",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Installment Loan",
@@ -267,17 +274,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-personal-loc",
       "slug": "7figs-personal-loc",
       "name": "Personal Line of Credit",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Revolving Line",
@@ -299,17 +307,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-debt-consol",
       "slug": "7figs-debt-consol",
       "name": "Debt Consolidation Loan",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Installment Loan",
@@ -331,17 +340,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-heloc",
       "slug": "7figs-heloc",
       "name": "Home Equity Loan",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "real-estate-capital",
       "category": "Personal",
       "fundingType": "Mortgage",
@@ -363,17 +373,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "7figs-personal-cards",
       "slug": "7figs-personal-cards",
       "name": "Low-Interest Personal Cards",
-      "providerName": "7 Figures Funding",
-      "providerId": "7-figures-funding",
+      "providerName": "Demo Provider 01",
+      "providerId": "demo-provider-01",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Credit Card",
@@ -395,17 +406,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "dac-corerate",
       "slug": "dac-corerate",
       "name": "BankBreezy CoreRate Funding",
-      "providerName": "Bank Breezy (DAC)",
-      "providerId": "bank-breezy",
+      "providerName": "Demo Provider 03",
+      "providerId": "demo-provider-03",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -427,17 +439,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "verified",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "dac-flexrate",
       "slug": "dac-flexrate",
       "name": "BankBreezy FlexRate Funding",
-      "providerName": "Bank Breezy (DAC)",
-      "providerId": "bank-breezy",
+      "providerName": "Demo Provider 03",
+      "providerId": "demo-provider-03",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -459,17 +472,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "verified",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "dac-giggle",
       "slug": "dac-giggle",
       "name": "Giggle Instant Approval",
-      "providerName": "Bank Breezy (DAC)",
-      "providerId": "bank-breezy",
+      "providerName": "Demo Provider 03",
+      "providerId": "demo-provider-03",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -491,17 +505,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "dac-loc",
       "slug": "dac-loc",
       "name": "DAC Line of Credit",
-      "providerName": "Bank Breezy (DAC)",
-      "providerId": "bank-breezy",
+      "providerName": "Demo Provider 03",
+      "providerId": "demo-provider-03",
       "productFamily": "business-line-access",
       "category": "Business",
       "fundingType": "Revolving Line",
@@ -523,17 +538,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "dac-canada",
       "slug": "dac-canada",
       "name": "Canada Funding",
-      "providerName": "Bank Breezy (DAC)",
-      "providerId": "bank-breezy",
+      "providerName": "Demo Provider 03",
+      "providerId": "demo-provider-03",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -555,17 +571,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-mca",
       "slug": "gokap-mca",
       "name": "Merchant Cash Advance",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -587,17 +604,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-loc",
       "slug": "gokap-loc",
       "name": "Business Line of Credit",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "business-line-access",
       "category": "Business",
       "fundingType": "Revolving Line",
@@ -619,17 +637,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-startup",
       "slug": "gokap-startup",
       "name": "Personal/Start-up Loan",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "startup-credit-leverage",
       "category": "Personal",
       "fundingType": "Installment Loan",
@@ -651,17 +670,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-sbl",
       "slug": "gokap-sbl",
       "name": "Small Business Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -683,9 +703,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -693,8 +714,8 @@
       "id": "gokap-equip",
       "slug": "gokap-equip",
       "name": "Equipment Financing",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "equipment-finance",
       "category": "Business",
       "fundingType": "Asset Backed",
@@ -716,17 +737,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-term",
       "slug": "gokap-term",
       "name": "Unsecured Business Term Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Installment Loan",
@@ -748,9 +770,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -758,8 +781,8 @@
       "id": "gokap-sba",
       "slug": "gokap-sba",
       "name": "SBA 7(a) Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -781,9 +804,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -791,8 +815,8 @@
       "id": "gokap-consumer",
       "slug": "gokap-consumer",
       "name": "Consumer Financing",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Service",
@@ -814,9 +838,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -824,8 +849,8 @@
       "id": "gokap-hardmoney",
       "slug": "gokap-hardmoney",
       "name": "Hard Money Bridge Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Hard Money",
@@ -847,17 +872,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-cre",
       "slug": "gokap-cre",
       "name": "Commercial Mortgages",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -879,17 +905,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-rental",
       "slug": "gokap-rental",
       "name": "Rental Investment",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -911,17 +938,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-foreign",
       "slug": "gokap-foreign",
       "name": "Foreign National Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -943,17 +971,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "gokap-cannabis",
       "slug": "gokap-cannabis",
       "name": "Cannabis Business Loans",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -975,9 +1004,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -985,8 +1015,8 @@
       "id": "gokap-truck",
       "slug": "gokap-truck",
       "name": "Commercial Truck Financing",
-      "providerName": "GoKapital",
-      "providerId": "gokapital",
+      "providerName": "Demo Provider 15",
+      "providerId": "demo-provider-15",
       "productFamily": "equipment-finance",
       "category": "Business",
       "fundingType": "Asset Backed",
@@ -1008,17 +1038,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-term",
       "slug": "rok-term",
       "name": "Small Business Loans",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1040,9 +1071,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -1050,8 +1082,8 @@
       "id": "rok-bloc",
       "slug": "rok-bloc",
       "name": "Business Line of Credit",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "business-line-access",
       "category": "Business",
       "fundingType": "Revolving Line",
@@ -1073,17 +1105,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-sba",
       "slug": "rok-sba",
       "name": "SBA Loans",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1105,9 +1138,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -1115,8 +1149,8 @@
       "id": "rok-equip",
       "slug": "rok-equip",
       "name": "Equipment Financing",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "equipment-finance",
       "category": "Business",
       "fundingType": "Asset Backed",
@@ -1138,17 +1172,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-ar",
       "slug": "rok-ar",
       "name": "Accounts Receivable Financing",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Factoring",
@@ -1170,17 +1205,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-mca",
       "slug": "rok-mca",
       "name": "Merchant Cash Advance / Working Capital",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -1202,17 +1238,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-franchise",
       "slug": "rok-franchise",
       "name": "Franchise Financing",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1234,9 +1271,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -1244,8 +1282,8 @@
       "id": "rok-res-invest",
       "slug": "rok-res-invest",
       "name": "Residential Investment Loans",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Hard Money",
@@ -1267,17 +1305,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-startup",
       "slug": "rok-startup",
       "name": "Startup Funding",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Unsecured Line",
@@ -1299,17 +1338,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "rok-cre",
       "slug": "rok-cre",
       "name": "Commercial Real Estate Financing",
-      "providerName": "ROK Financial",
-      "providerId": "rok-financial",
+      "providerName": "Demo Provider 23",
+      "providerId": "demo-provider-23",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -1331,17 +1371,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "8fig-growth",
       "slug": "8fig-growth",
       "name": "Growth Plan",
-      "providerName": "8fig",
-      "providerId": "8fig",
+      "providerName": "Demo Provider 02",
+      "providerId": "demo-provider-02",
       "productFamily": "marketplace-capital",
       "category": "Business",
       "fundingType": "Revenue Based",
@@ -1363,17 +1404,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "onramp-growth",
       "slug": "onramp-growth",
       "name": "E-commerce Growth Capital",
-      "providerName": "OnRamp Funds",
-      "providerId": "onramp",
+      "providerName": "Demo Provider 19",
+      "providerId": "demo-provider-19",
       "productFamily": "marketplace-capital",
       "category": "Business",
       "fundingType": "Revenue Based",
@@ -1395,17 +1437,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "payability-instant",
       "slug": "payability-instant",
       "name": "Instant Access (Daily Payouts)",
-      "providerName": "Payability",
-      "providerId": "payability",
+      "providerName": "Demo Provider 21",
+      "providerId": "demo-provider-21",
       "productFamily": "marketplace-capital",
       "category": "Business",
       "fundingType": "Factoring",
@@ -1427,17 +1470,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "payability-advance",
       "slug": "payability-advance",
       "name": "Instant Advance",
-      "providerName": "Payability",
-      "providerId": "payability",
+      "providerName": "Demo Provider 21",
+      "providerId": "demo-provider-21",
       "productFamily": "marketplace-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -1459,17 +1503,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "fundgrow-stacking",
       "slug": "fundgrow-stacking",
       "name": "Business Credit Stacking",
-      "providerName": "Fund&Grow",
-      "providerId": "fundandgrow",
+      "providerName": "Demo Provider 13",
+      "providerId": "demo-provider-13",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Unsecured Line",
@@ -1491,17 +1536,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "creditsuite-builder",
       "slug": "creditsuite-builder",
       "name": "Business Credit Builder",
-      "providerName": "Credit Suite",
-      "providerId": "credit-suite",
+      "providerName": "Demo Provider 07",
+      "providerId": "demo-provider-07",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Service",
@@ -1523,17 +1569,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "bluebridge-efa",
       "slug": "bluebridge-efa",
       "name": "Equipment Finance Agreement",
-      "providerName": "Blue Bridge Financial",
-      "providerId": "blue-bridge-financial",
+      "providerName": "Demo Provider",
+      "providerId": "demo-provider-unmapped",
       "productFamily": "equipment-finance",
       "category": "Business",
       "fundingType": "Asset Backed",
@@ -1555,9 +1602,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "needsReview": [
         "providerId not yet in funding-providers.registry"
@@ -1567,8 +1615,8 @@
       "id": "nbc-term",
       "slug": "nbc-term",
       "name": "Small Business Loans",
-      "providerName": "National Business Capital",
-      "providerId": "national-business-capital",
+      "providerName": "Demo Provider",
+      "providerId": "demo-provider-unmapped",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1590,9 +1638,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "needsReview": [
         "providerId not yet in funding-providers.registry"
@@ -1603,8 +1652,8 @@
       "id": "sellersfi-wc",
       "slug": "sellersfi-wc",
       "name": "Working Capital",
-      "providerName": "SellersFi",
-      "providerId": "sellersfi",
+      "providerName": "Demo Provider 24",
+      "providerId": "demo-provider-24",
       "productFamily": "marketplace-capital",
       "category": "Business",
       "fundingType": "Revenue Based",
@@ -1626,17 +1675,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "guidant-robs",
       "slug": "guidant-robs",
       "name": "401(k) Rollover (ROBS)",
-      "providerName": "Guidant Financial",
-      "providerId": "guidant",
+      "providerName": "Demo Provider 16",
+      "providerId": "demo-provider-16",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Equity",
@@ -1658,17 +1708,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "finfactory-ubf",
       "slug": "finfactory-ubf",
       "name": "Unsecured Business Finance",
-      "providerName": "Finance Factory",
-      "providerId": "the-finance-factory",
+      "providerName": "Demo Provider 27",
+      "providerId": "demo-provider-27",
       "productFamily": "startup-credit-leverage",
       "category": "Business",
       "fundingType": "Unsecured Line",
@@ -1690,17 +1741,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "fora-sbl",
       "slug": "fora-sbl",
       "name": "Small Business Loan",
-      "providerName": "Fora Financial",
-      "providerId": "fora-financial",
+      "providerName": "Demo Provider 12",
+      "providerId": "demo-provider-12",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1722,9 +1774,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -1732,8 +1785,8 @@
       "id": "fora-advance",
       "slug": "fora-advance",
       "name": "Revenue Advance",
-      "providerName": "Fora Financial",
-      "providerId": "fora-financial",
+      "providerName": "Demo Provider 12",
+      "providerId": "demo-provider-12",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -1755,17 +1808,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "credibly-wc",
       "slug": "credibly-wc",
       "name": "Working Capital Loan",
-      "providerName": "Credibly",
-      "providerId": "credibly",
+      "providerName": "Demo Provider 06",
+      "providerId": "demo-provider-06",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1787,17 +1841,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "credibly-ex",
       "slug": "credibly-ex",
       "name": "Business Expansion Loan",
-      "providerName": "Credibly",
-      "providerId": "credibly",
+      "providerName": "Demo Provider 06",
+      "providerId": "demo-provider-06",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Term Loan",
@@ -1819,9 +1874,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       },
       "familyNote": "Reassigned from structured-growth-loans (merged into existing lanes)"
     },
@@ -1829,8 +1885,8 @@
       "id": "uplyft-mca",
       "slug": "uplyft-mca",
       "name": "Merchant Cash Advance",
-      "providerName": "Uplyft Capital",
-      "providerId": "uplyft-capital",
+      "providerName": "Demo Provider 29",
+      "providerId": "demo-provider-29",
       "productFamily": "working-capital",
       "category": "Business",
       "fundingType": "Revenue Advance",
@@ -1852,17 +1908,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "visio-rental",
       "slug": "visio-rental",
       "name": "Rental Loans (DSCR)",
-      "providerName": "Visio Lending",
-      "providerId": "visio-lending",
+      "providerName": "Demo Provider 31",
+      "providerId": "demo-provider-31",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Mortgage",
@@ -1884,17 +1941,18 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     },
     {
       "id": "newsilver-flip",
       "slug": "newsilver-flip",
       "name": "Fix and Flip Bridge",
-      "providerName": "New Silver",
-      "providerId": "new-silver",
+      "providerName": "Demo Provider 18",
+      "providerId": "demo-provider-18",
       "productFamily": "real-estate-capital",
       "category": "Real Estate",
       "fundingType": "Hard Money",
@@ -1916,9 +1974,10 @@
       "visibility": "internal",
       "status": "active",
       "source": {
-        "derivedFrom": "funding_product_portfolio_report.md (Full Product Inventory)",
+        "derivedFrom": "Private source removed from public repo",
         "verificationStatus": "imported_from_portfolio_report",
-        "lastVerified": "2026-06-26"
+        "lastVerified": "2026-06-26",
+        "notionUrl": null
       }
     }
   ]

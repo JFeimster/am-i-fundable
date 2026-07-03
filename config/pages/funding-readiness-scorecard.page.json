@@ -1,0 +1,61 @@
+{
+  "id": "funding-readiness-scorecard-page",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "name": "Funding Readiness Scorecard Page",
+  "brandId": "moonshine-capital",
+  "toolId": "funding-readiness-scorecard",
+  "canonicalRoute": "/",
+  "surfaceRoutes": [
+    {
+      "path": "/",
+      "target": "index.html",
+      "type": "landing_page"
+    },
+    {
+      "path": "/widget",
+      "target": "widget.html",
+      "type": "widget_surface"
+    },
+    {
+      "path": "/embed-example",
+      "target": "embed-example.html",
+      "type": "embed_example"
+    }
+  ],
+  "apiRoutes": [
+    "/api/health",
+    "/api/submit-score",
+    "/api/match-partners",
+    "/api/lender-match-review"
+  ],
+  "configReferences": [
+    "/config/funding-readiness-scorecard.config.json",
+    "/config/embed.config.json",
+    "/config/control/funding-readiness.control.json",
+    "/config/funnels/funding-readiness-scorecard.json",
+    "/config/brands/moonshine-capital.json"
+  ],
+  "assetReferences": [
+    "/config/assets.json",
+    "/data/compliance-copy.public.json",
+    "/data/product-families.public.json",
+    "/data/provider-categories.public.json",
+    "/config/lead-field-map.public.json"
+  ],
+  "safety": {
+    "publicSafeOnly": true,
+    "noPrivateProviderData": true,
+    "noApplyOrAffiliateLinks": true,
+    "noRoutingSecrets": true
+  },
+  "seo": {
+    "title": "Funding Readiness Scorecard | Moonshine Capital",
+    "description": "A public-safe funding readiness scorecard for business owners who want a clear next step before applying.",
+    "keywords": [
+      "funding readiness",
+      "business funding scorecard",
+      "Moonshine Capital"
+    ]
+  }
+}

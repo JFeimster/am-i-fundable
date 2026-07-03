@@ -1,0 +1,46 @@
+{
+  "id": "moonshine-capital",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "name": "Moonshine Capital",
+  "displayName": "Moonshine Capital",
+  "toolFamily": "funding-readiness-scorecard",
+  "positioning": "Funding readiness guidance for business owners who want a clear next step.",
+  "voice": {
+    "tone": "direct",
+    "style": "clear, practical, and review-safe",
+    "do": [
+      "explain readiness plainly",
+      "use safe funding language",
+      "focus on next steps",
+      "keep outcomes non-final"
+    ],
+    "dont": [
+      "promise approval",
+      "imply guaranteed funding",
+      "expose provider details",
+      "use affiliate or application links in public copy"
+    ]
+  },
+  "palette": {
+    "primary": "#1f2937",
+    "secondary": "#0f766e",
+    "accent": "#f59e0b",
+    "background": "#f8fafc",
+    "surface": "#ffffff",
+    "text": "#111827"
+  },
+  "typography": {
+    "headline": "system-ui",
+    "body": "system-ui"
+  },
+  "ctaLabels": {
+    "primary": "Get My Funding Score",
+    "secondary": "Review My Funding Paths"
+  },
+  "supportedSurfaces": [
+    "index.html",
+    "widget.html",
+    "embed-example.html"
+  ]
+}

@@ -1,0 +1,256 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://moonshine.local/schemas/funding-readiness-action.schema.yaml
+title: Funding Readiness Assistant Action Contract
+type: object
+additionalProperties: false
+required:
+  - action
+  - input
+properties:
+  action:
+    type: string
+    enum:
+      - check_health
+      - submit_score_for_review
+      - review_possible_funding_paths
+      - queue_human_review
+  input:
+    oneOf:
+      - $ref: "#/$defs/HealthInput"
+      - $ref: "#/$defs/SubmitScoreInput"
+      - $ref: "#/$defs/MatchPartnersInput"
+      - $ref: "#/$defs/HumanReviewInput"
+  responseShape:
+    type: string
+    enum:
+      - json
+    default: json
+  assistantResponseRules:
+    type: array
+    default:
+      - Explain that the result is educational and review-oriented.
+      - Use funding-readiness language, not certainty language.
+      - Focus on possible fit, next steps, and human review when needed.
+    items:
+      type: string
+$defs:
+  HealthInput:
+    type: object
+    additionalProperties: false
+    properties: {}
+  Applicant:
+    type: object
+    additionalProperties: false
+    required:
+      - email
+      - phone
+      - consent
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+        minLength: 3
+      phone:
+        type: string
+        minLength: 7
+      businessName:
+        type: string
+      state:
+        type: string
+      consent:
+        const: true
+  Answers:
+    type: object
+    additionalProperties: false
+    required:
+      - businessPersona
+      - monthlyRevenue
+      - timeInBusinessMonths
+      - creditScore
+      - bankStatus
+      - businessStructure
+      - fundingPurpose
+      - desiredFundingAmount
+      - redFlags
+    properties:
+      businessPersona:
+        type: string
+      monthlyRevenue:
+        type: number
+        minimum: 0
+      timeInBusinessMonths:
+        type: number
+        minimum: 0
+      creditScore:
+        type: number
+        minimum: 0
+      bankStatus:
+        type: string
+      businessStructure:
+        type: string
+      fundingPurpose:
+        type: string
+      desiredFundingAmount:
+        type: number
+        minimum: 0
+      redFlags:
+        type: array
+        items:
+          type: string
+        uniqueItems: true
+  Tier:
+    type: object
+    additionalProperties: false
+    required:
+      - id
+      - label
+      - summary
+    properties:
+      id:
+        type: string
+      label:
+        type: string
+      summary:
+        type: string
+  PublicScoreResult:
+    type: object
+    additionalProperties: false
+    required:
+      - score
+      - tier
+      - leadPriority
+      - primaryFundingFamily
+      - secondaryFundingFamilies
+      - strengths
+      - risks
+      - nextSteps
+      - manualReviewRecommended
+    properties:
+      valid:
+        type: boolean
+      score:
+        type: integer
+        minimum: 0
+        maximum: 100
+      tier:
+        $ref: "#/$defs/Tier"
+      leadPriority:
+        type: string
+      primaryFundingFamily:
+        type: string
+      secondaryFundingFamilies:
+        type: array
+        items:
+          type: string
+      strengths:
+        type: array
+        items:
+          type: string
+      risks:
+        type: array
+        items:
+          type: string
+      nextSteps:
+        type: array
+        items:
+          type: string
+      recommendedDocuments:
+        type: array
+        items:
+          type: string
+      manualReviewRecommended:
+        type: boolean
+      cta:
+        type: object
+        additionalProperties: false
+        properties:
+          label:
+            type: string
+          url:
+            type: string
+      calculatedAt:
+        type: string
+        format: date-time
+  SubmitScoreInput:
+    type: object
+    additionalProperties: false
+    required:
+      - applicant
+      - answers
+    properties:
+      source:
+        type: string
+      applicant:
+        $ref: "#/$defs/Applicant"
+      answers:
+        $ref: "#/$defs/Answers"
+      scoreResult:
+        $ref: "#/$defs/PublicScoreResult"
+  MatchPartnersInput:
+    type: object
+    additionalProperties: false
+    minProperties: 1
+    properties:
+      applicant:
+        $ref: "#/$defs/Answers"
+      answers:
+        $ref: "#/$defs/Answers"
+  HumanReviewInput:
+    type: object
+    additionalProperties: false
+    properties:
+      source:
+        type: string
+      applicant:
+        $ref: "#/$defs/Applicant"
+      scoreResult:
+        $ref: "#/$defs/PublicScoreResult"
+      requestedReviewType:
+        type: string
+  PublicRecommendation:
+    type: object
+    additionalProperties: false
+    required:
+      - familyId
+      - publicLabel
+      - fitScoreBand
+      - summary
+      - nextSteps
+    properties:
+      familyId:
+        type: string
+      publicLabel:
+        type: string
+      fitScoreBand:
+        type: string
+      summary:
+        type: string
+      nextSteps:
+        type: array
+        items:
+          type: string
+  OutputExamples:
+    type: object
+    additionalProperties: false
+    properties:
+      submitScorePublicResult:
+        type: object
+        additionalProperties: false
+        properties:
+          score:
+            type: integer
+          tier:
+            $ref: "#/$defs/Tier"
+          primaryFundingFamily:
+            type: string
+          leadPriority:
+            type: string
+          manualReviewRecommended:
+            type: boolean
+      fundingPathReview:
+        type: array
+        items:
+          $ref: "#/$defs/PublicRecommendation"

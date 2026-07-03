@@ -1,0 +1,50 @@
+{
+  "id": "funding-routes",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "routes": [
+    {
+      "path": "/",
+      "target": "index.html",
+      "type": "page",
+      "surface": "landing_page"
+    },
+    {
+      "path": "/widget",
+      "target": "widget.html",
+      "type": "page",
+      "surface": "widget"
+    },
+    {
+      "path": "/embed-example",
+      "target": "embed-example.html",
+      "type": "page",
+      "surface": "embed_example"
+    },
+    {
+      "path": "/api/health",
+      "target": "/api/health",
+      "type": "api",
+      "surface": "health_check"
+    },
+    {
+      "path": "/api/submit-score",
+      "target": "/api/submit-score",
+      "type": "api",
+      "surface": "score_submission"
+    },
+    {
+      "path": "/api/match-partners",
+      "target": "/api/match-partners",
+      "type": "api",
+      "surface": "partner_matching"
+    },
+    {
+      "path": "/api/lender-match-review",
+      "target": "/api/lender-match-review",
+      "type": "api",
+      "surface": "human_review"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "funding-readiness-control",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "leadCaptureEnabled": true,
+  "apiSubmitEnabled": true,
+  "matchPartnersEnabled": true,
+  "humanReviewRequired": true,
+  "publicDataOnly": true,
+  "deploymentMode": "public_runtime_browser_safe",
+  "allowedSurfaces": [
+    "index.html",
+    "widget.html",
+    "embed-example.html"
+  ],
+  "allowedApis": [
+    "/api/health",
+    "/api/submit-score",
+    "/api/match-partners",
+    "/api/lender-match-review"
+  ]
+}

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing required applicant contact or consent fields." });
     }
 
-    const scoreResult = payload?.scoreResult || calculateFundingReadiness(answers);
+    const scoreResult = calculateFundingReadiness(answers);
     if (scoreResult.valid === false) return res.status(400).json({ error: "Invalid scorecard answers", details: scoreResult.errors });
 
     const lead = {

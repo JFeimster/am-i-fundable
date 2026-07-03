@@ -1,0 +1,20 @@
+{
+  "id": "funding-pages-registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "entries": [
+    {
+      "id": "funding-readiness-scorecard",
+      "label": "Funding Readiness Scorecard",
+      "file": "/config/pages/funding-readiness-scorecard.page.json",
+      "route": "/",
+      "surface": "landing_page",
+      "toolId": "funding-readiness-scorecard",
+      "brandId": "moonshine-capital",
+      "assetFile": "/config/assets.json",
+      "controlFile": "/config/control/funding-readiness.control.json",
+      "funnelFile": "/config/funnels/funding-readiness-scorecard.json"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "private-data-boundary",
+  "title": "Private Data Boundary Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "repoVisibility",
+    "blockedFields",
+    "allowedPrivateStorage"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "repoVisibility": {
+      "type": "string",
+      "enum": [
+        "public_repo_demo_data_only"
+      ]
+    },
+    "blockedFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "allowedPrivateStorage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  }
+}

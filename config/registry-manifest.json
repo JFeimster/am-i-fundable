@@ -22,6 +22,54 @@
       "purpose": "Shared score weights, tiers, questions, and public labels."
     },
     {
+      "id": "page-config",
+      "file": "/config/pages/funding-readiness-scorecard.page.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Landing page metadata, route references, and safe asset mapping."
+    },
+    {
+      "id": "page-registry",
+      "file": "/config/pages/funding-pages.registry.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Registry of public page surfaces for the scorecard tool."
+    },
+    {
+      "id": "route-registry",
+      "file": "/config/routes.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Public-safe route map for the landing page, widget, embed example, and API endpoints."
+    },
+    {
+      "id": "asset-registry",
+      "file": "/config/assets.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Public-safe asset references used by the scorecard surfaces."
+    },
+    {
+      "id": "tool-registry",
+      "file": "/config/tool-registry.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Reusable tool entrypoint and safety registry."
+    },
+    {
+      "id": "control-registry",
+      "file": "/config/control/funding-readiness.control.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Deployment and feature flags for the scorecard tool."
+    },
+    {
+      "id": "funnel-registry",
+      "file": "/config/funnels/funding-readiness-scorecard.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Conversion funnel for score calculation, lead capture, and review routing."
+    },
+    {
+      "id": "brand-registry",
+      "file": "/config/brands/moonshine-capital.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Public brand voice and safe presentation guidance."
+    },
+    {
       "id": "lead-scoring-model",
       "file": "/internal/scoring/lead-scoring-model.registry.json",
       "visibility": "server_side_internal",
@@ -42,7 +90,11 @@
   ],
   "requiredPublicFiles": [
     "/data/compliance-copy.public.json",
-    "/config/funding-readiness-scorecard.config.json"
+    "/config/funding-readiness-scorecard.config.json",
+    "/config/pages/funding-readiness-scorecard.page.json",
+    "/config/routes.json",
+    "/config/assets.json",
+    "/config/tool-registry.json"
   ],
   "requiredInternalFiles": [
     "/internal/scoring/lead-scoring-model.registry.json"

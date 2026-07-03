@@ -1,0 +1,45 @@
+{
+  "id": "funding-readiness-scorecard-content",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "pageId": "funding-readiness-scorecard-page",
+  "brandId": "moonshine-capital",
+  "toolId": "funding-readiness-scorecard",
+  "headline": "Find out how ready your business is for funding.",
+  "subheadline": "Answer a short set of questions and get a public-safe readiness score, likely next steps, and a clear path to review.",
+  "primaryCTA": {
+    "label": "Get My Funding Score",
+    "href": "#scorecard"
+  },
+  "secondaryCTA": {
+    "label": "See the Embed Example",
+    "href": "/embed-example"
+  },
+  "sections": [
+    {
+      "id": "how-it-works",
+      "title": "How it works",
+      "items": [
+        "Answer the scorecard questions.",
+        "Review your readiness score and next steps.",
+        "Choose whether to request follow-up or a human review."
+      ]
+    },
+    {
+      "id": "what-you-get",
+      "title": "What you get",
+      "items": [
+        "A funding readiness score.",
+        "A safe summary of possible funding paths.",
+        "A checklist of likely documents and preparation steps."
+      ]
+    }
+  ],
+  "disclaimer": "This scorecard is educational only and is not a lending decision, approval, offer, or commitment to lend.",
+  "references": {
+    "config": "/config/funding-readiness-scorecard.config.json",
+    "embed": "/config/embed.config.json",
+    "routes": "/config/routes.json",
+    "assets": "/config/assets.json"
+  }
+}

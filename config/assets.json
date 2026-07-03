@@ -1,0 +1,99 @@
+{
+  "id": "funding-assets",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "project": "funding-readiness-scorecard",
+  "assets": [
+    {
+      "id": "landing-page",
+      "file": "/index.html",
+      "type": "html",
+      "surface": "landing_page",
+      "publicSafe": true
+    },
+    {
+      "id": "widget-page",
+      "file": "/widget.html",
+      "type": "html",
+      "surface": "widget",
+      "publicSafe": true
+    },
+    {
+      "id": "embed-example-page",
+      "file": "/embed-example.html",
+      "type": "html",
+      "surface": "embed_example",
+      "publicSafe": true
+    },
+    {
+      "id": "landing-styles",
+      "file": "/styles.css",
+      "type": "css",
+      "surface": "landing_page",
+      "publicSafe": true
+    },
+    {
+      "id": "widget-styles",
+      "file": "/widget.css",
+      "type": "css",
+      "surface": "widget",
+      "publicSafe": true
+    },
+    {
+      "id": "landing-script",
+      "file": "/script.js",
+      "type": "js",
+      "surface": "landing_page",
+      "publicSafe": true
+    },
+    {
+      "id": "widget-script",
+      "file": "/widget.js",
+      "type": "js",
+      "surface": "widget",
+      "publicSafe": true
+    },
+    {
+      "id": "scorecard-config",
+      "file": "/config/funding-readiness-scorecard.config.json",
+      "type": "json",
+      "surface": "shared_scorecard_config",
+      "publicSafe": true
+    },
+    {
+      "id": "embed-config",
+      "file": "/config/embed.config.json",
+      "type": "json",
+      "surface": "shared_embed_config",
+      "publicSafe": true
+    },
+    {
+      "id": "compliance-copy",
+      "file": "/data/compliance-copy.public.json",
+      "type": "json",
+      "surface": "shared_public_copy",
+      "publicSafe": true
+    },
+    {
+      "id": "public-product-families",
+      "file": "/data/product-families.public.json",
+      "type": "json",
+      "surface": "shared_public_copy",
+      "publicSafe": true
+    },
+    {
+      "id": "public-provider-categories",
+      "file": "/data/provider-categories.public.json",
+      "type": "json",
+      "surface": "shared_public_copy",
+      "publicSafe": true
+    },
+    {
+      "id": "lead-field-map",
+      "file": "/config/lead-field-map.public.json",
+      "type": "json",
+      "surface": "lead_capture",
+      "publicSafe": true
+    }
+  ]
+}
