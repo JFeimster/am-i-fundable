@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.vercel.app/schemas/api/lead-route-request.schema.json",
+  "title": "Lead Route Request",
+  "description": "Request payload for assigning a public-safe route category based on scorecard readiness signals.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "answers"
+  ],
+  "properties": {
+    "leadId": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "answers": {
+      "$ref": "#/$defs/scorecardAnswers"
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional previously calculated result. Server should still recompute or validate if answers are available."
+    },
+    "requestedRouteMode": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "manual_review",
+        "nurture",
+        "document_request"
+      ],
+      "default": "auto"
+    }
+  },
+  "$defs": {
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe",
+        "public_build_time_only",
+        "server_side_internal",
+        "internal",
+        "restricted_internal_no_repo"
+      ]
+    },
+    "routeMethod": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "OPTIONS",
+        "GET/POST",
+        "multiple"
+      ]
+    },
+    "safeDisclaimer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scorecardAnswers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "businessPersona",
+        "monthlyRevenue",
+        "timeInBusinessMonths",
+        "creditScore",
+        "bankStatus",
+        "businessStructure",
+        "fundingPurpose",
+        "desiredFundingAmount",
+        "redFlags"
+      ],
+      "properties": {
+        "businessPersona": {
+          "type": "string"
+        },
+        "monthlyRevenue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeInBusinessMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "creditScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 850
+        },
+        "bankStatus": {
+          "type": "string",
+          "enum": [
+            "none",
+            "low_inconsistent",
+            "consistent",
+            "strong_clean",
+            "recent_nsfs"
+          ]
+        },
+        "businessStructure": {
+          "type": "string",
+          "enum": [
+            "none",
+            "sole_prop",
+            "entity_no_bank",
+            "entity_with_bank",
+            "entity_bank_ein_clean"
+          ]
+        },
+        "fundingPurpose": {
+          "type": "string",
+          "enum": [
+            "working_capital",
+            "inventory_materials",
+            "growth_marketing",
+            "equipment_vehicle",
+            "real_estate",
+            "ecommerce_growth",
+            "startup_launch",
+            "debt_refi",
+            "business_credit",
+            "not_sure"
+          ]
+        },
+        "desiredFundingAmount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "redFlags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "none",
+              "open_bankruptcy",
+              "tax_lien",
+              "recent_missed_payments",
+              "recent_nsfs",
+              "new_bank_account",
+              "existing_daily_advance",
+              "marketplace_suspended",
+              "no_current_revenue"
+            ]
+          }
+        }
+      }
+    },
+    "applicant": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "businessName": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "state": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 40
+        },
+        "consent": {
+          "type": "boolean"
+        },
+        "contactConsent": {
+          "type": "boolean"
+        }
+      }
+    },
+    "publicFundingPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "summary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceFamilyId": {
+          "type": "string"
+        },
+        "familyId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "publicLabel": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "bestFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "watchOutFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commonDocuments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nextSteps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "typicalSpeedNote": {
+          "type": "string"
+        },
+        "primaryCta": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "documentChecklistItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "appliesTo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sortOrder": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "resourceEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "type",
+        "summary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "checklist",
+            "guide",
+            "nurture",
+            "purpose-guide",
+            "example",
+            "report",
+            "faq",
+            "tool",
+            "download"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tierIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fundingPurposes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "visibility": {
+          "$ref": "#/$defs/visibility"
+        }
+      }
+    },
+    "apiRouteEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "method",
+        "path",
+        "file",
+        "visibility",
+        "purpose"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/routeMethod"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "visibility": {
+          "$ref": "#/$defs/visibility"
+        },
+        "surface": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "auth": {
+          "type": "string"
+        },
+        "responseBoundary": {
+          "type": "string"
+        },
+        "enabledByDefault": {
+          "type": "boolean"
+        },
+        "publicActionSafe": {
+          "type": "boolean"
+        }
+      }
+    },
+    "webhookEventEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "eventType",
+        "route",
+        "visibility"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string",
+          "pattern": "^/api/"
+        },
+        "producer": {
+          "type": "string"
+        },
+        "consumer": {
+          "type": "string"
+        },
+        "visibility": {
+          "$ref": "#/$defs/visibility"
+        },
+        "requiredFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "safeResponse": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
