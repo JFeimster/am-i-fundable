@@ -1,0 +1,93 @@
+{
+  "id": "funding-tools-registry",
+  "name": "Internal Funding Tools Registry",
+  "slug": "funding-tools-registry",
+  "description": "Internal-safe funding tool registry for matching, review, and workflow design. Contains no provider secrets, private URLs, commissions, or borrower records.",
+  "visibilityClass": "server_side_internal",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "id": "working-capital-review",
+      "name": "Working Capital Review",
+      "slug": "working-capital-review",
+      "description": "Internal review lane for businesses with revenue, deposits, and short-term working capital needs.",
+      "fundingFamily": "working_capital",
+      "bestFor": [
+        "recurring deposits",
+        "inventory",
+        "payroll bridge",
+        "short-term cash gap"
+      ],
+      "minimumSignals": {
+        "monthlyRevenue": 10000,
+        "timeInBusinessMonths": 6,
+        "creditScore": 500
+      },
+      "documentation": [
+        "business bank statements",
+        "funding purpose",
+        "basic entity information"
+      ],
+      "riskNotes": [
+        "Recent NSFs or existing daily repayment products should trigger manual review."
+      ],
+      "visibilityClass": "server_side_internal",
+      "status": "active"
+    },
+    {
+      "id": "business-line-review",
+      "name": "Business Line Review",
+      "slug": "business-line-review",
+      "description": "Internal review lane for more established businesses with stronger revenue, credit, and operating history.",
+      "fundingFamily": "business_line",
+      "bestFor": [
+        "revolving access",
+        "seasonal cash flow",
+        "planned growth"
+      ],
+      "minimumSignals": {
+        "monthlyRevenue": 15000,
+        "timeInBusinessMonths": 12,
+        "creditScore": 600
+      },
+      "documentation": [
+        "bank statements",
+        "tax returns when available",
+        "business formation details"
+      ],
+      "riskNotes": [
+        "This is a review lane only, not a funding approval or eligibility claim."
+      ],
+      "visibilityClass": "server_side_internal",
+      "status": "active"
+    },
+    {
+      "id": "funding-prep-path",
+      "name": "Funding Prep Path",
+      "slug": "funding-prep-path",
+      "description": "Internal education and prep lane for users who need business setup, banking, documentation, or readiness work first.",
+      "fundingFamily": "credit_builder",
+      "bestFor": [
+        "new operators",
+        "low documentation",
+        "credit-readiness gaps",
+        "business setup gaps"
+      ],
+      "minimumSignals": {
+        "monthlyRevenue": 0,
+        "timeInBusinessMonths": 0,
+        "creditScore": 0
+      },
+      "documentation": [
+        "entity checklist",
+        "banking checklist",
+        "document checklist"
+      ],
+      "riskNotes": [
+        "Avoid credit repair language and avoid promising score, funding, or approval outcomes."
+      ],
+      "visibilityClass": "server_side_internal",
+      "status": "active"
+    }
+  ]
+}

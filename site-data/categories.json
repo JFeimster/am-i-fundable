@@ -1,0 +1,39 @@
+{
+  "id": "funding-readiness-categories",
+  "name": "Funding Readiness Categories",
+  "slug": "funding-readiness-categories",
+  "description": "Public-safe category map for the scorecard site ecosystem.",
+  "visibilityClass": "public_runtime_browser_safe",
+  "categories": [
+    {
+      "id": "scorecards",
+      "label": "Scorecards",
+      "slug": "scorecards",
+      "description": "Interactive readiness and diagnostic tools."
+    },
+    {
+      "id": "funding-education",
+      "label": "Funding Education",
+      "slug": "funding-education",
+      "description": "Plain-English funding readiness explainers."
+    },
+    {
+      "id": "workflow-templates",
+      "label": "Workflow Templates",
+      "slug": "workflow-templates",
+      "description": "Automation and follow-up workflow templates."
+    },
+    {
+      "id": "agent-assets",
+      "label": "Agent Assets",
+      "slug": "agent-assets",
+      "description": "Prompt, GPT, and agent support files."
+    },
+    {
+      "id": "internal-review",
+      "label": "Internal Review",
+      "slug": "internal-review",
+      "description": "Human review templates and operational QA assets."
+    }
+  ]
+}

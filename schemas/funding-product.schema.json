@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.vercel.app/schemas/funding-product.schema.json",
+  "title": "Funding Product",
+  "description": "Internal-safe funding product metadata used for matching, docs, and review workflows. Do not store private partner economics or credentials.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "description",
+    "fundingFamily",
+    "visibilityClass"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fundingFamily": {
+      "type": "string",
+      "enum": [
+        "working_capital",
+        "revenue_based",
+        "business_line",
+        "structured_growth",
+        "startup_credit",
+        "equipment",
+        "real_estate",
+        "ecommerce",
+        "credit_builder",
+        "manual_review"
+      ]
+    },
+    "bestFor": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "minimumSignals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "monthlyRevenue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeInBusinessMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "creditScore": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "documentation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "riskNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visibilityClass": {
+      "type": "string",
+      "enum": [
+        "public_build_time_only",
+        "server_side_internal"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "experimental",
+        "archived"
+      ]
+    }
+  }
+}

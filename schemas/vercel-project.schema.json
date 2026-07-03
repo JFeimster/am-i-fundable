@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.vercel.app/schemas/vercel-project.schema.json",
+  "title": "Vercel Project Registry Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "description",
+    "environmentPolicy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "productionUrl": {
+      "type": "string"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "environmentPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "autoProductionDeploys",
+        "autoPreviewDeploys"
+      ],
+      "properties": {
+        "autoProductionDeploys": {
+          "type": "boolean"
+        },
+        "autoPreviewDeploys": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "archived"
+      ]
+    }
+  }
+}

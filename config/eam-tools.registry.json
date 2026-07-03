@@ -1,0 +1,61 @@
+{
+  "id": "eam-tools-registry",
+  "name": "Engineering-as-Marketing Tools Registry",
+  "slug": "eam-tools-registry",
+  "description": "Public-safe registry of engineering-as-marketing tools connected to the Funding Readiness Scorecard ecosystem.",
+  "visibilityClass": "public_build_time_only",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "funding-readiness-scorecard",
+      "name": "Funding Readiness Scorecard",
+      "slug": "funding-readiness-scorecard",
+      "description": "Public self-assessment that routes business owners into readiness tiers and educational next steps.",
+      "persona": "Small business owners and funding prospects",
+      "category": "scorecard",
+      "tags": [
+        "funding-readiness",
+        "lead-capture",
+        "qualification"
+      ],
+      "status": "active",
+      "visibilityClass": "public_runtime_browser_safe",
+      "url": "/",
+      "ctaLabel": "Check Funding Readiness"
+    },
+    {
+      "id": "funding-kb-example",
+      "name": "Funding Knowledge Base Example",
+      "slug": "funding-kb-example",
+      "description": "Static public-safe example page that explains funding readiness concepts without private partner routing.",
+      "persona": "Borrower education",
+      "category": "knowledge-base",
+      "tags": [
+        "education",
+        "static-site",
+        "public-copy"
+      ],
+      "status": "draft",
+      "visibilityClass": "public_build_time_only",
+      "url": "/examples/funding/funding-kb.html",
+      "ctaLabel": "Read Funding Basics"
+    },
+    {
+      "id": "funding-readiness-helper-gem",
+      "name": "Funding Readiness Helper Gemini Gem",
+      "slug": "funding-readiness-helper-gem",
+      "description": "Portable prompt spec for a public-safe Gemini Gem that helps users understand funding readiness inputs.",
+      "persona": "DIY founders and operators",
+      "category": "ai-agent",
+      "tags": [
+        "gemini-gem",
+        "prompt",
+        "education"
+      ],
+      "status": "experimental",
+      "visibilityClass": "public_build_time_only",
+      "url": "/portfolio/gemini-gems/funding-readiness-helper.md",
+      "ctaLabel": "Review Gem Spec"
+    }
+  ]
+}

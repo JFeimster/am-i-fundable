@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.vercel.app/schemas/custom-gpt.schema.json",
+  "title": "Custom GPT Registry Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "description",
+    "audience",
+    "visibilityClass"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "primaryUseCases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "knowledgeFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safeLanguageRules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visibilityClass": {
+      "type": "string",
+      "enum": [
+        "public_runtime_browser_safe",
+        "public_build_time_only",
+        "server_side_internal"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "experimental",
+        "archived"
+      ]
+    }
+  }
+}

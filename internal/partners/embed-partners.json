@@ -1,0 +1,37 @@
+{
+  "id": "embed-partners",
+  "name": "Embed Partners",
+  "slug": "embed-partners",
+  "description": "Public-safe placeholder registry for approved embed surfaces. Does not include private partner URLs, contact data, commissions, apply links, secrets, or underwriting details.",
+  "visibilityClass": "server_side_internal",
+  "version": "1.0.0",
+  "embedPartners": [
+    {
+      "id": "moonshine-capital-site",
+      "name": "Moonshine Capital Site",
+      "slug": "moonshine-capital-site",
+      "description": "Owned web property where the scorecard may be embedded as a public educational intake asset.",
+      "allowedPlacements": [
+        "landing-page",
+        "blog-cta",
+        "resource-page"
+      ],
+      "embedStatus": "allowed",
+      "visibilityClass": "server_side_internal",
+      "notes": "Use only public embed code and public-safe copy."
+    },
+    {
+      "id": "broker-resource-page",
+      "name": "Broker Resource Page",
+      "slug": "broker-resource-page",
+      "description": "Partner-facing educational page where brokers can route prospects into the scorecard experience.",
+      "allowedPlacements": [
+        "resource-page",
+        "training-page"
+      ],
+      "embedStatus": "experimental",
+      "visibilityClass": "server_side_internal",
+      "notes": "Do not expose private partner economics or underwriting rules."
+    }
+  ]
+}

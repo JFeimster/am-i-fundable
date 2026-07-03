@@ -1,0 +1,58 @@
+{
+  "id": "agents-fallback",
+  "name": "Agents Fallback Data",
+  "slug": "agents-fallback",
+  "description": "Public-safe fallback agent cards for static rendering when a dynamic registry is unavailable.",
+  "visibilityClass": "public_runtime_browser_safe",
+  "agents": [
+    {
+      "id": "funding-readiness-helper",
+      "name": "Funding Readiness Helper",
+      "slug": "funding-readiness-helper",
+      "description": "Explains scorecard questions, readiness tiers, and next-step prep without claiming approvals or final eligibility.",
+      "purpose": "Help business owners understand readiness inputs and organize prep work.",
+      "inputs": [
+        "business basics",
+        "revenue range",
+        "time in business",
+        "credit band",
+        "funding purpose"
+      ],
+      "outputs": [
+        "readiness explanation",
+        "prep checklist",
+        "public-safe next steps"
+      ],
+      "guardrails": [
+        "No approval claims",
+        "No rate claims",
+        "No underwriting claims"
+      ],
+      "visibilityClass": "public_runtime_browser_safe",
+      "status": "active"
+    },
+    {
+      "id": "funding-language-safety-reviewer",
+      "name": "Funding Language Safety Reviewer",
+      "slug": "funding-language-safety-reviewer",
+      "description": "Reviews funding copy for guarantees, risky promises, private data exposure, and misleading eligibility language.",
+      "purpose": "Keep public-facing funding language clean and review-safe.",
+      "inputs": [
+        "copy draft",
+        "page context",
+        "intended audience"
+      ],
+      "outputs": [
+        "risk flags",
+        "safer rewrite",
+        "approval checklist"
+      ],
+      "guardrails": [
+        "Do not preserve claims of guaranteed funding",
+        "Do not expose private partner data"
+      ],
+      "visibilityClass": "public_runtime_browser_safe",
+      "status": "active"
+    }
+  ]
+}

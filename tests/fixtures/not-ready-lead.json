@@ -1,0 +1,36 @@
+{
+  "id": "fixture_not_ready_lead",
+  "label": "Not ready fixture",
+  "expected": {
+    "tierId": "not_ready_fixable",
+    "leadPriority": "education",
+    "scoreRange": [
+      0,
+      44
+    ],
+    "manualReviewRecommended": true
+  },
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Starter",
+    "email": "demo.notready@example.com",
+    "phone": "555-0104",
+    "businessName": "Demo New Venture",
+    "state": "NC",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "startup_founder",
+    "monthlyRevenue": 0,
+    "timeInBusinessMonths": 0,
+    "creditScore": 520,
+    "bankStatus": "none",
+    "businessStructure": "none",
+    "fundingPurpose": "startup_launch",
+    "desiredFundingAmount": 25000,
+    "redFlags": [
+      "no_current_revenue",
+      "open_bankruptcy"
+    ]
+  }
+}

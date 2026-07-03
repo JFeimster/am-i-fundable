@@ -1,0 +1,35 @@
+{
+  "id": "fixture_nurture_lead",
+  "label": "Nurture lead fixture",
+  "expected": {
+    "tierId": "selective_programs",
+    "leadPriority": "nurture",
+    "scoreRange": [
+      45,
+      64
+    ],
+    "manualReviewRecommended": true
+  },
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Organizer",
+    "email": "demo.nurture@example.com",
+    "phone": "555-0103",
+    "businessName": "Demo Prep Shop",
+    "state": "DC",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "not_sure",
+    "monthlyRevenue": 8500,
+    "timeInBusinessMonths": 7,
+    "creditScore": 590,
+    "bankStatus": "consistent",
+    "businessStructure": "entity_no_bank",
+    "fundingPurpose": "business_credit",
+    "desiredFundingAmount": 20000,
+    "redFlags": [
+      "none"
+    ]
+  }
+}

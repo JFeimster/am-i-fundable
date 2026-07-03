@@ -1,0 +1,35 @@
+{
+  "id": "fixture_hot_lead",
+  "label": "Hot lead fixture",
+  "expected": {
+    "tierId": "highly_fundable",
+    "leadPriority": "hot",
+    "scoreRange": [
+      80,
+      100
+    ],
+    "manualReviewRecommended": false
+  },
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Operator",
+    "email": "demo.hot@example.com",
+    "phone": "555-0101",
+    "businessName": "Demo Growth Co",
+    "state": "VA",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "equipment_heavy",
+    "monthlyRevenue": 100000,
+    "timeInBusinessMonths": 36,
+    "creditScore": 720,
+    "bankStatus": "strong_clean",
+    "businessStructure": "entity_bank_ein_clean",
+    "fundingPurpose": "equipment_vehicle",
+    "desiredFundingAmount": 50000,
+    "redFlags": [
+      "none"
+    ]
+  }
+}

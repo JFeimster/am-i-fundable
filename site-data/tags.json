@@ -1,0 +1,45 @@
+{
+  "id": "funding-readiness-tags",
+  "name": "Funding Readiness Tags",
+  "slug": "funding-readiness-tags",
+  "description": "Public-safe tags for site indexing, filtering, and content routing.",
+  "visibilityClass": "public_runtime_browser_safe",
+  "tags": [
+    {
+      "id": "funding-readiness",
+      "label": "Funding Readiness",
+      "slug": "funding-readiness",
+      "description": "Business funding readiness checks and prep assets."
+    },
+    {
+      "id": "business-credit",
+      "label": "Business Credit",
+      "slug": "business-credit",
+      "description": "Entity, banking, and credit-readiness education."
+    },
+    {
+      "id": "working-capital",
+      "label": "Working Capital",
+      "slug": "working-capital",
+      "description": "Cash-flow and short-term capital education."
+    },
+    {
+      "id": "equipment-financing",
+      "label": "Equipment Financing",
+      "slug": "equipment-financing",
+      "description": "Equipment, truck, vehicle, and asset-backed funding education."
+    },
+    {
+      "id": "ecommerce-funding",
+      "label": "Ecommerce Funding",
+      "slug": "ecommerce-funding",
+      "description": "Marketplace, inventory, and online seller funding education."
+    },
+    {
+      "id": "manual-review",
+      "label": "Manual Review",
+      "slug": "manual-review",
+      "description": "Cases that need human context before a path is suggested."
+    }
+  ]
+}

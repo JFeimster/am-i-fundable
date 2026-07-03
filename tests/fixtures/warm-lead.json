@@ -1,0 +1,35 @@
+{
+  "id": "fixture_warm_lead",
+  "label": "Warm lead fixture",
+  "expected": {
+    "tierId": "fundable_review",
+    "leadPriority": "warm",
+    "scoreRange": [
+      65,
+      79
+    ],
+    "manualReviewRecommended": false
+  },
+  "applicant": {
+    "firstName": "Demo",
+    "lastName": "Builder",
+    "email": "demo.warm@example.com",
+    "phone": "555-0102",
+    "businessName": "Demo Working Capital LLC",
+    "state": "MD",
+    "consent": true
+  },
+  "answers": {
+    "businessPersona": "service_business",
+    "monthlyRevenue": 15000,
+    "timeInBusinessMonths": 14,
+    "creditScore": 610,
+    "bankStatus": "consistent",
+    "businessStructure": "entity_with_bank",
+    "fundingPurpose": "working_capital",
+    "desiredFundingAmount": 45000,
+    "redFlags": [
+      "none"
+    ]
+  }
+}
