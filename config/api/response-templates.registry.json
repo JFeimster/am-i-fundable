@@ -1,0 +1,68 @@
+{
+  "id": "api-response-templates-registry",
+  "name": "API Response Templates Registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "generatedAt": "2026-07-03",
+  "description": "Reusable response template registry for public-safe API responses.",
+  "entries": [
+    {
+      "id": "standard-success",
+      "visibility": "public_runtime_browser_safe",
+      "shape": {
+        "ok": true,
+        "status": "string",
+        "message": "string"
+      },
+      "disclaimerRequired": false
+    },
+    {
+      "id": "readiness-guidance",
+      "visibility": "public_runtime_browser_safe",
+      "shape": {
+        "ok": true,
+        "score": "number|null",
+        "tier": "object|null",
+        "nextStep": "string",
+        "disclaimer": "string"
+      },
+      "disclaimerRequired": true
+    },
+    {
+      "id": "webhook-ack",
+      "visibility": "public_runtime_browser_safe",
+      "shape": {
+        "ok": true,
+        "accepted": true,
+        "eventId": "string",
+        "eventType": "string",
+        "receivedAt": "date-time"
+      },
+      "disclaimerRequired": false
+    },
+    {
+      "id": "admin-summary",
+      "visibility": "server_side_internal",
+      "shape": {
+        "ok": true,
+        "status": "string",
+        "visibility": "internal_admin_only"
+      },
+      "disclaimerRequired": false
+    },
+    {
+      "id": "standard-error",
+      "visibility": "public_runtime_browser_safe",
+      "shape": {
+        "ok": false,
+        "error": {
+          "code": "string",
+          "message": "string",
+          "requestId": "string|null"
+        }
+      },
+      "disclaimerRequired": true
+    }
+  ],
+  "defaultDisclaimer": "This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding."
+}

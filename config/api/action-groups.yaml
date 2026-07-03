@@ -1,0 +1,39 @@
+id: action-groups-config
+name: GPT Action Groups
+version: 1.0.0
+visibility: public_build_time_only
+description: Recommended grouping for Custom GPT or assistant actions.
+groups:
+  - id: system
+    label: System
+    operations:
+      - getHealth
+      - getApiVersion
+    public_safe: true
+  - id: site-data
+    label: Public Site Data
+    operations:
+      - listPublicFundingPaths
+      - getDocumentChecklist
+      - getResultTier
+      - recommendResources
+    public_safe: true
+  - id: scorecard
+    label: Scorecard
+    operations:
+      - requestFundingReview
+      - generateReadinessReport
+      - matchFundingPaths
+    public_safe: true
+  - id: admin
+    label: Internal Admin
+    operations: []
+    public_safe: false
+    note: Admin operations must remain outside public GPT Actions.
+recommended_import:
+  file: /schemas/openapi/am-i-fundable.public-actions.openapi.yaml
+  auth: none
+  intended_for:
+    - Funding readiness helper GPT
+    - Broker scorecard copilot
+    - Document prep assistant

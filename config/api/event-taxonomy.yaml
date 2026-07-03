@@ -1,0 +1,42 @@
+id: event-taxonomy-config
+name: API Event Taxonomy
+version: 1.0.0
+visibility: public_build_time_only
+description: Standard event names for scorecard, review, lead route, and API lifecycle.
+events:
+  - event_type: scorecard.started
+    route: /api/scorecard/start-session
+    category: scorecard
+    public_safe: true
+  - event_type: scorecard.submitted
+    route: /api/webhooks/scorecard-submitted
+    category: scorecard
+    public_safe: true
+  - event_type: scorecard.result.generated
+    route: /api/scorecard/submit-score
+    category: scorecard
+    public_safe: true
+  - event_type: review.requested
+    route: /api/webhooks/review-requested
+    category: review
+    public_safe: true
+  - event_type: report.generated
+    route: /api/scorecard/generate-readiness-report
+    category: report
+    public_safe: true
+  - event_type: lead.created
+    route: /api/leads/create-lead
+    category: lead
+    public_safe: true
+  - event_type: lead.routed
+    route: /api/webhooks/lead-routed
+    category: lead
+    public_safe: true
+  - event_type: admin.system.checked
+    route: /api/admin/system-check
+    category: admin
+    public_safe: false
+rules:
+  public_events_must_not_include_secrets: true
+  public_events_must_not_include_real_borrower_pii: true
+  public_events_must_use_safe_route_categories: true

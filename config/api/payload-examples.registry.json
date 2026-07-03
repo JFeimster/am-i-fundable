@@ -1,0 +1,42 @@
+{
+  "id": "payload-examples-registry",
+  "name": "Payload Examples Registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "generatedAt": "2026-07-03",
+  "description": "Machine-readable index of demo payload files used in docs, tests, and GPT action setup.",
+  "entries": [
+    {
+      "id": "hot-scorecard-submit",
+      "file": "/examples/api/scorecard-submit-request.hot.json",
+      "route": "/api/scorecard/submit-score",
+      "method": "POST",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Demo high-readiness scorecard submission payload."
+    },
+    {
+      "id": "readiness-report-request",
+      "file": "/examples/api/readiness-report-request.json",
+      "route": "/api/scorecard/generate-readiness-report",
+      "method": "POST",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Demo report generation request."
+    },
+    {
+      "id": "document-checklist-response",
+      "file": "/examples/api/document-checklist-response.json",
+      "route": "/api/public/document-checklist",
+      "method": "GET",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Demo document checklist response."
+    },
+    {
+      "id": "validation-error-response",
+      "file": "/examples/api/error-response.validation.json",
+      "route": "multiple",
+      "method": "multiple",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Demo validation error response shape."
+    }
+  ]
+}

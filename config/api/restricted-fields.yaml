@@ -1,0 +1,46 @@
+id: restricted-fields-config
+name: Restricted Public Fields
+version: 1.0.0
+visibility: public_build_time_only
+description: Field names and concepts that must not appear in public API responses except inside safety docs or validators.
+restricted_public_fields:
+  - providerId
+  - providerName
+  - lenderId
+  - affiliateUrl
+  - applyUrl
+  - referralUrl
+  - commission
+  - commissionRate
+  - payout
+  - contactEmail
+  - keyContact
+  - privateNotes
+  - internalNotes
+  - routingNotes
+  - underwritingNotes
+  - portalUrl
+  - dashboardUrl
+  - rawApplyUrl
+  - apiKey
+  - secret
+  - webhookSecret
+restricted_outcome_language_parts:
+  - ["you are", " approved"]
+  - ["guaranteed", " funding"]
+  - ["final", " eligibility"]
+  - ["underwriting", " complete"]
+  - ["best rates", " guaranteed"]
+  - ["instant", " approval"]
+allowed_replacements:
+  - funding readiness
+  - potential funding path
+  - may be a fit
+  - based on your answers
+  - recommended next step
+  - subject to review
+  - human review recommended
+  - educational guidance
+notes:
+  - This config intentionally lists restricted names for scanning and validation.
+  - Do not mirror these names into public response payload keys.

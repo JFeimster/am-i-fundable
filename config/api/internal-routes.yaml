@@ -1,0 +1,74 @@
+id: internal-routes-config
+name: Internal/Admin Routes Config
+version: 1.0.0
+visibility: server_side_internal
+description: Internal/admin-only route configuration. Do not import these routes into public GPT Actions.
+required_environment:
+  - AM_I_FUNDABLE_ENABLE_ADMIN_ROUTES=true
+  - AM_I_FUNDABLE_ADMIN_TOKEN
+routes:
+  - id: admin-registry-health
+    method: GET
+    path: /api/admin/registry-health
+    file: /api/admin/registry-health.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-validate-public-boundary
+    method: GET/POST
+    path: /api/admin/validate-public-boundary
+    file: /api/admin/validate-public-boundary.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-validate-product-registry
+    method: GET/POST
+    path: /api/admin/validate-product-registry
+    file: /api/admin/validate-product-registry.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-sync-public-indexes
+    method: POST
+    path: /api/admin/sync-public-indexes
+    file: /api/admin/sync-public-indexes.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-rebuild-site-data
+    method: POST
+    path: /api/admin/rebuild-site-data
+    file: /api/admin/rebuild-site-data.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-review-queue
+    method: GET/POST
+    path: /api/admin/review-queue
+    file: /api/admin/review-queue.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-review-lead
+    method: POST
+    path: /api/admin/review-lead
+    file: /api/admin/review-lead.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-assign-lead
+    method: POST
+    path: /api/admin/assign-lead
+    file: /api/admin/assign-lead.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-export-demo-payload
+    method: GET/POST
+    path: /api/admin/export-demo-payload
+    file: /api/admin/export-demo-payload.js
+    auth: admin_token
+    enabled_by_default: false
+  - id: admin-system-check
+    method: GET
+    path: /api/admin/system-check
+    file: /api/admin/system-check.js
+    auth: admin_token
+    enabled_by_default: false
+rules:
+  expose_in_public_openapi: false
+  return_raw_internal_registries: false
+  write_files_by_default: false
+  deploy_from_admin_routes: false

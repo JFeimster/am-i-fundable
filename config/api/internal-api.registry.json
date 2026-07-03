@@ -1,0 +1,131 @@
+{
+  "id": "internal-api-registry",
+  "name": "Internal/Admin API Registry",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "generatedAt": "2026-07-03",
+  "description": "Internal/admin-only API route index. These routes must not be exposed through public GPT Actions.",
+  "requiredEnvironment": [
+    "AM_I_FUNDABLE_ENABLE_ADMIN_ROUTES=true",
+    "AM_I_FUNDABLE_ADMIN_TOKEN"
+  ],
+  "entries": [
+    {
+      "id": "admin-registry-health",
+      "method": "GET",
+      "path": "/api/admin/registry-health",
+      "file": "/api/admin/registry-health.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Checks registry presence, parseability, visibility metadata, and entry counts.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-validate-public-boundary",
+      "method": "GET/POST",
+      "path": "/api/admin/validate-public-boundary",
+      "file": "/api/admin/validate-public-boundary.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Scans public files for restricted fields and outcome certainty language.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-validate-product-registry",
+      "method": "GET/POST",
+      "path": "/api/admin/validate-product-registry",
+      "file": "/api/admin/validate-product-registry.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Validates internal product/provider registry structure and relationships.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-sync-public-indexes",
+      "method": "POST",
+      "path": "/api/admin/sync-public-indexes",
+      "file": "/api/admin/sync-public-indexes.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Generates dry-run public-safe index payloads from public-safe registries.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-rebuild-site-data",
+      "method": "POST",
+      "path": "/api/admin/rebuild-site-data",
+      "file": "/api/admin/rebuild-site-data.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Generates a site-data rebuild plan without writing files by default.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-review-queue",
+      "method": "GET/POST",
+      "path": "/api/admin/review-queue",
+      "file": "/api/admin/review-queue.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Returns demo/internal review queue summaries.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-review-lead",
+      "method": "POST",
+      "path": "/api/admin/review-lead",
+      "file": "/api/admin/review-lead.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Creates an internal demo lead review summary without provider-specific routing.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-assign-lead",
+      "method": "POST",
+      "path": "/api/admin/assign-lead",
+      "file": "/api/admin/assign-lead.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Assigns a demo lead to an internal queue/assignee.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-export-demo-payload",
+      "method": "GET/POST",
+      "path": "/api/admin/export-demo-payload",
+      "file": "/api/admin/export-demo-payload.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Exports a safe demo payload for testing routes and webhooks.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    },
+    {
+      "id": "admin-system-check",
+      "method": "GET",
+      "path": "/api/admin/system-check",
+      "file": "/api/admin/system-check.js",
+      "visibility": "server_side_internal",
+      "surface": "admin",
+      "purpose": "Summarizes operational readiness of required API files and admin environment flags.",
+      "auth": "admin_token",
+      "enabledByDefault": false
+    }
+  ],
+  "safety": {
+    "enabledByDefault": false,
+    "requiresAdminToken": true,
+    "publicActionImportAllowed": false,
+    "rawInternalRegistryOutputAllowed": false,
+    "realBorrowerPiiAllowedInRepo": false
+  }
+}

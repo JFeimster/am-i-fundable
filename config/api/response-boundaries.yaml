@@ -1,0 +1,64 @@
+id: response-boundaries-config
+name: Response Boundaries
+version: 1.0.0
+visibility: public_build_time_only
+description: Response safety boundaries by route class.
+boundaries:
+  public_safe_system_metadata:
+    allowed:
+      - service status
+      - API version
+      - timestamp
+      - public route inventory
+    blocked:
+      - secrets
+      - environment tokens
+      - private registry records
+  public_safe_funding_categories:
+    allowed:
+      - public funding family label
+      - generic summary
+      - public next steps
+      - document checklist references
+    blocked:
+      - provider name
+      - provider ID
+      - apply link
+      - affiliate link
+      - commission data
+      - private contact
+  public_safe_score_result:
+    allowed:
+      - score
+      - readiness tier
+      - lead priority
+      - public next steps
+      - recommended documents
+      - human review recommendation
+    blocked:
+      - underwriting decision
+      - offer language
+      - final outcome certainty
+      - lender-specific certainty
+  public_safe_lead_route:
+    allowed:
+      - queue category
+      - priority band
+      - next action
+      - next page
+      - task list
+    blocked:
+      - private CRM IDs
+      - private routing notes
+      - provider-specific routing
+  server_side_internal_summary:
+    allowed:
+      - counts
+      - status
+      - issue summaries
+      - demo payloads
+    blocked:
+      - raw provider registry output
+      - secrets
+      - real borrower PII
+default_disclaimer: This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding.

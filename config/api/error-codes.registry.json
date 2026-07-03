@@ -1,0 +1,52 @@
+{
+  "id": "api-error-codes-registry",
+  "name": "API Error Codes Registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "generatedAt": "2026-07-03",
+  "description": "Standard error code registry for public and internal API routes.",
+  "entries": [
+    {
+      "code": "bad_request",
+      "httpStatus": 400,
+      "description": "Malformed request or invalid JSON body.",
+      "publicSafe": true
+    },
+    {
+      "code": "method_not_allowed",
+      "httpStatus": 405,
+      "description": "HTTP method is not supported for the route.",
+      "publicSafe": true
+    },
+    {
+      "code": "validation_error",
+      "httpStatus": 422,
+      "description": "Payload shape or required fields failed validation.",
+      "publicSafe": true
+    },
+    {
+      "code": "public_boundary_violation",
+      "httpStatus": 500,
+      "description": "Public response attempted to include restricted field or phrase.",
+      "publicSafe": true
+    },
+    {
+      "code": "admin_routes_disabled",
+      "httpStatus": 403,
+      "description": "Internal/admin route is disabled by default.",
+      "publicSafe": false
+    },
+    {
+      "code": "admin_auth_required",
+      "httpStatus": 401,
+      "description": "Internal/admin route requires protected admin token.",
+      "publicSafe": false
+    },
+    {
+      "code": "internal_error",
+      "httpStatus": 500,
+      "description": "Unexpected server error with safe public message.",
+      "publicSafe": true
+    }
+  ]
+}

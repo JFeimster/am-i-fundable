@@ -1,0 +1,62 @@
+{
+  "id": "webhook-events-registry",
+  "name": "Webhook Events Registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "generatedAt": "2026-07-03",
+  "description": "Public-safe event taxonomy for scorecard, review, and lead route acknowledgement routes.",
+  "entries": [
+    {
+      "id": "scorecard-submitted",
+      "eventType": "scorecard.submitted",
+      "route": "/api/webhooks/scorecard-submitted",
+      "producer": "scorecard",
+      "consumer": "internal_follow_up",
+      "visibility": "public_runtime_browser_safe",
+      "requiredFields": [
+        "eventId",
+        "eventType",
+        "subjectId"
+      ],
+      "safeResponse": "acknowledgement_only",
+      "description": "Fires when a scorecard result is submitted or ready for follow-up."
+    },
+    {
+      "id": "review-requested",
+      "eventType": "review.requested",
+      "route": "/api/webhooks/review-requested",
+      "producer": "review_form",
+      "consumer": "review_queue",
+      "visibility": "public_runtime_browser_safe",
+      "requiredFields": [
+        "eventId",
+        "eventType",
+        "reviewId"
+      ],
+      "safeResponse": "acknowledgement_only",
+      "description": "Fires when a human funding strategy review is requested."
+    },
+    {
+      "id": "lead-routed",
+      "eventType": "lead.routed",
+      "route": "/api/webhooks/lead-routed",
+      "producer": "lead_router",
+      "consumer": "crm_or_follow_up",
+      "visibility": "public_runtime_browser_safe",
+      "requiredFields": [
+        "eventId",
+        "eventType",
+        "leadId",
+        "routeType"
+      ],
+      "safeResponse": "acknowledgement_with_public_route_summary",
+      "description": "Fires when a lead receives a public-safe route category."
+    }
+  ],
+  "deliveryRules": {
+    "acknowledgementOnly": true,
+    "returnRawInternalPayload": false,
+    "returnSecrets": false,
+    "retryPolicy": "future_private_integration_only"
+  }
+}

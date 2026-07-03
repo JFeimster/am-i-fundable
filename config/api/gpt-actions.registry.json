@@ -1,0 +1,49 @@
+{
+  "id": "gpt-actions-registry",
+  "name": "GPT Actions Registry",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "generatedAt": "2026-07-03",
+  "description": "Maps safe public OpenAPI files and operations to GPT/action use cases.",
+  "openapiFiles": [
+    {
+      "id": "public-actions",
+      "file": "/schemas/openapi/am-i-fundable.public-actions.openapi.yaml",
+      "visibility": "public_build_time_only",
+      "recommended": true,
+      "description": "Consolidated public-safe Custom GPT action import file."
+    },
+    {
+      "id": "public-scorecard",
+      "file": "/schemas/openapi/public-scorecard.openapi.yaml",
+      "visibility": "public_build_time_only",
+      "recommended": false,
+      "description": "Scorecard-only action subset."
+    },
+    {
+      "id": "document-checklist",
+      "file": "/schemas/openapi/document-checklist.openapi.yaml",
+      "visibility": "public_build_time_only",
+      "recommended": false,
+      "description": "Document checklist action subset."
+    }
+  ],
+  "publicOperations": [
+    "getHealth",
+    "getApiVersion",
+    "listPublicFundingPaths",
+    "getDocumentChecklist",
+    "getResultTier",
+    "recommendResources",
+    "requestFundingReview",
+    "generateReadinessReport",
+    "matchFundingPaths"
+  ],
+  "doNotExposeOperations": [
+    "adminRegistryHealth",
+    "adminReviewQueue",
+    "adminSystemCheck",
+    "adminValidatePublicBoundary"
+  ],
+  "gptInstructionReminder": "Use action output for funding readiness guidance only. Do not describe output as an approval, offer, or underwriting decision."
+}

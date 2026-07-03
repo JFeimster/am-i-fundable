@@ -1,0 +1,44 @@
+id: demo-payloads-config
+name: Demo Payloads Config
+version: 1.0.0
+visibility: public_build_time_only
+description: Reusable demo payload references for local testing, docs, and action setup.
+payloads:
+  - id: hot-scorecard-submit
+    file: /examples/api/scorecard-submit-request.hot.json
+    route: /api/scorecard/submit-score
+    method: POST
+    persona: local_service_business
+    tier_intent: highly_fundable
+  - id: warm-scorecard-submit
+    file: /examples/api/scorecard-submit-request.warm.json
+    route: /api/scorecard/submit-score
+    method: POST
+    persona: contractor
+    tier_intent: fundable_review
+  - id: nurture-scorecard-submit
+    file: /examples/api/scorecard-submit-request.nurture.json
+    route: /api/scorecard/submit-score
+    method: POST
+    persona: startup_operator
+    tier_intent: selective_programs
+  - id: not-ready-scorecard-submit
+    file: /examples/api/scorecard-submit-request.not-ready.json
+    route: /api/scorecard/submit-score
+    method: POST
+    persona: new_business
+    tier_intent: not_ready_fixable
+  - id: readiness-report-request
+    file: /examples/api/readiness-report-request.json
+    route: /api/scorecard/generate-readiness-report
+    method: POST
+    persona: local_service_business
+  - id: lead-route-request
+    file: /examples/api/lead-route-request.json
+    route: /api/leads/route-lead
+    method: POST
+    persona: demo
+rules:
+  demo_data_only: true
+  do_not_use_real_borrower_pii: true
+  do_not_use_real_provider_data: true

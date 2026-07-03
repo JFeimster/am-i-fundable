@@ -1,0 +1,81 @@
+id: public-routes-config
+name: Public Routes Config
+version: 1.0.0
+visibility: public_build_time_only
+description: Public-safe route configuration for Am I Fundable.
+routes:
+  - id: health
+    method: GET
+    path: /api/health
+    file: /api/health.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_system_metadata
+  - id: version
+    method: GET
+    path: /api/version
+    file: /api/version.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_system_metadata
+  - id: public-site-data
+    method: GET
+    path: /api/public/site-data
+    file: /api/public/site-data.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_site_data
+  - id: public-funding-paths
+    method: GET
+    path: /api/public/funding-paths
+    file: /api/public/funding-paths.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_funding_categories
+  - id: public-document-checklist
+    method: GET
+    path: /api/public/document-checklist
+    file: /api/public/document-checklist.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_document_prep
+  - id: public-result-tier
+    method: GET
+    path: /api/public/result-tier
+    file: /api/public/result-tier.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_readiness_tier
+  - id: resource-recommendations
+    method: POST
+    path: /api/public/resource-recommendations
+    file: /api/public/resource-recommendations.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_resources
+  - id: scorecard-request-review
+    method: POST
+    path: /api/scorecard/request-review
+    file: /api/scorecard/request-review.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_review_queue
+  - id: readiness-report
+    method: POST
+    path: /api/scorecard/generate-readiness-report
+    file: /api/scorecard/generate-readiness-report.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_report
+  - id: match-funding-paths
+    method: POST
+    path: /api/match/funding-paths
+    file: /api/match/funding-paths.js
+    auth: none
+    action_safe: true
+    response_boundary: public_safe_funding_categories
+rules:
+  no_private_provider_data: true
+  no_real_borrower_pii: true
+  no_secret_output: true
+  no_outcome_certainty_language: true
