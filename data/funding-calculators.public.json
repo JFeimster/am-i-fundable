@@ -1,0 +1,14 @@
+[
+  {
+    "id": "calc-revenue-based",
+    "name": "Revenue-Based Funding Estimator",
+    "description": "An optional calculator to estimate potential funding amounts based on your monthly revenue.",
+    "url": "https://example.com/calculators/revenue"
+  },
+  {
+    "id": "calc-loan-repayment",
+    "name": "Estimated Loan Repayment Calculator",
+    "description": "Calculate estimated monthly repayments for different loan amounts and terms.",
+    "url": "https://example.com/calculators/repayment"
+  }
+]

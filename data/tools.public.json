@@ -1,0 +1,14 @@
+[
+  {
+    "id": "tool-accounting-software",
+    "name": "Recommended Accounting Software",
+    "description": "Tools that may help you manage your finances and generate the required documentation.",
+    "url": "https://example.com/accounting-tools"
+  },
+  {
+    "id": "tool-credit-monitoring",
+    "name": "Business Credit Monitoring",
+    "description": "Services to keep track of your business credit score and profile.",
+    "url": "https://example.com/credit-monitoring"
+  }
+]

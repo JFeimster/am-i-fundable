@@ -1,0 +1,94 @@
+{
+  "name": "Funding Readiness Scorecard Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "scorecard-webhook",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.body.fundingReadinessScore >= 70}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "High Score Check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "name": "Route to CRM (Placeholder)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        700,
+        200
+      ],
+      "notesInFlow": true,
+      "notes": "Replace with CRM Node (e.g. HubSpot)"
+    },
+    {
+      "parameters": {},
+      "name": "Send Preparation Email (Placeholder)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        700,
+        400
+      ],
+      "notesInFlow": true,
+      "notes": "Replace with Email Node"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "High Score Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Score Check": {
+      "main": [
+        [
+          {
+            "node": "Route to CRM (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Preparation Email (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}
