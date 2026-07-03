@@ -1,0 +1,7 @@
+{
+  "name": "Automation Knowledge",
+  "description": "Details regarding webhooks, n8n workflows, and data passing.",
+  "documents": [
+    "README.md"
+  ]
+}

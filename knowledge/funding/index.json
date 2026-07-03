@@ -1,0 +1,8 @@
+{
+  "name": "Funding Readiness Knowledge",
+  "description": "Information regarding funding concepts, scoring rules, and readiness logic.",
+  "documents": [
+    "README.md",
+    "examples.md"
+  ]
+}
