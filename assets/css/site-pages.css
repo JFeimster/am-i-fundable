@@ -1,0 +1,271 @@
+/*
+ * Shared public site page styles for Am I Fundable.
+ * Public-safe CSS only. No private data, no provider references.
+ */
+
+.utility-main,
+.frs-page-main {
+  padding-top: 76px;
+}
+
+.utility-hero,
+.frs-utility-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(96px, 12vw, 150px) clamp(20px, 7vw, 112px) clamp(54px, 8vw, 92px);
+  background:
+    radial-gradient(circle at 78% 12%, rgba(46, 212, 122, 0.2), transparent 34rem),
+    radial-gradient(circle at 12% 85%, rgba(212, 166, 78, 0.22), transparent 30rem),
+    linear-gradient(135deg, #07111f 0%, #0a1728 58%, #0f2236 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  isolation: isolate;
+}
+
+.utility-hero::after,
+.frs-utility-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -8rem -14rem auto;
+  width: min(44vw, 34rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(240, 201, 109, 0.26);
+  border-radius: 999px;
+  background: repeating-radial-gradient(circle, rgba(240, 201, 109, 0.08) 0 1px, transparent 1px 28px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.utility-hero h1,
+.frs-utility-hero h1 {
+  font-family: var(--frs-font-display, Georgia, "Times New Roman", serif);
+  font-size: clamp(2.9rem, 7vw, 6rem);
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+  margin: 24px 0 18px;
+  max-width: 1050px;
+}
+
+.utility-hero p,
+.frs-utility-hero p {
+  max-width: 780px;
+  color: #c2d2e4;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.72;
+}
+
+.utility-actions,
+.frs-utility-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.utility-section,
+.frs-utility-section {
+  padding: clamp(64px, 8vw, 104px) clamp(20px, 6vw, 96px);
+  background: #081423;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.utility-section.alt,
+.frs-utility-section.alt {
+  background: linear-gradient(180deg, #07111f, #0a1728);
+}
+
+.utility-section.light,
+.frs-utility-section.light {
+  background: #f7f9fc;
+  color: #142033;
+}
+
+.utility-section.light p,
+.utility-section.light li,
+.frs-utility-section.light p,
+.frs-utility-section.light li {
+  color: #526174;
+}
+
+.utility-grid,
+.frs-utility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.utility-grid.two,
+.frs-utility-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.utility-grid.four,
+.frs-utility-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.utility-card,
+.frs-utility-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.utility-card::before,
+.frs-utility-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(240, 201, 109, 0.12), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.utility-card:hover::before,
+.frs-utility-card:hover::before {
+  opacity: 1;
+}
+
+.utility-section.light .utility-card,
+.utility-section.light .frs-utility-card,
+.frs-utility-section.light .utility-card,
+.frs-utility-section.light .frs-utility-card {
+  background: #fff;
+  border-color: #e1e8f2;
+  box-shadow: 0 18px 45px rgba(20, 32, 51, 0.08);
+}
+
+.utility-number,
+.frs-utility-number {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold, #d4a64e), var(--gold-2, #f0c96d));
+  color: #07111f;
+  font-weight: 950;
+}
+
+.safe-note,
+.frs-safe-note {
+  margin-top: 26px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #c2d2e4;
+  line-height: 1.65;
+  border-radius: 18px;
+}
+
+.utility-section.light .safe-note,
+.utility-section.light .frs-safe-note,
+.frs-utility-section.light .safe-note,
+.frs-utility-section.light .frs-safe-note {
+  background: #edf3f9;
+  border-color: #d8e3ee;
+  color: #526174;
+}
+
+.plain-list,
+.frs-plain-list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.plain-list li,
+.frs-plain-list li {
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.code-box,
+.frs-code-box {
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+  padding: 20px;
+  border-radius: 18px;
+  background: #050b14;
+  color: #d7e2ee;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.legal-copy {
+  max-width: 980px;
+}
+
+.legal-copy h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-top: 42px;
+}
+
+.legal-copy p,
+.legal-copy li {
+  line-height: 1.75;
+  color: #c2d2e4;
+}
+
+.legal-copy a {
+  color: var(--gold-2, #f0c96d);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mini-metric,
+.frs-mini-metric {
+  display: block;
+  color: var(--gold-2, #f0c96d);
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.embedded-frame-wrap {
+  margin-top: 28px;
+  padding: 16px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+}
+
+.embedded-frame-wrap iframe {
+  width: 100%;
+  min-height: 820px;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .utility-grid,
+  .utility-grid.two,
+  .utility-grid.four,
+  .frs-utility-grid,
+  .frs-utility-grid.two,
+  .frs-utility-grid.four {
+    grid-template-columns: 1fr;
+  }
+
+  .utility-main,
+  .frs-page-main {
+    padding-top: 72px;
+  }
+
+  .embedded-frame-wrap iframe {
+    min-height: 980px;
+  }
+}

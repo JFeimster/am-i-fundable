@@ -1,3 +1,9 @@
+import "./assets/js/page-metadata.js";
+import "./assets/js/site-nav.js";
+import "./assets/js/site-footer.js";
+import "./assets/js/site-effects.js";
+import "./assets/js/scorecard-effects.js";
+
 import {
   buildScoreSubmission,
   calculateBrowserFundingReadiness,

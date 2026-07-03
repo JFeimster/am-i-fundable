@@ -4,20 +4,26 @@ import path from "node:path";
 
 const root = process.cwd();
 const files = listFiles(root).filter((file) => file.endsWith(".js"));
-let failed = false;
+const invalid = [];
 
 for (const file of files) {
   try {
     execFileSync(process.execPath, ["--check", file], { stdio: "pipe" });
-    console.log(`JS OK  ${path.relative(root, file)}`);
   } catch (error) {
-    failed = true;
-    console.error(`JS INVALID  ${path.relative(root, file)}`);
-    process.stderr.write(error.stderr || error.stdout || "");
+    invalid.push({ file, output: String(error.stderr || error.stdout || error.message || "") });
   }
 }
 
-if (failed) process.exit(1);
+if (invalid.length) {
+  console.error(`JS syntax validation failed for ${invalid.length} of ${files.length} files:`);
+  invalid.forEach(({ file, output }) => {
+    console.error(`JS INVALID  ${path.relative(root, file)}`);
+    if (output) process.stderr.write(output);
+  });
+  process.exit(1);
+}
+
+console.log(`JS syntax validation passed for ${files.length} files.`);
 
 function listFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

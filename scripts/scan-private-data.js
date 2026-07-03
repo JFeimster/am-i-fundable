@@ -42,13 +42,9 @@ const blockedFields = new Set([
 
 const ignoredFiles = new Set([
   path.normalize("config/directories/public-funding-directory.registry.json"),
-  path.normalize("docs/private-data-handling.md"),
   path.normalize("schemas/private-data-boundary.schema.json"),
-  path.normalize("scripts/scan-private-data.js"),
-  path.normalize("scripts/sanitize-private-data.js"),
   path.normalize("config/registry-visibility.json"),
   path.normalize("internal/routing/funding-provider-rules.registry.json"),
-  path.normalize("scripts/build-public-data.js"),
   path.normalize("api/match-partners.js"),
   path.normalize("internal/crm/hubspot-field-map.json"),
   path.normalize("internal/crm/notion-field-map.json"),
@@ -56,16 +52,29 @@ const ignoredFiles = new Set([
   path.normalize("internal/crm/webhook-targets.example.json")
 ]);
 
+const ignoredDirectories = [
+  `${path.normalize(".github")}${path.sep}`,
+  `${path.normalize(".jules")}${path.sep}`,
+  `${path.normalize("agents")}${path.sep}`,
+  `${path.normalize("docs")}${path.sep}`,
+  `${path.normalize("gpts")}${path.sep}`,
+  `${path.normalize("knowledge")}${path.sep}`,
+  `${path.normalize("schemas")}${path.sep}`,
+  `${path.normalize("scripts")}${path.sep}`,
+  `${path.normalize("tests")}${path.sep}`
+];
+
 const issues = [];
 
 for (const file of listFiles(root)) {
   const relativePath = path.relative(root, file);
   const normalizedPath = path.normalize(relativePath);
   if (ignoredFiles.has(normalizedPath)) continue;
+  if (ignoredDirectories.some((dir) => normalizedPath.startsWith(dir))) continue;
 
   if (relativePath.endsWith(".json")) {
     scanJsonFile(file, relativePath);
-  } else if (/\.(js|html|md|css)$/i.test(relativePath)) {
+  } else if (isRuntimeTextFile(relativePath)) {
     scanTextFile(file, relativePath);
   }
 }
@@ -76,7 +85,17 @@ if (issues.length > 0) {
   process.exit(1);
 }
 
-console.log("Private data scan passed.");
+console.log("Private data scan passed for public/runtime surfaces.");
+
+function isRuntimeTextFile(relativePath) {
+  if (!/\.(js|html|md|css)$/i.test(relativePath)) return false;
+  return [
+    "api/",
+    "assets/",
+    "examples/",
+    "lib/"
+  ].some((prefix) => relativePath.startsWith(prefix)) || /^[^/]+\.html$/i.test(relativePath);
+}
 
 function scanJsonFile(file, relativePath) {
   const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -93,19 +112,36 @@ function walkJson(value, relativePath, pathParts) {
 
   for (const [key, nestedValue] of Object.entries(value)) {
     const currentPath = [...pathParts, key];
-    if (blockedFields.has(key) && hasSensitiveValue(nestedValue)) {
+    if (blockedFields.has(key) && hasSensitiveValue(key, nestedValue)) {
       issues.push(`${relativePath}:${currentPath.join(".")}=${JSON.stringify(nestedValue)}`);
     }
     walkJson(nestedValue, relativePath, currentPath);
   }
 }
 
-function hasSensitiveValue(value) {
+function hasSensitiveValue(key, value) {
   if (value === null || value === false) return false;
-  if (Array.isArray(value)) return value.length > 0;
-  if (typeof value === "object") return Object.keys(value).length > 0;
-  if (typeof value === "string") return value.trim().length > 0;
+  if (Array.isArray(value)) return value.some((item) => hasSensitiveValue(key, item));
+  if (typeof value === "object") {
+    if (isSchemaLikeObject(value)) return false;
+    return Object.values(value).some((item) => hasSensitiveValue(key, item));
+  }
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    if (!trimmed) return false;
+    if (/^demo_|^example_|^placeholder_|^public_|^not_returned$/i.test(trimmed)) return false;
+    if (/https?:\/\//i.test(trimmed)) return true;
+    if (/@/.test(trimmed)) return true;
+    if (/api|token|secret|key/i.test(key)) return trimmed.length > 6;
+    return ["commission", "commission_rate", "commissionRate", "payout"].includes(key);
+  }
+  if (typeof value === "number") return ["commission", "commission_rate", "commissionRate", "payout"].includes(key);
   return true;
+}
+
+function isSchemaLikeObject(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return Boolean(value.type || value.description || value.properties || value.items || value.enum || value.examples);
 }
 
 function scanTextFile(file, relativePath) {

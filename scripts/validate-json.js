@@ -3,19 +3,25 @@ import path from "node:path";
 
 const root = process.cwd();
 const files = listFiles(root).filter((file) => file.endsWith(".json"));
-let failed = false;
+const invalid = [];
 
 for (const file of files) {
   try {
     JSON.parse(fs.readFileSync(file, "utf8"));
-    console.log(`JSON OK  ${path.relative(root, file)}`);
   } catch (error) {
-    failed = true;
-    console.error(`JSON INVALID  ${path.relative(root, file)}  ${error.message}`);
+    invalid.push({ file, message: error.message });
   }
 }
 
-if (failed) process.exit(1);
+if (invalid.length) {
+  console.error(`JSON validation failed for ${invalid.length} of ${files.length} files:`);
+  invalid.forEach(({ file, message }) => {
+    console.error(`JSON INVALID  ${path.relative(root, file)}  ${message}`);
+  });
+  process.exit(1);
+}
+
+console.log(`JSON validation passed for ${files.length} files.`);
 
 function listFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
