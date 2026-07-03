@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonshine.local/schemas/scorecard-submission.schema.json",
+  "title": "Funding Readiness Scorecard Submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source",
+    "answers",
+    "leadContact",
+    "consent"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "default": "funding-readiness-scorecard"
+    },
+    "embedSource": {
+      "type": "string"
+    },
+    "pageUrl": {
+      "type": "string"
+    },
+    "answers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "businessPersona",
+        "monthlyRevenue",
+        "timeInBusinessMonths",
+        "creditScore",
+        "bankStatus",
+        "businessStructure",
+        "fundingPurpose",
+        "desiredFundingAmount",
+        "redFlags"
+      ],
+      "properties": {
+        "businessPersona": {
+          "type": "string"
+        },
+        "monthlyRevenue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeInBusinessMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "creditScore": {
+          "type": "number",
+          "minimum": 0
+        },
+        "bankStatus": {
+          "type": "string"
+        },
+        "businessStructure": {
+          "type": "string"
+        },
+        "fundingPurpose": {
+          "type": "string"
+        },
+        "desiredFundingAmount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "redFlags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "leadContact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "email",
+        "phone",
+        "state"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 7,
+          "maxLength": 40
+        },
+        "businessName": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "state": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 40
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contactConsent",
+        "consentText"
+      ],
+      "properties": {
+        "contactConsent": {
+          "const": true
+        },
+        "consentText": {
+          "type": "string",
+          "minLength": 20
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

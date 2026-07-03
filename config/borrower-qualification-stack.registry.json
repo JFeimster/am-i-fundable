@@ -1,0 +1,68 @@
+{
+  "id": "borrower-qualification-stack",
+  "name": "Borrower Qualification Stack",
+  "version": "1.0.0",
+  "visibility": "public_build_time_only",
+  "goal": "Turn visitors into structured funding readiness leads using one shared score model across the landing page, widget, API, and future GPT action.",
+  "flow": [
+    "Capture visitor answers",
+    "Score revenue, time in business, credit profile, bank activity, structure, purpose, and caution flags",
+    "Explain readiness tier with safe language",
+    "Recommend public funding lanes",
+    "Capture consent and contact fields",
+    "Route submission to API and human review when needed"
+  ],
+  "sharedDataContract": {
+    "inputs": [
+      "businessPersona",
+      "monthlyRevenue",
+      "timeInBusinessMonths",
+      "creditScore",
+      "bankStatus",
+      "businessStructure",
+      "fundingPurpose",
+      "desiredFundingAmount",
+      "redFlags",
+      "leadContact",
+      "consent"
+    ],
+    "outputs": [
+      "fundingReadinessScore",
+      "tier",
+      "leadPriority",
+      "primaryFundingFamily",
+      "secondaryFundingFamilies",
+      "strengths",
+      "risks",
+      "nextSteps",
+      "recommendedDocuments",
+      "manualReviewRecommended"
+    ]
+  },
+  "frontendSurfaces": [
+    "index.html",
+    "widget.html",
+    "embed-example.html"
+  ],
+  "sharedModules": [
+    "/lib/scorecard-engine.js",
+    "/lib/recommendation-engine.js",
+    "/lib/result-copy.js",
+    "/lib/validation.js"
+  ],
+  "futureApiRoutes": [
+    "/api/submit-score.js",
+    "/api/match-partners.js",
+    "/api/lender-match-review.js"
+  ],
+  "missingPiecesAfterThisBatch": [
+    "Internal product registry",
+    "Internal provider registry",
+    "Public product-family data",
+    "Submit-score API",
+    "Partner match API",
+    "CRM field maps",
+    "Workflow automations",
+    "Frontend refactor"
+  ]
+}

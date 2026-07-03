@@ -1,0 +1,430 @@
+{
+  "id": "funding-readiness-scorecard",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "name": "Funding Readiness Scorecard",
+  "brand": "Moonshine Capital",
+  "maxScore": 100,
+  "scoreModel": {
+    "categories": {
+      "monthlyRevenue": 25,
+      "timeInBusiness": 20,
+      "creditProfile": 20,
+      "bankActivity": 15,
+      "businessStructure": 10,
+      "fundingPurpose": 10
+    },
+    "redFlagPenaltyCap": 45
+  },
+  "tiers": [
+    {
+      "id": "highly_fundable",
+      "min": 80,
+      "max": 100,
+      "label": "Highly Fundable",
+      "leadPriority": "hot",
+      "summary": "Your answers suggest stronger readiness signals. A funding strategy review is the recommended next step."
+    },
+    {
+      "id": "fundable_review",
+      "min": 65,
+      "max": 79,
+      "label": "Fundable, But Needs Review",
+      "leadPriority": "warm",
+      "summary": "Your answers show several positive signals, with a few items that should be reviewed before applying."
+    },
+    {
+      "id": "selective_programs",
+      "min": 45,
+      "max": 64,
+      "label": "Possible Fit for Select Programs",
+      "leadPriority": "nurture",
+      "summary": "You may have a path, but the best next step is to clean up documents and review the details."
+    },
+    {
+      "id": "not_ready_fixable",
+      "min": 0,
+      "max": 44,
+      "label": "Not Ready Yet \u2014 But Fixable",
+      "leadPriority": "education",
+      "summary": "Your answers suggest prep work should come before a funding review."
+    }
+  ],
+  "questions": [
+    {
+      "id": "businessPersona",
+      "label": "What best describes you?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        {
+          "value": "small_business_owner",
+          "label": "Existing small business owner"
+        },
+        {
+          "value": "gig_worker",
+          "label": "Gig worker / independent contractor"
+        },
+        {
+          "value": "ecommerce_seller",
+          "label": "Ecommerce or marketplace seller"
+        },
+        {
+          "value": "startup_founder",
+          "label": "Startup founder"
+        },
+        {
+          "value": "real_estate_investor",
+          "label": "Real estate investor"
+        },
+        {
+          "value": "equipment_heavy",
+          "label": "Contractor / trucking / equipment-heavy business"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure yet"
+        }
+      ]
+    },
+    {
+      "id": "monthlyRevenue",
+      "label": "What is your average monthly business revenue?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "monthlyRevenue",
+      "options": [
+        {
+          "value": 0,
+          "label": "$0\u2013$2,999",
+          "score": 0
+        },
+        {
+          "value": 3000,
+          "label": "$3,000\u2013$8,499",
+          "score": 7
+        },
+        {
+          "value": 8500,
+          "label": "$8,500\u2013$14,999",
+          "score": 13
+        },
+        {
+          "value": 15000,
+          "label": "$15,000\u2013$19,999",
+          "score": 18
+        },
+        {
+          "value": 20000,
+          "label": "$20,000\u2013$49,999",
+          "score": 22
+        },
+        {
+          "value": 50000,
+          "label": "$50,000\u2013$99,999",
+          "score": 24
+        },
+        {
+          "value": 100000,
+          "label": "$100,000+",
+          "score": 25
+        }
+      ]
+    },
+    {
+      "id": "timeInBusinessMonths",
+      "label": "How long have you been operating?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "timeInBusiness",
+      "options": [
+        {
+          "value": 0,
+          "label": "Not launched yet",
+          "score": 0
+        },
+        {
+          "value": 2,
+          "label": "0\u20133 months",
+          "score": 4
+        },
+        {
+          "value": 4,
+          "label": "4\u20135 months",
+          "score": 8
+        },
+        {
+          "value": 6,
+          "label": "6\u201311 months",
+          "score": 12
+        },
+        {
+          "value": 12,
+          "label": "12\u201323 months",
+          "score": 16
+        },
+        {
+          "value": 24,
+          "label": "24+ months",
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "creditScore",
+      "label": "What is your estimated personal credit score?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "creditProfile",
+      "options": [
+        {
+          "value": 499,
+          "label": "Below 500",
+          "score": 0
+        },
+        {
+          "value": 520,
+          "label": "500\u2013579",
+          "score": 5
+        },
+        {
+          "value": 580,
+          "label": "580\u2013599",
+          "score": 8
+        },
+        {
+          "value": 600,
+          "label": "600\u2013659",
+          "score": 13
+        },
+        {
+          "value": 660,
+          "label": "660\u2013679",
+          "score": 16
+        },
+        {
+          "value": 680,
+          "label": "680\u2013699",
+          "score": 18
+        },
+        {
+          "value": 700,
+          "label": "700+",
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "bankStatus",
+      "label": "Do you have a business bank account with regular deposits?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "bankActivity",
+      "options": [
+        {
+          "value": "none",
+          "label": "No business bank account",
+          "score": 0
+        },
+        {
+          "value": "low_inconsistent",
+          "label": "Yes, but low or inconsistent deposits",
+          "score": 5
+        },
+        {
+          "value": "consistent",
+          "label": "Yes, consistent monthly deposits",
+          "score": 11
+        },
+        {
+          "value": "strong_clean",
+          "label": "Yes, strong deposits and clean activity",
+          "score": 15
+        },
+        {
+          "value": "recent_nsfs",
+          "label": "Yes, but recent NSFs/overdrafts",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "businessStructure",
+      "label": "How is your business currently set up?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "businessStructure",
+      "options": [
+        {
+          "value": "none",
+          "label": "No formal business yet",
+          "score": 0
+        },
+        {
+          "value": "sole_prop",
+          "label": "Sole proprietor / independent contractor",
+          "score": 4
+        },
+        {
+          "value": "entity_no_bank",
+          "label": "LLC or corporation, no business bank account",
+          "score": 6
+        },
+        {
+          "value": "entity_with_bank",
+          "label": "LLC or corporation with business bank account",
+          "score": 8
+        },
+        {
+          "value": "entity_bank_ein_clean",
+          "label": "LLC/corp, bank account, EIN, and clean records",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": "fundingPurpose",
+      "label": "What do you need funding for?",
+      "type": "single_select",
+      "required": true,
+      "scoreCategory": "fundingPurpose",
+      "options": [
+        {
+          "value": "working_capital",
+          "label": "Payroll / emergency working capital",
+          "score": 7
+        },
+        {
+          "value": "inventory_materials",
+          "label": "Inventory / materials",
+          "score": 8
+        },
+        {
+          "value": "growth_marketing",
+          "label": "Marketing / growth",
+          "score": 8
+        },
+        {
+          "value": "equipment_vehicle",
+          "label": "Equipment / vehicle / truck",
+          "score": 9
+        },
+        {
+          "value": "real_estate",
+          "label": "Real estate purchase or project",
+          "score": 8
+        },
+        {
+          "value": "ecommerce_growth",
+          "label": "Ecommerce / marketplace growth",
+          "score": 9
+        },
+        {
+          "value": "startup_launch",
+          "label": "Startup launch capital",
+          "score": 6
+        },
+        {
+          "value": "debt_refi",
+          "label": "Debt consolidation / refinancing",
+          "score": 6
+        },
+        {
+          "value": "business_credit",
+          "label": "Business credit building",
+          "score": 7
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "desiredFundingAmount",
+      "label": "Desired funding amount",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        {
+          "value": 4999,
+          "label": "Under $5,000"
+        },
+        {
+          "value": 25000,
+          "label": "$5,000\u2013$25,000"
+        },
+        {
+          "value": 75000,
+          "label": "$25,000\u2013$75,000"
+        },
+        {
+          "value": 150000,
+          "label": "$75,000\u2013$150,000"
+        },
+        {
+          "value": 500000,
+          "label": "$150,000\u2013$500,000"
+        },
+        {
+          "value": 500001,
+          "label": "$500,000+"
+        }
+      ]
+    },
+    {
+      "id": "redFlags",
+      "label": "Do any red flags apply?",
+      "type": "multi_select",
+      "required": true,
+      "options": [
+        {
+          "value": "open_bankruptcy",
+          "label": "Open bankruptcy",
+          "penalty": 25
+        },
+        {
+          "value": "tax_lien",
+          "label": "Recent tax lien",
+          "penalty": 15
+        },
+        {
+          "value": "recent_missed_payments",
+          "label": "Recent missed payments",
+          "penalty": 10
+        },
+        {
+          "value": "recent_nsfs",
+          "label": "Recent NSFs / overdrafts",
+          "penalty": 10
+        },
+        {
+          "value": "new_bank_account",
+          "label": "Business bank account recently opened",
+          "penalty": 8
+        },
+        {
+          "value": "existing_daily_advance",
+          "label": "Existing daily-payment advance",
+          "penalty": 10
+        },
+        {
+          "value": "marketplace_suspended",
+          "label": "Suspended marketplace account",
+          "penalty": 15
+        },
+        {
+          "value": "no_current_revenue",
+          "label": "No current revenue",
+          "penalty": 20
+        },
+        {
+          "value": "none",
+          "label": "None of these",
+          "penalty": 0
+        }
+      ]
+    }
+  ]
+}

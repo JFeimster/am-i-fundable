@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonshine.local/schemas/scorecard-result.schema.json",
+  "title": "Funding Readiness Scorecard Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "score",
+    "tier",
+    "leadPriority",
+    "primaryFundingFamily",
+    "secondaryFundingFamilies",
+    "strengths",
+    "risks",
+    "nextSteps",
+    "manualReviewRecommended"
+  ],
+  "properties": {
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "summary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "leadPriority": {
+      "type": "string",
+      "enum": [
+        "hot",
+        "warm",
+        "nurture",
+        "education"
+      ]
+    },
+    "primaryFundingFamily": {
+      "type": "string"
+    },
+    "secondaryFundingFamilies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nextSteps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendedDocuments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manualReviewRecommended": {
+      "type": "boolean"
+    },
+    "cta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "calculatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

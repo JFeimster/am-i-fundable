@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonshine.local/schemas/scorecard-data-contract.schema.json",
+  "title": "Funding Readiness Scorecard Data Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "answers",
+    "result"
+  ],
+  "properties": {
+    "answers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "businessPersona",
+        "monthlyRevenue",
+        "timeInBusinessMonths",
+        "creditScore",
+        "bankStatus",
+        "businessStructure",
+        "fundingPurpose",
+        "desiredFundingAmount",
+        "redFlags"
+      ],
+      "properties": {
+        "businessPersona": {
+          "type": "string"
+        },
+        "monthlyRevenue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeInBusinessMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "creditScore": {
+          "type": "number",
+          "minimum": 0
+        },
+        "bankStatus": {
+          "type": "string"
+        },
+        "businessStructure": {
+          "type": "string"
+        },
+        "fundingPurpose": {
+          "type": "string"
+        },
+        "desiredFundingAmount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "redFlags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "leadContact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contactConsent": {
+          "type": "boolean"
+        },
+        "consentText": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "result": {
+      "$ref": "./scorecard-result.schema.json"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "lead-scoring-model",
+  "name": "Funding Readiness Lead Scoring Model",
+  "version": "1.0.0",
+  "visibility": "server_side_internal",
+  "purpose": "Provide a shared 100-point funding readiness model and lead priority mapping for the scorecard, widget, API routes, and CRM routing.",
+  "inputs": [
+    "businessPersona",
+    "monthlyRevenue",
+    "timeInBusinessMonths",
+    "creditScore",
+    "bankStatus",
+    "businessStructure",
+    "fundingPurpose",
+    "desiredFundingAmount",
+    "redFlags"
+  ],
+  "scoreWeights": {
+    "monthlyRevenue": 25,
+    "timeInBusiness": 20,
+    "creditProfile": 20,
+    "bankActivity": 15,
+    "businessStructure": 10,
+    "fundingPurpose": 10
+  },
+  "tierRules": [
+    {
+      "id": "hot",
+      "minScore": 80,
+      "maxScore": 100,
+      "tier": "Highly Fundable",
+      "leadPriority": "hot",
+      "reviewPath": "strategy_review"
+    },
+    {
+      "id": "warm",
+      "minScore": 65,
+      "maxScore": 79,
+      "tier": "Fundable, But Needs Review",
+      "leadPriority": "warm",
+      "reviewPath": "funding_path_review"
+    },
+    {
+      "id": "nurture",
+      "minScore": 45,
+      "maxScore": 64,
+      "tier": "Possible Fit for Select Programs",
+      "leadPriority": "nurture",
+      "reviewPath": "prep_review"
+    },
+    {
+      "id": "education",
+      "minScore": 0,
+      "maxScore": 44,
+      "tier": "Not Ready Yet \u2014 But Fixable",
+      "leadPriority": "education",
+      "reviewPath": "readiness_builder"
+    }
+  ],
+  "redFlagPenalties": {
+    "open_bankruptcy": 25,
+    "tax_lien": 15,
+    "recent_missed_payments": 10,
+    "recent_nsfs": 10,
+    "new_bank_account": 8,
+    "existing_daily_advance": 10,
+    "marketplace_suspended": 15,
+    "no_current_revenue": 20
+  },
+  "manualReviewTriggers": [
+    "open_bankruptcy",
+    "tax_lien",
+    "recent_missed_payments",
+    "recent_nsfs",
+    "existing_daily_advance",
+    "marketplace_suspended",
+    "requested_amount_high_vs_revenue",
+    "conflicting_answers"
+  ],
+  "publicResultRule": "Expose funding lane labels and next steps only. Keep partner routing and provider selection server-side."
+}

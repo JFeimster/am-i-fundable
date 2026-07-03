@@ -1,0 +1,41 @@
+{
+  "id": "funding-readiness-compliance-copy",
+  "version": "1.0.0",
+  "visibility": "public_runtime_browser_safe",
+  "disclaimer": "This scorecard is for educational and pre-screening guidance only. It is not a lending decision, commitment to lend, or funding offer. Actual options depend on documentation, lender criteria, business performance, credit profile, bank activity, and other review factors.",
+  "consent": "I agree to be contacted about funding options and understand this score is not a lending decision, funding offer, or commitment to lend.",
+  "safeLabels": {
+    "score": "Funding Readiness Score",
+    "paths": "Potential Funding Paths",
+    "review": "Funding Strategy Review",
+    "documents": "Documents You May Need",
+    "blockers": "Potential Blockers",
+    "nextSteps": "Recommended Next Steps"
+  },
+  "preferredPhrases": [
+    "funding readiness",
+    "potential funding path",
+    "may be a fit for review",
+    "based on your answers",
+    "recommended next step",
+    "subject to documentation and review",
+    "funding strategy review",
+    "manual review recommended"
+  ],
+  "restrictedConcepts": [
+    "certainty around outcomes",
+    "lending-decision language",
+    "universal access claims",
+    "rate promises",
+    "timeline promises that sound final",
+    "credit outcome promises"
+  ],
+  "ctaLabels": {
+    "primary": "Get My Funding Score",
+    "secondary": "Speak With a Funding Strategist",
+    "resultHot": "Request a Funding Strategy Review",
+    "resultWarm": "Review My Funding Paths",
+    "resultNurture": "Get a Prep Checklist",
+    "resultEducation": "Build My Funding Readiness"
+  }
+}

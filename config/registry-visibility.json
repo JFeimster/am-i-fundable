@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "registry-visibility",
+  "version": "1.0.0",
+  "project": "funding-readiness-scorecard",
+  "coreRule": "Frontend code may load only files marked public_runtime_browser_safe or filtered public output. Internal routing, provider rules, partner economics, and real lead records remain server-side or private.",
+  "classes": {
+    "public_runtime_browser_safe": {
+      "browserExposure": "allowed",
+      "allowedContent": [
+        "white-labeled funding lane labels",
+        "public educational copy",
+        "safe result copy",
+        "FAQ content",
+        "document checklist labels",
+        "consent copy",
+        "non-sensitive page metadata"
+      ],
+      "blockedContent": [
+        "private provider routing rules",
+        "commission data",
+        "affiliate portal links",
+        "private apply links",
+        "partner contact details",
+        "borrower records"
+      ]
+    },
+    "public_build_time_only": {
+      "browserExposure": "rendered_output_only",
+      "allowedContent": [
+        "page sections",
+        "SEO metadata",
+        "route metadata",
+        "tool catalog metadata"
+      ],
+      "blockedContent": [
+        "source import notes",
+        "private partner details",
+        "unfiltered registry exports"
+      ]
+    },
+    "server_side_internal": {
+      "browserExposure": "blocked",
+      "allowedContent": [
+        "product thresholds",
+        "provider fit rules",
+        "lead priority rules",
+        "CRM routing",
+        "manual review rules",
+        "webhook target configuration"
+      ],
+      "blockedContent": [
+        "direct browser import",
+        "static public endpoint",
+        "search-indexable export"
+      ]
+    },
+    "restricted_internal_no_repo": {
+      "browserExposure": "blocked",
+      "allowedContent": [
+        "production lead records",
+        "partner PII",
+        "borrower PII",
+        "private notes",
+        "credentials"
+      ],
+      "blockedContent": [
+        "public repo storage",
+        "demo seed data",
+        "screenshots with real PII"
+      ]
+    }
+  },
+  "pathDefaults": [
+    {
+      "path": "/data/*.public.json",
+      "visibilityClass": "public_runtime_browser_safe"
+    },
+    {
+      "path": "/config/*.json",
+      "visibilityClass": "public_build_time_only"
+    },
+    {
+      "path": "/internal/**",
+      "visibilityClass": "server_side_internal"
+    },
+    {
+      "path": "/api/**",
+      "visibilityClass": "server_side_internal"
+    },
+    {
+      "path": "/workflows/**",
+      "visibilityClass": "server_side_internal"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "funding-readiness-registry-manifest",
+  "version": "1.0.0",
+  "project": "funding-readiness-scorecard",
+  "registries": [
+    {
+      "id": "compliance-copy",
+      "file": "/data/compliance-copy.public.json",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Disclaimers, consent copy, safe labels, and result language rules."
+    },
+    {
+      "id": "registry-visibility",
+      "file": "/config/registry-visibility.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Visibility classes and public/internal data boundaries."
+    },
+    {
+      "id": "scorecard-config",
+      "file": "/config/funding-readiness-scorecard.config.json",
+      "visibility": "public_runtime_browser_safe",
+      "purpose": "Shared score weights, tiers, questions, and public labels."
+    },
+    {
+      "id": "lead-scoring-model",
+      "file": "/internal/scoring/lead-scoring-model.registry.json",
+      "visibility": "server_side_internal",
+      "purpose": "Internal lead scoring rules and CRM priority model."
+    },
+    {
+      "id": "borrower-qualification-stack",
+      "file": "/config/borrower-qualification-stack.registry.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Capture, score, reason, and route blueprint."
+    },
+    {
+      "id": "scorecard-data-contract",
+      "file": "/schemas/scorecard-data-contract.schema.json",
+      "visibility": "public_build_time_only",
+      "purpose": "Shared data contract for widget, landing page, API, and GPT actions."
+    }
+  ],
+  "requiredPublicFiles": [
+    "/data/compliance-copy.public.json",
+    "/config/funding-readiness-scorecard.config.json"
+  ],
+  "requiredInternalFiles": [
+    "/internal/scoring/lead-scoring-model.registry.json"
+  ]
+}
