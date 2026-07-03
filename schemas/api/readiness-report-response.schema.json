@@ -1,0 +1,572 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://am-i-fundable.vercel.app/schemas/api/readiness-report-response.schema.json",
+  "title": "Readiness Report Response",
+  "description": "Public-safe readiness report response. The report is educational and not a funding offer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "status",
+    "report"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "report_generated",
+        "invalid_answers"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "generatedAt",
+        "result",
+        "sections",
+        "disclaimer"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "$ref": "#/$defs/isoDateTime"
+        },
+        "applicant": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "businessName": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        },
+        "result": {
+          "$ref": "#/$defs/publicScoreResult"
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "isoDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scoreTier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "highly_fundable",
+            "fundable_review",
+            "selective_programs",
+            "not_ready_fixable",
+            "unknown"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "range": {
+          "type": "string"
+        },
+        "leadPriority": {
+          "type": "string",
+          "enum": [
+            "hot",
+            "warm",
+            "nurture",
+            "education",
+            "manual_review"
+          ]
+        }
+      }
+    },
+    "cta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        }
+      }
+    },
+    "scorecardAnswers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "businessPersona",
+        "monthlyRevenue",
+        "timeInBusinessMonths",
+        "creditScore",
+        "bankStatus",
+        "businessStructure",
+        "fundingPurpose",
+        "desiredFundingAmount",
+        "redFlags"
+      ],
+      "properties": {
+        "businessPersona": {
+          "type": "string",
+          "examples": [
+            "local_service_business",
+            "ecommerce_seller",
+            "real_estate_investor",
+            "equipment_heavy",
+            "not_sure"
+          ]
+        },
+        "monthlyRevenue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeInBusinessMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "creditScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 850
+        },
+        "bankStatus": {
+          "type": "string",
+          "enum": [
+            "none",
+            "low_inconsistent",
+            "consistent",
+            "strong_clean",
+            "recent_nsfs"
+          ]
+        },
+        "businessStructure": {
+          "type": "string",
+          "enum": [
+            "none",
+            "sole_prop",
+            "entity_no_bank",
+            "entity_with_bank",
+            "entity_bank_ein_clean"
+          ]
+        },
+        "fundingPurpose": {
+          "type": "string",
+          "enum": [
+            "working_capital",
+            "inventory_materials",
+            "growth_marketing",
+            "equipment_vehicle",
+            "real_estate",
+            "ecommerce_growth",
+            "startup_launch",
+            "debt_refi",
+            "business_credit",
+            "not_sure"
+          ]
+        },
+        "desiredFundingAmount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "redFlags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "none",
+              "open_bankruptcy",
+              "tax_lien",
+              "recent_missed_payments",
+              "recent_nsfs",
+              "new_bank_account",
+              "existing_daily_advance",
+              "marketplace_suspended",
+              "no_current_revenue"
+            ]
+          }
+        }
+      }
+    },
+    "applicant": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "businessName": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "state": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 40
+        },
+        "consent": {
+          "type": "boolean"
+        },
+        "contactConsent": {
+          "type": "boolean"
+        }
+      }
+    },
+    "publicFundingPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "familyId",
+        "publicLabel",
+        "summary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "familyId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "publicLabel": {
+          "type": "string"
+        },
+        "fitScoreBand": {
+          "type": "string",
+          "enum": [
+            "strong_review_signal",
+            "possible_review_signal",
+            "needs_context",
+            "prep_first"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "bestFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "watchOutFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commonDocuments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nextSteps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "typicalSpeedNote": {
+          "type": "string"
+        },
+        "primaryCta": {
+          "$ref": "#/$defs/cta"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "documentChecklistItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "appliesTo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "type",
+        "summary"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "checklist",
+            "guide",
+            "nurture",
+            "purpose-guide",
+            "example",
+            "report",
+            "faq",
+            "tool"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tierIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "publicScoreResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "tier",
+        "leadPriority",
+        "primaryFundingFamily",
+        "manualReviewRecommended"
+      ],
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "tier": {
+          "$ref": "#/$defs/scoreTier"
+        },
+        "leadPriority": {
+          "type": "string",
+          "enum": [
+            "hot",
+            "warm",
+            "nurture",
+            "education",
+            "manual_review"
+          ]
+        },
+        "primaryFundingFamily": {
+          "type": "string"
+        },
+        "secondaryFundingFamilies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendationCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "summary"
+            ],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "nextStep": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nextSteps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendedDocuments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "manualReviewRecommended": {
+          "type": "boolean"
+        },
+        "cta": {
+          "$ref": "#/$defs/cta"
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      }
+    },
+    "apiError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
