@@ -1,0 +1,853 @@
+openapi: 3.1.0
+info:
+  title: Am I Fundable Public Funding Paths API
+  version: 1.0.0
+  description: >-
+    Public-safe contract for listing funding path categories and matching a scorecard profile to funding path categories.
+    This public action bundle provides funding-readiness guidance only. It must not
+    return approvals, offers, underwriting decisions, provider-specific routing, apply
+    links, affiliate URLs, commissions, private contacts, or guarantees of funding.
+servers:
+  - url: https://am-i-fundable.vercel.app
+    description: Production
+tags:
+  - name: Public Funding Paths
+    description: Public-safe funding category data and matching.
+paths:
+  /api/public/funding-paths:
+    get:
+      operationId: listPublicFundingPaths
+      tags:
+        - Public Site Data
+      summary: List public-safe funding path categories
+      description: Returns generic funding path categories without provider-specific or private routing data.
+      parameters:
+        - in: query
+          name: familyId
+          schema:
+            type: string
+          description: Optional public funding family ID filter.
+        - in: query
+          name: search
+          schema:
+            type: string
+          description: Optional public text search across funding path labels and summaries.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 25
+          description: Maximum number of funding path records to return.
+      responses:
+        '200':
+          description: Public-safe funding paths.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundingPathsListResponse'
+        '500':
+          description: Public boundary or server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/match/funding-paths:
+    post:
+      operationId: matchFundingPaths
+      tags:
+        - Scorecard
+      summary: Match public-safe funding path categories
+      description: Recomputes readiness and returns public-safe funding path categories from server-side matching logic.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+                - answers
+              properties:
+                answers:
+                  $ref: '#/components/schemas/ScorecardAnswers'
+            examples:
+              pathMatch:
+                value:
+                  answers:
+                    businessPersona: ecommerce_seller
+                    monthlyRevenue: 45000
+                    timeInBusinessMonths: 14
+                    creditScore: 640
+                    bankStatus: consistent
+                    businessStructure: entity_bank_ein_clean
+                    fundingPurpose: ecommerce_growth
+                    desiredFundingAmount: 75000
+                    redFlags:
+                      - none
+      responses:
+        '200':
+          description: Public-safe funding path recommendations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundingPathMatchResponse'
+        '422':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ApiError:
+      type: object
+      additionalProperties: false
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: validation_error
+        message:
+          type: string
+          example: Request validation failed.
+        requestId:
+          type: string
+          example: err_0000000000000
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - error
+      properties:
+        ok:
+          type: boolean
+          const: false
+        error:
+          $ref: '#/components/schemas/ApiError'
+        disclaimer:
+          type: string
+          example: This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding.
+
+    Applicant:
+      type: object
+      additionalProperties: false
+      properties:
+        firstName:
+          type: string
+          maxLength: 120
+          example: Demo
+        lastName:
+          type: string
+          maxLength: 120
+          example: Owner
+        name:
+          type: string
+          maxLength: 180
+          example: Demo Owner
+        businessName:
+          type: string
+          maxLength: 180
+          example: Demo Business LLC
+        email:
+          type: string
+          format: email
+          example: demo@example.com
+        phone:
+          type: string
+          maxLength: 40
+          example: '5555555555'
+        state:
+          type: string
+          minLength: 2
+          maxLength: 40
+          example: DC
+        consent:
+          type: boolean
+          example: true
+        contactConsent:
+          type: boolean
+          example: true
+
+    ScorecardAnswers:
+      type: object
+      additionalProperties: false
+      required:
+        - businessPersona
+        - monthlyRevenue
+        - timeInBusinessMonths
+        - creditScore
+        - bankStatus
+        - businessStructure
+        - fundingPurpose
+        - desiredFundingAmount
+        - redFlags
+      properties:
+        businessPersona:
+          type: string
+          example: local_service_business
+          description: Public-safe business segment/persona selected in the scorecard.
+        monthlyRevenue:
+          type: number
+          minimum: 0
+          example: 25000
+        timeInBusinessMonths:
+          type: number
+          minimum: 0
+          example: 18
+        creditScore:
+          type: number
+          minimum: 0
+          maximum: 850
+          example: 665
+        bankStatus:
+          type: string
+          enum:
+            - none
+            - low_inconsistent
+            - consistent
+            - strong_clean
+            - recent_nsfs
+          example: consistent
+        businessStructure:
+          type: string
+          enum:
+            - none
+            - sole_prop
+            - entity_no_bank
+            - entity_with_bank
+            - entity_bank_ein_clean
+          example: entity_with_bank
+        fundingPurpose:
+          type: string
+          enum:
+            - working_capital
+            - inventory_materials
+            - growth_marketing
+            - equipment_vehicle
+            - real_estate
+            - ecommerce_growth
+            - startup_launch
+            - debt_refi
+            - business_credit
+            - not_sure
+          example: working_capital
+        desiredFundingAmount:
+          type: number
+          minimum: 0
+          example: 50000
+        redFlags:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            enum:
+              - none
+              - open_bankruptcy
+              - tax_lien
+              - recent_missed_payments
+              - recent_nsfs
+              - new_bank_account
+              - existing_daily_advance
+              - marketplace_suspended
+              - no_current_revenue
+          example:
+            - none
+
+    Cta:
+      type: object
+      additionalProperties: false
+      properties:
+        label:
+          type: string
+          example: Request Review
+        url:
+          type: string
+          example: '#strategy-review'
+        href:
+          type: string
+          example: /scorecard.html
+
+    ScoreTier:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - label
+      properties:
+        id:
+          type: string
+          enum:
+            - highly_fundable
+            - fundable_review
+            - selective_programs
+            - not_ready_fixable
+            - unknown
+          example: fundable_review
+        label:
+          type: string
+          example: Fundable, But Needs Review
+        summary:
+          type: string
+          example: Your answers show possible readiness, but a human review should confirm the best path.
+        range:
+          type: string
+          example: 65-79
+        leadPriority:
+          type: string
+          enum:
+            - hot
+            - warm
+            - nurture
+            - education
+            - manual_review
+          example: warm
+
+    PublicScoreResult:
+      type: object
+      additionalProperties: false
+      required:
+        - score
+        - tier
+        - leadPriority
+        - primaryFundingFamily
+        - manualReviewRecommended
+      properties:
+        score:
+          type: number
+          minimum: 0
+          maximum: 100
+          example: 74
+        tier:
+          $ref: '#/components/schemas/ScoreTier'
+        leadPriority:
+          type: string
+          enum:
+            - hot
+            - warm
+            - nurture
+            - education
+            - manual_review
+          example: warm
+        primaryFundingFamily:
+          type: string
+          example: Fast Working Capital
+        secondaryFundingFamilies:
+          type: array
+          items:
+            type: string
+          example:
+            - Revenue-Based Funding
+            - Business Line of Credit
+        recommendationCards:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              label:
+                type: string
+                example: Fast Working Capital
+              summary:
+                type: string
+                example: Potential path for operators with recurring deposits and short-term cash-flow needs.
+              nextStep:
+                type: string
+                example: Prepare recent business bank statements.
+        strengths:
+          type: array
+          items:
+            type: string
+          example:
+            - Meaningful monthly revenue signal
+        risks:
+          type: array
+          items:
+            type: string
+          example:
+            - Human review is recommended before provider-specific direction is shared.
+        nextSteps:
+          type: array
+          items:
+            type: string
+          example:
+            - Prepare recent bank statements
+            - Confirm funding purpose
+        recommendedDocuments:
+          type: array
+          items:
+            type: string
+          example:
+            - Business bank statements
+            - Business information
+        manualReviewRecommended:
+          type: boolean
+          example: true
+        cta:
+          $ref: '#/components/schemas/Cta'
+        disclaimer:
+          type: string
+          example: This guidance is educational and review-oriented. It is not an approval, offer, underwriting decision, or guarantee of funding.
+
+    PublicFundingPath:
+      type: object
+      additionalProperties: false
+      required:
+        - familyId
+        - publicLabel
+        - summary
+      properties:
+        id:
+          type: string
+          example: fast-working-capital
+        familyId:
+          type: string
+          example: fast-working-capital
+        label:
+          type: string
+          example: Fast Working Capital
+        publicLabel:
+          type: string
+          example: Fast Working Capital
+        fitScoreBand:
+          type: string
+          enum:
+            - strong_review_signal
+            - possible_review_signal
+            - needs_context
+            - prep_first
+          example: possible_review_signal
+        summary:
+          type: string
+          example: Potential path for operators with recurring business deposits and short-term cash-flow needs.
+        bestFor:
+          type: array
+          items:
+            type: string
+          example:
+            - Recent business bank statements
+            - Clear funding purpose
+        watchOutFor:
+          type: array
+          items:
+            type: string
+          example:
+            - Actual options depend on review, documentation, lender criteria, business performance, and credit profile.
+        commonDocuments:
+          type: array
+          items:
+            type: string
+          example:
+            - Recent business bank statements
+            - Funding purpose notes
+        nextSteps:
+          type: array
+          items:
+            type: string
+          example:
+            - Prepare recent bank statements
+            - Review next steps with a funding strategist
+        typicalSpeedNote:
+          type: string
+          example: Fast review possible when documents are ready
+        primaryCta:
+          $ref: '#/components/schemas/Cta'
+        reason:
+          type: string
+          example: answers_need_context
+
+    DocumentChecklistItem:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - label
+      properties:
+        id:
+          type: string
+          example: bank-statements
+        label:
+          type: string
+          example: Recent business bank statements
+        detail:
+          type: string
+          example: Prepare the most recent 3 to 6 months when available.
+        required:
+          type: boolean
+          example: true
+        appliesTo:
+          type: array
+          items:
+            type: string
+          example:
+            - working_capital
+
+    Resource:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - title
+        - type
+        - summary
+      properties:
+        id:
+          type: string
+          example: document-prep-checklist
+        title:
+          type: string
+          example: Funding Document Prep Checklist
+        type:
+          type: string
+          enum:
+            - checklist
+            - guide
+            - nurture
+            - purpose-guide
+            - example
+            - report
+            - faq
+            - tool
+          example: checklist
+        path:
+          type: string
+          example: /documents.html
+        summary:
+          type: string
+          example: Organize bank statements, business details, and funding-purpose notes before requesting review.
+        audience:
+          type: array
+          items:
+            type: string
+          example:
+            - applicant
+            - broker
+        tierIds:
+          type: array
+          items:
+            type: string
+          example:
+            - fundable_review
+            - selective_programs
+
+
+    FundingPathsListResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - count
+        - entries
+      properties:
+        ok:
+          type: boolean
+        registryId:
+          type: string
+        version:
+          type: string
+        count:
+          type: integer
+          minimum: 0
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicFundingPath'
+        disclaimer:
+          type: string
+
+    DocumentChecklistResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - familyId
+        - title
+        - items
+      properties:
+        ok:
+          type: boolean
+        familyId:
+          type: string
+        fundingPurpose:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentChecklistItem'
+        nextStep:
+          type: string
+        disclaimer:
+          type: string
+
+    ResultTierResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - tier
+        - allTiers
+      properties:
+        ok:
+          type: boolean
+        tier:
+          $ref: '#/components/schemas/ScoreTier'
+        allTiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoreTier'
+        disclaimer:
+          type: string
+
+    ResourceRecommendationRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        tierId:
+          type: string
+          enum:
+            - highly_fundable
+            - fundable_review
+            - selective_programs
+            - not_ready_fixable
+        fundingPurpose:
+          type: string
+        manualReviewRecommended:
+          type: boolean
+        answers:
+          $ref: '#/components/schemas/ScorecardAnswers'
+        result:
+          type: object
+          additionalProperties: true
+
+    ResourceRecommendationResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - count
+        - resources
+      properties:
+        ok:
+          type: boolean
+        tierId:
+          type: string
+        fundingPurpose:
+          type: string
+        count:
+          type: integer
+          minimum: 0
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        disclaimer:
+          type: string
+
+    ReviewRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - applicant
+        - answers
+      properties:
+        source:
+          type: string
+          default: Funding Readiness Scorecard
+        requestedReviewType:
+          type: string
+          enum:
+            - funding_path_review
+            - document_review
+            - manual_strategy_review
+          default: funding_path_review
+        applicant:
+          $ref: '#/components/schemas/Applicant'
+        answers:
+          $ref: '#/components/schemas/ScorecardAnswers'
+        notes:
+          type: string
+          maxLength: 1000
+
+    ReviewResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - reviewId
+        - status
+        - message
+      properties:
+        ok:
+          type: boolean
+        reviewId:
+          type: string
+        status:
+          type: string
+          enum:
+            - queued_for_manual_review
+            - queued_for_strategy_review
+            - needs_answer_review
+            - received
+        applicant:
+          type: object
+          additionalProperties: false
+          properties:
+            businessName:
+              type: string
+            state:
+              type: string
+        result:
+          $ref: '#/components/schemas/PublicScoreResult'
+        nextStep:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        disclaimer:
+          type: string
+
+    ReadinessReportRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - answers
+      properties:
+        applicant:
+          $ref: '#/components/schemas/Applicant'
+        answers:
+          $ref: '#/components/schemas/ScorecardAnswers'
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        format:
+          type: string
+          enum:
+            - json
+            - markdown
+            - both
+          default: both
+
+    ReadinessReportResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - status
+        - report
+      properties:
+        ok:
+          type: boolean
+        status:
+          type: string
+          enum:
+            - report_generated
+            - invalid_answers
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        report:
+          type: object
+          additionalProperties: false
+          required:
+            - title
+            - generatedAt
+            - result
+            - sections
+            - disclaimer
+          properties:
+            title:
+              type: string
+            generatedAt:
+              type: string
+              format: date-time
+            applicant:
+              type: object
+              additionalProperties: false
+              properties:
+                businessName:
+                  type: string
+                state:
+                  type: string
+            result:
+              $ref: '#/components/schemas/PublicScoreResult'
+            sections:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                required:
+                  - id
+                  - title
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  body:
+                    type: array
+                    items:
+                      type: string
+                  items:
+                    type: array
+                    items:
+                      type: string
+            markdown:
+              type: string
+            disclaimer:
+              type: string
+
+    FundingPathMatchResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - ok
+        - status
+        - recommendations
+      properties:
+        ok:
+          type: boolean
+        status:
+          type: string
+          example: funding_paths_generated
+        score:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+          maximum: 100
+        tier:
+          oneOf:
+            - $ref: '#/components/schemas/ScoreTier'
+            - type: 'null'
+        humanReviewRequired:
+          type: boolean
+        recommendations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicFundingPath'
+        nextStep:
+          type: string
+        message:
+          type: string

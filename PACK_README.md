@@ -1,32 +1,34 @@
-# Batch API-3 — JSON Schemas
+# Batch API-4 — OpenAPI Actions
 
 Generated for: Am I Fundable / Funding Readiness Scorecard
 
 ## Created files
 
-- `/schemas/api/scorecard-submit-request.schema.json`
-- `/schemas/api/scorecard-submit-response.schema.json`
-- `/schemas/api/review-request.schema.json`
-- `/schemas/api/review-response.schema.json`
-- `/schemas/api/readiness-report-request.schema.json`
-- `/schemas/api/readiness-report-response.schema.json`
-- `/schemas/api/funding-paths-response.schema.json`
-- `/schemas/api/document-checklist-response.schema.json`
-- `/schemas/api/resource-recommendation-request.schema.json`
-- `/schemas/api/resource-recommendation-response.schema.json`
-- `/schemas/api/error-response.schema.json`
-- `/schemas/api/health-response.schema.json`
+- `/schemas/openapi/am-i-fundable.public-actions.openapi.yaml`
+- `/schemas/openapi/public-scorecard.openapi.yaml`
+- `/schemas/openapi/public-funding-paths.openapi.yaml`
+- `/schemas/openapi/document-checklist.openapi.yaml`
+- `/schemas/openapi/resource-recommendations.openapi.yaml`
+- `/schemas/openapi/review-request.openapi.yaml`
+- `/schemas/openapi/readiness-report.openapi.yaml`
 
 ## Design notes
 
-- Schemas use JSON Schema draft 2020-12.
-- Schemas are tailored to the public-safe API route pack.
-- Public response schemas do not allow provider names, apply URLs, affiliate URLs, commission data, private contacts, or routing notes.
-- Scorecard request schemas require the same core answer fields used by the scoring engine.
-- Review and report schemas use readiness language only.
+- Uses OpenAPI 3.1.0.
+- Public action schemas only.
+- No private provider names, apply URLs, affiliate URLs, commission data, private contacts, underwriting notes, or routing secrets.
+- Descriptions explicitly frame outputs as funding readiness guidance, not approval/offer/underwriting decisions.
+- The combined `am-i-fundable.public-actions.openapi.yaml` is the most useful Custom GPT action import file.
+- Individual OpenAPI files are included for smaller tool/action-specific imports.
+
+## Suggested GPT Action import order
+
+1. Use `/schemas/openapi/am-i-fundable.public-actions.openapi.yaml` for one consolidated action set.
+2. Use individual files only if you want separate GPTs for scorecard, documents, resources, or reports.
 
 ## Validation
 
-- JSON parse validation: passed.
-- Required schema metadata check: passed.
+- YAML parse validation: passed.
+- OpenAPI metadata check: passed.
 - Restricted outcome-language scan: passed.
+- No `vercel.json` changes included.
