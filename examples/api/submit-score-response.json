@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "schema_version": "2026-07-demo",
+  "submission_id": "demo_submission_7f42",
+  "result": {
+    "score": 78,
+    "tier": "fundable_review",
+    "tier_label": "Review-Ready",
+    "tier_summary": "Based on the demo answers, this business appears ready for a funding strategy review and may fit one or more funding paths after documentation is reviewed.",
+    "is_approval": false,
+    "is_offer": false,
+    "is_final_eligibility_decision": false
+  },
+  "recommended_next_step": {
+    "id": "request_human_review",
+    "label": "Request a funding readiness review",
+    "description": "Review recent bank statements, revenue consistency, funding amount, and intended use of funds before matching to a path."
+  },
+  "potential_funding_paths": [
+    {
+      "id": "working_capital",
+      "label": "Working Capital",
+      "fit_reason": "The demo profile shows operating history and consistent deposits that may support a working-capital conversation."
+    },
+    {
+      "id": "inventory_growth",
+      "label": "Inventory or Growth Capital",
+      "fit_reason": "The stated use of funds is tied to inventory, which can be reviewed against revenue and cash-flow timing."
+    }
+  ],
+  "potential_blockers": [
+    "Requested amount should be checked against recent revenue and bank activity.",
+    "Documentation quality may determine whether the next step is fast review or prep-first."
+  ],
+  "recommended_documents": [
+    "Most recent 3-6 months of business bank statements",
+    "Government-issued ID for owner review",
+    "Business entity and EIN details",
+    "Basic profit-and-loss or sales summary",
+    "Inventory quote, invoice, or purchase plan if available"
+  ],
+  "safe_disclaimer": "This response is for funding readiness guidance only. It is not an approval, offer, commitment to lend, underwriting decision, or guarantee of funding."
+}

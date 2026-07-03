@@ -1,0 +1,24 @@
+{
+  "source": "demo_partner_match_action",
+  "schema_version": "2026-07-demo",
+  "result_context": {
+    "score": 72,
+    "tier": "fundable_review",
+    "business_persona": "ecommerce_seller",
+    "funding_purpose": "ecommerce",
+    "desired_funding_amount_range": "25000_75000",
+    "monthly_revenue_range": "20000_49999",
+    "time_in_business_months": 18,
+    "bank_status": "consistent_monthly_deposits",
+    "red_flags": [
+      "new_bank_account"
+    ]
+  },
+  "matching_preferences": {
+    "return_public_funding_families_only": true,
+    "include_provider_names": false,
+    "include_provider_ids": false,
+    "include_apply_urls": false,
+    "include_commission_data": false
+  }
+}

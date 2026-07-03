@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "schema_version": "2026-07-demo",
+  "match_mode": "public_safe_funding_family_match",
+  "matches": [
+    {
+      "rank": 1,
+      "funding_family_id": "ecommerce_seller_capital",
+      "label": "E-commerce Seller Capital",
+      "public_summary": "May fit sellers with marketplace or online-store revenue that can be reviewed against deposits, platform sales, and inventory needs.",
+      "why_it_may_fit": [
+        "The stated use of funds is tied to e-commerce growth.",
+        "The demo profile has operating history and recent revenue activity.",
+        "A review can compare sales records with bank activity."
+      ],
+      "review_items": [
+        "Marketplace or payment processor statements",
+        "Recent bank statements",
+        "Inventory or growth plan",
+        "Account standing and chargeback/hold history if relevant"
+      ]
+    },
+    {
+      "rank": 2,
+      "funding_family_id": "working_capital",
+      "label": "Working Capital",
+      "public_summary": "May fit businesses with active revenue and short-cycle cash needs, subject to file review and documentation.",
+      "why_it_may_fit": [
+        "The business shows recent revenue activity.",
+        "Funding purpose may overlap with inventory, payroll, or short-term operating needs."
+      ],
+      "review_items": [
+        "3-6 months of business bank statements",
+        "Revenue trend notes",
+        "Current obligations summary"
+      ]
+    }
+  ],
+  "not_returned": [
+    "provider_names",
+    "provider_ids",
+    "affiliate_urls",
+    "apply_urls",
+    "commission_data",
+    "private_notes",
+    "underwriting_notes"
+  ],
+  "safe_disclaimer": "These are public-safe funding family matches based on the supplied demo data. This is not an approval, offer, final eligibility decision, underwriting decision, or guarantee of funding."
+}
