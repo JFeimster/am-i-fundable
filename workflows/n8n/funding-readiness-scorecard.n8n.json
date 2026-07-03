@@ -13,14 +13,16 @@
       "position": [
         250,
         300
-      ]
+      ],
+      "notesInFlow": true,
+      "notes": "Expected payload from /api/submit-score.js is nested under body.scoreResult. Use N8N_SCORECARD_WEBHOOK_URL for this forwarding path."
     },
     {
       "parameters": {
         "conditions": {
           "boolean": [
             {
-              "value1": "={{$json.body.fundingReadinessScore >= 70}}",
+              "value1": "={{Number($json.body && $json.body.scoreResult ? $json.body.scoreResult.score : ($json.body && $json.body.fundingReadinessScore ? $json.body.fundingReadinessScore : $json.fundingReadinessScore || 0)) >= 70}}",
               "value2": true
             }
           ]
@@ -32,7 +34,9 @@
       "position": [
         450,
         300
-      ]
+      ],
+      "notesInFlow": true,
+      "notes": "Routes on body.scoreResult.score when the payload comes from the existing submit-score API, with fallback support for flat fundingReadinessScore payloads."
     },
     {
       "parameters": {},
@@ -44,7 +48,7 @@
         200
       ],
       "notesInFlow": true,
-      "notes": "Replace with CRM Node (e.g. HubSpot)"
+      "notes": "Replace with CRM node after mapping applicant fields and scoreResult fields. Keep human review before outreach."
     },
     {
       "parameters": {},
@@ -56,7 +60,7 @@
         400
       ],
       "notesInFlow": true,
-      "notes": "Replace with Email Node"
+      "notes": "Replace with email or nurture node using compliance-safe prep content."
     }
   ],
   "connections": {
