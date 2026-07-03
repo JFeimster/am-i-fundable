@@ -1,20 +1,134 @@
 {
-  "id": "manual-review-rules",
-  "version": "1.0.0",
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "manual-review-rules-v1",
+  "name": "Manual Review Rules",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
   "visibility": "server_side_internal",
-  "triggerManualReviewWhen": [
-    "score < 65",
-    "major red flag selected",
-    "requested amount appears high relative to monthly revenue",
-    "funding purpose is unclear",
-    "real estate, equipment, or ecommerce details are incomplete",
-    "applicant asks for debt consolidation/refinance",
-    "data is contradictory or missing"
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Define conditions that should pause automated routing and request human review before any next-step recommendation.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
   ],
-  "reviewerGuidance": [
-    "Use the score as a triage signal only.",
-    "Do not tell the applicant they are approved or guaranteed funding.",
-    "Verify documents before naming provider-specific next steps.",
-    "Route publicly by funding path; route internally by provider/product fit."
+  "review_triggers": [
+    {
+      "id": "review-requested-amount-mismatch",
+      "severity": "medium",
+      "enabled": true,
+      "trigger": "desired_amount_exceeds_profile_band",
+      "conditions": {
+        "desired_amount_gt_monthly_revenue_multiple": 5,
+        "score_below": 75
+      },
+      "review_reason": "Requested amount may not match current readiness signals.",
+      "human_reviewer_questions": [
+        "Is the stated funding amount required immediately or is there a staged amount that fits better?",
+        "Does the applicant have collateral, contracts, invoices, purchase orders, or recurring revenue not captured by the scorecard?",
+        "Are there documents that support a stronger profile than the answers suggest?"
+      ],
+      "safe_response_guidance": "Explain that the requested amount may need review and documentation before a potential path can be discussed."
+    },
+    {
+      "id": "review-new-bank-account",
+      "severity": "medium",
+      "enabled": true,
+      "trigger": "business_bank_account_recently_opened",
+      "conditions": {
+        "red_flags_any_of": [
+          "new_bank_account"
+        ],
+        "months_of_bank_history_lt": 3
+      },
+      "review_reason": "Limited bank history may reduce confidence in revenue and cash-flow pattern.",
+      "human_reviewer_questions": [
+        "Was revenue previously deposited into another business or personal account?",
+        "Can the applicant provide platform statements, processor statements, invoices, or prior account history?",
+        "Is the new account part of a business setup cleanup?"
+      ],
+      "safe_response_guidance": "Position document collection as readiness prep, not as a funding decision."
+    },
+    {
+      "id": "review-existing-advance-stack",
+      "severity": "high",
+      "enabled": true,
+      "trigger": "existing_daily_payment_obligation",
+      "conditions": {
+        "red_flags_any_of": [
+          "existing_mca",
+          "high_daily_payment_load"
+        ]
+      },
+      "review_reason": "Existing daily or weekly payment obligations may affect cash-flow readiness.",
+      "human_reviewer_questions": [
+        "What are the current daily or weekly payment amounts?",
+        "How many active obligations exist?",
+        "Does the applicant seek new working capital, consolidation education, or cash-flow cleanup?"
+      ],
+      "safe_response_guidance": "Avoid promising consolidation or lower payments. Recommend human review of cash-flow burden."
+    },
+    {
+      "id": "review-no-current-revenue",
+      "severity": "medium",
+      "enabled": true,
+      "trigger": "no_current_revenue",
+      "conditions": {
+        "red_flags_any_of": [
+          "no_revenue"
+        ],
+        "monthly_revenue_max": 2999
+      },
+      "review_reason": "No current revenue usually shifts the conversation toward startup, credit leverage, or prep-first education.",
+      "human_reviewer_questions": [
+        "Is the business pre-revenue or temporarily inactive?",
+        "Does the applicant have personal credit strength, contracts, collateral, or other support?",
+        "Would a business setup or document prep track be more appropriate now?"
+      ],
+      "safe_response_guidance": "Use readiness language and explain that funding paths may be limited until revenue or setup improves."
+    },
+    {
+      "id": "review-severe-risk-signal",
+      "severity": "critical",
+      "enabled": true,
+      "trigger": "severe_red_flag",
+      "conditions": {
+        "red_flags_any_of": [
+          "open_bankruptcy",
+          "identity_mismatch",
+          "active_fraud_concern",
+          "active_legal_issue"
+        ]
+      },
+      "review_reason": "Severe caution signals require human review and careful boundaries.",
+      "human_reviewer_questions": [
+        "Is this a data-entry mistake or a current unresolved issue?",
+        "Should the applicant be directed to qualified legal, tax, or credit professionals?",
+        "Can a safe educational response be provided without advising on the issue?"
+      ],
+      "safe_response_guidance": "Do not provide legal, tax, credit repair, or underwriting guidance. Offer educational readiness next steps only."
+    }
   ]
 }

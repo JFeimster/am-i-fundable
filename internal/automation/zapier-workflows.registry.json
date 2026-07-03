@@ -1,0 +1,215 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "zapier-workflows-v1",
+  "name": "Zapier Workflows Registry",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Internal registry of planned Zapier workflow automations for the Funding Readiness Scorecard.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "workflows": [
+    {
+      "id": "zapier-scorecard-to-crm",
+      "label": "Scorecard Submission to CRM",
+      "platform": "Zapier",
+      "status": "planned_demo_safe",
+      "visibility": "server_side_internal",
+      "trigger_events": [
+        "scorecard.completed"
+      ],
+      "primary_use_case": "Create or update an internal lead record after a scorecard submission.",
+      "inputs": [
+        "lead_ref",
+        "score",
+        "tier_key",
+        "funding_purpose",
+        "persona",
+        "red_flags"
+      ],
+      "actions": [
+        "normalize_payload",
+        "apply_lead_tags",
+        "set_crm_stage",
+        "create_followup_task"
+      ],
+      "outputs": [
+        "crm_record_ref",
+        "stage_key",
+        "applied_tags",
+        "task_refs"
+      ],
+      "human_review_required": false,
+      "public_boundary": "Never expose private route rules, provider-specific data, credentials, payout terms, or borrower PII in public responses.",
+      "implementation_notes": [
+        "Use environment variables or platform-protected variables at implementation time; do not commit credentials.",
+        "Use synthetic test payloads until production integration is authorized.",
+        "Keep browser-facing widgets pointed only at public-safe API endpoints."
+      ]
+    },
+    {
+      "id": "zapier-manual-review-queue",
+      "label": "Manual Review Queue Assignment",
+      "platform": "Zapier",
+      "status": "planned_demo_safe",
+      "visibility": "server_side_internal",
+      "trigger_events": [
+        "review.requested",
+        "risk_review.required"
+      ],
+      "primary_use_case": "Assign review-required leads to the correct internal queue.",
+      "inputs": [
+        "lead_ref",
+        "score",
+        "tier_key",
+        "review_reason",
+        "risk_signals"
+      ],
+      "actions": [
+        "evaluate_review_triggers",
+        "assign_owner_role",
+        "create_review_task",
+        "send_internal_alert"
+      ],
+      "outputs": [
+        "queue_key",
+        "owner_role",
+        "task_ref"
+      ],
+      "human_review_required": true,
+      "public_boundary": "Never expose private route rules, provider-specific data, credentials, payout terms, or borrower PII in public responses.",
+      "implementation_notes": [
+        "Use environment variables or platform-protected variables at implementation time; do not commit credentials.",
+        "Use synthetic test payloads until production integration is authorized.",
+        "Keep browser-facing widgets pointed only at public-safe API endpoints."
+      ]
+    },
+    {
+      "id": "zapier-document-request",
+      "label": "Document Checklist Request",
+      "platform": "Zapier",
+      "status": "planned_demo_safe",
+      "visibility": "server_side_internal",
+      "trigger_events": [
+        "documents.requested"
+      ],
+      "primary_use_case": "Send a document prep checklist aligned to the lead's funding purpose.",
+      "inputs": [
+        "lead_ref",
+        "funding_purpose",
+        "persona",
+        "tier_key"
+      ],
+      "actions": [
+        "select_checklist",
+        "render_safe_message",
+        "log_requested_items"
+      ],
+      "outputs": [
+        "checklist_key",
+        "requested_items",
+        "message_ref"
+      ],
+      "human_review_required": false,
+      "public_boundary": "Never expose private route rules, provider-specific data, credentials, payout terms, or borrower PII in public responses.",
+      "implementation_notes": [
+        "Use environment variables or platform-protected variables at implementation time; do not commit credentials.",
+        "Use synthetic test payloads until production integration is authorized.",
+        "Keep browser-facing widgets pointed only at public-safe API endpoints."
+      ]
+    },
+    {
+      "id": "zapier-prep-nurture",
+      "label": "Prep-First Nurture Sequence",
+      "platform": "Zapier",
+      "status": "planned_demo_safe",
+      "visibility": "server_side_internal",
+      "trigger_events": [
+        "nurture.assigned"
+      ],
+      "primary_use_case": "Enroll low-readiness leads into educational follow-up.",
+      "inputs": [
+        "lead_ref",
+        "campaign_key",
+        "primary_gap",
+        "tier_key"
+      ],
+      "actions": [
+        "assign_campaign",
+        "schedule_messages",
+        "set_retake_reminder"
+      ],
+      "outputs": [
+        "campaign_ref",
+        "scheduled_touchpoints"
+      ],
+      "human_review_required": false,
+      "public_boundary": "Never expose private route rules, provider-specific data, credentials, payout terms, or borrower PII in public responses.",
+      "implementation_notes": [
+        "Use environment variables or platform-protected variables at implementation time; do not commit credentials.",
+        "Use synthetic test payloads until production integration is authorized.",
+        "Keep browser-facing widgets pointed only at public-safe API endpoints."
+      ]
+    },
+    {
+      "id": "zapier-partner-embed-intake",
+      "label": "Partner Embed Intake",
+      "platform": "Zapier",
+      "status": "planned_demo_safe",
+      "visibility": "server_side_internal",
+      "trigger_events": [
+        "partner.embed_interest"
+      ],
+      "primary_use_case": "Route broker or partner embed requests to partner ops.",
+      "inputs": [
+        "lead_ref",
+        "partner_type",
+        "estimated_volume",
+        "traffic_source"
+      ],
+      "actions": [
+        "apply_partner_tags",
+        "create_partner_demo_task",
+        "send_embed_guide"
+      ],
+      "outputs": [
+        "partner_interest_ref",
+        "task_ref",
+        "guide_ref"
+      ],
+      "human_review_required": false,
+      "public_boundary": "Never expose private route rules, provider-specific data, credentials, payout terms, or borrower PII in public responses.",
+      "implementation_notes": [
+        "Use environment variables or platform-protected variables at implementation time; do not commit credentials.",
+        "Use synthetic test payloads until production integration is authorized.",
+        "Keep browser-facing widgets pointed only at public-safe API endpoints."
+      ]
+    }
+  ]
+}

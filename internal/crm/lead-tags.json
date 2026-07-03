@@ -1,0 +1,208 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "lead-tags-v1",
+  "name": "Lead Tags",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Standardize internal CRM tags generated from scorecard tier, persona, purpose, risk, and lifecycle events.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "tag_groups": [
+    {
+      "id": "score-tier-tags",
+      "label": "Score Tier Tags",
+      "description": "Readiness tier tags for segmentation.",
+      "tags": [
+        {
+          "key": "tier_highly_fundable",
+          "label": "Tier: Highly Fundable",
+          "apply_when": {
+            "score_min": 80
+          }
+        },
+        {
+          "key": "tier_review_ready",
+          "label": "Tier: Review Ready",
+          "apply_when": {
+            "score_min": 65,
+            "score_max": 79
+          }
+        },
+        {
+          "key": "tier_selective_fit",
+          "label": "Tier: Selective Fit",
+          "apply_when": {
+            "score_min": 45,
+            "score_max": 64
+          }
+        },
+        {
+          "key": "tier_prep_first",
+          "label": "Tier: Prep First",
+          "apply_when": {
+            "score_max": 44
+          }
+        }
+      ]
+    },
+    {
+      "id": "persona-tags",
+      "label": "Persona Tags",
+      "description": "Audience tags used for follow-up copy and document guidance.",
+      "tags": [
+        {
+          "key": "persona_existing_business",
+          "label": "Persona: Existing Business"
+        },
+        {
+          "key": "persona_gig_worker",
+          "label": "Persona: Gig Worker"
+        },
+        {
+          "key": "persona_ecommerce_seller",
+          "label": "Persona: Ecommerce Seller"
+        },
+        {
+          "key": "persona_startup_founder",
+          "label": "Persona: Startup Founder"
+        },
+        {
+          "key": "persona_real_estate_investor",
+          "label": "Persona: Real Estate Investor"
+        },
+        {
+          "key": "persona_equipment_heavy",
+          "label": "Persona: Equipment Heavy"
+        },
+        {
+          "key": "persona_partner",
+          "label": "Persona: Partner/Broker"
+        }
+      ]
+    },
+    {
+      "id": "funding-purpose-tags",
+      "label": "Funding Purpose Tags",
+      "description": "Use-case tags that help document and resource routing.",
+      "tags": [
+        {
+          "key": "purpose_working_capital",
+          "label": "Purpose: Working Capital"
+        },
+        {
+          "key": "purpose_inventory",
+          "label": "Purpose: Inventory/Materials"
+        },
+        {
+          "key": "purpose_growth",
+          "label": "Purpose: Growth"
+        },
+        {
+          "key": "purpose_equipment",
+          "label": "Purpose: Equipment"
+        },
+        {
+          "key": "purpose_real_estate",
+          "label": "Purpose: Real Estate"
+        },
+        {
+          "key": "purpose_ecommerce",
+          "label": "Purpose: Ecommerce"
+        },
+        {
+          "key": "purpose_startup",
+          "label": "Purpose: Startup"
+        },
+        {
+          "key": "purpose_business_credit",
+          "label": "Purpose: Business Credit"
+        }
+      ]
+    },
+    {
+      "id": "risk-signal-tags",
+      "label": "Risk Signal Tags",
+      "description": "Caution tags for review and careful public-safe language.",
+      "tags": [
+        {
+          "key": "risk_recent_nsfs",
+          "label": "Risk: Recent NSFs"
+        },
+        {
+          "key": "risk_new_bank_account",
+          "label": "Risk: New Bank Account"
+        },
+        {
+          "key": "risk_existing_daily_payment",
+          "label": "Risk: Existing Daily Payment"
+        },
+        {
+          "key": "risk_no_current_revenue",
+          "label": "Risk: No Current Revenue"
+        },
+        {
+          "key": "risk_severe_review_required",
+          "label": "Risk: Severe Review Required"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle-tags",
+      "label": "Lifecycle Tags",
+      "description": "Operational tags for routing and reporting.",
+      "tags": [
+        {
+          "key": "lifecycle_scorecard_started",
+          "label": "Lifecycle: Scorecard Started"
+        },
+        {
+          "key": "lifecycle_scorecard_completed",
+          "label": "Lifecycle: Scorecard Completed"
+        },
+        {
+          "key": "lifecycle_review_requested",
+          "label": "Lifecycle: Review Requested"
+        },
+        {
+          "key": "lifecycle_docs_requested",
+          "label": "Lifecycle: Docs Requested"
+        },
+        {
+          "key": "lifecycle_nurture_active",
+          "label": "Lifecycle: Nurture Active"
+        },
+        {
+          "key": "lifecycle_partner_embed_interest",
+          "label": "Lifecycle: Partner Embed Interest"
+        }
+      ]
+    }
+  ]
+}

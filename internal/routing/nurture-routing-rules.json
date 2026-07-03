@@ -1,0 +1,185 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "nurture-routing-rules-v1",
+  "name": "Nurture Routing Rules",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Map low- and mid-readiness leads into educational sequences that help them fix gaps before requesting review again.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "nurture_paths": [
+    {
+      "id": "nurture-business-foundation",
+      "enabled": true,
+      "audience_match": [
+        "startup_founder",
+        "gig_worker",
+        "not_sure"
+      ],
+      "score_range": {
+        "min": 0,
+        "max": 54
+      },
+      "primary_gap_signals": [
+        "no_formal_business",
+        "no_business_bank_account",
+        "no_revenue"
+      ],
+      "campaign_key": "foundation_first_30_day",
+      "cadence_days": [
+        0,
+        3,
+        7,
+        14,
+        30
+      ],
+      "topics": [
+        "Set up clean business basics",
+        "Separate business and personal money movement",
+        "Collect proof-of-activity documents",
+        "Retake readiness scorecard after improvements"
+      ],
+      "exit_conditions": [
+        "score_retake_65_plus",
+        "manual_review_requested",
+        "user_opted_out"
+      ]
+    },
+    {
+      "id": "nurture-bank-activity-cleanup",
+      "enabled": true,
+      "audience_match": [
+        "existing_business",
+        "contractor",
+        "ecommerce_seller"
+      ],
+      "score_range": {
+        "min": 35,
+        "max": 69
+      },
+      "primary_gap_signals": [
+        "recent_nsfs",
+        "inconsistent_deposits",
+        "new_bank_account"
+      ],
+      "campaign_key": "bank_activity_cleanup_45_day",
+      "cadence_days": [
+        0,
+        5,
+        10,
+        21,
+        45
+      ],
+      "topics": [
+        "Understand why bank activity matters",
+        "Prepare recent statements",
+        "Reduce preventable account volatility",
+        "Request review when account pattern is easier to explain"
+      ],
+      "exit_conditions": [
+        "manual_review_requested",
+        "score_retake_70_plus",
+        "user_opted_out"
+      ]
+    },
+    {
+      "id": "nurture-document-prep",
+      "enabled": true,
+      "audience_match": [
+        "existing_business",
+        "real_estate_investor",
+        "equipment_heavy",
+        "ecommerce_seller"
+      ],
+      "score_range": {
+        "min": 45,
+        "max": 79
+      },
+      "primary_gap_signals": [
+        "missing_documents",
+        "requested_amount_mismatch",
+        "thin_file"
+      ],
+      "campaign_key": "document_ready_14_day",
+      "cadence_days": [
+        0,
+        2,
+        7,
+        14
+      ],
+      "topics": [
+        "Bank statement checklist",
+        "Business setup details",
+        "Revenue proof options",
+        "Funding purpose narrative"
+      ],
+      "exit_conditions": [
+        "documents_uploaded",
+        "manual_review_requested",
+        "user_opted_out"
+      ]
+    },
+    {
+      "id": "nurture-partner-education",
+      "enabled": true,
+      "audience_match": [
+        "broker",
+        "partner",
+        "agency_owner"
+      ],
+      "score_range": {
+        "min": 0,
+        "max": 100
+      },
+      "primary_gap_signals": [
+        "partner_needs_embed",
+        "partner_needs_process"
+      ],
+      "campaign_key": "partner_enablement_21_day",
+      "cadence_days": [
+        0,
+        4,
+        9,
+        21
+      ],
+      "topics": [
+        "How to position readiness without overclaiming",
+        "Using the scorecard before referrals",
+        "Human review handoff rules",
+        "White-label embed next steps"
+      ],
+      "exit_conditions": [
+        "partner_demo_booked",
+        "embed_installed",
+        "user_opted_out"
+      ]
+    }
+  ]
+}

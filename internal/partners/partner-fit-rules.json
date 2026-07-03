@@ -1,0 +1,145 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "partner-fit-rules-v1",
+  "name": "Partner Fit Rules",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Evaluate broad, demo-safe partner fit for scorecard embeds, referral workflows, or white-label packaging without exposing real partners or provider routing.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "fit_rules": [
+    {
+      "id": "fit-broker-referral-partner",
+      "enabled": true,
+      "partner_segment": "broker_referral_partner",
+      "description": "Broker or referral partner wants a safe scorecard intake surface before sending leads to human review.",
+      "inputs_considered": [
+        "lead_volume",
+        "audience_type",
+        "needs_embed",
+        "compliance_maturity",
+        "follow_up_capacity"
+      ],
+      "positive_signals": [
+        "Sends business-owner traffic",
+        "Wants readiness education before referrals",
+        "Agrees not to market score as a funding decision",
+        "Can handle human review follow-up"
+      ],
+      "caution_signals": [
+        "Requests provider names on public pages",
+        "Wants to imply funding certainty",
+        "Has no consent or data handling process"
+      ],
+      "recommended_package": "white_label_scorecard_starter",
+      "human_review_required": true,
+      "safe_positioning": "Scorecard can help pre-sort readiness and guide next steps. It does not determine funding outcomes."
+    },
+    {
+      "id": "fit-agency-white-label",
+      "enabled": true,
+      "partner_segment": "agency_white_label",
+      "description": "Marketing or automation agency wants to package the scorecard as a lead magnet for funding-related campaigns.",
+      "inputs_considered": [
+        "brand_control",
+        "embed_needs",
+        "traffic_source",
+        "client_types",
+        "data_handling_process"
+      ],
+      "positive_signals": [
+        "Needs public-safe landing pages",
+        "Understands lead capture consent",
+        "Can customize copy without adding unsafe claims",
+        "Wants static-first deployment"
+      ],
+      "caution_signals": [
+        "Requests fake testimonials or invented success metrics",
+        "Wants hidden routing logic in browser code",
+        "Wants apply links or affiliate routing exposed publicly"
+      ],
+      "recommended_package": "agency_embed_license",
+      "human_review_required": true,
+      "safe_positioning": "White-label version supports readiness education, lead capture, and human review handoff."
+    },
+    {
+      "id": "fit-community-education-partner",
+      "enabled": true,
+      "partner_segment": "community_education_partner",
+      "description": "Community, newsletter, membership, or course owner wants a funding readiness tool for entrepreneurs.",
+      "inputs_considered": [
+        "audience_stage",
+        "education_goal",
+        "follow_up_capacity",
+        "content_alignment"
+      ],
+      "positive_signals": [
+        "Audience needs funding prep education",
+        "Wants resources and checklists",
+        "Does not need provider-specific routing",
+        "Can send users to public scorecard or resource hub"
+      ],
+      "caution_signals": [
+        "Audience expects promised funding",
+        "Partner wants to collect sensitive data without clear handling",
+        "Partner cannot support follow-up questions"
+      ],
+      "recommended_package": "resource_partner_embed",
+      "human_review_required": false,
+      "safe_positioning": "Education-first embed that helps members understand readiness gaps and recommended prep steps."
+    },
+    {
+      "id": "fit-internal-ops-partner",
+      "enabled": true,
+      "partner_segment": "internal_ops_partner",
+      "description": "Internal operations or processing team needs routing, tags, and document prep workflows.",
+      "inputs_considered": [
+        "crm_usage",
+        "review_team_size",
+        "document_workflow",
+        "automation_readiness"
+      ],
+      "positive_signals": [
+        "Has CRM stages or wants them",
+        "Needs repeatable review process",
+        "Uses document checklists",
+        "Can separate public copy from internal notes"
+      ],
+      "caution_signals": [
+        "Stores sensitive notes in public tools",
+        "Wants browser-side internal registry access",
+        "Lacks owner roles for review tasks"
+      ],
+      "recommended_package": "ops_routing_registry_pack",
+      "human_review_required": true,
+      "safe_positioning": "Internal workflow support for readiness routing and review operations."
+    }
+  ]
+}

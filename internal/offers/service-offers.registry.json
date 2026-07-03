@@ -1,0 +1,189 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "service-offers-registry-v1",
+  "name": "Service Offers Registry",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Internal packaging registry for services and automation packages that may be sold or fulfilled around the Funding Readiness Scorecard ecosystem.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "offers": [
+    {
+      "id": "offer-funding-readiness-review",
+      "name": "Funding Readiness Review",
+      "visibility": "internal_offer_planning",
+      "audience": [
+        "entrepreneur",
+        "small_business_owner",
+        "gig_worker",
+        "ecommerce_seller"
+      ],
+      "positioning": "Human review of scorecard answers, readiness gaps, and document next steps.",
+      "included_deliverables": [
+        "Readiness summary",
+        "Funding purpose alignment review",
+        "Document checklist",
+        "Suggested next-step path"
+      ],
+      "not_included": [
+        "Funding decision",
+        "Legal, tax, or credit repair advice",
+        "Provider-specific promise",
+        "Rate or term outcome promise"
+      ],
+      "handoff_stage": "review_requested",
+      "fulfillment_roles": [
+        "funding_strategist",
+        "processor"
+      ],
+      "safe_public_cta": "Request a human readiness review"
+    },
+    {
+      "id": "offer-broker-scorecard-setup",
+      "name": "Broker Scorecard Setup",
+      "visibility": "internal_offer_planning",
+      "audience": [
+        "broker",
+        "agency_owner",
+        "referral_partner"
+      ],
+      "positioning": "Static scorecard landing page and embed setup for broker lead capture.",
+      "included_deliverables": [
+        "Broker-facing scorecard page",
+        "Embed example",
+        "Public-safe copy review",
+        "Lead routing plan",
+        "Basic CRM stage map"
+      ],
+      "not_included": [
+        "Provider list disclosure",
+        "Affiliate routing in public code",
+        "Deployment automation without funding decision",
+        "Claims of funding certainty"
+      ],
+      "handoff_stage": "partner_interest",
+      "fulfillment_roles": [
+        "partner_ops",
+        "automation_builder"
+      ],
+      "safe_public_cta": "Build a broker-ready scorecard funnel"
+    },
+    {
+      "id": "offer-white-label-readiness-widget",
+      "name": "White-Label Readiness Widget",
+      "visibility": "internal_offer_planning",
+      "audience": [
+        "agency_owner",
+        "community_operator",
+        "partner"
+      ],
+      "positioning": "Embeddable readiness scorecard packaged for partner pages and education funnels.",
+      "included_deliverables": [
+        "Widget embed instructions",
+        "Public-safe partner copy",
+        "Score tier education",
+        "Review request handoff",
+        "Resource hub links"
+      ],
+      "not_included": [
+        "Private route rules in browser",
+        "Provider-specific recommendations",
+        "Fake social proof",
+        "Automated funding decisions"
+      ],
+      "handoff_stage": "partner_interest",
+      "fulfillment_roles": [
+        "partner_ops",
+        "implementation_specialist"
+      ],
+      "safe_public_cta": "License a public-safe readiness widget"
+    },
+    {
+      "id": "offer-document-prep-sprint",
+      "name": "Document Prep Sprint",
+      "visibility": "internal_offer_planning",
+      "audience": [
+        "small_business_owner",
+        "contractor",
+        "real_estate_investor",
+        "ecommerce_seller"
+      ],
+      "positioning": "Short readiness sprint to organize funding documents before review.",
+      "included_deliverables": [
+        "Document checklist by funding purpose",
+        "Bank statement readiness checklist",
+        "Revenue proof inventory",
+        "Funding purpose narrative template"
+      ],
+      "not_included": [
+        "Document falsification",
+        "Underwriting note creation",
+        "Legal or tax advice",
+        "Funding outcome promise"
+      ],
+      "handoff_stage": "documents_requested",
+      "fulfillment_roles": [
+        "processor",
+        "review_specialist"
+      ],
+      "safe_public_cta": "Get your funding docs organized"
+    },
+    {
+      "id": "offer-readiness-automation-pack",
+      "name": "Readiness Automation Pack",
+      "visibility": "internal_offer_planning",
+      "audience": [
+        "broker",
+        "agency_owner",
+        "ops_team"
+      ],
+      "positioning": "Internal routing, tagging, task, and nurture registry setup for funding-readiness operations.",
+      "included_deliverables": [
+        "Lead routing rules",
+        "CRM stage map",
+        "Lead tag taxonomy",
+        "Task templates",
+        "Workflow event plan"
+      ],
+      "not_included": [
+        "Production credentials",
+        "Real provider data",
+        "Payout tracking",
+        "Vercel deployment changes"
+      ],
+      "handoff_stage": "manual_review",
+      "fulfillment_roles": [
+        "automation_builder",
+        "ops_lead"
+      ],
+      "safe_public_cta": "Install the readiness routing machine"
+    }
+  ]
+}

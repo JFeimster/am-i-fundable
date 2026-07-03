@@ -1,0 +1,183 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "lead-routing-rules-v1",
+  "name": "Lead Routing Rules",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Route synthetic or submitted scorecard leads into internal readiness lanes based on score tier, use case, risk signals, and persona.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "rules": [
+    {
+      "id": "route-high-readiness-strategy-review",
+      "enabled": true,
+      "priority": 10,
+      "description": "Send strong files to a fast human strategy review queue without implying a funding decision.",
+      "conditions": {
+        "score_min": 80,
+        "score_max": 100,
+        "result_tiers_any": [
+          "highly_fundable"
+        ],
+        "red_flags_none_of": [
+          "open_bankruptcy",
+          "active_legal_issue",
+          "identity_mismatch"
+        ],
+        "monthly_revenue_min": 15000
+      },
+      "route": {
+        "queue": "strategy_review",
+        "crm_stage_key": "review_requested",
+        "lead_priority": "high",
+        "owner_role": "funding_strategist",
+        "sla_hours": 4
+      },
+      "safe_internal_note_template": "High-readiness lead. Review answers and documents before recommending any potential funding path.",
+      "recommended_next_actions": [
+        "Confirm revenue and bank activity with applicant-provided documents.",
+        "Check whether requested amount aligns with stated revenue and funding purpose.",
+        "Prepare a readiness summary for the human strategist."
+      ]
+    },
+    {
+      "id": "route-review-ready-borderline",
+      "enabled": true,
+      "priority": 20,
+      "description": "Route mid-to-strong files with one or two caution signals into manual review.",
+      "conditions": {
+        "score_min": 65,
+        "score_max": 79,
+        "result_tiers_any": [
+          "fundable_review",
+          "review_ready"
+        ],
+        "red_flags_max_count": 2
+      },
+      "route": {
+        "queue": "manual_review",
+        "crm_stage_key": "manual_review",
+        "lead_priority": "medium_high",
+        "owner_role": "review_specialist",
+        "sla_hours": 12
+      },
+      "safe_internal_note_template": "Review-ready lead. Clarify potential blockers before discussing next steps.",
+      "recommended_next_actions": [
+        "Request missing context for any caution flag.",
+        "Collect recent bank statements and business setup details.",
+        "Use public-safe language: may be a fit, subject to review."
+      ]
+    },
+    {
+      "id": "route-selective-fit-path-review",
+      "enabled": true,
+      "priority": 30,
+      "description": "Route selective-fit leads where only certain funding families may make sense.",
+      "conditions": {
+        "score_min": 45,
+        "score_max": 64,
+        "result_tiers_any": [
+          "selective_fit",
+          "limited_fit"
+        ],
+        "red_flags_max_count": 3
+      },
+      "route": {
+        "queue": "pathfinder_review",
+        "crm_stage_key": "path_review",
+        "lead_priority": "medium",
+        "owner_role": "funding_pathfinder",
+        "sla_hours": 24
+      },
+      "safe_internal_note_template": "Selective-fit lead. Focus on readiness gaps and path education before any referral.",
+      "recommended_next_actions": [
+        "Identify the primary mismatch: revenue, time in business, bank activity, credit, or documentation.",
+        "Recommend the safest next readiness step.",
+        "Avoid provider-specific guidance until human review is complete."
+      ]
+    },
+    {
+      "id": "route-prep-first-nurture",
+      "enabled": true,
+      "priority": 40,
+      "description": "Route lower-readiness leads into education and document/business foundation prep.",
+      "conditions": {
+        "score_min": 0,
+        "score_max": 44,
+        "result_tiers_any": [
+          "not_ready",
+          "prep_first"
+        ]
+      },
+      "route": {
+        "queue": "nurture",
+        "crm_stage_key": "prep_nurture",
+        "lead_priority": "low",
+        "owner_role": "automation",
+        "sla_hours": 48
+      },
+      "safe_internal_note_template": "Prep-first lead. Send readiness education and invite a future review once gaps are improved.",
+      "recommended_next_actions": [
+        "Send document prep checklist.",
+        "Send business banking and revenue organization guidance.",
+        "Offer retake reminder after 30 days."
+      ]
+    },
+    {
+      "id": "route-risk-escalation",
+      "enabled": true,
+      "priority": 1,
+      "description": "Escalate severe caution patterns to human review or safe decline-to-advise path without giving legal, tax, credit repair, or lending advice.",
+      "conditions": {
+        "red_flags_any_of": [
+          "open_bankruptcy",
+          "identity_mismatch",
+          "active_fraud_concern",
+          "active_legal_issue"
+        ],
+        "score_min": 0,
+        "score_max": 100
+      },
+      "route": {
+        "queue": "risk_review",
+        "crm_stage_key": "risk_review",
+        "lead_priority": "review_required",
+        "owner_role": "senior_reviewer",
+        "sla_hours": 24
+      },
+      "safe_internal_note_template": "Risk review required. Do not route to public funding path recommendations until reviewed.",
+      "recommended_next_actions": [
+        "Ask for clarification only where appropriate and non-sensitive.",
+        "Provide educational next-step language.",
+        "Escalate to a human reviewer before any funding path discussion."
+      ]
+    }
+  ]
+}

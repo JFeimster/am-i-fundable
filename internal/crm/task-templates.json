@@ -1,0 +1,176 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "task-templates-v1",
+  "name": "Task Templates",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Reusable internal task templates for follow-up, document collection, review triage, and partner enablement.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "task_templates": [
+    {
+      "id": "task-call-high-readiness",
+      "title": "Call high-readiness lead",
+      "owner_role": "funding_strategist",
+      "due_offset_hours": 4,
+      "priority": "high",
+      "stage_keys": [
+        "review_requested"
+      ],
+      "task_body": "Review scorecard answers, confirm consent, and contact the lead about a strategy review. Do not imply a funding decision or funding outcome.",
+      "completion_checklist": [
+        "Confirmed lead contact details.",
+        "Reviewed score, tier, use case, and caution flags.",
+        "Explained next step as human review, subject to documentation.",
+        "Logged summary without private underwriting conclusions."
+      ]
+    },
+    {
+      "id": "task-review-file",
+      "title": "Review scorecard file",
+      "owner_role": "review_specialist",
+      "due_offset_hours": 12,
+      "priority": "medium_high",
+      "stage_keys": [
+        "manual_review",
+        "review_requested"
+      ],
+      "task_body": "Assess scorecard data for readiness gaps, missing context, and document needs.",
+      "completion_checklist": [
+        "Identified top three readiness signals.",
+        "Identified blockers or caution flags.",
+        "Selected public-safe next-step language.",
+        "Avoided provider-specific notes."
+      ]
+    },
+    {
+      "id": "task-document-request",
+      "title": "Request readiness documents",
+      "owner_role": "processor",
+      "due_offset_hours": 24,
+      "priority": "medium",
+      "stage_keys": [
+        "manual_review",
+        "documents_requested"
+      ],
+      "task_body": "Send the relevant document checklist based on funding purpose and score tier.",
+      "completion_checklist": [
+        "Selected checklist by purpose.",
+        "Requested only necessary documents.",
+        "Included privacy and safe-use note.",
+        "Logged requested items in CRM."
+      ]
+    },
+    {
+      "id": "task-review-risk-flags",
+      "title": "Review caution flags",
+      "owner_role": "senior_reviewer",
+      "due_offset_hours": 24,
+      "priority": "review_required",
+      "stage_keys": [
+        "risk_review"
+      ],
+      "task_body": "Review severe caution flags and decide whether a safe educational response or additional human review is appropriate.",
+      "completion_checklist": [
+        "Confirmed the flag is not a simple input error.",
+        "Avoided legal, tax, credit repair, or lending advice.",
+        "Routed to safe response or review queue.",
+        "Documented the reason using neutral wording."
+      ]
+    },
+    {
+      "id": "task-nurture-checkin",
+      "title": "Send prep-first nurture check-in",
+      "owner_role": "automation",
+      "due_offset_hours": 48,
+      "priority": "low",
+      "stage_keys": [
+        "prep_nurture"
+      ],
+      "task_body": "Send educational readiness guidance and invite the lead to retake the scorecard after improvements.",
+      "completion_checklist": [
+        "Matched nurture path to primary gap.",
+        "Sent safe education content.",
+        "Included retake or review CTA.",
+        "Recorded campaign assignment."
+      ]
+    },
+    {
+      "id": "task-pathfit-summary",
+      "title": "Prepare funding path summary",
+      "owner_role": "funding_pathfinder",
+      "due_offset_hours": 24,
+      "priority": "medium",
+      "stage_keys": [
+        "path_review"
+      ],
+      "task_body": "Prepare an internal summary of likely funding families without naming providers or exposing routing logic.",
+      "completion_checklist": [
+        "Matched use case to broad funding family.",
+        "Listed documents needed to confirm readiness.",
+        "Flagged gaps and safe next step.",
+        "Kept language subject to review."
+      ]
+    },
+    {
+      "id": "task-abandoned-scorecard-follow-up",
+      "title": "Follow up on abandoned scorecard",
+      "owner_role": "automation",
+      "due_offset_hours": 24,
+      "priority": "low",
+      "stage_keys": [
+        "new_scorecard_started"
+      ],
+      "task_body": "Remind the lead to complete the scorecard and explain that the result is educational readiness guidance.",
+      "completion_checklist": [
+        "Sent completion reminder.",
+        "Included scorecard link placeholder only.",
+        "Avoided urgency manipulation or funding promises."
+      ]
+    },
+    {
+      "id": "task-partner-embed-demo",
+      "title": "Send partner embed demo",
+      "owner_role": "partner_ops",
+      "due_offset_hours": 24,
+      "priority": "medium",
+      "stage_keys": [
+        "partner_interest"
+      ],
+      "task_body": "Send public-safe embed instructions and explain partner boundaries.",
+      "completion_checklist": [
+        "Shared demo embed page path.",
+        "Explained public-safe scorecard positioning.",
+        "Confirmed no provider names or private routing rules are exposed.",
+        "Offered white-label review path."
+      ]
+    }
+  ]
+}

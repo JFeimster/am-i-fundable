@@ -1,0 +1,171 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "webhook-events-v1",
+  "name": "Webhook Events",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Define internal event names and payload expectations for scorecard, review, CRM, and automation workflows.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "events": [
+    {
+      "id": "evt-scorecard-started",
+      "event_name": "scorecard.started",
+      "direction": "inbound",
+      "description": "Visitor starts the scorecard.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "source": "string",
+        "session_id": "string",
+        "page_path": "string"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "source",
+        "session_id"
+      ],
+      "pii_allowed": false,
+      "default_crm_stage": "new_scorecard_started"
+    },
+    {
+      "id": "evt-scorecard-completed",
+      "event_name": "scorecard.completed",
+      "direction": "inbound",
+      "description": "Lead completes scorecard and receives readiness result.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "lead_ref": "synthetic_or_internal_reference",
+        "score": "number_0_100",
+        "tier_key": "string",
+        "funding_purpose": "string",
+        "red_flags": "array_of_strings"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "lead_ref",
+        "score",
+        "tier_key"
+      ],
+      "pii_allowed": false,
+      "default_crm_stage": "scorecard_completed"
+    },
+    {
+      "id": "evt-review-requested",
+      "event_name": "review.requested",
+      "direction": "inbound",
+      "description": "Lead requests human review after scorecard completion.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "lead_ref": "synthetic_or_internal_reference",
+        "score": "number_0_100",
+        "tier_key": "string",
+        "requested_channel": "string"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "lead_ref",
+        "score",
+        "tier_key"
+      ],
+      "pii_allowed": "server_side_only",
+      "default_crm_stage": "review_requested"
+    },
+    {
+      "id": "evt-documents-requested",
+      "event_name": "documents.requested",
+      "direction": "outbound",
+      "description": "Internal workflow requests readiness documents.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "lead_ref": "synthetic_or_internal_reference",
+        "checklist_key": "string",
+        "requested_items": "array_of_strings",
+        "due_hint": "string"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "lead_ref",
+        "checklist_key"
+      ],
+      "pii_allowed": "server_side_only",
+      "default_crm_stage": "documents_requested"
+    },
+    {
+      "id": "evt-nurture-assigned",
+      "event_name": "nurture.assigned",
+      "direction": "outbound",
+      "description": "Lead assigned to education sequence based on readiness gap.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "lead_ref": "synthetic_or_internal_reference",
+        "campaign_key": "string",
+        "primary_gap": "string"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "lead_ref",
+        "campaign_key"
+      ],
+      "pii_allowed": "server_side_only",
+      "default_crm_stage": "prep_nurture"
+    },
+    {
+      "id": "evt-partner-embed-interest",
+      "event_name": "partner.embed_interest",
+      "direction": "inbound",
+      "description": "Broker, agency, or partner expresses interest in scorecard embed or white-label setup.",
+      "payload_shape": {
+        "event_id": "string",
+        "occurred_at": "iso_datetime",
+        "lead_ref": "synthetic_or_internal_reference",
+        "partner_type": "string",
+        "traffic_source": "string"
+      },
+      "required_fields": [
+        "event_id",
+        "occurred_at",
+        "lead_ref",
+        "partner_type"
+      ],
+      "pii_allowed": "server_side_only",
+      "default_crm_stage": "partner_interest"
+    }
+  ]
+}

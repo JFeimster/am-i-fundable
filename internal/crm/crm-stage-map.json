@@ -1,0 +1,191 @@
+{
+  "$schema": "../../schemas/registry.schema.json",
+  "id": "crm-stage-map-v1",
+  "name": "CRM Stage Map",
+  "project": "am-i-fundable",
+  "product": "Funding Readiness Scorecard",
+  "batch": 20,
+  "visibility": "server_side_internal",
+  "owner": "funding-readiness-ops",
+  "status": "draft_demo_safe",
+  "last_updated": "2026-07-03",
+  "purpose": "Map scorecard lifecycle states into CRM stages for follow-up, review, nurture, and partner operations.",
+  "boundary": {
+    "allowed_use": [
+      "server-side routing",
+      "CRM enrichment",
+      "human review triage",
+      "workflow planning",
+      "demo/testing with synthetic leads"
+    ],
+    "blocked_use": [
+      "browser import",
+      "public widget rendering",
+      "public provider disclosure",
+      "automated funding decisioning",
+      "credential storage"
+    ],
+    "public_safe_summary": "Internal routing helpers for funding readiness operations. Use only behind API/server logic."
+  },
+  "safety_rules": [
+    "Server-side/internal planning registry only.",
+    "Do not import this file from browser-facing pages or public widgets.",
+    "All names, queues, tags, and workflow references are demo-safe placeholders.",
+    "No provider names, provider IDs, affiliate URLs, apply URLs, payout terms, private contacts, borrower PII, credentials, or underwriting notes are included.",
+    "Outputs must be treated as readiness routing guidance, not a funding decision, funding offer, or outcome promise."
+  ],
+  "stages": [
+    {
+      "id": "new_scorecard_started",
+      "label": "Scorecard Started",
+      "pipeline": "funding_readiness",
+      "sort_order": 10,
+      "entry_events": [
+        "scorecard_started"
+      ],
+      "exit_events": [
+        "scorecard_completed",
+        "scorecard_abandoned"
+      ],
+      "owner_role": "automation",
+      "description": "Visitor began the readiness scorecard but has not submitted lead details.",
+      "default_task_ids": [
+        "task-abandoned-scorecard-follow-up"
+      ]
+    },
+    {
+      "id": "scorecard_completed",
+      "label": "Scorecard Completed",
+      "pipeline": "funding_readiness",
+      "sort_order": 20,
+      "entry_events": [
+        "scorecard_completed"
+      ],
+      "exit_events": [
+        "review_requested",
+        "nurture_assigned"
+      ],
+      "owner_role": "automation",
+      "description": "Lead submitted the scorecard and received public-safe readiness guidance.",
+      "default_task_ids": [
+        "task-send-summary"
+      ]
+    },
+    {
+      "id": "review_requested",
+      "label": "Review Requested",
+      "pipeline": "funding_readiness",
+      "sort_order": 30,
+      "entry_events": [
+        "review_requested",
+        "high_readiness_detected"
+      ],
+      "exit_events": [
+        "manual_review_started",
+        "nurture_assigned"
+      ],
+      "owner_role": "funding_strategist",
+      "description": "Lead asked for human review or scored high enough for proactive review.",
+      "default_task_ids": [
+        "task-review-file",
+        "task-call-high-readiness"
+      ]
+    },
+    {
+      "id": "manual_review",
+      "label": "Manual Review",
+      "pipeline": "funding_readiness",
+      "sort_order": 40,
+      "entry_events": [
+        "manual_review_started",
+        "borderline_score_detected"
+      ],
+      "exit_events": [
+        "path_recommended",
+        "documents_requested",
+        "nurture_assigned"
+      ],
+      "owner_role": "review_specialist",
+      "description": "Human review is needed before next-step guidance is provided.",
+      "default_task_ids": [
+        "task-document-request",
+        "task-review-risk-flags"
+      ]
+    },
+    {
+      "id": "path_review",
+      "label": "Path Review",
+      "pipeline": "funding_readiness",
+      "sort_order": 50,
+      "entry_events": [
+        "path_review_needed"
+      ],
+      "exit_events": [
+        "path_recommended",
+        "documents_requested",
+        "nurture_assigned"
+      ],
+      "owner_role": "funding_pathfinder",
+      "description": "Potential funding path requires context, education, or document alignment.",
+      "default_task_ids": [
+        "task-pathfit-summary"
+      ]
+    },
+    {
+      "id": "documents_requested",
+      "label": "Documents Requested",
+      "pipeline": "funding_readiness",
+      "sort_order": 60,
+      "entry_events": [
+        "documents_requested"
+      ],
+      "exit_events": [
+        "documents_received",
+        "nurture_assigned"
+      ],
+      "owner_role": "processor",
+      "description": "Applicant needs to gather or clarify documents before a review can continue.",
+      "default_task_ids": [
+        "task-document-reminder"
+      ]
+    },
+    {
+      "id": "prep_nurture",
+      "label": "Prep / Nurture",
+      "pipeline": "funding_readiness",
+      "sort_order": 70,
+      "entry_events": [
+        "nurture_assigned",
+        "prep_first_detected"
+      ],
+      "exit_events": [
+        "scorecard_retake",
+        "review_requested",
+        "user_opted_out"
+      ],
+      "owner_role": "automation",
+      "description": "Lead is not ready for review and should receive educational next steps.",
+      "default_task_ids": [
+        "task-nurture-checkin"
+      ]
+    },
+    {
+      "id": "risk_review",
+      "label": "Risk Review",
+      "pipeline": "funding_readiness",
+      "sort_order": 80,
+      "entry_events": [
+        "risk_review_required"
+      ],
+      "exit_events": [
+        "safe_response_sent",
+        "manual_review"
+      ],
+      "owner_role": "senior_reviewer",
+      "description": "Severe caution signal requires human review and careful response boundaries.",
+      "default_task_ids": [
+        "task-risk-review"
+      ]
+    }
+  ]
+}
