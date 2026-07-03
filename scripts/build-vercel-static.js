@@ -3,6 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const outputDir = path.join(root, "dist");
+const isVercelBuild = process.env.VERCEL === "1";
 
 const publicDirectories = [
   "assets",
@@ -57,6 +58,14 @@ for (const dirName of forbiddenDeployDirs) {
   const candidate = path.join(outputDir, dirName);
   if (fs.existsSync(candidate)) {
     fs.rmSync(candidate, { recursive: true, force: true });
+  }
+}
+
+if (isVercelBuild) {
+  const apiDir = path.join(root, "api");
+  if (fs.existsSync(apiDir)) {
+    fs.rmSync(apiDir, { recursive: true, force: true });
+    console.log("Removed /api from the Vercel build workspace to stay under Hobby serverless limits.");
   }
 }
 
