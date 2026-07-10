@@ -60,6 +60,10 @@ jobs:
       - name: Build static output
         run: npm run build
 
+      - name: Verify live production workflow
+        if: github.head_ref == 'ops/relock-am-i-fundable-20260710'
+        run: npm run verify:production
+
       - name: Confirm deployment controls remain explicit
         run: |
           node -e "const fs=require('fs');const v=JSON.parse(fs.readFileSync('vercel.json','utf8'));if(v.git?.deploymentEnabled?.['*']!==false)process.exit(1);console.log('Preview wildcard remains disabled.');"
