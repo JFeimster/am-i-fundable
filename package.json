@@ -8,6 +8,7 @@
     "validate:json": "node scripts/validate-json.js",
     "validate:js": "node scripts/validate-js-syntax.js",
     "validate": "npm run validate:json && npm run validate:js && npm run scan:private-data",
-    "test": "node --test"
+    "test": "node --test",
+    "verify:production": "node scripts/verify-production-smoke.js"
   }
 }
