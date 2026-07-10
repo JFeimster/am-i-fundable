@@ -16,8 +16,7 @@
   ],
   "git": {
     "deploymentEnabled": {
-      "main": false,
-      "repair/production-api-runtime-20260710": true,
+      "main": true,
       "*": false
     }
   }
