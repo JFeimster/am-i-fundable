@@ -1,0 +1,14 @@
+# Deploy one consolidated Vercel Function while preserving the complete API source tree in GitHub.
+api/*.js
+api/**/*.js
+!api/index.js
+
+# Repository-only material is not needed in the deployment upload.
+tests/
+docs/
+knowledge/
+workflows/
+internal/crm/
+internal/routing/
+.github/
+.jules/
