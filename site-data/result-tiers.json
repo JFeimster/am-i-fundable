@@ -125,7 +125,7 @@
       "human_review_recommended": true
     }
   ],
-  "routing_notes": {
+  "public_page_routing": {
     "public_result_pages_only": true,
     "do_not_include": [
       "real partner names",
