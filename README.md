@@ -1,3 +1,7 @@
+<img width="3600" height="2394" alt="Image" src="https://github.com/user-attachments/assets/0786fc00-90af-4760-8893-973abc7ecced" />
+
+---
+
 # Am I Fundable — Funding Readiness Scorecard
 
 Public-safe funding-readiness scorecard, embed widget, API source layer, and broker/CRM routing foundation for the **Am I Fundable / Funding Readiness Scorecard** project.
