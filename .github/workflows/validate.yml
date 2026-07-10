@@ -25,7 +25,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install package lock dependencies if present
         run: |
@@ -43,6 +43,26 @@ jobs:
 
       - name: Scan public surfaces for private data
         run: npm run scan:private-data
+
+      - name: Run repository tests
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee test-output.log
+
+      - name: Upload test diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-output
+          path: test-output.log
+          if-no-files-found: ignore
+
+      - name: Build static output
+        run: npm run build
+
+      - name: Confirm deployment controls remain explicit
+        run: |
+          node -e "const fs=require('fs');const v=JSON.parse(fs.readFileSync('vercel.json','utf8'));if(v.git?.deploymentEnabled?.['*']!==false)process.exit(1);console.log('Preview wildcard remains disabled.');"
 
       - name: Confirm workflow does not deploy
         run: |

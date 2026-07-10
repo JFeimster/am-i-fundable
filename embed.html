@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funding Readiness Scorecard Embed</title>
+  <meta name="description" content="Responsive public-safe embed surface for the Am I Fundable Funding Readiness Scorecard." />
+  <link rel="stylesheet" href="assets/css/embed.css" />
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: transparent; }
+    body { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .embed-shell { width: 100%; max-width: 760px; margin: 0 auto; padding: 0; }
+    .embed-frame { display: block; width: 100%; min-height: 860px; border: 0; background: transparent; }
+    .embed-disclaimer { margin: 10px 16px 0; text-align: center; font-size: .75rem; line-height: 1.45; opacity: .72; }
+    @media (max-width: 640px) {
+      .embed-shell { max-width: none; }
+      .embed-frame { min-height: 1050px; }
+      .embed-disclaimer { margin-inline: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="embed-shell" aria-label="Funding Readiness Scorecard embed">
+    <iframe
+      id="funding-readiness-frame"
+      class="embed-frame"
+      title="Funding Readiness Scorecard"
+      src="widget.html"
+      loading="eager"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+    <p class="embed-disclaimer">Educational funding-readiness guidance only. This tool does not provide an approval, offer, underwriting decision, or guarantee of funding.</p>
+  </main>
+  <script>
+    (() => {
+      const allowed = [
+        "partner_id",
+        "tracking_link_id",
+        "campaign_id",
+        "widget_id",
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content"
+      ];
+      const current = new URLSearchParams(window.location.search);
+      const target = new URL("widget.html", window.location.href);
+      for (const key of allowed) {
+        const value = current.get(key);
+        if (value) target.searchParams.set(key, value.slice(0, 200));
+      }
+      document.getElementById("funding-readiness-frame").src = `${target.pathname}${target.search}`;
+    })();
+  </script>
+</body>
+</html>
