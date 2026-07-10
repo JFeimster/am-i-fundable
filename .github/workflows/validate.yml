@@ -35,8 +35,14 @@ jobs:
             npm install --ignore-scripts
           fi
 
-      - name: Run repository validation
-        run: npm run validate
+      - name: Validate JSON files
+        run: npm run validate:json
+
+      - name: Validate JavaScript syntax
+        run: npm run validate:js
+
+      - name: Scan public surfaces for private data
+        run: npm run scan:private-data
 
       - name: Confirm workflow does not deploy
         run: |
