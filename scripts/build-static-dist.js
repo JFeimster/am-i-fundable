@@ -11,6 +11,7 @@ const rootFiles = [
   "broker.html",
   "documents.html",
   "embed-example.html",
+  "embed.html",
   "faq.html",
   "fundable-review.html",
   "funding-paths.html",
@@ -28,10 +29,14 @@ const rootFiles = [
   "styles.css",
   "terms.html",
   "thank-you.html",
-  "white-label.html"
+  "white-label.html",
+  "widget.css",
+  "widget.html",
+  "widget.js"
 ];
 
 const copied = [];
+fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
 
 for (const fileName of rootFiles) {
