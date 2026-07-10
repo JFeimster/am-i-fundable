@@ -1,1 +1,24 @@
-{"version":2,"builds":[{"src":"package.json","use":"@vercel/static-build","config":{"distDir":"dist"}}],"ignoreCommand":"node scripts/vercel-ignore-preview.js","git":{"deploymentEnabled":{"main":false,"*":false}}}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "ignoreCommand": "node scripts/vercel-ignore-preview.js",
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index?route=:path*"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": false,
+      "repair/production-api-runtime-20260710": true,
+      "*": false
+    }
+  }
+}
