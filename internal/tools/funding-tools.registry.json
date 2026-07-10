@@ -2,7 +2,7 @@
   "id": "funding-tools-registry",
   "name": "Internal Funding Tools Registry",
   "slug": "funding-tools-registry",
-  "description": "Internal-safe funding tool registry for matching, review, and workflow design. Contains no provider secrets, private URLs, commissions, or borrower records.",
+  "description": "Internal-safe funding tool registry for matching, review, and workflow design. Contains generic review metadata only.",
   "visibilityClass": "server_side_internal",
   "version": "1.0.0",
   "tools": [
