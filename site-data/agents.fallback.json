@@ -6,9 +6,10 @@
   "visibilityClass": "public_runtime_browser_safe",
   "agents": [
     {
-      "id": "fundready",
-      "name": "FundReady",
-      "slug": "fundready",
+      "id": "fundready-copilot",
+      "name": "FundReady Copilot",
+      "slug": "fundready-copilot",
+      "url": "https://chatgpt.com/g/g-6a58fb776ae4819190a662c4b059861b-fundready-copilot",
       "description": "Checks funding readiness, explains scorecard tiers, and recommends next-step prep without claiming approvals or final eligibility.",
       "purpose": "Help business owners understand readiness inputs, organize prep work, and choose the safest next step.",
       "inputs": [
