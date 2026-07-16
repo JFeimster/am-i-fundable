@@ -15,7 +15,7 @@ Jules
 Project:
 
 ```txt
-Funding Readiness Scorecard / Am I Fundable
+FundReady / Am I Fundable
 ```
 
 ## Current Status
@@ -52,7 +52,7 @@ Create optional support/ecosystem files for indexing, schema reuse, skill packag
 /skills/automation-workflow-spec-writer/SKILL.md
 /examples/funding/README.md
 /examples/funding/funding-kb.html
-/portfolio/gemini-gems/funding-readiness-helper.md
+/portfolio/gemini-gems/fundready.md
 ```
 
 ## Rules
