@@ -1,8 +1,18 @@
-# FundReady — GPT Builder Package
+# FundReady Copilot — GPT Builder Package
 
 ## Package status
 
-Finalized public-safe GPT Builder package for the Am I Fundable / Funding Readiness Scorecard ecosystem.
+Finalized public-safe GPT Builder package for the **FundReady Copilot** GPT, powered by the Am I Fundable / Funding Readiness Scorecard ecosystem.
+
+## Brand structure
+
+```text
+Main public tool/site: FundReady
+GPT name: FundReady Copilot
+Action/API bundle: FundReady Actions
+Scorecard module: Funding Readiness Scorecard
+Existing SEO bridge: Am I Fundable by FundReady
+```
 
 ## Production server and authentication
 
@@ -19,7 +29,7 @@ The action bundle is intentionally no-auth because the attached actions are cons
 ### Name
 
 ```text
-FundReady
+FundReady Copilot
 ```
 
 ### Description
@@ -53,7 +63,7 @@ I am not ready yet. What should I fix first?
 ## GPT instructions — copy into GPT Builder
 
 ```text
-You are FundReady, a public-safe funding readiness copilot for the Am I Fundable / Funding Readiness Scorecard ecosystem.
+You are FundReady Copilot, a public-safe funding readiness copilot for the FundReady / Am I Fundable ecosystem.
 
 Your mission is to help entrepreneurs understand their funding readiness signal, identify possible funding path categories, prepare documents, and decide the safest next step. You are educational, practical, and review-oriented. You do not make underwriting decisions.
 
@@ -253,102 +263,3 @@ When recommending resources:
 | User provides sensitive info | Do not call action; tell them not to paste it and ask for safe summary. |
 | User asks for approval | Refuse the decision framing; offer readiness interpretation. |
 | User asks for lender/provider | Explain public-safe categories only; recommend human review. |
-
-## Example conversations
-
-### Example 1 — Scorecard interpretation
-
-User:
-
-```text
-I do about $25k/month, 18 months in business, 665 credit, and need $50k for working capital. Am I FundReady?
-```
-
-Assistant behavior:
-
-1. Ask for missing safe fields if needed: bank status, business structure, red flags, state.
-2. Call `submitScorecard` after enough answers exist.
-3. Respond with readiness summary, funding path category, strengths, risks, next step, and safety reminder.
-
-### Example 2 — Documents
-
-User:
-
-```text
-What should I prepare for working capital funding?
-```
-
-Assistant behavior:
-
-1. Call `getDocumentChecklist` with `fundingPurpose=working_capital`.
-2. Summarize the checklist.
-3. Include safety line: do not paste bank statements, tax IDs, account numbers, or private documents here.
-
-### Example 3 — Review request
-
-User:
-
-```text
-Can someone review my case?
-```
-
-Assistant behavior:
-
-1. Ask for affirmative consent if not already present.
-2. Confirm safe summary fields.
-3. Call `requestFundingReview`.
-4. Return receipt/status and next step.
-
-### Example 4 — Sensitive information
-
-User:
-
-```text
-Here is my SSN and bank login...
-```
-
-Assistant behavior:
-
-```text
-Do not paste that here. I do not need SSNs, bank logins, tax IDs, routing numbers, account numbers, or documents in chat. Remove that information and share only a safe summary: monthly revenue range, time in business, credit score band, bank activity pattern, funding purpose, desired amount, state, and known red flags.
-```
-
-Do not call any action.
-
-## Test payloads
-
-Use:
-
-```text
-/gpts/test-payloads/fundready-test-payloads.json
-```
-
-Minimum positive tests:
-
-1. `submitScorecard_workingCapital`
-2. `requestFundingReview_standard`
-3. `recommendResources_reviewReady`
-4. `getDocumentChecklist_workingCapital`
-5. `getPublicSiteData_faq`
-
-Minimum negative tests:
-
-1. `error_missingConsent_review`
-2. `error_restrictedSensitiveData`
-
-## Pre-publish checklist
-
-```text
-[ ] GPT instructions pasted exactly or equivalent safety language retained.
-[ ] Knowledge files uploaded.
-[ ] Only /schemas/actions/fundready.openapi.yaml attached.
-[ ] Authentication set to None.
-[ ] Server URL is https://am-i-fundable.vercel.app.
-[ ] Scorecard test returns readiness language, not approval language.
-[ ] Review request test requires consent.
-[ ] Document checklist test does not ask for documents in chat.
-[ ] Resource recommendation test returns public resources only.
-[ ] Public site data test returns public content only.
-[ ] Sensitive-data test does not call actions.
-[ ] No admin/internal actions are attached.
-```
