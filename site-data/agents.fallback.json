@@ -6,11 +6,11 @@
   "visibilityClass": "public_runtime_browser_safe",
   "agents": [
     {
-      "id": "funding-readiness-helper",
-      "name": "Funding Readiness Helper",
-      "slug": "funding-readiness-helper",
-      "description": "Explains scorecard questions, readiness tiers, and next-step prep without claiming approvals or final eligibility.",
-      "purpose": "Help business owners understand readiness inputs and organize prep work.",
+      "id": "fundready",
+      "name": "FundReady",
+      "slug": "fundready",
+      "description": "Checks funding readiness, explains scorecard tiers, and recommends next-step prep without claiming approvals or final eligibility.",
+      "purpose": "Help business owners understand readiness inputs, organize prep work, and choose the safest next step.",
       "inputs": [
         "business basics",
         "revenue range",
@@ -19,7 +19,7 @@
         "funding purpose"
       ],
       "outputs": [
-        "readiness explanation",
+        "FundReady score interpretation",
         "prep checklist",
         "public-safe next steps"
       ],
