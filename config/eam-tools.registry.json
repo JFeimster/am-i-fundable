@@ -25,6 +25,24 @@
       "ctaLabel": "Check If You’re FundReady"
     },
     {
+      "id": "fundready-copilot",
+      "name": "FundReady Copilot",
+      "slug": "fundready-copilot",
+      "description": "Published Custom GPT that checks readiness signals, explains funding path categories, and recommends public-safe next steps.",
+      "persona": "Small business owners and funding prospects",
+      "category": "custom-gpt",
+      "tags": [
+        "fundready",
+        "custom-gpt",
+        "funding-readiness",
+        "document-prep"
+      ],
+      "status": "active",
+      "visibilityClass": "public_runtime_browser_safe",
+      "url": "https://chatgpt.com/g/g-6a58fb776ae4819190a662c4b059861b-fundready-copilot",
+      "ctaLabel": "Open FundReady Copilot"
+    },
+    {
       "id": "funding-kb-example",
       "name": "Funding Knowledge Base Example",
       "slug": "funding-kb-example",
