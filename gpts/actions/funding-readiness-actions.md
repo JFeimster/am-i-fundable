@@ -10,7 +10,33 @@ Use this as a human-readable setup checklist when creating Custom GPT actions. I
 
 Public GPTs must use only public-safe actions. Internal/admin actions must only be used in controlled internal GPTs with appropriate access controls.
 
-Do not attach admin/internal actions to public applicant-facing GPTs. That is how a helpful assistant becomes a data-leaking raccoon with API keys.
+Do not attach admin/internal actions to public applicant-facing GPTs.
+
+## Recommended FundReady action schema
+
+Use this finalized public-safe bundle for the market-facing GPT:
+
+```text
+/schemas/actions/fundready.openapi.yaml
+```
+
+Recommended GPT name:
+
+```text
+FundReady
+```
+
+Production server:
+
+```text
+https://am-i-fundable.vercel.app
+```
+
+Authentication:
+
+```text
+None / No authentication
+```
 
 ## Available action schema files
 
@@ -18,11 +44,12 @@ Do not attach admin/internal actions to public applicant-facing GPTs. That is ho
 
 | Schema file | Purpose | Recommended GPTs |
 |---|---|---|
-| `/schemas/actions/scorecard-submit.openapi.yaml` | Submit normalized scorecard answers and lead consent for review. | Funding Readiness Helper, Broker Scorecard Copilot |
-| `/schemas/actions/review-request.openapi.yaml` | Request human review for incomplete, borderline, complex, or red-flagged files. | Funding Readiness Helper, Broker Scorecard Copilot, Document Prep Coach |
-| `/schemas/actions/resource-recommendation.openapi.yaml` | Recommend public-safe resources by result tier, audience, or funding purpose. | Funding Readiness Helper, Document Prep Coach |
-| `/schemas/actions/document-checklist.openapi.yaml` | Return document checklist by funding purpose and readiness context. | Funding Readiness Helper, Document Prep Coach, Broker Scorecard Copilot |
-| `/schemas/actions/public-site.openapi.yaml` | Retrieve public-safe site content, FAQs, resources, or funding path summaries. | Funding Readiness Helper, Partner Embed Assistant |
+| `/schemas/actions/fundready.openapi.yaml` | Final public-safe bundle: scorecard submission, review request, resources, checklist, and public site retrieval. | FundReady |
+| `/schemas/actions/scorecard-submit.openapi.yaml` | Submit normalized scorecard answers and lead consent for review. | FundReady, Broker Scorecard Copilot |
+| `/schemas/actions/review-request.openapi.yaml` | Request human review for incomplete, borderline, complex, or red-flagged files. | FundReady, Broker Scorecard Copilot, Document Prep Coach |
+| `/schemas/actions/resource-recommendation.openapi.yaml` | Recommend public-safe resources by result tier, audience, or funding purpose. | FundReady, Document Prep Coach |
+| `/schemas/actions/document-checklist.openapi.yaml` | Return document checklist by funding purpose and readiness context. | FundReady, Document Prep Coach, Broker Scorecard Copilot |
+| `/schemas/actions/public-site.openapi.yaml` | Retrieve public-safe site content, FAQs, resources, or funding path summaries. | FundReady, Partner Embed Assistant |
 
 ### Public-safe but partner/broker-oriented
 
@@ -40,19 +67,27 @@ Do not attach admin/internal actions to public applicant-facing GPTs. That is ho
 
 ## GPT-to-action map
 
-### Funding Readiness Helper
+### FundReady
 
-Recommended actions:
+Recommended action file:
 
-- `/schemas/actions/scorecard-submit.openapi.yaml`
-- `/schemas/actions/review-request.openapi.yaml`
-- `/schemas/actions/resource-recommendation.openapi.yaml`
-- `/schemas/actions/document-checklist.openapi.yaml`
-- `/schemas/actions/public-site.openapi.yaml`
+```text
+/schemas/actions/fundready.openapi.yaml
+```
+
+Included operations:
+
+- `submitScorecard`
+- `requestFundingReview`
+- `recommendResources`
+- `getDocumentChecklist`
+- `getPublicSiteData`
 
 Do not attach:
 
 - `/schemas/actions/scorecard-admin.openapi.yaml`
+- `/schemas/openapi/*admin*`
+- `/api/admin/*`
 
 ### Broker Scorecard Copilot
 
@@ -98,8 +133,8 @@ Follow the auth type declared in each OpenAPI schema.
 
 General rules:
 
+- FundReady public actions use no authentication because they are constrained to public-safe readiness, checklist, resource, and review-request behavior.
 - Public content retrieval actions should not require private secrets.
-- Scorecard submission and review request actions may require an API key or server-side gateway depending on deployment.
 - Internal/admin actions must require protected authentication and should never be exposed to public GPT users.
 - Never paste production secrets into GPT instructions.
 - Use environment variables or connector-managed auth where available.
@@ -108,6 +143,7 @@ General rules:
 
 Actions should return:
 
+- Readiness score
 - Readiness tier
 - Public-safe summary
 - Potential funding path categories
@@ -151,7 +187,7 @@ Before enabling an action in a GPT:
 When an action returns a score or recommendation, the GPT should say:
 
 ```text
-Based on the scorecard response, your readiness signal suggests [tier/path].
+Based on the FundReady response, your readiness signal suggests [tier/path].
 This is not an approval, offer, underwriting decision, or guarantee of funding.
 The recommended next step is [document prep / human review / prep-first path].
 ```
@@ -170,11 +206,11 @@ This is the best rate.
 ## Example Custom GPT action setup flow
 
 1. Create or edit the GPT.
-2. Paste the GPT instructions from the selected `.gpt.md` file.
+2. Paste the GPT instructions from `/gpts/packages/fundready-builder-package.md`.
 3. Upload the recommended knowledge files.
-4. Add only the action schema files listed for that GPT.
-5. Configure auth using safe environment settings.
-6. Test with demo data.
+4. Add only `/schemas/actions/fundready.openapi.yaml`.
+5. Set authentication to None.
+6. Test with `/gpts/test-payloads/fundready-test-payloads.json`.
 7. Confirm the GPT response uses readiness language.
 8. Confirm no internal data appears in responses.
 9. Publish only after safety review.
