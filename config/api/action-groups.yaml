@@ -4,6 +4,15 @@ version: 1.0.0
 visibility: public_build_time_only
 description: Recommended grouping for Custom GPT or assistant actions.
 groups:
+  - id: fundready
+    label: FundReady Public Bundle
+    operations:
+      - submitScorecard
+      - requestFundingReview
+      - recommendResources
+      - getDocumentChecklist
+      - getPublicSiteData
+    public_safe: true
   - id: system
     label: System
     operations:
@@ -21,6 +30,7 @@ groups:
   - id: scorecard
     label: Scorecard
     operations:
+      - submitScorecard
       - requestFundingReview
       - generateReadinessReport
       - matchFundingPaths
@@ -31,9 +41,9 @@ groups:
     public_safe: false
     note: Admin operations must remain outside public GPT Actions.
 recommended_import:
-  file: /schemas/openapi/am-i-fundable.public-actions.openapi.yaml
+  file: /schemas/actions/fundready.openapi.yaml
   auth: none
   intended_for:
-    - Funding readiness helper GPT
+    - FundReady
     - Broker scorecard copilot
     - Document prep assistant
