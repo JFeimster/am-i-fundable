@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
   title: FundReady Actions
-  version: 1.0.0
+  version: 1.0.1
   description: >-
-    Public-safe GPT Action schema for FundReady. This action bundle supports
+    Public-safe GPT Action schema for FundReady Copilot. This action bundle supports
     scorecard submission, human review requests, public resource recommendations,
     document checklist lookup, and public site retrieval. It must not return
     approvals, offers, underwriting decisions, provider-specific routing, apply
@@ -26,24 +26,11 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: false
-              required:
-                - answers
-              properties:
-                source:
-                  type: string
-                  default: FundReady GPT
-                applicant:
-                  $ref: '#/components/schemas/PublicApplicant'
-                answers:
-                  $ref: '#/components/schemas/ScorecardAnswers'
-                attribution:
-                  $ref: '#/components/schemas/PublicAttribution'
+              $ref: '#/components/schemas/ScorecardSubmitRequest'
             examples:
               workingCapital:
                 value:
-                  source: FundReady GPT
+                  source: FundReady Copilot
                   applicant:
                     businessName: Demo Business LLC
                     state: DC
@@ -87,7 +74,7 @@ paths:
             examples:
               standardReview:
                 value:
-                  source: FundReady GPT
+                  source: FundReady Copilot
                   requestedReviewType: funding_path_review
                   applicant:
                     firstName: Demo
@@ -220,8 +207,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: true
+                $ref: '#/components/schemas/PublicSiteDataResponse'
         '422':
           description: Invalid site-data request.
           content:
@@ -230,6 +216,21 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    ScorecardSubmitRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - answers
+      properties:
+        source:
+          type: string
+          default: FundReady Copilot
+        applicant:
+          $ref: '#/components/schemas/PublicApplicant'
+        answers:
+          $ref: '#/components/schemas/ScorecardAnswers'
+        attribution:
+          $ref: '#/components/schemas/PublicAttribution'
     PublicApplicant:
       type: object
       additionalProperties: false
@@ -244,6 +245,10 @@ components:
     ApplicantWithConsent:
       type: object
       additionalProperties: false
+      required:
+        - businessName
+        - email
+        - consent
       properties:
         firstName:
           type: string
@@ -266,10 +271,6 @@ components:
           maxLength: 40
         consent:
           type: boolean
-      required:
-        - businessName
-        - email
-        - consent
     PublicAttribution:
       type: object
       additionalProperties: false
@@ -417,6 +418,16 @@ components:
             - nurture
             - education
             - manual_review
+    RecommendationCard:
+      type: object
+      additionalProperties: false
+      properties:
+        label:
+          type: string
+        summary:
+          type: string
+        nextStep:
+          type: string
     PublicScoreResult:
       type: object
       additionalProperties: false
@@ -444,8 +455,7 @@ components:
         recommendationCards:
           type: array
           items:
-            type: object
-            additionalProperties: true
+            $ref: '#/components/schemas/RecommendationCard'
         strengths:
           type: array
           items:
@@ -468,10 +478,12 @@ components:
           type: string
     PublicScoreResponse:
       type: object
-      additionalProperties: true
+      additionalProperties: false
       properties:
         ok:
           type: boolean
+        status:
+          type: string
         result:
           $ref: '#/components/schemas/PublicScoreResult'
         score:
@@ -489,7 +501,7 @@ components:
       properties:
         source:
           type: string
-          default: FundReady GPT
+          default: FundReady Copilot
         requestedReviewType:
           type: string
           enum:
@@ -508,7 +520,7 @@ components:
           $ref: '#/components/schemas/PublicAttribution'
     ReviewResponse:
       type: object
-      additionalProperties: true
+      additionalProperties: false
       properties:
         ok:
           type: boolean
@@ -542,26 +554,66 @@ components:
         answers:
           $ref: '#/components/schemas/ScorecardAnswers'
         result:
-          type: object
-          additionalProperties: true
+          $ref: '#/components/schemas/PublicScoreResult'
+    Resource:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        path:
+          type: string
+        summary:
+          type: string
+        audience:
+          type: array
+          items:
+            type: string
+        tierIds:
+          type: array
+          items:
+            type: string
     ResourceRecommendationResponse:
       type: object
-      additionalProperties: true
+      additionalProperties: false
       properties:
         ok:
           type: boolean
+        tierId:
+          type: string
+        fundingPurpose:
+          type: string
         count:
           type: integer
         resources:
           type: array
           items:
-            type: object
-            additionalProperties: true
+            $ref: '#/components/schemas/Resource'
         disclaimer:
           type: string
+    DocumentChecklistItem:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        detail:
+          type: string
+        required:
+          type: boolean
+        appliesTo:
+          type: array
+          items:
+            type: string
     DocumentChecklistResponse:
       type: object
-      additionalProperties: true
+      additionalProperties: false
       properties:
         ok:
           type: boolean
@@ -574,21 +626,117 @@ components:
         items:
           type: array
           items:
-            type: object
-            additionalProperties: true
+            $ref: '#/components/schemas/DocumentChecklistItem'
         nextStep:
           type: string
         disclaimer:
           type: string
+    PublicSiteDataset:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        visibility:
+          type: string
+        endpoint:
+          type: string
+    PublicSiteEntry:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        title:
+          type: string
+        name:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        path:
+          type: string
+        url:
+          type: string
+        summary:
+          type: string
+        description:
+          type: string
+        body:
+          type: string
+        question:
+          type: string
+        answer:
+          type: string
+        publicLabel:
+          type: string
+        familyId:
+          type: string
+        fundingPurpose:
+          type: string
+        disclaimer:
+          type: string
+    PublicSiteDataResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        ok:
+          type: boolean
+        registryId:
+          type: string
+        dataset:
+          type: string
+        count:
+          type: integer
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicSiteDataset'
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicSiteEntry'
+        entry:
+          $ref: '#/components/schemas/PublicSiteEntry'
+        disclaimer:
+          type: string
+    ApiError:
+      type: object
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        requestId:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiErrorDetail'
+    ApiErrorDetail:
+      type: object
+      additionalProperties: false
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        allowedMethods:
+          type: array
+          items:
+            type: string
     ErrorResponse:
       type: object
-      additionalProperties: true
+      additionalProperties: false
       properties:
         ok:
           type: boolean
           const: false
         error:
-          type: object
-          additionalProperties: true
+          $ref: '#/components/schemas/ApiError'
         disclaimer:
           type: string
