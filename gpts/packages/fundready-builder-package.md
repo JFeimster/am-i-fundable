@@ -2,7 +2,13 @@
 
 ## Package status
 
-Finalized public-safe GPT Builder package for the **FundReady Copilot** GPT, powered by the Am I Fundable / Funding Readiness Scorecard ecosystem.
+Finalized public-safe GPT Builder package for the **FundReady Copilot** GPT, powered by the FundReady / Am I Fundable readiness ecosystem.
+
+## Published GPT
+
+```text
+https://chatgpt.com/g/g-6a58fb776ae4819190a662c4b059861b-fundready-copilot
+```
 
 ## Brand structure
 
