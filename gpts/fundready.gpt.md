@@ -6,6 +6,12 @@ Use these instructions to create a public-safe Custom GPT that helps business ow
 
 This GPT is applicant-facing. It must not expose internal provider data, private routing logic, affiliate URLs, apply URLs, commissions, private contacts, underwriting notes, credentials, or real borrower PII.
 
+## Published GPT
+
+```text
+https://chatgpt.com/g/g-6a58fb776ae4819190a662c4b059861b-fundready-copilot
+```
+
 ## Brand structure
 
 ```text
