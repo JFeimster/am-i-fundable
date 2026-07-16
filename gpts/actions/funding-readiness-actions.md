@@ -23,7 +23,13 @@ Use this finalized public-safe bundle for the market-facing GPT:
 Recommended GPT name:
 
 ```text
-FundReady
+FundReady Copilot
+```
+
+Published GPT URL:
+
+```text
+https://chatgpt.com/g/g-6a58fb776ae4819190a662c4b059861b-fundready-copilot
 ```
 
 Production server:
@@ -44,12 +50,12 @@ None / No authentication
 
 | Schema file | Purpose | Recommended GPTs |
 |---|---|---|
-| `/schemas/actions/fundready.openapi.yaml` | Final public-safe bundle: scorecard submission, review request, resources, checklist, and public site retrieval. | FundReady |
-| `/schemas/actions/scorecard-submit.openapi.yaml` | Submit normalized scorecard answers and lead consent for review. | FundReady, Broker Scorecard Copilot |
-| `/schemas/actions/review-request.openapi.yaml` | Request human review for incomplete, borderline, complex, or red-flagged files. | FundReady, Broker Scorecard Copilot, Document Prep Coach |
-| `/schemas/actions/resource-recommendation.openapi.yaml` | Recommend public-safe resources by result tier, audience, or funding purpose. | FundReady, Document Prep Coach |
-| `/schemas/actions/document-checklist.openapi.yaml` | Return document checklist by funding purpose and readiness context. | FundReady, Document Prep Coach, Broker Scorecard Copilot |
-| `/schemas/actions/public-site.openapi.yaml` | Retrieve public-safe site content, FAQs, resources, or funding path summaries. | FundReady, Partner Embed Assistant |
+| `/schemas/actions/fundready.openapi.yaml` | Final public-safe bundle: scorecard submission, review request, resources, checklist, and public site retrieval. | FundReady Copilot |
+| `/schemas/actions/scorecard-submit.openapi.yaml` | Submit normalized scorecard answers and lead consent for review. | FundReady Copilot, Broker Scorecard Copilot |
+| `/schemas/actions/review-request.openapi.yaml` | Request human review for incomplete, borderline, complex, or red-flagged files. | FundReady Copilot, Broker Scorecard Copilot, Document Prep Coach |
+| `/schemas/actions/resource-recommendation.openapi.yaml` | Recommend public-safe resources by result tier, audience, or funding purpose. | FundReady Copilot, Document Prep Coach |
+| `/schemas/actions/document-checklist.openapi.yaml` | Return document checklist by funding purpose and readiness context. | FundReady Copilot, Document Prep Coach, Broker Scorecard Copilot |
+| `/schemas/actions/public-site.openapi.yaml` | Retrieve public-safe site content, FAQs, resources, or funding path summaries. | FundReady Copilot, Partner Embed Assistant |
 
 ### Public-safe but partner/broker-oriented
 
@@ -67,7 +73,7 @@ None / No authentication
 
 ## GPT-to-action map
 
-### FundReady
+### FundReady Copilot
 
 Recommended action file:
 
@@ -205,7 +211,7 @@ This is the best rate.
 
 ## Example Custom GPT action setup flow
 
-1. Create or edit the GPT.
+1. Create or edit FundReady Copilot.
 2. Paste the GPT instructions from `/gpts/packages/fundready-builder-package.md`.
 3. Upload the recommended knowledge files.
 4. Add only `/schemas/actions/fundready.openapi.yaml`.
