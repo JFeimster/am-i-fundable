@@ -1,0 +1,153 @@
+{
+  "package": "FundReady",
+  "server": "https://am-i-fundable.vercel.app",
+  "auth": "none",
+  "payloads": {
+    "submitScorecard_workingCapital": {
+      "operationId": "submitScorecard",
+      "method": "POST",
+      "path": "/api/scorecard/submit-score",
+      "body": {
+        "source": "FundReady GPT",
+        "applicant": {
+          "businessName": "Demo Business LLC",
+          "state": "DC"
+        },
+        "answers": {
+          "businessPersona": "local_service_business",
+          "monthlyRevenue": 25000,
+          "timeInBusinessMonths": 18,
+          "creditScore": 665,
+          "bankStatus": "consistent",
+          "businessStructure": "entity_with_bank",
+          "fundingPurpose": "working_capital",
+          "desiredFundingAmount": 50000,
+          "redFlags": ["none"]
+        },
+        "attribution": {
+          "partner_id": null,
+          "tracking_link_id": null,
+          "campaign_id": null,
+          "widget_id": null,
+          "source_url": "https://chatgpt.com/gpts/editor",
+          "utm_source": "chatgpt",
+          "utm_medium": "gpt_action",
+          "utm_campaign": "fundready",
+          "utm_term": null,
+          "utm_content": null
+        }
+      },
+      "expected": {
+        "public_safe": true,
+        "must_not_include": ["approval", "guarantee", "provider_id", "apply_url", "commission"]
+      }
+    },
+    "requestFundingReview_standard": {
+      "operationId": "requestFundingReview",
+      "method": "POST",
+      "path": "/api/scorecard/request-review",
+      "body": {
+        "source": "FundReady GPT",
+        "requestedReviewType": "funding_path_review",
+        "applicant": {
+          "firstName": "Demo",
+          "lastName": "Owner",
+          "businessName": "Demo Business LLC",
+          "email": "demo@example.com",
+          "phone": "5555555555",
+          "state": "DC",
+          "consent": true
+        },
+        "answers": {
+          "businessPersona": "local_service_business",
+          "monthlyRevenue": 25000,
+          "timeInBusinessMonths": 18,
+          "creditScore": 665,
+          "bankStatus": "consistent",
+          "businessStructure": "entity_with_bank",
+          "fundingPurpose": "working_capital",
+          "desiredFundingAmount": 50000,
+          "redFlags": ["none"]
+        },
+        "notes": "Demo test only. No sensitive documents or private account details included."
+      },
+      "expected": {
+        "status": [201, 200],
+        "requires_consent": true,
+        "public_safe": true
+      }
+    },
+    "recommendResources_reviewReady": {
+      "operationId": "recommendResources",
+      "method": "POST",
+      "path": "/api/public/resource-recommendations",
+      "body": {
+        "tierId": "fundable_review",
+        "fundingPurpose": "working_capital",
+        "manualReviewRecommended": true
+      },
+      "expected": {
+        "status": 200,
+        "public_resources_only": true
+      }
+    },
+    "getDocumentChecklist_workingCapital": {
+      "operationId": "getDocumentChecklist",
+      "method": "GET",
+      "path": "/api/public/document-checklist?fundingPurpose=working_capital",
+      "expected": {
+        "status": 200,
+        "must_warn_not_to_paste_documents": true
+      }
+    },
+    "getPublicSiteData_faq": {
+      "operationId": "getPublicSiteData",
+      "method": "GET",
+      "path": "/api/public/site-data?dataset=faq",
+      "expected": {
+        "status": 200,
+        "public_site_content_only": true
+      }
+    },
+    "error_missingConsent_review": {
+      "operationId": "requestFundingReview",
+      "method": "POST",
+      "path": "/api/scorecard/request-review",
+      "body": {
+        "source": "FundReady GPT",
+        "requestedReviewType": "funding_path_review",
+        "applicant": {
+          "businessName": "Demo Business LLC",
+          "email": "demo@example.com",
+          "state": "DC",
+          "consent": false
+        },
+        "answers": {
+          "businessPersona": "local_service_business",
+          "monthlyRevenue": 25000,
+          "timeInBusinessMonths": 18,
+          "creditScore": 665,
+          "bankStatus": "consistent",
+          "businessStructure": "entity_with_bank",
+          "fundingPurpose": "working_capital",
+          "desiredFundingAmount": 50000,
+          "redFlags": ["none"]
+        }
+      },
+      "expected": {
+        "status": 422,
+        "assistant_should": "Ask for explicit consent before requesting human review."
+      }
+    },
+    "error_restrictedSensitiveData": {
+      "operationId": "none",
+      "body": {
+        "user_input_example": "Here is my SSN, bank login, routing number, and full bank statement."
+      },
+      "expected": {
+        "call_action": false,
+        "assistant_should": "Tell the user not to paste sensitive data and ask for a safe summary instead."
+      }
+    }
+  }
+}
