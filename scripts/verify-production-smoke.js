@@ -24,10 +24,8 @@ const applicant = {
 
 await checkHtml("/", ["Funding Readiness Scorecard", "name=\"viewport\""]);
 await checkHtml("/scorecard.html", ["Funding Readiness", "name=\"viewport\""]);
-await checkHtml("/embed.html?partner_id=SMOKE&campaign_id=production-smoke", ["widget.html", "name=\"viewport\"", "@media (max-width: 640px)"]);
-await checkHtml("/widget.html", ["Funding Readiness Scorecard Widget", "widget.js", "widget.css"]);
-await checkAsset("/widget.js", "javascript");
-await checkAsset("/widget.css", "css");
+await checkRedirect("/embed.html", "https://funding-quiz.vercel.app/");
+await checkRedirect("/widget.html", "https://funding-quiz.vercel.app/widget.html");
 
 const health = await requestJson("/api/health", { expectedStatus: 200 });
 assert(health.status === "healthy", "API health status must be healthy");
@@ -78,11 +76,10 @@ async function checkHtml(path, requiredFragments) {
   }
 }
 
-async function checkAsset(path, type) {
-  const response = await fetch(`${baseUrl}${path}`, { redirect: "follow" });
-  const text = await response.text();
-  assert(response.status === 200, `${path} must return HTTP 200; received ${response.status}`);
-  assert(text.length > 100, `${path} must contain a non-empty ${type} payload`);
+async function checkRedirect(path, expectedLocation) {
+  const response = await fetch(`${baseUrl}${path}`, { redirect: "manual" });
+  assert([301, 302, 307, 308].includes(response.status), `${path} must redirect; received ${response.status}`);
+  assert(response.headers.get("location") === expectedLocation, `${path} must redirect to ${expectedLocation}`);
 }
 
 async function requestJson(path, options = {}) {

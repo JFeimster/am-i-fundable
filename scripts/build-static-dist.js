@@ -10,8 +10,6 @@ const rootFiles = [
   "404.html",
   "broker.html",
   "documents.html",
-  "embed-example.html",
-  "embed.html",
   "faq.html",
   "fundable-review.html",
   "funding-paths.html",
@@ -29,10 +27,7 @@ const rootFiles = [
   "styles.css",
   "terms.html",
   "thank-you.html",
-  "white-label.html",
-  "widget.css",
-  "widget.html",
-  "widget.js"
+  "white-label.html"
 ];
 
 const copied = [];
@@ -55,6 +50,7 @@ fs.writeFileSync(
     {
       project: "am-i-fundable",
       purpose: "Static Vercel deployment output",
+      embed_source: "JFeimster/funding-quiz",
       copied_count: copied.length,
       generated_at: new Date().toISOString()
     },
@@ -64,6 +60,7 @@ fs.writeFileSync(
 );
 
 console.log(`Static dist output created with ${copied.length} files.`);
+console.log("Embeddable scorecard assets are intentionally excluded; JFeimster/funding-quiz owns that surface.");
 console.log("The repo /api source remains untouched; only the generated dist folder is deployed.");
 
 function copyDirectory(sourceDir, targetDir) {

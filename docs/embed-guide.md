@@ -2,173 +2,64 @@
 Am I Fundable / Funding Readiness Scorecard
 Visibility: public_repo_operational_doc
 Safety: public-safe; no provider names, provider IDs, affiliate/apply URLs, commissions, private contacts, routing secrets, underwriting notes, credentials, or real borrower PII.
-Deployment: do not change vercel.json unless explicitly authorized.
 -->
 # Embed Guide
 
-This guide explains how to embed the Funding Readiness Scorecard on a broker, partner, affiliate, community, or resource site without exposing internal routing logic.
+## Canonical architecture
 
-The embed is a lead-capture and readiness education surface. It is not an approval engine, lender marketplace display, or provider-selection leak.
+`am-i-fundable` is the public site and readiness workflow. It is **not** the canonical embeddable widget host.
 
-## Recommended embed model
+The reusable embeddable funding-readiness form is owned by the separate repository and Vercel project:
 
-Use one of two safe patterns:
+- GitHub: `JFeimster/funding-quiz`
+- Production host: `https://funding-quiz.vercel.app`
+- Embeddable form: `https://funding-quiz.vercel.app/widget.html`
 
-1. **Iframe embed** for fastest partner installation.
-2. **Script loader embed** for more branded integrations after the public embed loader is stable.
+The Am I Fundable homepage and scorecard may keep their own on-site form experience. Do not reintroduce `/widget.html`, `/embed.html`, `widget.js`, or `widget.css` into the Am I Fundable production build merely to support third-party embedding.
 
-The iframe pattern is the safest default because it keeps styles, JavaScript, and scorecard behavior isolated from the host page.
+## Recommended partner embed
 
-## Basic iframe example
+Use the `funding-quiz` widget directly:
 
 ```html
 <iframe
-  src="https://your-public-domain.example/widget.html?source=partner-demo"
+  src="https://funding-quiz.vercel.app/widget.html"
   title="Funding Readiness Scorecard"
   width="100%"
-  height="760"
+  height="980"
   style="border:0;max-width:100%;"
   loading="lazy"
 ></iframe>
 ```
 
-Replace the demo domain only with the approved production domain after deployment is intentionally enabled.
+Partner-safe attribution parameters may be added only when supported by the `funding-quiz` implementation. Do not put provider IDs, CRM owner IDs, private routing logic, commissions, payout terms, borrower PII, or underwriting notes into public URLs.
 
-Do not add provider IDs, private tags, affiliate links, or routing rules to the URL.
+## Legacy Am I Fundable embed URLs
 
-## Partner-safe query parameters
+The following Am I Fundable routes are retired from the production build and permanently redirect to `funding-quiz`:
 
-Allowed public query parameters:
+- `/embed.html` → `https://funding-quiz.vercel.app/`
+- `/embed-example.html` → `https://funding-quiz.vercel.app/`
+- `/widget.html` → `https://funding-quiz.vercel.app/widget.html`
+- `/widget.js` → `https://funding-quiz.vercel.app/widget.js`
+- `/widget.css` → `https://funding-quiz.vercel.app/widget.css`
 
-| Parameter | Example | Purpose |
-|---|---|---|
-| `source` | `broker-demo` | Public attribution label. |
-| `audience` | `contractor` | Public-safe audience preset. |
-| `theme` | `dark` | Visual preset. |
-| `compact` | `true` | Smaller widget layout. |
+This separation avoids maintaining two public widget implementations and reduces duplicate crawl surfaces.
 
-Do not pass:
+## Accessibility and compliance
 
-- provider IDs
-- CRM owner IDs
-- private campaign IDs
-- affiliate/apply URLs
-- commissions
-- payout terms
-- user PII
-- underwriting notes
+Every embed should include a descriptive `title`, keyboard-accessible controls, visible focus states, readable contrast, explicit labels, and consent language where required.
 
-## Safe source naming
+Use educational/pre-qualification language only. The scorecard is not an approval, offer, commitment to lend, or guarantee of funding. Any funding path remains subject to review, documentation, business performance, credit profile, and applicable partner/provider criteria.
 
-Good:
+## Testing
 
-```txt
-broker-demo
-partner-directory
-contractor-resource-page
-community-workshop
-white-label-preview
-```
+Before distributing an embed:
 
-Bad:
+- Confirm `funding-quiz.vercel.app/widget.html` loads on desktop and mobile.
+- Confirm the host page uses lazy loading when practical.
+- Confirm the form does not expose private provider or routing data.
+- Confirm submission behavior works or fails gracefully.
+- Confirm the host page includes appropriate disclaimer language.
 
-```txt
-lender-name-route
-provider-123
-high-commission-path
-approve-fast
-private-crm-owner
-```
-
-If a source name would reveal private economics, provider relationships, or routing logic, it does not belong in the browser.
-
-## Script loader example
-
-Use only after `/assets/js/embed-loader.js` is installed and tested.
-
-```html
-<div
-  data-funding-readiness-embed
-  data-source="partner-demo"
-  data-audience="general"
-  data-theme="dark"
-></div>
-
-<script
-  src="https://your-public-domain.example/assets/js/embed-loader.js"
-  defer
-></script>
-```
-
-The loader should create a sandboxed iframe or isolated widget shell. It must not fetch `/internal/**`.
-
-## Host page placement
-
-Recommended page sections:
-
-1. Problem framing.
-2. Who the scorecard helps.
-3. Embedded scorecard.
-4. What happens after submission.
-5. Safe disclaimer.
-6. Contact or resource CTA.
-
-Example intro copy:
-
-> Check your funding readiness before you apply. This scorecard reviews common readiness signals such as revenue, time in business, bank activity, business setup, funding purpose, and possible blockers. It is educational and does not guarantee funding.
-
-## Height guidance
-
-| Layout | Suggested height |
-|---|---:|
-| Full scorecard iframe | `760px` to `900px` |
-| Compact embed | `620px` to `740px` |
-| Result-only explainer | `500px` to `650px` |
-
-If the host site supports responsive iframe resizing, use it. If not, start taller. Scrollbars are ugly little goblins but better than clipped forms.
-
-## Accessibility requirements
-
-The embed should include:
-
-- a clear `title`
-- keyboard-accessible controls
-- visible focus states
-- readable contrast
-- form labels
-- consent language
-- no auto-playing audio or motion
-
-## Required disclaimer near embeds
-
-Use this or similar language near every embed:
-
-> The Funding Readiness Scorecard is for educational and pre-qualification guidance only. It is not an approval, offer, commitment to lend, or guarantee of funding. Any potential path is subject to review, documentation, business performance, credit profile, and partner criteria.
-
-## Testing checklist
-
-Before handing an embed to a partner:
-
-- [ ] Widget loads on desktop and mobile.
-- [ ] Form steps advance with keyboard and mouse.
-- [ ] Required fields block incomplete submission.
-- [ ] Consent language is visible.
-- [ ] Result language avoids approval or guarantee claims.
-- [ ] No internal files are requested in the browser network tab.
-- [ ] No private provider names, URLs, IDs, or notes appear in HTML, JS, query strings, or console logs.
-- [ ] Submit behavior works or fails gracefully.
-- [ ] Host page has the required disclaimer.
-
-## Troubleshooting
-
-| Symptom | Likely cause | Fix |
-|---|---|---|
-| Widget height cuts off | Iframe too short | Increase height or use responsive resize. |
-| Host CSS breaks widget | Non-iframe embed style collision | Use iframe pattern or scope CSS. |
-| Submit fails | API unavailable or blocked | Show fallback message and preserve user experience. |
-| Result page sounds too strong | Copy drift | Use result-language guide. |
-| Partner asks for provider names | Boundary issue | Keep provider matching server-side/internal only. |
-
-## Do not change deployment settings
-
-Embedding docs should never require editing `vercel.json`. If a deployment window is needed, open it explicitly through the release process.
+Do not add a second embeddable implementation back into `am-i-fundable`; change the `funding-quiz` repo when the reusable widget needs work.

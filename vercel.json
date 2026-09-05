@@ -4,6 +4,33 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "ignoreCommand": "node scripts/vercel-ignore-preview.js",
+  "redirects": [
+    {
+      "source": "/embed.html",
+      "destination": "https://funding-quiz.vercel.app/",
+      "permanent": true
+    },
+    {
+      "source": "/embed-example.html",
+      "destination": "https://funding-quiz.vercel.app/",
+      "permanent": true
+    },
+    {
+      "source": "/widget.html",
+      "destination": "https://funding-quiz.vercel.app/widget.html",
+      "permanent": true
+    },
+    {
+      "source": "/widget.js",
+      "destination": "https://funding-quiz.vercel.app/widget.js",
+      "permanent": true
+    },
+    {
+      "source": "/widget.css",
+      "destination": "https://funding-quiz.vercel.app/widget.css",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api",
@@ -12,6 +39,117 @@
     {
       "source": "/api/:path*",
       "destination": "/api/index?route=:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/site-data/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/styles.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/script.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/scorecard.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/scorecard.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/results.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/results.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/funding-paths.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/funding-paths.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/documents.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/documents.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/broker.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/broker.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/partners.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/partners.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/white-label.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/white-label.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/not-ready.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/not-ready.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/fundable-review.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/fundable-review.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/highly-fundable.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/highly-fundable.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/resources.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/resources.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/faq.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/faq.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/privacy.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/privacy.html>; rel=\"canonical\""}]
+    },
+    {
+      "source": "/terms.html",
+      "headers": [{"key":"Link","value":"<https://am-i-fundable.vercel.app/terms.html>; rel=\"canonical\""}]
     }
   ],
   "git": {

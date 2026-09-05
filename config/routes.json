@@ -1,6 +1,6 @@
 {
   "id": "funding-routes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "visibility": "public_build_time_only",
   "project": "funding-readiness-scorecard",
   "routes": [
@@ -9,18 +9,6 @@
       "target": "index.html",
       "type": "page",
       "surface": "landing_page"
-    },
-    {
-      "path": "/widget",
-      "target": "widget.html",
-      "type": "page",
-      "surface": "widget"
-    },
-    {
-      "path": "/embed-example",
-      "target": "embed-example.html",
-      "type": "page",
-      "surface": "embed_example"
     },
     {
       "path": "/api/health",

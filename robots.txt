@@ -1,8 +1,14 @@
 # Am I Fundable / Funding Readiness Scorecard
-# Public-safe crawl rules for static pages.
+# Public crawl rules. The embeddable form is maintained separately in JFeimster/funding-quiz.
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /embed.html
+Disallow: /embed-example.html
+Disallow: /widget.html
+Disallow: /widget.js
+Disallow: /widget.css
 Disallow: /internal/
 Disallow: /.github/
 Disallow: /.jules/
