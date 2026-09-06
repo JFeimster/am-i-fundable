@@ -36,15 +36,10 @@ export async function onRequest(context) {
       createdAt: new Date().toISOString()
     };
 
-    // Optional provider-neutral delivery hook. Leave unset until a destination
-    // (Tally, Zapier, Make, n8n, custom API, etc.) is deliberately chosen.
-    const delivery = await maybePostWebhook(context.env?.LEAD_WEBHOOK_URL, lead);
-
     return json({
       ok: true,
-      message: 'Score received for review. This is not an approval, offer, or guarantee of funding.',
+      message: 'Score calculated successfully. This is not an approval, offer, or guarantee of funding.',
       leadId: lead.id,
-      delivery,
       publicResult: {
         score: scoreResult.score,
         tier: scoreResult.tier,
@@ -72,20 +67,6 @@ function sanitizeApplicant(applicant = {}) {
     state: applicant.state || '',
     consent: applicant.consent === true
   };
-}
-
-async function maybePostWebhook(url, payload) {
-  if (!url) return { skipped: true, reason: 'no_delivery_destination_configured' };
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    return { posted: response.ok, status: response.status };
-  } catch {
-    return { posted: false };
-  }
 }
 
 function corsHeaders(context) {
