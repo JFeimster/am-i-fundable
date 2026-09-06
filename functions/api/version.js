@@ -17,7 +17,9 @@ export async function onRequest(context) {
     migratedRoutes: [
       '/api/health',
       '/api/version',
-      '/api/submit-score'
+      '/api/submit-score',
+      '/api/public/result-tier',
+      '/api/public/resource-recommendations'
     ],
     legacyRoutesStatus: 'migration_pending',
     disclaimer: 'Public routes return readiness guidance only. They do not provide approvals, offers, underwriting decisions, or guarantees of funding.'
