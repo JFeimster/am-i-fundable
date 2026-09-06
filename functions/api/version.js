@@ -18,10 +18,13 @@ export async function onRequest(context) {
       '/api/health',
       '/api/version',
       '/api/submit-score',
+      '/api/public/funding-paths',
+      '/api/public/document-checklist',
       '/api/public/result-tier',
       '/api/public/resource-recommendations'
     ],
-    legacyRoutesStatus: 'migration_pending',
+    publicRuntimeStatus: 'cloudflare_native',
+    legacyInternalRoutesStatus: 'parked',
     disclaimer: 'Public routes return readiness guidance only. They do not provide approvals, offers, underwriting decisions, or guarantees of funding.'
   }, 200, context);
 }
