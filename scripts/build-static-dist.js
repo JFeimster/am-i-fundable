@@ -7,6 +7,8 @@ const outputDir = path.join(root, "dist");
 const publicDirectories = ["assets", "lib", "site-data"];
 
 const rootFiles = [
+  "_headers",
+  "_redirects",
   "404.html",
   "broker.html",
   "documents.html",
@@ -49,7 +51,8 @@ fs.writeFileSync(
   JSON.stringify(
     {
       project: "am-i-fundable",
-      purpose: "Static Vercel deployment output",
+      purpose: "Cloudflare Pages static frontend output",
+      api_strategy: "Cloudflare Pages Function proxy to legacy Vercel API during migration",
       embed_source: "JFeimster/funding-quiz",
       copied_count: copied.length,
       generated_at: new Date().toISOString()
@@ -61,7 +64,7 @@ fs.writeFileSync(
 
 console.log(`Static dist output created with ${copied.length} files.`);
 console.log("Embeddable scorecard assets are intentionally excluded; JFeimster/funding-quiz owns that surface.");
-console.log("The repo /api source remains untouched; only the generated dist folder is deployed.");
+console.log("Cloudflare Pages serves dist; /api is handled by Pages Functions during the API migration.");
 
 function copyDirectory(sourceDir, targetDir) {
   for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
