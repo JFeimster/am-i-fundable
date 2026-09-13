@@ -5,6 +5,7 @@ import { buildReadinessReport } from "../lib/api/report-builder.js";
 import { assertPublicSafe, sanitizeForPublic } from "../lib/api/public-boundary.js";
 import { buildManualReviewPath, toPublicFundingPath, toPublicScoreResult } from "../lib/api/safe-result-presenter.js";
 import { normalizeApplicant, validateReviewApplicant, validateScorecardAnswers } from "../lib/api/validate-payload.js";
+import { buildLeadWebhookPayload, deliverLeadWebhook, toPublicLeadDelivery } from "../internal/api/lead-webhook.js";
 
 const PUBLIC_FAMILIES_PATH = new URL("../data/product-families.public.json", import.meta.url);
 const PROVIDERS_PATH = new URL("../internal/providers/funding-providers.registry.json", import.meta.url);
@@ -187,11 +188,17 @@ async function submitScore(req, res) {
     reviewStatus: scoreResult.manualReviewRecommended ? "queued_for_review" : "new",
     createdAt: new Date().toISOString()
   };
-  await maybePostWebhook(process.env.N8N_SCORECARD_WEBHOOK_URL, lead);
+  const webhookDelivery = await deliverLeadWebhook({
+    env: process.env,
+    payload: buildLeadWebhookPayload({ lead })
+  });
   return send(res, 200, assertPublicSafe({
     ok: true,
+    scoreCalculated: true,
+    leadAccepted: true,
     message: "Score received for review. This is not an approval, offer, or guarantee of funding.",
     leadId: lead.id,
+    leadDelivery: toPublicLeadDelivery(webhookDelivery),
     publicResult: toPublicScoreResult(scoreResult)
   }));
 }
@@ -486,7 +493,6 @@ async function readBody(req) {
 
 function readJson(url, fallback) { try { return JSON.parse(fs.readFileSync(url, "utf8")); } catch { return fallback; } }
 function readRegistryEntries(url) { const registry = readJson(url, { entries: [] }); return Array.isArray(registry.entries) ? registry.entries : []; }
-async function maybePostWebhook(url, payload) { if (!url) return { skipped: true }; try { await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); return { posted: true }; } catch { return { posted: false }; } }
 function setCorsHeaders(res) { res.setHeader("Access-Control-Allow-Origin", process.env.SCORECARD_ALLOWED_ORIGIN || "*"); res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS"); res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); res.setHeader("X-Content-Type-Options", "nosniff"); }
 function send(res, statusCode, payload) { return res.status(statusCode).json(payload); }
 function valueOf(value) { return Array.isArray(value) ? String(value[0] || "") : String(value || ""); }

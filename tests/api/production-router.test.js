@@ -63,8 +63,20 @@ test("score submission returns a public-safe readiness result", async () => {
   });
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.ok, true);
+  assert.equal(res.body.scoreCalculated, true);
+  assert.equal(res.body.leadAccepted, true);
+  assert.equal(typeof res.body.leadDelivery.configured, "boolean");
+  assert.equal(typeof res.body.leadDelivery.delivered, "boolean");
+  assert.equal(typeof res.body.publicResult.tier.id, "string");
+  assert.ok(Array.isArray(res.body.publicResult.recommendationCards));
+  assert.ok(Array.isArray(res.body.publicResult.strengths));
+  assert.ok(Array.isArray(res.body.publicResult.risks));
+  assert.ok(Array.isArray(res.body.publicResult.nextSteps));
+  assert.ok(Array.isArray(res.body.publicResult.recommendedDocuments));
   assert.equal(typeof res.body.publicResult.score, "number");
   assert.equal("provider_match_ids" in res.body, false);
+  assert.equal(JSON.stringify(res.body).includes("SCORECARD_LEAD_WEBHOOK_URL"), false);
+  assert.equal(JSON.stringify(res.body).includes("N8N_SCORECARD_WEBHOOK_URL"), false);
 });
 
 test("funding path matching returns only public recommendation fields", async () => {

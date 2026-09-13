@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "visibility": "server_side_internal_example",
   "targets": {
+    "genericWebhook": {
+      "enabled": false,
+      "envVar": "SCORECARD_LEAD_WEBHOOK_URL",
+      "description": "POST normalized scorecard completion payload to Make, Zapier, Pipedream, n8n, or a custom HTTPS endpoint."
+    },
     "n8n": {
       "enabled": false,
       "envVar": "N8N_SCORECARD_WEBHOOK_URL",
-      "description": "POST score submissions to n8n for routing and notification."
+      "description": "Deprecated backward-compatible fallback for the generic webhook destination."
     },
     "hubspot": {
       "enabled": false,
       "envVar": "HUBSPOT_PRIVATE_APP_TOKEN",
-      "description": "Create/update contact and deal records."
+      "description": "Future direct HubSpot adapter using the internal field map."
     },
     "notion": {
       "enabled": false,

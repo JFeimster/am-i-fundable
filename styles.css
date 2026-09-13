@@ -168,6 +168,21 @@ button, input { font: inherit; }
 .result-card { padding: 22px; border-radius: 22px; border: 1px solid #e3ebf3; background: #fff; }
 .result-card h4 { margin: 0 0 12px; font-size: 1.05rem; }
 .result-card ul { margin: 0; padding-left: 19px; color: var(--card-muted); line-height: 1.62; }
+.recommendations-card { grid-column: span 2; }
+.recommendations-card h5 { margin: 0 0 6px; color: #142033; font-size: 1.08rem; }
+.recommendations-card p { margin: 0; color: var(--card-muted); line-height: 1.55; }
+.recommendation-primary { padding: 16px 18px; border-left: 4px solid var(--green); border-radius: 14px; background: #f2fbf6; }
+.recommendation-label { display: block; margin-bottom: 8px; color: #0c7643; font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.recommendation-next-step { margin-top: 10px !important; color: #274c3b !important; font-size: .92rem; font-weight: 750; }
+.recommendation-secondary { display: grid; grid-template-columns: minmax(150px, .4fr) 1fr; gap: 8px 18px; padding: 14px 0; border-top: 1px solid #e3ebf3; }
+.recommendation-secondary h5 { grid-row: span 2; }
+.recommendation-secondary .recommendation-next-step { grid-column: 2; }
+.manual-review-note { margin-top: 18px; padding: 16px 18px; border: 1px solid #ead7a7; border-radius: 16px; background: #fff9e9; color: #634b17; line-height: 1.55; font-weight: 750; }
+.lead-status { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; padding: 13px 16px; border-radius: 14px; font-size: .92rem; line-height: 1.45; }
+.lead-status.is-pending { background: #eef4fa; color: #40526a; }
+.lead-status.is-success { background: #e8f8ef; color: #0c7643; }
+.lead-status.is-error { background: #fff3f1; color: #8e3028; }
+.lead-status .btn { flex: 0 0 auto; min-height: 40px; padding: 0 14px; font-size: .76rem; }
 .accent-card { background: #0d1b2b; color: #fff; border-color: #0d1b2b; }
 .accent-card ul { color: #c2d2e4; }
 .result-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
@@ -199,6 +214,10 @@ details p { margin-bottom: 0; }
   .scorecard-topbar { align-items: flex-start; }
   .quiz-form, .lead-gate, .result-panel { padding: 22px; }
   .score-ring { width: 126px; height: 126px; }
+  .recommendations-card { grid-column: auto; }
+  .recommendation-secondary { grid-template-columns: 1fr; }
+  .recommendation-secondary h5, .recommendation-secondary .recommendation-next-step { grid-column: auto; grid-row: auto; }
+  .lead-status { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 560px) {
   .brand-lockup em { display: none; }
