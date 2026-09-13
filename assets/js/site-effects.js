@@ -11,48 +11,85 @@
     document.body.classList.toggle("has-scrolled", window.scrollY > 12);
   }
 
-  function initHomepageProofCards() {
-    var proof = document.querySelector(".hero-section .hero-proof");
-    if (!proof || proof.dataset.polished === "true") return;
+  function createHeroHud() {
+    var hud = document.createElement("aside");
+    hud.className = "hero-hud";
+    hud.setAttribute("aria-label", "Illustrative funding readiness preview");
+    hud.innerHTML = [
+      '<div class="hero-hud-topline"><span>Funding readiness</span><span class="hud-live"><i></i> signal engine</span></div>',
+      '<div class="hero-hud-score-row">',
+      '  <div class="hero-hud-score-ring"><strong>78</strong><small>/100</small></div>',
+      '  <div><span class="hud-label">Illustrative preview</span><strong class="hud-tier">Strong signal</strong><p>Actual output is calculated from your answers.</p></div>',
+      '</div>',
+      '<div class="hero-hud-bars" aria-hidden="true">',
+      '  <div><span>Revenue</span><b><i style="--signal:86%"></i></b><em>86</em></div>',
+      '  <div><span>Credit</span><b><i style="--signal:72%"></i></b><em>72</em></div>',
+      '  <div><span>Banking</span><b><i style="--signal:81%"></i></b><em>81</em></div>',
+      '  <div><span>Structure</span><b><i style="--signal:90%"></i></b><em>90</em></div>',
+      '</div>',
+      '<div class="hero-hud-footer"><span><small>Primary lane</small>Business LOC / Working capital</span><span class="hud-route">01 → 03</span></div>'
+    ].join("");
+    return hud;
+  }
 
-    var configs = [
+  function initHomepageHeroSystem() {
+    var hero = document.querySelector(".hero-section");
+    var content = hero && hero.querySelector(".hero-content");
+    if (!content || content.dataset.operatingSystem === "true") return;
+
+    var eyebrow = content.querySelector(".eyebrow");
+    var heading = content.querySelector("h1");
+    var copy = content.querySelector(".hero-copy");
+    var actions = content.querySelector(".hero-actions");
+    var proof = content.querySelector(".hero-proof");
+    if (!eyebrow || !heading || !copy || !actions || !proof) return;
+
+    var stage = document.createElement("div");
+    stage.className = "hero-stage";
+
+    var primary = document.createElement("div");
+    primary.className = "hero-primary";
+    [eyebrow, heading, copy, actions].forEach(function (node) { primary.appendChild(node); });
+    stage.appendChild(primary);
+    stage.appendChild(createHeroHud());
+
+    var metrics = [
       {
-        mark: "100",
-        title: "Know your number",
-        detail: "100-point funding readiness score",
-        meta: "Revenue · credit · bank activity"
+        index: "01",
+        value: "100-point score",
+        title: "Readiness signal",
+        detail: "Revenue · banking · credit · history"
       },
       {
-        mark: "PATH",
-        title: "See your lane",
-        detail: "White-label capital path logic",
-        meta: "Primary + backup funding paths"
+        index: "02",
+        value: "Primary + backup",
+        title: "Capital pathing",
+        detail: "Working capital · LOC · asset-backed · more"
       },
       {
-        mark: "NEXT",
-        title: "Fix what matters",
-        detail: "Clear next steps, not empty motivation",
-        meta: "Blockers · documents · next moves"
+        index: "03",
+        value: "Next moves",
+        title: "Action plan",
+        detail: "Blockers · documents · prep"
       }
     ];
 
-    Array.from(proof.children).forEach(function (card, index) {
-      var config = configs[index];
-      if (!config) return;
-      var strong = card.querySelector("strong");
-      var detail = card.querySelector("span");
-      if (strong) strong.textContent = config.title;
-      if (detail) detail.textContent = config.detail;
-      card.classList.add("proof-card");
-      card.setAttribute("data-proof-mark", config.mark);
-
-      var meta = document.createElement("small");
-      meta.className = "proof-meta";
-      meta.textContent = config.meta;
-      card.appendChild(meta);
+    proof.classList.add("hero-metric-rail");
+    Array.from(proof.children).forEach(function (item, index) {
+      var metric = metrics[index];
+      if (!metric) return;
+      item.className = "hero-metric";
+      item.innerHTML = [
+        '<span class="metric-index">' + metric.index + '</span>',
+        '<strong class="metric-value">' + metric.value + '</strong>',
+        '<span class="metric-title">' + metric.title + '</span>',
+        '<small>' + metric.detail + '</small>'
+      ].join("");
     });
 
-    proof.dataset.polished = "true";
+    content.appendChild(stage);
+    content.appendChild(proof);
+    content.dataset.operatingSystem = "true";
   }
 
   function initCapitalMarquee() {
@@ -96,9 +133,7 @@
     var visual = document.createElement("div");
     visual.className = "bento-visual signal-visual";
     visual.setAttribute("aria-hidden", "true");
-    for (var i = 0; i < 6; i += 1) {
-      visual.appendChild(document.createElement("span"));
-    }
+    for (var i = 0; i < 6; i += 1) visual.appendChild(document.createElement("span"));
     return visual;
   }
 
@@ -107,7 +142,7 @@
     visual.className = "bento-visual gauge-visual";
     visual.setAttribute("aria-hidden", "true");
     var value = document.createElement("span");
-    value.textContent = "100";
+    value.textContent = "78";
     visual.appendChild(value);
     return visual;
   }
@@ -150,19 +185,19 @@
     var cards = Array.from(grid.querySelectorAll(".bento-card"));
     var configs = [
       {
-        mark: "01",
+        mark: "01 / INPUT",
         visual: createSignalVisual,
         label: "Signal set",
         chips: ["Revenue", "Credit", "Deposits", "Structure"]
       },
       {
-        mark: "02",
+        mark: "02 / SCORE",
         visual: createGaugeVisual,
-        label: "4 readiness tiers",
+        label: "Readiness output",
         chips: ["Fundable", "Review-ready", "Selective", "Prep-first"]
       },
       {
-        mark: "03",
+        mark: "03 / ROUTE",
         visual: createRouteVisual,
         label: "Capital lanes",
         chips: ["Primary path", "Backup path", "Next documents"]
@@ -174,7 +209,11 @@
       if (!config) return;
       card.classList.add("bento-card-polished");
       card.setAttribute("data-bento-mark", config.mark);
-      card.insertBefore(config.visual(), card.firstChild);
+
+      var stage = document.createElement("div");
+      stage.className = "bento-visual-stage";
+      stage.appendChild(config.visual());
+      card.insertBefore(stage, card.firstChild);
       appendBentoMeta(card, config.label, config.chips);
     });
 
@@ -182,7 +221,7 @@
   }
 
   function initHomepagePolish() {
-    initHomepageProofCards();
+    initHomepageHeroSystem();
     initCapitalMarquee();
     initBentoPolish();
   }
@@ -243,9 +282,6 @@
     document.body.classList.add("site-effects-ready");
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
