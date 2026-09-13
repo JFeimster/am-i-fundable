@@ -11,15 +11,114 @@
     document.body.classList.toggle("has-scrolled", window.scrollY > 12);
   }
 
+  function setText(selector, value) {
+    var node = document.querySelector(selector);
+    if (node) node.textContent = value;
+  }
+
+  function applyCapitalEnablementCopy() {
+    if (!document.querySelector(".hero-section")) return;
+
+    document.title = "Capital Fit & Funding Path Engine | Moonshine Capital";
+    var description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", "Turn one business profile into a capital map: strongest funding lanes, friction points, document needs, and next moves before you apply.");
+
+    setText(".brand-lockup em", "Capital Enablement Engine");
+
+    var navLinks = document.querySelectorAll(".main-nav a");
+    if (navLinks[0]) navLinks[0].textContent = "Capital Map";
+    if (navLinks[1]) navLinks[1].textContent = "Capital Lanes";
+    if (navLinks[2]) navLinks[2].textContent = "FAQ";
+    var navCta = document.querySelector(".main-nav .nav-cta");
+    if (navCta) navCta.textContent = "Map My Options";
+
+    setText(".hero-section .eyebrow", "Capital enablement without the funding department");
+    setText(".hero-section h1", "Turn Your Business Profile Into a Capital Plan.");
+    setText(".hero-section .hero-copy", "Nine inputs. See the capital lanes your business can actually pursue, what is shrinking your options, and what to do next—without shopping brokers, chasing lenders, or filling out five applications.");
+    var heroActions = document.querySelectorAll(".hero-section .hero-actions a");
+    if (heroActions[0]) heroActions[0].textContent = "Map My Capital Options";
+    if (heroActions[1]) heroActions[1].textContent = "See the Engine";
+
+    setText("#how-it-works .section-kicker", "The engine");
+    setText("#how-it-works .section-heading h2", "Not a loan broker. A capital routing layer.");
+    setText("#how-it-works .section-heading p", "Most funding sites collect your form and sell or forward the lead. This engine turns your business signals into a capital map first—strongest lanes, friction points, and next moves.");
+    var howCards = document.querySelectorAll("#how-it-works .bento-card");
+    if (howCards[0]) {
+      setText("#how-it-works .bento-card:nth-child(1) h3", "Feed the engine");
+      setText("#how-it-works .bento-card:nth-child(1) p", "Revenue, history, credit, deposits, structure, use case, amount, and red flags become one signal set.");
+    }
+    if (howCards[1]) {
+      setText("#how-it-works .bento-card:nth-child(2) h3", "Expose the friction");
+      setText("#how-it-works .bento-card:nth-child(2) p", "See the strengths helping your file and the issues shrinking your options before you waste applications.");
+    }
+    if (howCards[2]) {
+      setText("#how-it-works .bento-card:nth-child(3) h3", "Route the capital");
+      setText("#how-it-works .bento-card:nth-child(3) p", "Get primary and alternate capital lanes, document prep, and the next move—not a random lender list.");
+    }
+
+    setText("#scorecard .section-kicker", "Capital fit engine");
+    setText("#scorecard .section-heading h2", "See What Your Business Can Actually Pursue.");
+    setText("#scorecard .section-heading p", "Nine inputs. Your strongest capital lanes, likely friction, and next moves. No blind applications. No broker roulette.");
+    setText("#scorecard [data-score-preview]", "Map pending");
+    setText("#scorecard [data-submit]", "Map My Capital Options");
+    setText("#scorecard [data-lead-gate] .section-kicker", "Your capital map is ready");
+    setText("#scorecard [data-lead-gate] h3", "Unlock your capital map.");
+    setText("#scorecard [data-lead-gate] p", "Enter your details to view your fit signal, strongest funding lanes, friction points, and next moves.");
+    var leadSubmit = document.querySelector('#scorecard [data-lead-form] button[type="submit"]');
+    if (leadSubmit) leadSubmit.textContent = "Show My Capital Map";
+    setText("#scorecard .result-hero-card .section-kicker", "Capital Fit Signal");
+    setText("#scorecard .result-card:nth-child(1) h4", "What is working for you");
+    setText("#scorecard .result-card:nth-child(2) h4", "What is shrinking your options");
+    setText("#scorecard .recommendations-card h4", "Strongest capital lanes");
+    setText("#scorecard .result-card:nth-child(4) h4", "Next moves");
+    var resultCta = document.querySelector("#scorecard [data-result-cta]");
+    if (resultCta) resultCta.textContent = "Review My Capital Strategy";
+    var restart = document.querySelector("#scorecard [data-restart]");
+    if (restart) restart.textContent = "Rebuild My Map";
+
+    setText("#paths .section-kicker", "Capital enablement");
+    setText("#paths .section-heading h2", "Stop Shopping for Loans. Start Routing Capital.");
+    setText("#paths .section-heading p", "Working capital, structured growth, startup leverage, equipment, real estate, and commerce do not belong in one funnel. Different profiles should enter different lanes.");
+
+    var split = document.querySelector(".split-cta");
+    if (split) {
+      setText(".split-cta .section-kicker", "The difference");
+      setText(".split-cta h2", "You Do Not Need Another Funding Department. You Need a Capital Enablement Layer.");
+      setText(".split-cta p", "For operators, brokers, and partners, one intake becomes structured capital intelligence before the first funding conversation.");
+      var splitButton = split.querySelector(".btn");
+      if (splitButton) splitButton.textContent = "Map a Business";
+    }
+
+    setText("#faq .section-kicker", "Straight answers");
+    setText("#faq .section-heading h2", "What This Is. What It Isn't.");
+    var faqSummaries = document.querySelectorAll("#faq summary");
+    var faqAnswers = document.querySelectorAll("#faq details p");
+    if (faqSummaries[0]) faqSummaries[0].textContent = "Is this a loan application?";
+    if (faqAnswers[0]) faqAnswers[0].textContent = "No. This is a capital-fit and funding-path assessment. It is not an approval, offer, commitment to lend, or guarantee of funding.";
+    if (faqSummaries[1]) faqSummaries[1].textContent = "Does this run my credit?";
+    if (faqAnswers[1]) faqAnswers[1].textContent = "No. The public tool does not pull credit. It uses the information you provide to map likely capital lanes and readiness signals.";
+    if (faqSummaries[2]) faqSummaries[2].textContent = "What do I get after the map?";
+    if (faqAnswers[2]) faqAnswers[2].textContent = "You get a fit signal, strongest capital lanes, friction points, document needs, and suggested next moves.";
+    if (faqSummaries[3]) faqSummaries[3].textContent = "Can partners embed this?";
+    if (faqAnswers[3]) faqAnswers[3].textContent = "Yes. The engine can be packaged as an embeddable front door for partner pages and capital-enablement workflows.";
+
+    setText(".final-cta h2", "One Intake. A Clearer Capital Plan.");
+    setText(".final-cta p", "Map the strongest lanes, expose the friction, and know the next move before your file gets bounced around the funding internet.");
+    var finalButton = document.querySelector(".final-cta .btn");
+    if (finalButton) finalButton.textContent = "Map My Capital Options";
+
+    setText(".site-footer > p:first-child", "Moonshine Capital · Capital enablement for business owners, brokers, and partners who need better routing—not another funding runaround.");
+  }
+
   function createHeroHud() {
     var hud = document.createElement("aside");
     hud.className = "hero-hud";
-    hud.setAttribute("aria-label", "Illustrative funding readiness preview");
+    hud.setAttribute("aria-label", "Illustrative capital fit preview");
     hud.innerHTML = [
-      '<div class="hero-hud-topline"><span>Funding readiness</span><span class="hud-live"><i></i> signal engine</span></div>',
+      '<div class="hero-hud-topline"><span>Capital fit engine</span><span class="hud-live"><i></i> signal layer</span></div>',
       '<div class="hero-hud-score-row">',
       '  <div class="hero-hud-score-ring"><strong>78</strong><small>/100</small></div>',
-      '  <div><span class="hud-label">Illustrative preview</span><strong class="hud-tier">Strong signal</strong><p>Actual output is calculated from your answers.</p></div>',
+      '  <div><span class="hud-label">Illustrative preview</span><strong class="hud-tier">Strong capital fit</strong><p>Actual output is calculated from your business signals.</p></div>',
       '</div>',
       '<div class="hero-hud-bars" aria-hidden="true">',
       '  <div><span>Revenue</span><b><i style="--signal:86%"></i></b><em>86</em></div>',
@@ -56,21 +155,21 @@
     var metrics = [
       {
         index: "01",
-        value: "100-point score",
-        title: "Readiness signal",
+        value: "One intake",
+        title: "Business signals",
         detail: "Revenue · banking · credit · history"
       },
       {
         index: "02",
         value: "Primary + backup",
-        title: "Capital pathing",
+        title: "Capital lanes",
         detail: "Working capital · LOC · asset-backed · more"
       },
       {
         index: "03",
-        value: "Next moves",
-        title: "Action plan",
-        detail: "Blockers · documents · prep"
+        value: "Friction + moves",
+        title: "Capital plan",
+        detail: "Blockers · documents · next actions"
       }
     ];
 
@@ -187,20 +286,20 @@
       {
         mark: "01 / INPUT",
         visual: createSignalVisual,
-        label: "Signal set",
+        label: "Business signals",
         chips: ["Revenue", "Credit", "Deposits", "Structure"]
       },
       {
-        mark: "02 / SCORE",
+        mark: "02 / FRICTION",
         visual: createGaugeVisual,
-        label: "Readiness output",
-        chips: ["Fundable", "Review-ready", "Selective", "Prep-first"]
+        label: "Capital fit",
+        chips: ["Strengths", "Blockers", "Fit signal", "Prep"]
       },
       {
         mark: "03 / ROUTE",
         visual: createRouteVisual,
         label: "Capital lanes",
-        chips: ["Primary path", "Backup path", "Next documents"]
+        chips: ["Primary lane", "Backup lane", "Next documents"]
       }
     ];
 
@@ -221,12 +320,24 @@
   }
 
   function ensureHomepageSystemStyles() {
-    if (!document.querySelector(".hero-section") || document.getElementById("homepage-system-style")) return;
-    var link = document.createElement("link");
-    link.id = "homepage-system-style";
-    link.rel = "stylesheet";
-    link.href = "/assets/css/homepage-system.css";
-    document.head.appendChild(link);
+    if (!document.querySelector(".hero-section")) return;
+
+    if (!document.getElementById("homepage-system-style")) {
+      var link = document.createElement("link");
+      link.id = "homepage-system-style";
+      link.rel = "stylesheet";
+      link.href = "/assets/css/homepage-system.css";
+      document.head.appendChild(link);
+    }
+
+    if (!document.getElementById("homepage-launch-style")) {
+      var launchLink = document.createElement("link");
+      launchLink.id = "homepage-launch-style";
+      launchLink.rel = "stylesheet";
+      launchLink.href = "/assets/css/homepage-launch.css";
+      document.head.appendChild(launchLink);
+    }
+
     document.body.classList.add("homepage-system-v2");
   }
 
@@ -266,11 +377,11 @@
   function createScorecardFlowMap() {
     var map = document.createElement("aside");
     map.className = "scorecard-flow-map";
-    map.setAttribute("aria-label", "Scorecard flow");
+    map.setAttribute("aria-label", "Capital mapping flow");
     [
-      ["01", "Input signals", "9 questions"],
-      ["02", "Readiness score", "100 points"],
-      ["03", "Capital route", "primary + backup"]
+      ["01", "Business signals", "9 inputs"],
+      ["02", "Capital fit", "strength + friction"],
+      ["03", "Funding lanes", "primary + backup"]
     ].forEach(function (item) {
       var row = document.createElement("div");
       row.className = "scorecard-flow-item";
@@ -282,7 +393,7 @@
 
   function initScorecardSectionSystem() {
     var section = document.querySelector("#scorecard");
-    var header = createSystemHeader(section, "02 / ASSESSMENT");
+    var header = createSystemHeader(section, "02 / CAPITAL MAP");
     if (!header || header.dataset.flowReady === "true") return;
     header.classList.add("has-flow");
     header.appendChild(createScorecardFlowMap());
@@ -316,7 +427,7 @@
 
       var head = document.createElement("div");
       head.className = "route-card-head";
-      head.innerHTML = '<span>' + config[0] + '</span><span>route online</span>';
+      head.innerHTML = '<span>' + config[0] + '</span><span>capital lane</span>';
       card.insertBefore(head, card.firstChild);
 
       var ui = document.createElement("div");
@@ -340,7 +451,7 @@
   function initFaqConsole() {
     var section = document.querySelector("#faq");
     if (!section || section.dataset.consoleReady === "true") return;
-    var header = createSystemHeader(section, "04 / DECISION SUPPORT");
+    var header = createSystemHeader(section, "04 / STRAIGHT ANSWERS");
     if (!header) return;
 
     var layout = document.createElement("div");
@@ -355,9 +466,9 @@
     var facts = document.createElement("div");
     facts.className = "faq-facts";
     [
-      ["SELF-REPORTED", "No bureau pull in the public scorecard"],
-      ["9 INPUTS", "A short readiness signal set"],
-      ["PUBLIC-SAFE", "No private lender routing exposed"]
+      ["ONE INTAKE", "One business profile, not five applications"],
+      ["9 SIGNALS", "A compact capital-fit signal set"],
+      ["ROUTED OUTPUT", "Capital lanes, friction, and next moves"]
     ].forEach(function (factData) {
       var fact = document.createElement("div");
       fact.className = "faq-fact";
@@ -386,11 +497,11 @@
 
     var panel = document.createElement("aside");
     panel.className = "final-route-panel";
-    panel.setAttribute("aria-label", "Readiness routing sequence");
+    panel.setAttribute("aria-label", "Capital enablement sequence");
     [
-      ["01", "Readiness signal", "INPUT"],
-      ["02", "Capital lane", "ROUTE"],
-      ["03", "Action plan", "MOVE"]
+      ["01", "Business signals", "INPUT"],
+      ["02", "Capital lanes", "ROUTE"],
+      ["03", "Next move", "ACT"]
     ].forEach(function (item) {
       var step = document.createElement("div");
       step.className = "final-route-step";
@@ -464,7 +575,7 @@
     var cta = document.createElement("a");
     cta.className = "frs-mobile-sticky-cta";
     cta.href = scorecardHref;
-    cta.textContent = "Get My Score";
+    cta.textContent = "Map My Options";
     document.body.appendChild(cta);
   }
 
@@ -472,6 +583,7 @@
     if (reduceMotion) document.body.classList.add("reduced-motion");
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
+    applyCapitalEnablementCopy();
     initHomepagePolish();
     initReveal();
     initGlowCards();
