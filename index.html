@@ -269,26 +269,34 @@
 
             <div class="result-grid">
               <article class="result-card">
-                <h4>Best-fit funding paths</h4>
-                <ul data-result-paths></ul>
+                <h4>What helped your score</h4>
+                <ul data-result-strengths></ul>
               </article>
               <article class="result-card">
-                <h4>Potential blockers</h4>
+                <h4>What is holding you back</h4>
                 <ul data-result-risks></ul>
               </article>
+              <article class="result-card recommendations-card">
+                <h4>Best-fit funding paths</h4>
+                <div data-result-recommendations></div>
+              </article>
               <article class="result-card">
-                <h4>Recommended next steps</h4>
+                <h4>Next 3 actions</h4>
                 <ul data-result-next></ul>
               </article>
               <article class="result-card accent-card">
-                <h4>Documents you may need</h4>
-                <ul>
-                  <li>Recent business bank statements</li>
-                  <li>Credit profile details</li>
-                  <li>Proof of revenue or platform sales</li>
-                  <li>Entity, EIN, or business structure details</li>
-                </ul>
+                <h4>Document checklist</h4>
+                <ul data-result-docs></ul>
               </article>
+            </div>
+
+            <aside class="manual-review-note is-hidden" data-manual-review>
+              Your answers would benefit from a manual funding strategy review before applying.
+            </aside>
+
+            <div class="lead-status is-hidden" data-lead-status role="status" aria-live="polite">
+              <span data-lead-status-message></span>
+              <button class="btn btn-muted is-hidden" type="button" data-retry-lead>Retry submission</button>
             </div>
 
             <div class="result-actions">

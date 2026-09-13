@@ -235,6 +235,14 @@ POST /api/lender-match-review
 
 Use these for public-safe metadata, scorecard sessions, score submission, public funding path output, review requests, lead routing events, and webhook handoff patterns.
 
+### Scorecard lead delivery
+
+`POST /api/submit-score` calculates the score and accepts the lead before attempting an optional server-side webhook delivery. Configure the preferred generic destination with `SCORECARD_LEAD_WEBHOOK_URL`. It can point to a Make webhook, Zapier Catch Hook, Pipedream HTTP trigger, n8n webhook, or a custom HTTPS endpoint. The API uses a normal JSON `POST` with the normalized `funding_readiness_scorecard.completed` payload and reports delivery status without exposing the destination URL.
+
+`N8N_SCORECARD_WEBHOOK_URL` remains a deprecated, backward-compatible fallback when the preferred variable is unset. A failed or unconfigured webhook does not remove the calculated score; the response distinguishes `scoreCalculated`, `leadAccepted`, and `leadDelivery` status so the browser can offer a delivery retry.
+
+Direct HubSpot writes are intentionally deferred. The existing `internal/crm/hubspot-field-map.json` is the supported future adapter contract; HubSpot can be reached through the generic webhook using Make, Zapier, Pipedream, or n8n in the meantime.
+
 ### Internal / admin routes
 
 ```txt
@@ -409,7 +417,8 @@ Never commit real values. Configure runtime secrets in Vercel Project Settings o
 | Variable | Status | Purpose |
 | --- | --- | --- |
 | `SCORECARD_ALLOWED_ORIGIN` | Active | Restricts allowed browser/embed/API origin. Defaults to `*` when unset. |
-| `N8N_SCORECARD_WEBHOOK_URL` | Active | Optional webhook destination for `/api/submit-score` lead payloads. |
+| `SCORECARD_LEAD_WEBHOOK_URL` | Preferred | Generic HTTPS JSON webhook destination for `/api/submit-score` lead payloads. Supports Make, Zapier, Pipedream, n8n, or a custom endpoint. |
+| `N8N_SCORECARD_WEBHOOK_URL` | Deprecated fallback | Backward-compatible webhook destination used only when `SCORECARD_LEAD_WEBHOOK_URL` is unset. |
 | `AM_I_FUNDABLE_ENABLE_ADMIN_ROUTES` | Active | Enables internal/admin-only route handlers when set to `true`. Default is disabled. |
 | `AM_I_FUNDABLE_ADMIN_TOKEN` | Active | Shared admin token expected in protected admin requests. Must never be public. |
 | `AM_I_FUNDABLE_ADMIN_ORIGIN` | Active | CORS origin for admin routes. Defaults to `null` when unset. |
@@ -427,7 +436,6 @@ These have current repo context or comments but should stay unset until the matc
 | `AIRTABLE_BASE_ID` | Optional Airtable base target. Add only if Airtable becomes active. |
 | `AIRTABLE_LEADS_TABLE_ID` | Optional Airtable leads table target. Add only if Airtable becomes active. |
 | `GOOGLE_SERVICE_ACCOUNT_JSON` | Optional Google Sheets/Workspace handoff. Keep as protected secret JSON only. |
-| `MAKE_SCORECARD_WEBHOOK_URL` | Optional Make.com webhook if Make is used instead of or alongside n8n. |
 
 ### Environment rules
 
@@ -436,7 +444,7 @@ These have current repo context or comments but should stay unset until the matc
 - Never put secrets in browser files.
 - Never expose provider credentials in public registries.
 - Never expose private apply links, commission fields, or partner contacts in public runtime output.
-- Prefer one integration path at a time. n8n/Make/HubSpot/Notion spaghetti is how clean funnels become haunted houses.
+- Prefer one generic webhook destination at a time. Direct HubSpot routing remains a future adapter; do not add provider-specific webhook implementations here.
 
 ---
 

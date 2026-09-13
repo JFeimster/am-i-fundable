@@ -1,4 +1,6 @@
 import { calculateFundingReadiness } from '../../lib/scorecard-engine.js';
+import { toPublicScoreResult } from '../../lib/api/safe-result-presenter.js';
+import { buildLeadWebhookPayload, deliverLeadWebhook, toPublicLeadDelivery } from '../../internal/api/lead-webhook.js';
 
 export async function onRequest(context) {
   const method = context.request.method;
@@ -36,17 +38,19 @@ export async function onRequest(context) {
       createdAt: new Date().toISOString()
     };
 
+    const webhookDelivery = await deliverLeadWebhook({
+      env: context.env || {},
+      payload: buildLeadWebhookPayload({ lead })
+    });
+
     return json({
       ok: true,
-      message: 'Score calculated successfully. This is not an approval, offer, or guarantee of funding.',
+      scoreCalculated: true,
+      leadAccepted: true,
+      message: 'Score received for review. This is not an approval, offer, or guarantee of funding.',
       leadId: lead.id,
-      publicResult: {
-        score: scoreResult.score,
-        tier: scoreResult.tier,
-        primaryFundingFamily: scoreResult.primaryFundingFamily,
-        leadPriority: scoreResult.leadPriority,
-        manualReviewRecommended: scoreResult.manualReviewRecommended
-      }
+      leadDelivery: toPublicLeadDelivery(webhookDelivery),
+      publicResult: toPublicScoreResult(scoreResult)
     }, 200, context);
   } catch (error) {
     return json({
