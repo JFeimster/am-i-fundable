@@ -3,10 +3,12 @@
 Before merging a branch into `main`, complete this checklist to ensure stability, safety, and compliance.
 
 ## 1. Automated Validation
-- [ ] Run `npm run validate`.
+- [ ] Run the preferred pre-PR check: `npm run check`.
 - [ ] Confirm `JSON OK` for all configuration and data files.
 - [ ] Confirm `JS OK` for all scripts and API routes.
 - [ ] Confirm `Private data scan passed.`
+- [ ] Confirm the complete test suite passes.
+- [ ] Confirm the canonical static build succeeds.
 
 ## 2. Compliance and Safety
 - [ ] Verify no private provider data (names, IDs, real URLs, commissions) was added to public directories (`/data`, `/config`, `/docs`).

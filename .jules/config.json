@@ -2,7 +2,7 @@
   "project": {
     "name": "Funding Readiness Scorecard",
     "repo": "https://github.com/JFeimster/am-i-fundable",
-    "workingBranch": "codex/batch-1-7-integration",
+    "workingBranch": "main",
     "publicRepo": true,
     "primaryLocalPath": "C:\\Users\\jason\\OneDrive\\Desktop\\Vercel Projects\\Am I Fundable Clean"
   },
@@ -86,10 +86,13 @@
     }
   ],
   "validation": {
-    "defaultCommand": "npm run validate",
+    "defaultCommand": "npm run check",
     "requiredChecks": [
       "JSON validation",
+      "JavaScript syntax validation",
       "private data scan",
+      "tests",
+      "static build",
       "approval language scan",
       "markdown readability",
       "vercel.json unchanged"

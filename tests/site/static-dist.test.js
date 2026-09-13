@@ -14,6 +14,11 @@ const legacyEmbedFiles = [
 ];
 
 test("static build excludes the legacy embed surface now owned by funding-quiz", () => {
+  const consolidatedApi = new URL("../../api/index.js", import.meta.url);
+  const sourceApiRoute = new URL("../../api/health.js", import.meta.url);
+  assert.equal(fs.existsSync(consolidatedApi), true, "api/index.js must exist before the static build");
+  assert.equal(fs.existsSync(sourceApiRoute), true, "individual API source routes must exist before the static build");
+
   execFileSync(process.execPath, ["scripts/build-static-dist.js"], {
     cwd: root,
     stdio: "pipe"
@@ -26,4 +31,6 @@ test("static build excludes the legacy embed surface now owned by funding-quiz",
 
   const homepage = new URL("../../dist/index.html", import.meta.url);
   assert.equal(fs.existsSync(homepage), true, "index.html must remain in the public build");
+  assert.equal(fs.existsSync(consolidatedApi), true, "the static build must preserve api/index.js");
+  assert.equal(fs.existsSync(sourceApiRoute), true, "the static build must preserve individual API source routes");
 });
