@@ -21,6 +21,22 @@ html body.homepage-system-v2 #faq .system-section-header h2 {
   text-wrap: balance;
 }
 
+/* Positioning: keep the distinction sharp without making a false categorical claim. */
+html body.homepage-system-v2 #how-it-works .system-section-header h2 {
+  font-size: 0 !important;
+  line-height: 1;
+}
+
+html body.homepage-system-v2 #how-it-works .system-section-header h2::after {
+  content: "Capital Enablement Without Building a Funding Department.";
+  display: block;
+  color: #f7fbff;
+  font-size: clamp(3.35rem, 5vw, 5.5rem);
+  line-height: .92;
+  letter-spacing: -.062em;
+  text-wrap: balance;
+}
+
 /* Assessment: meta rail across the top, real copy width on the left, compact map on the right. */
 html body.homepage-system-v2 #scorecard .system-section-header.has-flow {
   grid-template-columns: minmax(0, 1.42fr) minmax(320px, .58fr);
@@ -72,9 +88,26 @@ html body.homepage-system-v2 .scorecard-flow-item {
   grid-template-columns: 34px minmax(0, 1fr) auto;
 }
 
+html body.homepage-system-v2 .scorecard-flow-item > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
 html body.homepage-system-v2 .scorecard-flow-item strong,
 html body.homepage-system-v2 .scorecard-flow-item span {
+  display: block;
+  min-width: 0;
   white-space: normal;
+}
+
+html body.homepage-system-v2 .scorecard-flow-item strong {
+  line-height: 1.2;
+}
+
+html body.homepage-system-v2 .scorecard-flow-item span {
+  margin: 0;
+  line-height: 1.25;
 }
 
 /* Capital routing: keep the useful instrumentation, remove giant repeated status typography. */
@@ -146,9 +179,27 @@ html body.homepage-system-v2 .final-cta-inner {
   gap: clamp(42px, 5vw, 72px);
 }
 
+html body.homepage-system-v2 .final-cta-copy {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+}
+
 html body.homepage-system-v2 .final-cta-copy h2 {
   width: min(930px, 100%);
+  margin-inline: 0;
   font-size: clamp(3.8rem, 5.3vw, 5.75rem);
+}
+
+html body.homepage-system-v2 .final-cta-copy p {
+  width: min(780px, 100%);
+  max-width: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+html body.homepage-system-v2 .final-cta-copy .btn {
+  margin: 0;
 }
 
 html body.homepage-system-v2 .final-route-panel {
@@ -204,6 +255,10 @@ html body.homepage-system-v2 #scorecard .scorecard-shell {
   html body.homepage-system-v2 #scorecard .system-section-header h2,
   html body.homepage-system-v2 #faq .system-section-header h2,
   html body.homepage-system-v2 #paths .system-section-header h2 {
+    font-size: clamp(2.7rem, 11.5vw, 4.15rem);
+  }
+
+  html body.homepage-system-v2 #how-it-works .system-section-header h2::after {
     font-size: clamp(2.7rem, 11.5vw, 4.15rem);
   }
 }
