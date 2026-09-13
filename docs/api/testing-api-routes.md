@@ -4,18 +4,18 @@ This repo uses dependency-free Node testing where possible.
 
 ## Core commands
 
-Suggested package scripts:
+Use the scripts currently defined in `package.json`:
 
-```json
-{
-  "test:api": "node --test tests/api/*.test.js",
-  "test:schemas": "node --test tests/schemas/*.test.js",
-  "validate:api-schemas": "node scripts/validate-api-schemas.js",
-  "validate:openapi": "node scripts/validate-openapi.js",
-  "validate:api-examples": "node scripts/validate-api-examples.js",
-  "check:public-api-safety": "node scripts/check-public-api-safety.js",
-  "validate:api": "npm run validate:api-schemas && npm run validate:openapi && npm run validate:api-examples && npm run check:public-api-safety"
-}
+```bash
+npm run validate
+npm test
+npm run build
+```
+
+The preferred pre-PR command runs all three in sequence:
+
+```bash
+npm run check
 ```
 
 ## What to test
@@ -40,9 +40,17 @@ tests/openapi/
 scripts/
 ```
 
-## Manual smoke checks
+## Manual live smoke checks
 
-Use:
+Live verification is opt-in because it sends both read requests and demo POST requests to production. It is not part of the normal pull-request workflow.
+
+Run the maintained smoke script only when live verification is explicitly required:
+
+```bash
+npm run verify:production
+```
+
+For targeted manual checks, use:
 
 ```bash
 curl https://am-i-fundable.vercel.app/api/health

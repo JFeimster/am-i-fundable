@@ -307,21 +307,24 @@ Internal files must still avoid real secrets, real borrower PII, private partner
 
 The project is configured to prevent deployment roulette. No more “every branch push becomes a Vercel slot machine” nonsense. 🎰🔥
 
-Current `vercel.json` policy:
+Current `vercel.json` deployment contract:
 
 ```json
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "ignoreCommand": "node scripts/vercel-ignore-preview.js",
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "source": "/api",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index?route=:path*"
     }
   ],
-  "ignoreCommand": "node scripts/vercel-ignore-preview.js",
   "git": {
     "deploymentEnabled": {
       "main": false,
@@ -333,38 +336,13 @@ Current `vercel.json` policy:
 
 Meaning:
 
+- `npm run build` uses `scripts/build-static-dist.js` and writes the static frontend to `dist/`
+- `api/index.js` is the single consolidated Vercel API entry point
+- `.vercelignore` excludes the individual API route files from the Vercel upload while the full API source tree remains committed for documentation, tests, and reference
 - pushes to `main` should not automatically deploy production
 - pushes to feature branches should not automatically deploy previews
 - `scripts/vercel-ignore-preview.js` hard-ignores non-`main` builds if Vercel still attempts a preview
-- production should only be enabled during a controlled release window
-
-### Controlled production release window
-
-When ready to deploy production:
-
-1. Temporarily change `main` to `true`.
-2. Keep `*` as `false` unless there is a specific preview reason.
-3. Push or merge the intended production commit.
-4. Confirm Vercel production reaches `READY`.
-5. Change `main` back to `false` immediately.
-
-Recommended deployment window config:
-
-```json
-"deploymentEnabled": {
-  "main": true,
-  "*": false
-}
-```
-
-Default locked config:
-
-```json
-"deploymentEnabled": {
-  "main": false,
-  "*": false
-}
-```
+- changing either deployment flag or deploying the project requires a separate, explicit release authorization
 
 ---
 
@@ -372,25 +350,23 @@ Default locked config:
 
 The repo is static-first and Node-script-based.
 
-Install dependencies if needed:
+Preferred pre-PR sanity check:
 
 ```bash
-npm install
+npm run check
 ```
 
-Build static deployment output:
+This runs local validation, the complete test suite, and the canonical static build in sequence. It does not call the live site or deploy anything.
 
-```bash
-npm run build
-```
-
-Run full validation:
+Run the three gates individually when diagnosing a failure:
 
 ```bash
 npm run validate
+npm test
+npm run build
 ```
 
-Individual checks:
+Individual validation checks:
 
 ```bash
 npm run validate:json
@@ -398,20 +374,29 @@ npm run validate:js
 npm run scan:private-data
 ```
 
+Manual live production smoke test (explicit opt-in only):
+
+```bash
+npm run verify:production
+```
+
+`verify:production` sends requests to the configured live production URL. It is not part of `npm run check` and must not run automatically on pull requests. In GitHub Actions it runs only from a manual `workflow_dispatch` with `run_production_smoke` enabled.
+
 Current `package.json` scripts:
 
 ```json
 {
   "build": "node scripts/build-static-dist.js",
+  "check": "npm run validate && npm test && npm run build",
   "sanitize:private-data": "node scripts/sanitize-private-data.js",
   "scan:private-data": "node scripts/scan-private-data.js",
   "validate:json": "node scripts/validate-json.js",
   "validate:js": "node scripts/validate-js-syntax.js",
-  "validate": "npm run validate:json && npm run validate:js && npm run scan:private-data"
+  "validate": "npm run validate:json && npm run validate:js && npm run scan:private-data",
+  "test": "node --test",
+  "verify:production": "node scripts/verify-production-smoke.js"
 }
 ```
-
-Do not rely on `npm test` until a `test` script is explicitly added to `package.json`.
 
 ---
 
@@ -532,9 +517,9 @@ Before publishing, merging, or deploying:
 ### Near-term
 
 - Keep Vercel auto-deploys disabled unless intentionally opening production.
-- Run `npm run validate` after repo patches.
+- Run `npm run check` before opening a pull request.
 - Review public/private data boundary after every API or registry batch.
-- Add or confirm a `test` script only when the current test set is ready to run cleanly.
+- Keep `npm test` aligned with the current API, schema, scoring, and static-build contracts.
 - Keep API docs and OpenAPI schemas aligned with route source files.
 
 ### Next monetizable layer

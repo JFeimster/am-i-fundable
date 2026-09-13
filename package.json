@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-static-dist.js",
+    "check": "npm run validate && npm test && npm run build",
     "sanitize:private-data": "node scripts/sanitize-private-data.js",
     "scan:private-data": "node scripts/scan-private-data.js",
     "validate:json": "node scripts/validate-json.js",

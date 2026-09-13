@@ -152,7 +152,7 @@ If deployment behavior is documented, describe the current setting without modif
 Run or request:
 
 ```bash
-npm run validate
+npm run check
 ```
 
 If the command fails, report:

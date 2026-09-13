@@ -13,7 +13,7 @@ https://github.com/JFeimster/am-i-fundable
 Primary branch for this work:
 
 ```txt
-codex/batch-1-7-integration
+main
 ```
 
 ## Jules Role
@@ -167,7 +167,7 @@ When creating files:
 At minimum, Jules should check:
 
 ```bash
-npm run validate
+npm run check
 ```
 
 Where applicable, also confirm:

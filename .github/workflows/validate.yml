@@ -5,6 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      run_production_smoke:
+        description: "Run live production smoke verification"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -60,13 +66,13 @@ jobs:
       - name: Build static output
         run: npm run build
 
-      - name: Verify live production workflow
-        if: github.head_ref == 'ops/relock-am-i-fundable-20260710'
+      - name: Verify live production smoke
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_production_smoke == true }}
         run: npm run verify:production
 
-      - name: Confirm deployment controls remain explicit
+      - name: Confirm automatic deployments remain disabled
         run: |
-          node -e "const fs=require('fs');const v=JSON.parse(fs.readFileSync('vercel.json','utf8'));if(v.git?.deploymentEnabled?.['*']!==false)process.exit(1);console.log('Preview wildcard remains disabled.');"
+          node -e "const fs=require('fs');const v=JSON.parse(fs.readFileSync('vercel.json','utf8'));const d=v.git?.deploymentEnabled;if(d?.main!==false||d?.['*']!==false)process.exit(1);console.log('Production and preview automatic deployments remain disabled.');"
 
       - name: Confirm workflow does not deploy
         run: |

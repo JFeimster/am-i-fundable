@@ -33,10 +33,10 @@ Before requesting review, confirm:
 
 ## Validation run
 
-Paste the local validation command and result.
+Paste the preferred pre-PR command and result.
 
 ```bash
-npm run validate
+npm run check
 ```
 
 Result:

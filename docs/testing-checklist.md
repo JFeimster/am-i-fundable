@@ -8,6 +8,16 @@ Deployment: do not change vercel.json unless explicitly authorized.
 
 Use this checklist to test the Funding Readiness Scorecard public site, scorecard flow, embeds, data files, action schemas, and internal boundary.
 
+## Automated repository check
+
+Before a pull request, run:
+
+```bash
+npm run check
+```
+
+This runs repository validation, tests, and the canonical static build. It does not include the explicit/manual `npm run verify:production` live smoke test.
+
 ## Static page tests
 
 For each public page:
