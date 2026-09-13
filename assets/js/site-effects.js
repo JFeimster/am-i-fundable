@@ -11,6 +11,182 @@
     document.body.classList.toggle("has-scrolled", window.scrollY > 12);
   }
 
+  function initHomepageProofCards() {
+    var proof = document.querySelector(".hero-section .hero-proof");
+    if (!proof || proof.dataset.polished === "true") return;
+
+    var configs = [
+      {
+        mark: "100",
+        title: "Know your number",
+        detail: "100-point funding readiness score",
+        meta: "Revenue · credit · bank activity"
+      },
+      {
+        mark: "PATH",
+        title: "See your lane",
+        detail: "White-label capital path logic",
+        meta: "Primary + backup funding paths"
+      },
+      {
+        mark: "NEXT",
+        title: "Fix what matters",
+        detail: "Clear next steps, not empty motivation",
+        meta: "Blockers · documents · next moves"
+      }
+    ];
+
+    Array.from(proof.children).forEach(function (card, index) {
+      var config = configs[index];
+      if (!config) return;
+      var strong = card.querySelector("strong");
+      var detail = card.querySelector("span");
+      if (strong) strong.textContent = config.title;
+      if (detail) detail.textContent = config.detail;
+      card.classList.add("proof-card");
+      card.setAttribute("data-proof-mark", config.mark);
+
+      var meta = document.createElement("small");
+      meta.className = "proof-meta";
+      meta.textContent = config.meta;
+      card.appendChild(meta);
+    });
+
+    proof.dataset.polished = "true";
+  }
+
+  function initCapitalMarquee() {
+    var strip = document.querySelector(".trust-strip");
+    if (!strip || strip.dataset.polished === "true") return;
+
+    var labels = Array.from(strip.children)
+      .filter(function (item) { return item.tagName === "SPAN"; })
+      .map(function (item) { return item.textContent.trim(); })
+      .filter(Boolean);
+
+    ["Revenue-based capital", "Term financing", "SBA-aligned paths", "Bridge capital"].forEach(function (label) {
+      if (labels.indexOf(label) === -1) labels.push(label);
+    });
+
+    if (!labels.length) return;
+
+    function buildGroup(isClone) {
+      var group = document.createElement("div");
+      group.className = "trust-group";
+      if (isClone) group.setAttribute("aria-hidden", "true");
+      labels.forEach(function (label) {
+        var pill = document.createElement("span");
+        pill.className = "capital-pill";
+        pill.textContent = label;
+        group.appendChild(pill);
+      });
+      return group;
+    }
+
+    strip.textContent = "";
+    var track = document.createElement("div");
+    track.className = "trust-track";
+    track.appendChild(buildGroup(false));
+    track.appendChild(buildGroup(true));
+    strip.appendChild(track);
+    strip.dataset.polished = "true";
+  }
+
+  function createSignalVisual() {
+    var visual = document.createElement("div");
+    visual.className = "bento-visual signal-visual";
+    visual.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 6; i += 1) {
+      visual.appendChild(document.createElement("span"));
+    }
+    return visual;
+  }
+
+  function createGaugeVisual() {
+    var visual = document.createElement("div");
+    visual.className = "bento-visual gauge-visual";
+    visual.setAttribute("aria-hidden", "true");
+    var value = document.createElement("span");
+    value.textContent = "100";
+    visual.appendChild(value);
+    return visual;
+  }
+
+  function createRouteVisual() {
+    var visual = document.createElement("div");
+    visual.className = "bento-visual route-visual";
+    visual.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 4; i += 1) {
+      var node = document.createElement("span");
+      node.className = "route-node route-node-" + (i + 1);
+      visual.appendChild(node);
+    }
+    return visual;
+  }
+
+  function appendBentoMeta(card, label, chips) {
+    var meta = document.createElement("div");
+    meta.className = "bento-meta";
+
+    var metaLabel = document.createElement("strong");
+    metaLabel.className = "bento-meta-label";
+    metaLabel.textContent = label;
+    meta.appendChild(metaLabel);
+
+    chips.forEach(function (chipText) {
+      var chip = document.createElement("span");
+      chip.className = "bento-chip";
+      chip.textContent = chipText;
+      meta.appendChild(chip);
+    });
+
+    card.appendChild(meta);
+  }
+
+  function initBentoPolish() {
+    var grid = document.querySelector("#how-it-works .bento-grid");
+    if (!grid || grid.dataset.polished === "true") return;
+
+    var cards = Array.from(grid.querySelectorAll(".bento-card"));
+    var configs = [
+      {
+        mark: "01",
+        visual: createSignalVisual,
+        label: "Signal set",
+        chips: ["Revenue", "Credit", "Deposits", "Structure"]
+      },
+      {
+        mark: "02",
+        visual: createGaugeVisual,
+        label: "4 readiness tiers",
+        chips: ["Fundable", "Review-ready", "Selective", "Prep-first"]
+      },
+      {
+        mark: "03",
+        visual: createRouteVisual,
+        label: "Capital lanes",
+        chips: ["Primary path", "Backup path", "Next documents"]
+      }
+    ];
+
+    cards.forEach(function (card, index) {
+      var config = configs[index];
+      if (!config) return;
+      card.classList.add("bento-card-polished");
+      card.setAttribute("data-bento-mark", config.mark);
+      card.insertBefore(config.visual(), card.firstChild);
+      appendBentoMeta(card, config.label, config.chips);
+    });
+
+    grid.dataset.polished = "true";
+  }
+
+  function initHomepagePolish() {
+    initHomepageProofCards();
+    initCapitalMarquee();
+    initBentoPolish();
+  }
+
   function initReveal() {
     var items = Array.from(document.querySelectorAll("[data-reveal], .bento-card, .path-grid article, .utility-card, .result-card"));
     if (!items.length) return;
@@ -60,6 +236,7 @@
     if (reduceMotion) document.body.classList.add("reduced-motion");
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
+    initHomepagePolish();
     initReveal();
     initGlowCards();
     initStickyMobileCta();
