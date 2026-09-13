@@ -220,10 +220,207 @@
     grid.dataset.polished = "true";
   }
 
+  function ensureHomepageSystemStyles() {
+    if (!document.querySelector(".hero-section") || document.getElementById("homepage-system-style")) return;
+    var link = document.createElement("link");
+    link.id = "homepage-system-style";
+    link.rel = "stylesheet";
+    link.href = "/assets/css/homepage-system.css";
+    document.head.appendChild(link);
+    document.body.classList.add("homepage-system-v2");
+  }
+
+  function findDirectChild(parent, className) {
+    return Array.from(parent.children).find(function (child) {
+      return child.classList && child.classList.contains(className);
+    }) || null;
+  }
+
+  function createSystemHeader(section, code) {
+    if (!section || section.dataset.systemHeader === "true") return section && section.querySelector(".system-section-header");
+
+    var heading = findDirectChild(section, "section-heading");
+    if (!heading) return null;
+
+    var kicker = findDirectChild(section, "section-kicker") || heading.querySelector(".section-kicker");
+    var wrap = document.createElement("div");
+    wrap.className = "system-section-header";
+
+    var meta = document.createElement("div");
+    meta.className = "system-section-meta";
+
+    var sectionCode = document.createElement("span");
+    sectionCode.className = "system-section-code";
+    sectionCode.textContent = code;
+    meta.appendChild(sectionCode);
+    if (kicker) meta.appendChild(kicker);
+
+    heading.classList.remove("centered");
+    wrap.appendChild(meta);
+    wrap.appendChild(heading);
+    section.insertBefore(wrap, section.firstChild);
+    section.dataset.systemHeader = "true";
+    return wrap;
+  }
+
+  function createScorecardFlowMap() {
+    var map = document.createElement("aside");
+    map.className = "scorecard-flow-map";
+    map.setAttribute("aria-label", "Scorecard flow");
+    [
+      ["01", "Input signals", "9 questions"],
+      ["02", "Readiness score", "100 points"],
+      ["03", "Capital route", "primary + backup"]
+    ].forEach(function (item) {
+      var row = document.createElement("div");
+      row.className = "scorecard-flow-item";
+      row.innerHTML = '<b>' + item[0] + '</b><div><strong>' + item[1] + '</strong><span>' + item[2] + '</span></div><i aria-hidden="true"></i>';
+      map.appendChild(row);
+    });
+    return map;
+  }
+
+  function initScorecardSectionSystem() {
+    var section = document.querySelector("#scorecard");
+    var header = createSystemHeader(section, "02 / ASSESSMENT");
+    if (!header || header.dataset.flowReady === "true") return;
+    header.classList.add("has-flow");
+    header.appendChild(createScorecardFlowMap());
+    header.dataset.flowReady = "true";
+  }
+
+  function routeConfigFor(title, index) {
+    var normalized = String(title || "").toLowerCase();
+    if (normalized.indexOf("working") !== -1) return ["LIQUIDITY", "FAST", "BANK + REVENUE", "SHORT-CYCLE"];
+    if (normalized.indexOf("structured") !== -1 || normalized.indexOf("growth") !== -1) return ["GROWTH", "MEDIUM", "HISTORY + FINANCIALS", "PLANNED"];
+    if (normalized.indexOf("startup") !== -1 || normalized.indexOf("credit") !== -1) return ["LEVERAGE", "VARIABLE", "CREDIT + SETUP", "EARLY-STAGE"];
+    if (normalized.indexOf("equipment") !== -1 || normalized.indexOf("truck") !== -1) return ["ASSET", "MEDIUM", "ASSET + CASH FLOW", "PRODUCTIVE ASSET"];
+    if (normalized.indexOf("ecommerce") !== -1 || normalized.indexOf("commerce") !== -1) return ["COMMERCE", "FAST", "SALES + STORE", "INVENTORY"];
+    if (normalized.indexOf("real estate") !== -1 || normalized.indexOf("property") !== -1) return ["PROPERTY", "DEAL-BASED", "ASSET + PROJECT", "REAL ESTATE"];
+    return ["PATH " + String(index + 1).padStart(2, "0"), "PROFILED", "DOCS + SIGNALS", "REVIEW"];
+  }
+
+  function initPathConsole() {
+    var section = document.querySelector("#paths");
+    if (!section || section.dataset.consoleReady === "true") return;
+    createSystemHeader(section, "03 / CAPITAL ROUTING");
+
+    var cards = Array.from(section.querySelectorAll(".path-grid article"));
+    cards.forEach(function (card, index) {
+      var title = card.querySelector("h3");
+      var firstSpan = Array.from(card.children).find(function (child) { return child.tagName === "SPAN"; });
+      if (firstSpan) firstSpan.classList.add("legacy-path-icon");
+
+      var config = routeConfigFor(title && title.textContent, index);
+      card.classList.add("route-card-console");
+
+      var head = document.createElement("div");
+      head.className = "route-card-head";
+      head.innerHTML = '<span>' + config[0] + '</span><span>route online</span>';
+      card.insertBefore(head, card.firstChild);
+
+      var ui = document.createElement("div");
+      ui.className = "route-card-ui";
+      [
+        ["Speed", config[1]],
+        ["Signal", config[2]],
+        ["Best fit", config[3]]
+      ].forEach(function (rowData) {
+        var row = document.createElement("div");
+        row.className = "route-card-row";
+        row.innerHTML = '<span>' + rowData[0] + '</span><strong>' + rowData[1] + '</strong>';
+        ui.appendChild(row);
+      });
+      card.appendChild(ui);
+    });
+
+    section.dataset.consoleReady = "true";
+  }
+
+  function initFaqConsole() {
+    var section = document.querySelector("#faq");
+    if (!section || section.dataset.consoleReady === "true") return;
+    var header = createSystemHeader(section, "04 / DECISION SUPPORT");
+    if (!header) return;
+
+    var layout = document.createElement("div");
+    layout.className = "faq-console-layout";
+    var intro = document.createElement("div");
+    intro.className = "faq-console-intro";
+    var stack = document.createElement("div");
+    stack.className = "faq-stack";
+
+    intro.appendChild(header);
+
+    var facts = document.createElement("div");
+    facts.className = "faq-facts";
+    [
+      ["SELF-REPORTED", "No bureau pull in the public scorecard"],
+      ["9 INPUTS", "A short readiness signal set"],
+      ["PUBLIC-SAFE", "No private lender routing exposed"]
+    ].forEach(function (factData) {
+      var fact = document.createElement("div");
+      fact.className = "faq-fact";
+      fact.innerHTML = '<strong>' + factData[0] + '</strong><span>' + factData[1] + '</span>';
+      facts.appendChild(fact);
+    });
+    intro.appendChild(facts);
+
+    Array.from(section.querySelectorAll("details")).forEach(function (detail) {
+      stack.appendChild(detail);
+    });
+
+    layout.appendChild(intro);
+    layout.appendChild(stack);
+    section.appendChild(layout);
+    section.dataset.consoleReady = "true";
+  }
+
+  function initFinalCtaConsole() {
+    var section = document.querySelector(".final-cta");
+    if (!section || section.dataset.consoleReady === "true") return;
+
+    var copy = document.createElement("div");
+    copy.className = "final-cta-copy";
+    Array.from(section.children).forEach(function (child) { copy.appendChild(child); });
+
+    var panel = document.createElement("aside");
+    panel.className = "final-route-panel";
+    panel.setAttribute("aria-label", "Readiness routing sequence");
+    [
+      ["01", "Readiness signal", "INPUT"],
+      ["02", "Capital lane", "ROUTE"],
+      ["03", "Action plan", "MOVE"]
+    ].forEach(function (item) {
+      var step = document.createElement("div");
+      step.className = "final-route-step";
+      step.innerHTML = '<b>' + item[0] + '</b><strong>' + item[1] + '</strong><span>' + item[2] + '</span>';
+      panel.appendChild(step);
+    });
+
+    var inner = document.createElement("div");
+    inner.className = "final-cta-inner";
+    inner.appendChild(copy);
+    inner.appendChild(panel);
+    section.appendChild(inner);
+    section.dataset.consoleReady = "true";
+  }
+
+  function initHomepageSectionSystem() {
+    if (!document.querySelector(".hero-section")) return;
+    ensureHomepageSystemStyles();
+    createSystemHeader(document.querySelector("#how-it-works"), "01 / SIGNAL INTAKE");
+    initScorecardSectionSystem();
+    initPathConsole();
+    initFaqConsole();
+    initFinalCtaConsole();
+  }
+
   function initHomepagePolish() {
     initHomepageHeroSystem();
     initCapitalMarquee();
     initBentoPolish();
+    initHomepageSectionSystem();
   }
 
   function initReveal() {
