@@ -184,7 +184,8 @@ button, input { font: inherit; }
 .lead-status.is-error { background: #fff3f1; color: #8e3028; }
 .lead-status .btn { flex: 0 0 auto; min-height: 40px; padding: 0 14px; font-size: .76rem; }
 .accent-card { background: #0d1b2b; color: #fff; border-color: #0d1b2b; }
-.accent-card ul { color: #c2d2e4; }
+.accent-card h4 { color: #142033; }
+.accent-card ul, .accent-card li::marker { color: var(--card-muted); }
 .result-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
 .paths-section { background: linear-gradient(180deg, #081423, var(--navy-950)); }
 .path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
